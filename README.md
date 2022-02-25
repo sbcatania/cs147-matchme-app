@@ -2,10 +2,10 @@
 
 ## To set up the project
 
-`cd` into the project directory
-Run `npm install`
-Run `npm install -g expo-cli`
+`cd` into the project directory  
+Run `npm install`  
+Run `npm install -g expo-cli`  
 
 ## To run the app with Expo
 
-Run `expo start`
+Run `expo start`  
