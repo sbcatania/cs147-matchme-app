@@ -1,5 +1,5 @@
-# cs147-matchme-app
+# CS147 Match.Me App
 
-To start, run `npm install`
+The first time you open this project, run `npm install`
 
-Good change here!
+After that, just run `npm start` to open the app in expo!
