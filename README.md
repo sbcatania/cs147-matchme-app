@@ -1,5 +1,13 @@
-# CS147 Match.Me App
+# cs147-matchme-app
 
-The first time you open this project, run `npm install`
+To start, run `npm install`
 
-After that, just run `npm start` to open the app in expo!
+Good change here!
+To resolve errrors
+
+npm i -g yarn
+
+expo install react-native-screens react-native-safe-area-context
+
+
+expo install react-native-gesture-handler
