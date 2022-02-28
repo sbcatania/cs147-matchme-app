@@ -4,14 +4,13 @@ import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, Touchabl
 import colors from './Themes/colors.js';
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
-import home from  './assets/home.png'
-import favicon from './assets/favicon.png'
+import home2 from  './assets/Home/home2.png'
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={home} style={styles.bgimg}>
+      <ImageBackground source={home2} style={styles.bgimg}>
         <Text style = {styles.blacktext}>
           Favorites | Explore 
         </Text>
@@ -20,15 +19,15 @@ export default function App() {
           @worldwildlifefund
         </Text>
         <Text style={styles.whitetextsmall}>
-          Today Suyash explores the Sahara. Save the Animals Fundraiser.
+        Today Suyash explores a newer landscape.
         </Text>
-        <Image source = {require('./assets/wwflogo.png')} style = {styles.sideiconprof}> 
+        <Image source = {require('./assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
         </Image>
-        <Image source = {require('./assets/heart.png')} style = {styles.sideicon}> 
+        <Image source = {require('./assets/Home/heart.png')} style = {styles.sideicon}> 
         </Image>
-        <Image source = {require('./assets/xicon.png')} style = {styles.sideicon}> 
+        <Image source = {require('./assets/Home/xicon.png')} style = {styles.sideicon}> 
         </Image>
-        <Image source = {require('./assets/share.png')} style = {styles.sideicon}> 
+        <Image source = {require('./assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
         </ImageBackground>
         <StatusBar style="auto" />
