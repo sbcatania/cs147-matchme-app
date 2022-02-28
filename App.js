@@ -4,34 +4,57 @@ import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, Touchabl
 import colors from './Themes/colors.js';
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
-import home2 from  './assets/Home/home2.png'
+import home2 from  './assets/Home/home2.png';
+import PagerView from "react-native-pager-view";
+import { useState, useEffect } from "react";
+
+const LOAD_TIME = 100;
+const INTERVAL = 25;
 
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <ImageBackground source={home2} style={styles.bgimg}>
-        <Text style = {styles.blacktext}>
-          Favorites | Explore 
-        </Text>
+  const [progress, setProgress] = useState(0);
 
-        <Text style={styles.whitetext}>
-          @worldwildlifefund
-        </Text>
-        <Text style={styles.whitetextsmall}>
-        Today Suyash explores a newer landscape.
-        </Text>
-        <Image source = {require('./assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
-        </Image>
-        <Image source = {require('./assets/Home/heart.png')} style = {styles.sideicon}> 
-        </Image>
-        <Image source = {require('./assets/Home/xicon.png')} style = {styles.sideicon}> 
-        </Image>
-        <Image source = {require('./assets/Home/share.png')} style = {styles.sideicon}> 
-        </Image>
-        </ImageBackground>
-        <StatusBar style="auto" />
-    </View>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress + 10 >= LOAD_TIME) {
+          clearInterval(interval);
+        }
+        return prevProgress + 10;
+      });
+    }, INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  return (
+    <PagerView style={styles.pagerView} initialPage={0} orientation="vertical">
+      <View key="1" style={styles.container}>
+        <Text>{progress}</Text>
+        <View
+          style={{
+            position: "relative",
+            width: 500,
+            height: 16,
+            backgroundColor: "white"
+          }}
+        >
+          <View
+            style={{
+              position: "absolute",
+              width: 500 * (progress / LOAD_TIME),
+              height: 16,
+              backgroundColor: "green"
+            }}
+          />
+        </View>
+      </View>
+      <View key="2" style={styles.container}>
+        <Text>Second page</Text>
+      </View>
+    </PagerView>
   );
 }
 
@@ -41,43 +64,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  bgimg: {
-    display: "flex",
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-  }, 
-  sideicon: {
-    borderRadius: 100,
-    margin: 10,
-    top: '55%',
-    left: '83%',
-  }, 
-  sideiconprof: {
-    borderRadius: 100,
-    margin: 7,
-    top: '55%',
-    left: '81%',
-  }, 
-  whitetext: {
-    top: '82%',
-    left: '5%',
-    fontSize: 20,
-    color: 'white',
-  },
-  whitetextsmall: {
-    margin: 5,
-    top: '82%',
-    left: '5%',
-    fontSize: 16,
-    color: 'white',
-  },
-  blacktext: {
-    letterSpacing: 4,
-    top: '7%',
-    left: '22%',
-    color: 'black',
-    fontSize: 20,
-  },
+  pagerView: {
+    flex: 1
+  }
+  
 });
