@@ -11,7 +11,7 @@ import favicon from './assets/favicon.png'
 export default function App() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={home} style={styles.img}>
+      <ImageBackground source={home} style={styles.bgimg}>
       <Text style={styles.whitetext}>
         @worldwildlifefund
       </Text>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  img: {
+  bgimg: {
     display: "flex",
     width: '100%',
     height: '100%',
