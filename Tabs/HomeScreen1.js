@@ -61,14 +61,14 @@ const styles = StyleSheet.create({
     left: '81%',
   }, 
   whitetext: {
-    top: '87%',
+    top: '82%',
     left: '5%',
     fontSize: 20,
     color: 'white',
   },
   whitetextsmall: {
     margin: 5,
-    top: '87%',
+    top: '82%',
     left: '5%',
     fontSize: 16,
     color: 'white',
