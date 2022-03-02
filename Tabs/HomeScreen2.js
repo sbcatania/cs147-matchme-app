@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import colors from './Themes/colors.js';
+import colors from '../Themes/colors.js';
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
-import home2 from  './assets/Home/home2.png'
+import home2 from  '../assets/Home/home2.png'
 
 
-export default function App() {
+export default function HomeScreen2() {
   return (
     <View style={styles.container}>
       <ImageBackground source={home2} style={styles.bgimg}>
@@ -21,13 +21,13 @@ export default function App() {
         <Text style={styles.whitetextsmall}>
         Today Suyash explores a newer landscape.
         </Text>
-        <Image source = {require('./assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
+        <Image source = {require('../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
         </Image>
-        <Image source = {require('./assets/Home/heart.png')} style = {styles.sideicon}> 
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
         </Image>
-        <Image source = {require('./assets/Home/xicon.png')} style = {styles.sideicon}> 
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
         </Image>
-        <Image source = {require('./assets/Home/share.png')} style = {styles.sideicon}> 
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
         </ImageBackground>
         <StatusBar style="auto" />
