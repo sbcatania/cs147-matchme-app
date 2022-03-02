@@ -51,24 +51,24 @@ const styles = StyleSheet.create({
   sideicon: {
     borderRadius: 100,
     margin: 10,
-    top: '55%',
+    top: '50%',
     left: '83%',
   }, 
   sideiconprof: {
     borderRadius: 100,
     margin: 7,
-    top: '55%',
+    top: '50%',
     left: '81%',
   }, 
   whitetext: {
-    top: '82%',
+    top: '88%',
     left: '5%',
     fontSize: 20,
     color: 'white',
   },
   whitetextsmall: {
     margin: 5,
-    top: '82%',
+    top: '88%',
     left: '5%',
     fontSize: 16,
     color: 'white',
