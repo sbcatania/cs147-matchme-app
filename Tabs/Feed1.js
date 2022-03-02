@@ -11,7 +11,7 @@ export default function Feed1() {
     <View style={styles.container}>
       <ImageBackground source={home} style={styles.bgimg}>
         <Text style = {styles.blacktext}>
-          Favorites | Explore 
+          Explore 
         </Text>
 
         <Text style={styles.whitetext}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   blacktext: {
     letterSpacing: 4,
     top: '7%',
-    left: '22%',
+    left: '39%',
     color: 'black',
     fontSize: 20,
   },
