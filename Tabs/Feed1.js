@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import colors from '../Themes/colors.js';
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
-import home2 from  '../assets/Home/home2.png'
+import home from  '../assets/Home/home.png'
 
 
-export default function HomeScreen2() {
+export default function Feed1() {
   return (
     <View style={styles.container}>
-      <ImageBackground source={home2} style={styles.bgimg}>
+      <ImageBackground source={home} style={styles.bgimg}>
         <Text style = {styles.blacktext}>
           Favorites | Explore 
         </Text>
@@ -19,7 +18,7 @@ export default function HomeScreen2() {
           @worldwildlifefund
         </Text>
         <Text style={styles.whitetextsmall}>
-        Today Suyash explores a newer landscape.
+          Today Suyash explores the Sahara. Save the Animals Fundraiser.
         </Text>
         <Image source = {require('../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
         </Image>
@@ -81,3 +80,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
+
