@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
-import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
 import PagerView from "react-native-pager-view";
@@ -10,6 +10,11 @@ import home2 from  '../assets/Home/home2.png';
 import home3 from  '../assets/Home/home3.jpg';
 import home4 from  '../assets/Home/home4.jpg';
 import home5 from  '../assets/Home/home5.jpg';
+import { COLORS, DATA } from '../Themes/constants';
+import fundraiser from '../Tabs/Donation/fundraiser';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
@@ -36,6 +41,11 @@ function Feed1() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
+        <TouchableOpacity style = {styles.button} onPress={fundraiser()}>
+          <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
+        </TouchableOpacity>
+
+
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
@@ -208,13 +218,13 @@ const styles = StyleSheet.create({
   sideicon: {
     borderRadius: 100,
     margin: 10,
-    top: '50%',
+    top: '45%',
     left: '83%',
   }, 
   sideiconprof: {
     borderRadius: 100,
     margin: 7,
-    top: '50%',
+    top: '45%',
     left: '81%',
     height: 55,
     width: 55,
@@ -238,5 +248,14 @@ const styles = StyleSheet.create({
     left: '39%',
     color: 'black',
     fontSize: 20,
+  },
+  donateimg: {
+    display: "flex",
+    width: 80,
+    height: 80,
+  }, 
+  button: {
+    top: '45%',
+    left: '80%',
   },
 });
