@@ -5,17 +5,154 @@ import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
 import PagerView from "react-native-pager-view";
 import { useState, useEffect } from "react";
-import Feed1 from '../Tabs/Feed1';
-import Feed2 from '../Tabs/Feed2';
-import Feed3 from '../Tabs/Feed3';
-import Feed4 from '../Tabs/Feed4';
-import Feed5 from '../Tabs/Feed5';
-
-
+import home from  '../assets/Home/home.png';
+import home2 from  '../assets/Home/home2.png';
+import home3 from  '../assets/Home/home3.jpg';
+import home4 from  '../assets/Home/home4.jpg';
+import home5 from  '../assets/Home/home5.jpg';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
 
+function Feed1() {
+  return(
+  <View style={styles.container}>
+      <ImageBackground source={home} style={styles.bgimg}>
+        <Text style = {styles.blacktext}>
+          Explore 
+        </Text>
+
+        <Text style={styles.whitetext}>
+          @worldwildlifefund
+        </Text>
+        <Text style={styles.whitetextsmall}>
+          Today Suyash explores the Sahara. Save the Animals Fundraiser.
+        </Text>
+        <Image source = {require('../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
+        </Image>
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
+        </Image>
+        </ImageBackground>
+        <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function Feed2() {
+  return(
+    <View style={styles.container}>
+      <ImageBackground source={home2} style={styles.bgimg}>
+        <Text style = {styles.blacktext}>
+          Explore 
+        </Text>
+
+        <Text style={styles.whitetext}>
+          @worldwildlifefund
+        </Text>
+        <Text style={styles.whitetextsmall}>
+        Today Suyash explores a newer landscape.
+        </Text>
+        <Image source = {require('../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
+        </Image>
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
+        </Image>
+        </ImageBackground>
+        <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function Feed3() {
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={home3} style={styles.bgimg}>
+        <Text style = {styles.blacktext}>
+          Explore 
+        </Text>
+
+        <Text style={styles.whitetext}>
+          @malalafund
+        </Text>
+        <Text style={styles.whitetextsmall}>
+          Malala addressing the UN Summit this morning. 
+        </Text>
+        <Image source = {require('../assets/Home/malala.jpg')} style = {styles.sideiconprof}> 
+        </Image>
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
+        </Image>
+        </ImageBackground>
+        <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function Feed4() {
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={home4} style={styles.bgimg}>
+        <Text style = {styles.blacktext}>
+          Explore 
+        </Text>
+
+        <Text style={styles.whitetext}>
+          @savethebees
+        </Text>
+        <Text style={styles.whitetextsmall}>
+          It was a great day saving the bees from a giant hive. 
+        </Text>
+        <Image source = {require('../assets/Home/bees.png')} style = {styles.sideiconprof}> 
+        </Image>
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
+        </Image>
+        </ImageBackground>
+        <StatusBar style="auto" />
+    </View>
+  );
+}
+
+function Feed5() {
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={home5} style={styles.bgimg}>
+        <Text style = {styles.blacktext}>
+          Explore 
+        </Text>
+
+        <Text style={styles.whitetext}>
+          @paloaltoshelter
+        </Text>
+        <Text style={styles.whitetextsmall}>
+          Learn about Finn's day in the life. Donate to make his life better. 
+        </Text>
+        <Image source = {require('../assets/Home/shelter.jpg')} style = {styles.sideiconprof}> 
+        </Image>
+        <Image source = {require('../assets/Home/heart.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/xicon.png')} style = {styles.sideicon}> 
+        </Image>
+        <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
+        </Image>
+        </ImageBackground>
+        <StatusBar style="auto" />
+    </View>
+  );
+}
 
 export default function Home() {
   const [progress, setProgress] = useState(0);
@@ -61,5 +198,45 @@ const styles = StyleSheet.create({
   },
   pagerView: {
     flex: 1
-  }
+  },
+  bgimg: {
+    display: "flex",
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+  }, 
+  sideicon: {
+    borderRadius: 100,
+    margin: 10,
+    top: '50%',
+    left: '83%',
+  }, 
+  sideiconprof: {
+    borderRadius: 100,
+    margin: 7,
+    top: '50%',
+    left: '81%',
+    height: 55,
+    width: 55,
+  }, 
+  whitetext: {
+    top: '88%',
+    left: '5%',
+    fontSize: 20,
+    color: 'white',
+  },
+  whitetextsmall: {
+    margin: 5,
+    top: '88%',
+    left: '5%',
+    fontSize: 16,
+    color: 'white',
+  },
+  blacktext: {
+    letterSpacing: 4,
+    top: '7%',
+    left: '39%',
+    color: 'black',
+    fontSize: 20,
+  },
 });
