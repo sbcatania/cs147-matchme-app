@@ -7,6 +7,9 @@ import PagerView from "react-native-pager-view";
 import { useState, useEffect } from "react";
 import Feed1 from '../Tabs/Feed1';
 import Feed2 from '../Tabs/Feed2';
+import Feed3 from '../Tabs/Feed3';
+import Feed4 from '../Tabs/Feed4';
+import Feed5 from '../Tabs/Feed5';
 
 
 
@@ -36,8 +39,17 @@ export default function Home() {
       <View key="1" style={styles.container}>
         {Feed1()}
       </View>
+      <View key="3" style={styles.container}>
+        {Feed3()}
+      </View>
       <View key="2" style={styles.container}>
         {Feed2()}
+      </View>
+      <View key="4" style={styles.container}>
+        {Feed4()}
+      </View>
+      <View key="5" style={styles.container}>
+        {Feed5()}
       </View>
     </PagerView>
   );
