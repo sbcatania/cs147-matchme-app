@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TextInput} from 'react-native';
 
 export default function Search() {
+    
+    // Setup state variables
+    const [handle, setHandle] = useState('@worldwildlifefundintl');
+    const [name, setName] = useState('World Wildlife Fund');
+    
+    
+    // Plz show up
     return (
         <View style={styles.container}>
-            <Text> Testing. Hello world.</Text>
+            <TextInput 
+            style={styles.input} 
+            placeholder='Organization Handle' 
+            onChangeText={(handle) => setHandle(handle)} />
+            
+            <TextInput 
+            style={styles.input} 
+            placeholder='Organization Name' 
+            onChangeText={(name) => setName(name)} />
+
+            <Text> Are variables dynamic? {"\n"} Handle: {handle}, Name: {name}</Text>
         </View>
     );
 };
@@ -14,5 +31,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#777',
+        padding: 8,
+        margin: 10,
+        width: 200,
     }
 });
