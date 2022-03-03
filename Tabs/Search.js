@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, TouchableOpacity} from 'react-native';
-import { COLORS, DATA } from '../Themes/Constants';
+import { Text, View, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
+// import { COLORS, DATA } from '../Themes/Constants';
 
 /*
 * Documentation
@@ -125,7 +125,10 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginHorizontal: 3,
         padding: 8,
-        backgroundColor: 'green' /* colors.forEach(color => return(color)); */,
+        backgroundColor: 'green',
+        // COLORS.array.forEach(color => {
+        //     return color;
+        // }),
         fontSize: 12,
     }
 });
