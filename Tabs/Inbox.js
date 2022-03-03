@@ -19,7 +19,7 @@ const Inbox = ({ navigation }) => {
     id: 1,
     userName: 'James L',
     cause: 'Code in Place',
-    avatar: require('./assets/landay.jpeg'),
+    avatar: require('../assets/landay.jpeg'),
     content: "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
     amount: '$5'
   }));
