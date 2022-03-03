@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Tabs/Home';
 import Inbox from './Tabs/Inbox';
-import colors from './Themes/colors';
+import COLORS from './Themes/constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +34,7 @@ export default function App() {
           },
           headerShown: false,
           tabBarShowLabel: false,
-          tabBarActiveTintColor: colors.green,
+          tabBarActiveTintColor: COLORS.GREEN,
           tabBarInactiveTintColor: 'gray',
           
         })}

@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import colors from '../Themes/colors.js';
+import COLORS from '../Themes/constants.js';
 import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
 import home2 from  '../assets/Home/home2.png'
