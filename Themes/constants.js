@@ -1,4 +1,4 @@
-const COLORS = {
+export const COLORS = {
     GREEN: "#3D9A5F",
     BLUE: "#2D60B3",
     BLACK: "#2D60B3",
@@ -6,5 +6,9 @@ const COLORS = {
     WHITE: "#FFFFFF",
     BLACK: "#000000",
   };
-  
-  export default COLORS;
+
+export const DATA = {
+    DONATION_HISTORY: './assets/Data/donation-history.json',
+    POSTS: './assets/Data/posts.json',
+    PROFILES: './assets/Data/profile.json',
+  };

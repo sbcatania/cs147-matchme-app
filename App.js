@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Tabs/Home';
 import Inbox from './Tabs/Inbox';
 import Search from './Tabs/Search';
-import COLORS from './Themes/constants';
+import { COLORS, DATA } from './Themes/Constants';
 
 const Tab = createBottomTabNavigator();
 

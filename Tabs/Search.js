@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, TouchableOpacity} from 'react-native';
-import colors from '../Themes/colors';
+import { COLORS, DATA } from '../Themes/Constants';
 
 /*
 * Documentation
