@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Tabs/Home';
 import Inbox from './Tabs/Inbox';
+import Search from './Tabs/Search';
 import COLORS from './Themes/constants';
 
 const Tab = createBottomTabNavigator();
@@ -43,7 +44,7 @@ export default function App() {
         <Tab.Screen name="Profile" component={Home} />
         <Tab.Screen name="Inbox" component={Inbox} />
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={Home} />
+        <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
     </NavigationContainer>
   );

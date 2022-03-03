@@ -19,3 +19,7 @@ Then run 'expo start'
 Run 'expo install react-native-pager-view'
 Then run 'npm install' 
 Then run 'expo start' 
+
+
+## Note from Lily
+Lily's NFP setup page currently lives in Search.js within the lily-nfp branch, since I don't know where it's going. 
