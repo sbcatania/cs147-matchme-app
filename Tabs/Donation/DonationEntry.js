@@ -40,7 +40,24 @@ export default function DonationEntry() {
           <Text style= {styles.suggestiontext}>$10</Text>
         </View>
         </View>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationConfirmation)}>
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationConfirmation)}
+         style={({ pressed }) => [
+          {
+            top: '9%',
+            left: '20%',
+            width: 250,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 12,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.GREEN
+          },
+          styles.wrapperCustom
+        ]}
+        >
             <Text style={styles.buttontext}> REVIEW </Text> 
     </Pressable>
     </View>

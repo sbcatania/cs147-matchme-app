@@ -26,7 +26,26 @@ export default function Fundraiser() {
         <Text style = {styles.whitetext}> Save the Animals </Text>
         <Text style = {styles.blacktext}> World Wildlife Fund </Text>
         <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}>
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
+         style={({ pressed }) => [
+          {
+            top: '9%',
+            left: '20%',
+            width: 250,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 12,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.GREEN
+          },
+          
+          styles.wrapperCustom
+        ]}>
+        
+        
             <Text style={styles.buttontext}> DONATE </Text> 
     </Pressable>
     <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 

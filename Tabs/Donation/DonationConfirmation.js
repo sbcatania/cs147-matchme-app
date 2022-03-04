@@ -26,7 +26,24 @@ export default function DonationConfirmation() {
         <Text style = {styles.fineprint}>
         SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
         </View>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationThankYou)}>
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationThankYou)}
+        style={({ pressed }) => [
+          {
+            top: '79%',
+            left: '20%',
+            width: 250,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 12,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.GREEN
+          },
+          styles.wrapperCustom
+        ]}
+        >
             <Text style={styles.buttontext}> CONFIRM </Text> 
     </Pressable>
       </View> 
