@@ -27,9 +27,16 @@ export default function Fundraiser() {
         <Text style = {styles.blacktext}> World Wildlife Fund </Text>
         <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
         <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}>
-            <Text style={styles.buttontext}> DONATE </Text>
-            
+            <Text style={styles.buttontext}> DONATE </Text> 
     </Pressable>
+    <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
+        </Image>
+        <Image style = {styles.infotext} source = {require('../../assets/Donation/RewardBlurb.png')} > 
+        </Image>
+        <Image style = {styles.info} source = {require('../../assets/Donation/ImpactStats.png')} > 
+        </Image>
+        <Image style = {styles.info} source = {require('../../assets/Donation/VideoContent.png')} > 
+        </Image>
 
         </ImageBackground>
         </ScrollView>
@@ -47,11 +54,12 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
     },
     backbutton: {
-      top: '10%',
+      top: '2%',
     },
+    
     donatebutton: {
-      top: '20%',
-      left: '22%',
+      top: '9%',
+      left: '20%',
       width: 250,
       alignItems: 'center',
       justifyContent: 'center',
@@ -69,28 +77,37 @@ const styles = StyleSheet.create({
     bgimg: {
       display: "flex",
       width: '100%',
-      height: '80%',
+      height: '35%',
       position: 'relative',
     },
     sideiconprof: {
         borderRadius: 100,
         margin: 7,
-        top: '40%',
-        left: '8%',
+        top: '20%',
+        left: '6%',
         height: 100,
         width: 100,
     }, 
     whitetext: {
       top: '2%',
-      left: '36%',
+      left: '34%',
       fontSize: 30,
       color: 'white',
       fontWeight: 'bold',
     },
     blacktext: {
-      top: '4%',
-      left: '36%',
+      top: '5%',
+      left: '34%',
       fontSize: 18,
       color: 'black',
     },
+    infotext: {
+      top: '15%',
+      left: '3%',
+      marginBottom: 20,
+    },
+    info: {
+      top: '15%',
+      marginBottom: 20,
+    }
 });
