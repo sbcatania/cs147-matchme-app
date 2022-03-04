@@ -9,9 +9,13 @@ export default function DonationThankYou() {
   const navigation = useNavigation();
     return(
       <View style = {styles.container} >
-        
-         <Image source = {require('../../assets/Home/logowhite.png')} style = {styles.logoimg}> 
-        </Image>
+        <View style = {styles.flex}>
+          <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(DonationConfirmation)}>
+            <Image style = {styles.donateimg} source={require("../../assets/Donation/arrow.png")}/>
+          </TouchableOpacity>
+          <Image source = {require('../../assets/Home/logowhite.png')} style = {styles.logoimg}> 
+          </Image>
+        </View>
         <Image source = {require('../../assets/Donation/thankyou.png')} style = {styles.thankyouimg}> 
         </Image>
         <Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
@@ -26,16 +30,19 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: COLORS.GREEN,
     },
+    flex: {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'row',
+    },
     logoimg: {
       top: '5%',
       left: '7%',
     },
     matchimg: {
-      top: '7%',
       left: '2%',
     },
     thankyouimg: {
-      top: '7%',
       left: '18%',
     },
     button: {

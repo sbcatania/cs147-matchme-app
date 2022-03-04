@@ -95,7 +95,6 @@ function Feed3() {
         <Text style = {styles.blacktext}>
           Explore 
         </Text>
-
         <Text style={styles.whitetext}>
           @malalafund
         </Text>
@@ -226,16 +225,13 @@ const Stack = createNativeStackNavigator();
 // turn this into a stack navigator 
 export default function Home() {
   return (
-      <Stack.Navigator initialRouteName="Explore">
-        <Stack.Screen name="Explore" options={{
-            headerShown: false,
-          }}component={Feed} />
+      <Stack.Navigator initialRouteName="Explore" screenOptions={{
+        headerShown: false}} >
+        <Stack.Screen name="Explore" component={Feed} />
         <Stack.Screen name="Fundraiser" component={Fundraiser} />
         <Stack.Screen name="DonationEntry" component={DonationEntry} />
         <Stack.Screen name="DonationConfirmation" component={DonationConfirmation} />
-        <Stack.Screen name="DonationThankYou" options={{
-            headerShown: false,
-          }}component={DonationThankYou} />
+        <Stack.Screen name="DonationThankYou" component={DonationThankYou} />
       </Stack.Navigator>
   );
 }
