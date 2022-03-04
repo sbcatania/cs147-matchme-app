@@ -10,7 +10,7 @@ import home2 from  '../assets/Home/home2.png';
 import home3 from  '../assets/Home/home3.jpg';
 import home4 from  '../assets/Home/home4.jpg';
 import home5 from  '../assets/Home/home5.jpg';
-import { COLORS, DATA } from '../Themes/constants';
+import { COLORS, DATA } from '../Themes/Constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -22,6 +22,48 @@ import DonationThankYou from './Donation/DonationThankYou';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
+
+// Constants for page layout
+// const TOP_TEXT = "Explore";
+// const LIKE_ICON = '../assets/Home/heart.png';
+// const DISLIKE_ICON = '../assets/Home/xicon.png';
+// const SHARE_ICON = '../assets/Home/share.png';
+// const DONATE_ICON = '../assets/Navigation/donate.png';
+
+// function createPost(post_number) {
+//   const navigation = useNavigation();
+//   let post = JSON.parse(DATA.POSTS[post_number]);
+//   console.log(post);
+//   return(
+//     <View style={styles.container}>
+//         <ImageBackground source={post.post_image} style={styles.bgimg}>
+//           <Text style = {styles.blacktext}>
+//             {TOP_TEXT}
+//           </Text>
+
+//           <Text style={styles.whitetext}>
+//             {post.handle}
+//           </Text>
+//           <Text style={styles.whitetextsmall}>
+//             {post.caption}
+//           </Text>
+//           <Image source = {require(post.profile_image)} style = {styles.sideiconprof}> 
+//           </Image>
+//           <Image source = {require(LIKE_ICON)} style = {styles.sideicon}> 
+//           </Image>
+//           <Image source = {require(DISLIKE_ICON)} style = {styles.sideicon}> 
+//           </Image>
+//           <Image source = {require(SHARE_ICON)} style = {styles.sideicon}> 
+//           </Image>
+//           <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(post.donation_link)}>
+//             <Image style = {styles.donateimg} source={require(DONATE_ICON)}/>
+//           </TouchableOpacity>
+//           </ImageBackground>
+//           <StatusBar style="auto" />
+//       </View>
+//     );
+// }
+
 
 function Feed1() {
   const navigation = useNavigation(); 
