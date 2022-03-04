@@ -10,7 +10,7 @@ import home2 from  '../assets/Home/home2.png';
 import home3 from  '../assets/Home/home3.jpg';
 import home4 from  '../assets/Home/home4.jpg';
 import home5 from  '../assets/Home/home5.jpg';
-import { COLORS, DATA } from '../Themes/constants';
+import { COLORS, DATA } from '../Themes/Constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';

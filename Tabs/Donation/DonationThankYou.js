@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { COLORS } from '../../Themes/constants';
+import { COLORS } from '../../Themes/Constants';
 
 export default function DonationThankYou() {
     return(
