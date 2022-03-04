@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function Fundraiser() {
+export default function DonationEntry() {
     return(
-        <Text style = {styles.blacktext}> Fundraiser Screen </Text>
+        <Text style = {styles.blacktext}> Donation Entry </Text>
     );
 }
 

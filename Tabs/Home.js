@@ -11,15 +11,20 @@ import home3 from  '../assets/Home/home3.jpg';
 import home4 from  '../assets/Home/home4.jpg';
 import home5 from  '../assets/Home/home5.jpg';
 import { COLORS, DATA } from '../Themes/constants';
-import fundraiser from '../Tabs/Donation/fundraiser';
 import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Fundraiser from './Donation/Fundraiser'
+import DonationEntry from './Donation/DonationEntry';
+import DonationConfirmation from './Donation/DonationConfirmation';
+import DonationThankYou from './Donation/DonationThankYou';
 
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
 
 function Feed1() {
+  const navigation = useNavigation(); 
   return(
   <View style={styles.container}>
       <ImageBackground source={home} style={styles.bgimg}>
@@ -41,11 +46,9 @@ function Feed1() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
-        <TouchableOpacity style = {styles.button} onPress={fundraiser()}>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
           <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
         </TouchableOpacity>
-
-
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
@@ -53,6 +56,7 @@ function Feed1() {
 }
 
 function Feed2() {
+  const navigation = useNavigation(); 
   return(
     <View style={styles.container}>
       <ImageBackground source={home2} style={styles.bgimg}>
@@ -74,6 +78,9 @@ function Feed2() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
+          <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
+        </TouchableOpacity>
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
@@ -81,6 +88,7 @@ function Feed2() {
 }
 
 function Feed3() {
+  const navigation = useNavigation(); 
   return (
     <View style={styles.container}>
       <ImageBackground source={home3} style={styles.bgimg}>
@@ -102,6 +110,9 @@ function Feed3() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
+          <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
+        </TouchableOpacity>
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
@@ -109,6 +120,7 @@ function Feed3() {
 }
 
 function Feed4() {
+  const navigation = useNavigation(); 
   return (
     <View style={styles.container}>
       <ImageBackground source={home4} style={styles.bgimg}>
@@ -130,6 +142,9 @@ function Feed4() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
+          <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
+        </TouchableOpacity>
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
@@ -137,6 +152,7 @@ function Feed4() {
 }
 
 function Feed5() {
+  const navigation = useNavigation(); 
   return (
     <View style={styles.container}>
       <ImageBackground source={home5} style={styles.bgimg}>
@@ -158,13 +174,16 @@ function Feed5() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
+          <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
+        </TouchableOpacity>
         </ImageBackground>
         <StatusBar style="auto" />
     </View>
   );
 }
 
-export default function Home() {
+function Feed() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -199,6 +218,20 @@ export default function Home() {
         {Feed5()}
       </View>
     </PagerView>
+  );
+
+}
+const Stack = createNativeStackNavigator();
+
+// turn this into a stack navigator 
+export default function Home() {
+  return (
+      <Stack.Navigator initialRouteName="Explore">
+        <Stack.Screen name="Explore" options={{
+            headerShown: false,
+          }}component={Feed} />
+        <Stack.Screen name="Fundraiser" component={Fundraiser} />
+      </Stack.Navigator>
   );
 }
 

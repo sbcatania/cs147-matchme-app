@@ -1,13 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function Fundraiser() {
+export default function DonationThankYou() {
     return(
-        <Text style = {styles.blacktext}> Fundraiser Screen </Text>
+        <Text style = {styles.blacktext}> Donation Thank You </Text>
     );
 }
 
