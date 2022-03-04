@@ -42,7 +42,7 @@ function Feed1() {
         </Image>
         <Image source = {require('../../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
-        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('DonationThankYou')}>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
           <Image style = {styles.donateimg} source={require("../../assets/Navigation/donate.png")}/>
         </TouchableOpacity>
         </ImageBackground>
@@ -159,7 +159,7 @@ function Feed5() {
           @paloaltoshelter
         </Text>
         <Text style={styles.whitetextsmall}>
-          Learn about Finn's day in the life. Donate to make his life better. 
+          Learn about Finn's day in the life at the shelter.
         </Text>
         <Image source = {require('../../assets/Home/shelter.jpg')} style = {styles.sideiconprof}> 
         </Image>
