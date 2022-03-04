@@ -4,8 +4,10 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DonationThankYou from './DonationThankYou';
 
 export default function DonationConfirmation() {
+    const navigation = useNavigation();
     return(
         <Text style = {styles.blacktext}> Donation Confirmation </Text>
     );
