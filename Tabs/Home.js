@@ -233,7 +233,9 @@ export default function Home() {
         <Stack.Screen name="Fundraiser" component={Fundraiser} />
         <Stack.Screen name="DonationEntry" component={DonationEntry} />
         <Stack.Screen name="DonationConfirmation" component={DonationConfirmation} />
-        <Stack.Screen name="DonationThankYou" component={DonationThankYou} />
+        <Stack.Screen name="DonationThankYou" options={{
+            headerShown: false,
+          }}component={DonationThankYou} />
       </Stack.Navigator>
   );
 }
