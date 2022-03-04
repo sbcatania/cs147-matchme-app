@@ -6,6 +6,10 @@ import { COLORS } from '../../Themes/constants';
 export default function DonationThankYou() {
     return(
       <View style = {styles.container} >
+         <Image source = {require('../../assets/Home/logowhite.png')} style = {styles.logoimg}> 
+        </Image>
+        <Image source = {require('../../assets/Donation/thankyou.png')} style = {styles.thankyouimg}> 
+        </Image>
         
       </View> 
     );
@@ -16,11 +20,12 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: COLORS.GREEN,
     },
+    logoimg: {
+      left: '7%',
+    },
     thankyouimg: {
-      height: 100,
-      width: 100,
-      top: '20%',
-      left: '20%',
+      top: '10%',
+      left: '18%',
     },
     blacktext: {
         letterSpacing: 4,
