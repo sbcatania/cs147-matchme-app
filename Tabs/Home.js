@@ -46,7 +46,7 @@ function Feed1() {
         </Image>
         <Image source = {require('../assets/Home/share.png')} style = {styles.sideicon}> 
         </Image>
-        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('Fundraiser')}>
+        <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate('DonationThankYou')}>
           <Image style = {styles.donateimg} source={require("../assets/Navigation/donate.png")}/>
         </TouchableOpacity>
         </ImageBackground>
