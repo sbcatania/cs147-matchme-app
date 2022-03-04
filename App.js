@@ -18,6 +18,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator 
         screenOptions={({ route }) => ({
+          
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 

@@ -29,6 +29,17 @@ export default function DonationEntry() {
         keyboardType="numeric"
         onChangeText={(newText) => setText(newText)}
         />
+        <View style = {styles.flex}>
+        <View style = {styles.suggestion}>
+          <Text style= {styles.suggestiontext}>$3</Text>
+        </View>
+        <View style = {styles.suggestion}>
+          <Text style= {styles.suggestiontext}>$5</Text>
+        </View>
+        <View style = {styles.suggestion}>
+          <Text style= {styles.suggestiontext}>$10</Text>
+        </View>
+        </View>
         <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationConfirmation)}>
             <Text style={styles.buttontext}> REVIEW </Text> 
     </Pressable>
@@ -44,11 +55,31 @@ const styles = StyleSheet.create({
       backgroundColor: COLORS.WHITE,
       padding: 8,
     },
+    flex: {
+      flexDirection: 'row',
+    },
     rectangle: {
       top: '28%',
       height: '100%',
       borderRadius: 40,
       backgroundColor: COLORS.WHITE,
+    },
+
+    suggestion: {
+      top: '5%',
+      left: '37%',
+      margin: 5,
+      borderRadius: 100,
+      width: 100,
+      backgroundColor: COLORS.BLUE,
+      alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+    },
+    suggestiontext: {
+      color: COLORS.WHITE,
+      fontWeight: 'bold',
+      fontSize: 28,
     },
     blacktext: {
         letterSpacing: 4,
@@ -68,18 +99,19 @@ const styles = StyleSheet.create({
         fontSize: 20,
         top: '2%',
         left: '5%',
+        margin: 10,
         color: COLORS.BlACK,
       },
       textInput: {
         top: '60%',
-        left: '35%',
+        left: '25%',
         textAlign: 'center',
-        width: '25%',
+        width: '50%',
         top: '2%',
         height: 100,
-        padding: 8,
+        
         fontSize: 50,
-        backgroundColor: 'white',
+        backgroundColor: '#E5E5E5',
         fontWeight: 'bold',
       },
       backbutton: {
@@ -91,7 +123,7 @@ const styles = StyleSheet.create({
         fontSize: 35,
       },
       donatebutton: {
-        top: '9%',
+        top: '6%',
         left: '20%',
         width: 250,
         alignItems: 'center',

@@ -71,11 +71,11 @@ const styles = StyleSheet.create({
       backgroundColor: COLORS.WHITE,
     },
     backbutton: {
-      top: '4%',
+      top: '6%',
     },
     donatebutton: {
-      top: '75%',
-      left: '20%',
+      top: '79%',
+      left: '18%',
       width: 250,
       alignItems: 'center',
       justifyContent: 'center',

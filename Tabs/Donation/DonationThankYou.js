@@ -37,22 +37,15 @@ const styles = StyleSheet.create({
     },
     logoimg: {
       top: '5%',
-      left: '7%',
+      left: '5%',
     },
     matchimg: {
-      left: '2%',
+      left: '1%',
     },
     thankyouimg: {
-      left: '18%',
+      left: '16%',
     },
     button: {
       top: '10%',
     },
-    blacktext: {
-        letterSpacing: 4,
-        top: '7%',
-        left: '20%',
-        color: 'black',
-        fontSize: 20,
-      },
 });
