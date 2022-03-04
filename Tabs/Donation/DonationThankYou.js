@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/core';
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { COLORS } from '../../Themes/constants';
+import { COLORS } from '../../Themes/Constants.js'
 import DonationConfirmation from './DonationConfirmation';
 
 export default function DonationThankYou() {
@@ -11,7 +11,7 @@ export default function DonationThankYou() {
       <View style = {styles.container} >
         <View style = {styles.flex}>
           <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(DonationConfirmation)}>
-            <Image style = {styles.donateimg} source={require("../../assets/Donation/arrow.png")}/>
+            <Image source={require("../../assets/Donation/arrow.png")}/>
           </TouchableOpacity>
           <Image source = {require('../../assets/Home/logowhite.png')} style = {styles.logoimg}> 
           </Image>

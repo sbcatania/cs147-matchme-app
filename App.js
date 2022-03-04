@@ -9,7 +9,7 @@ import Home from './Tabs/Home';
 import Inbox from './Tabs/Inbox';
 import Search from './Tabs/Search';
 import Profile from './Tabs/Profile';
-import { COLORS, DATA } from './Themes/Constants';
+import {COLORS} from './Themes/Constants';
 
 const Tab = createBottomTabNavigator();
 
