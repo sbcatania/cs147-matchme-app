@@ -52,8 +52,8 @@ function Confirmation() {
 // Donation Thank You screen
 function ThankYou() {
   const navigation = useNavigation();
+  const route = useRoute();
   const ref = useRef();
-
   const users = [
     {
       name: 'Brynn',
@@ -84,8 +84,9 @@ function ThankYou() {
         <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
         </Image>
       </View>
-      <Image source={require('../../assets/Donation/thankyou.png')} style={styles.thankyouimg}>
+      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
       </Image>
+      <Text style = {styles.thankyoutext}> Thank you! </Text>
       {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
     </Image>*/}
 
@@ -125,7 +126,7 @@ function ThankYou() {
             
             <TextInput 
             style={styles.input} 
-            defaultValue='The Amount'
+            defaultValue={route.params}
             editable={false}/>
 
             <TextInput 
@@ -223,6 +224,8 @@ function ThankYou() {
 
 
 export default function DonationConfirmation() {
+  const navigation = useNavigation();
+  const route = useRoute();
   const [progress, setProgress] = useState(0);
   const ref = useRef();
 
@@ -260,7 +263,6 @@ const styles = StyleSheet.create({
   pagerView: {
     flex: 1,
     backgroundColor: COLORS.GREEN,
-
   },
   blacktext: {
     textAlign: 'center',
@@ -269,6 +271,14 @@ const styles = StyleSheet.create({
     color: COLORS.BLACK,
     fontSize: 100,
     fontWeight: 'bold',
+  },
+  thankyoutext: {
+    textAlign: 'center',
+    letterSpacing: 4,
+    color: COLORS.WHITE,
+    fontSize: 55,
+    fontWeight: 'bold',
+    marginTop: 20,
   },
   confirmtext: {
     textAlign: 'center',
@@ -330,7 +340,7 @@ const styles = StyleSheet.create({
     left: '1%',
   },
   thankyouimg: {
-    left: '16%',
+    left: '35%',
   },
   button: {
     top: '10%',
