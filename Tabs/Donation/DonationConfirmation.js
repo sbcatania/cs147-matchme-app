@@ -9,7 +9,6 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
-import DonationThankYou from './DonationThankYou';
 import {COLORS} from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
