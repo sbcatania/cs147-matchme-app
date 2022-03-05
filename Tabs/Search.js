@@ -12,7 +12,7 @@ import { COLORS } from '../Themes/Constants';
 * Text: https://reactnative.dev/docs/text
 * TextInput: https://reactnative.dev/docs/textinput
 * FlatList: https://reactnative.dev/docs/flatlist
-* 
+* Counter: https://www.npmjs.com/package/react-native-numeric-input 
 * 
 * 
 * 
@@ -25,8 +25,12 @@ import { COLORS } from '../Themes/Constants';
 * 
 * 
 * TODO
+*   Before Monday
+*   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
 *   - VIEW: Learn about views so I can format the page better, with scrolling.
-*   - TAGS: Make tags hold their color
+*   - TAGS: Make tags hold their color (Probably use a handler)
+*   - UI: Clean up lol
+*   After Monday
 *   - BUTTONS: Connect launch button to NFP fundraiser page.
 *   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
 *   - SEARCH TAB: Obviously, this lives in Search.js, so move this to the NFP part eventually.
@@ -51,8 +55,6 @@ export default function Search() {
 
     // NAVIGATION: Setup nav between pages
     const navigation = useNavigation();
-
-    // TICKER COUNTERS: Setup counter boxes
 
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
@@ -113,6 +115,7 @@ export default function Search() {
             <NumericInput 
             style={styles.horizcol}
             type='up-down' 
+            minValue={0}
             onChange={(usercounter) => setUserCounter(usercounter)} 
             step={100} 
             rounded={true}/>
