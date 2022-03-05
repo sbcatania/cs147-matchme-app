@@ -5,7 +5,7 @@ import Fundraiser from './Donation/Fundraiser'
 // import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS } from '../Themes/constants';
+import { COLORS } from '../Themes/Constants';
 
 
 /*
