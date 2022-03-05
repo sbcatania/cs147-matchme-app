@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 
 export default function DonationEntry() {
   const [entry, setEntry] = useState("");

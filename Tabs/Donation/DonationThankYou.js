@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/core';
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 import DonationConfirmation from './DonationConfirmation';
 
 export default function DonationThankYou() {

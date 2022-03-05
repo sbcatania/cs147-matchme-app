@@ -8,7 +8,7 @@ import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
 import DonationThankYou from './DonationThankYou';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 import Explore from './Explore'
 
 export default function Fundraiser() {

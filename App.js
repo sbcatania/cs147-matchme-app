@@ -9,7 +9,8 @@ import Home from './Tabs/Home';
 import Match from './Tabs/Match';
 import Search from './Tabs/Search';
 import Profile from './Tabs/Profile';
-import {COLORS} from './Themes/Constants';
+import {COLORS} from './Themes/constants';
+
 
 const Tab = createBottomTabNavigator();
 

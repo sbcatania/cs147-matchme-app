@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, FlatList } from 'react-native';
 import styled from 'styled-components/native';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 import MatchEntry from './MatchEntry';
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable } from 'react-native';
-import { COLORS, DATA } from '../Themes/Constants';
 // import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
 // import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
-import NumericInput from 'react-native-numeric-input'
+import NumericInput from 'react-native-numeric-input';
+import { COLORS } from '../Themes/constants';
+
 
 /*
 * Documentation

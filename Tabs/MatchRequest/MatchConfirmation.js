@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import MatchEntry from './MatchEntry';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';

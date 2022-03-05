@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MatchConfirmation from './MatchConfirmation';
 import Inbox from '../../Tabs/MatchRequest/Inbox';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS } from '../../Themes/constants';
 
 export default function MatchEntry() {
   const [text, setText] = useState("");
