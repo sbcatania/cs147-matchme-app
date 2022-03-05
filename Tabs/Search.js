@@ -113,6 +113,7 @@ export default function Search() {
             <NumericInput 
             style={styles.horizcol}
             type='up-down' 
+            minValue={0}
             onChange={(usercounter) => setUserCounter(usercounter)} 
             step={100} 
             rounded={true}/>
