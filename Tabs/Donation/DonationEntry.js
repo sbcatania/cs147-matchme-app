@@ -11,7 +11,7 @@ import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
 export default function DonationEntry() {
-  const [text, setText] = useState("");
+  const [donamt, setDonAmt] = useState("");
     const navigation = useNavigation();
     
     
@@ -25,9 +25,9 @@ export default function DonationEntry() {
          <Text style = {styles.description}> Supporting Save the Animals Fundraiser</Text>
       <TextInput
         style={styles.textInput}
-        value={text} // the text variable in the state is displayed by the TextInput
+        value={donamt} // the text variable in the state is displayed by the TextInput
         keyboardType="numeric"
-        onChangeText={(newText) => setText(newText)}
+        onChangeText={(newText) => setDonAmt(newText)}
         />
         <View style = {styles.flex}>
         <View style = {styles.suggestion}>
