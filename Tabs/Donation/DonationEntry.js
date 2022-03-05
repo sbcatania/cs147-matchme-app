@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { StyleSheet, Pressable, Text, TextInput, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback, ImageBackground } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
@@ -14,8 +15,10 @@ import { COLORS } from '../../Themes/Constants';
 export default function DonationEntry() {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
+  const route = useRoute();
+  const fundraisername = 'Save the Animals';
   const donate = () => {
-    navigation.navigate("DonationConfirmation", entry);
+    navigation.navigate("DonationConfirmation", {entry: entry, fundraisername: fundraisername});
   };
 
     return(
@@ -26,6 +29,7 @@ export default function DonationEntry() {
         </TouchableOpacity>
        <View style = {styles.rectangle}>
          <Text style = {styles.description}> Supporting Save the Animals Fundraiser</Text>
+         <Text style = {styles.description}> {fundraisername} </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput

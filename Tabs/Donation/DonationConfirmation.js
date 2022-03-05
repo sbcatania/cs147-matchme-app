@@ -33,7 +33,7 @@ function Confirmation() {
         <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(DonationEntry)}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
-        <Text style={styles.blacktext}>${route.params}</Text>
+        <Text style={styles.blacktext}>${route.params.entry}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
@@ -126,12 +126,12 @@ function ThankYou() {
             
             <TextInput 
             style={styles.input} 
-            defaultValue={route.params}
+            defaultValue={route.params.entry}
             editable={false}/>
 
             <TextInput 
             style={styles.input} 
-            defaultValue='Fundraiser Name' 
+            defaultValue={route.params.fundraisername}
             editable={false}/>
 
             <TextInput 
