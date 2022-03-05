@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable } from 'react-native';
 import { COLORS, DATA } from '../Themes/Constants';
-import Explore from './Donation/Explore';
+// import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
-import Inbox from './Inbox';
+// import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
+import NumericInput from 'react-native-numeric-input'
 
 /*
 * Documentation
@@ -32,15 +33,19 @@ import { useNavigation } from '@react-navigation/native';
 // Main fn
 export default function Search() {
     
-    // TEXTINPUT: Setup state variables
+    // TEXTINPUT: Setup state variables for text and numeric inputs
     const [handle, setHandle] = useState('@worldwildlifefundintl');
     const [name, setName] = useState('World Wildlife Fund');
     const [fundName, setFundname] = useState('Save the Animals Fundraiser');
     const [desc, setDesc] = useState('About my fundraiser');
     const [dongoal, setDongoal] = useState('100,000');
+    const [doncounter, setDonCounter] = useState(0);
+    const [usercounter, setUserCounter] = useState(0);
 
     // NAVIGATION: Setup nav between pages
     const navigation = useNavigation();
+
+    // TICKER COUNTERS: Setup counter boxes
 
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
@@ -97,7 +102,6 @@ export default function Search() {
             keyboardType='numeric'
             onChangeText={(dongoal) => setDongoal(dongoal)} />
 
-            
             <FlatList 
             numColumns={2}
             data={tags}
@@ -114,14 +118,25 @@ export default function Search() {
                     elevation: 3,
                     backgroundColor: pressed
                     ? 'gray'
-                    : COLORS.GREEN
+                    : COLORS.BLUE
                 }, 
                 styles.wrapperCustom
                 ]}>
                     <Text>{item.tag}</Text>
                 </Pressable>
             )}/>
-            
+    
+
+            {/* Testing!
+            <Text> 
+                Are variables dynamic? {"\n"} 
+                Handle: @{handle} {"\n"} 
+                Org: {name} {"\n"} 
+                Fundraiser Name: {fundName} {"\n"} 
+                Description: {desc} {"\n"} 
+                Donation Goal: {dongoal} {"\n"} 
+                Test: {usercounter}
+            </Text> */}
             
             <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
@@ -141,16 +156,6 @@ export default function Search() {
                     <Text style={styles.buttontext}> LAUNCH </Text> 
             </Pressable>
             
-            
-            {/* Testing!
-            <Text> 
-                Are variables dynamic? {"\n"} 
-                Handle: @{handle} {"\n"} 
-                Org: {name} {"\n"} 
-                Fundraiser Name: {fundName} {"\n"} 
-                Description: {desc} {"\n"} 
-                Donation Goal: {dongoal} {"\n"} 
-            </Text> */}
 
         </View>
     );
