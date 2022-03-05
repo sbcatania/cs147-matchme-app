@@ -7,8 +7,7 @@ import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
-import DonationEntry from './DonationEntry';
-import DonationThankYou from './DonationThankYou';
+import MatchEntry from './MatchEntry';
 import { COLORS } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -27,7 +26,7 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(DonationEntry)}>
+        <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(MatchEntry)}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
         <Text style={styles.blacktext}>$10</Text>
@@ -98,93 +97,13 @@ function ThankYou() {
       </View>
       <Image source={require('../../assets/Donation/thankyou.png')} style={styles.thankyouimg}>
       </Image>
-      {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
-    </Image>*/}
-
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Pressable
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Image source={require('../../assets/Donation/arrow.png')} />
-            </Pressable>
-            <Text style={styles.modalText}>Match Request</Text>
-            <SafeAreaView>
-              {/*TODO: TEXT INPUT */}
-            </SafeAreaView>
-            <Pressable style={styles.donatebutton} onPress={() => setModalVisible(!modalVisible)}
-              style={({ pressed }) => [
-                {
-                  width: 250,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingVertical: 12,
-                  borderRadius: 100,
-                  elevation: 3,
-                  backgroundColor: pressed
-                    ? 'gray'
-                    : COLORS.GREEN
-                },
-                styles.wrapperCustom
-              ]}
-            >
-              <Text style={{
-                fontSize: 16, color: COLORS.WHITE,
-                fontWeight: 'bold'
-              }}> Send Match Request </Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-      {/*Friend Matching */}
-      <ScrollView>
-        <View style={styles.container}>
-          <Card>
-            <Card.Title>Ask your friends to match</Card.Title>
-            {users.map((u, i) => {
-              return (
-                <View key={i} style={styles.user}>
-                  <Image
-                    style={styles.image}
-                    resizeMode="cover"
-                    source={u.avatar}
-                  />
-                  <Text style={styles.name}>{u.name}</Text>
-                  <Pressable
-                    style={{
-                      borderRadius: 0,
-                      marginLeft: 0,
-                      marginRight: 0,
-                      marginBottom: 0,
-                      backgroundColor: "green",
-                      width: 20,
-                      height: 20
-                    }}
-                    onPress={() => setModalVisible(true)}>
-                    <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 20 }} />
-                  </Pressable>
-                </View>
-              );
-            })}
-          </Card>
-        </View>
-      </ScrollView>
 
     </View>
   );
 }
 
 
-export default function DonationConfirmation() {
+export default function MatchConfirmation() {
   const [progress, setProgress] = useState(0);
   const ref = useRef();
 

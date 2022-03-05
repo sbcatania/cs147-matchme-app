@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Pressable, Text, View, FlatList } from 'react-native';
 import styled from 'styled-components/native';
+import { COLORS } from '../Themes/Constants';
+import MatchEntry from './MatchRequest/MatchEntry';
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
 
 /* To Do:
-- back button
-- center "Inbox" title
-- create decent JSON file data
-- add match button and checkmark/close button components
+- Set up MatchEntry navigator and stuff
 */
 
 const Inbox = ({ navigation }) => {
@@ -46,6 +45,10 @@ const Inbox = ({ navigation }) => {
             <ContentText>{item.content}</ContentText>
           </Content>
             {/* Match button component code goes here*/}
+          <Pressable onPress={() => navigation.navigate(MatchEntry)}
+          style={{backgroundColor:COLORS.GREEN}}>
+            <Text>V</Text>
+          </Pressable>
         </CardContent>
       </Card>
     )
