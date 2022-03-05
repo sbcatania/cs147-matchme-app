@@ -10,14 +10,14 @@ import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
+
 export default function DonationEntry() {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
   const donate = () => {
     navigation.navigate("DonationConfirmation", entry);
   };
-  
-    
+
     return(
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
