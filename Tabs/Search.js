@@ -31,6 +31,7 @@ import { COLORS } from '../Themes/Constants';
 *   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
 *   - SEARCH TAB: Obviously, this lives in Search.js, so move this to the NFP part eventually.
 *   - MOVE INPUT: text input for handle, OrgName should be in onboarding, not here
+*   - PASSABLE DATA: use Melanie's $10 thing to pass text input between pages.
 */
 
 // Main fn
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
         padding: 8,
         margin: 10,
-        width: '60%',
+        width: '75%',
     },
     // tags: {
     //     marginTop: 5,
