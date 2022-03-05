@@ -41,26 +41,7 @@ function Confirmation() {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationThankYou)}
-        style={({ pressed }) => [
-          {
-            top: '79%',
-            left: '20%',
-            width: 250,
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingVertical: 12,
-            borderRadius: 100,
-            elevation: 3,
-            backgroundColor: pressed
-              ? 'gray'
-              : COLORS.GREEN
-          },
-          styles.wrapperCustom
-        ]}
-      >
-        <Text style={styles.buttontext}> CONFIRM </Text>
-      </Pressable>
+      <Text style = {styles.confirmtext}> Swipe up to confirm </Text>
     </View>
   );
 }
@@ -232,6 +213,15 @@ const styles = StyleSheet.create({
     fontSize: 100,
     fontWeight: 'bold',
   },
+  confirmtext: {
+    textAlign: 'center',
+    top: '90%',
+    letterSpacing: 4,
+    color: COLORS.WHITE,
+    fontSize: 30,
+  },
+
+
   bluetext: {
     textAlign: 'center',
     top: '15%',
@@ -251,9 +241,10 @@ const styles = StyleSheet.create({
   rectangle: {
     position: 'absolute',
     top: 0,
-    height: '90%',
+    height: '85%',
     width: '100%',
-    borderRadius: 40,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
     backgroundColor: COLORS.WHITE,
   },
   backbutton: {
