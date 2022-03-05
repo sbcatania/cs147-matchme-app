@@ -11,6 +11,7 @@ Run `expo start`
 
 ## To install navigator and make sure import statements work
 Run 'expo install react-native-screens react-native-safe-area-context'
+Then run 'npm install react-native-numeric-input react-native-vector-icons --save'
 Then run 'expo install react-native-gesture-handler'
 Then run 'npm install'
 Then run 'expo start'
