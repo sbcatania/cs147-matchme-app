@@ -6,7 +6,6 @@ import {ImageBackground} from 'react-native' ;
 import PagerView from "react-native-pager-view";
 import { useState, useEffect } from "react";
 import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
