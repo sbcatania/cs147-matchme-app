@@ -118,7 +118,6 @@ export default function Search() {
             numColumns={2}
             data={tags}
             renderItem={({ item }) => (
-                // <TouchableOpacity onPress={() => pressHandler(item.id)}></TouchableOpacity>
                 <Pressable style={styles.tags} onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
                 style={({ pressed }) => [
                 {
@@ -130,8 +129,8 @@ export default function Search() {
                     borderRadius: 100,
                     elevation: 3,
                     backgroundColor: pressed
-                    ? 'gray'
-                    : COLORS.BLUE
+                    ? COLORS.BLUE
+                    : COLORS.GRAY
                 }, 
                 styles.wrapperCustom
                 ]}>
