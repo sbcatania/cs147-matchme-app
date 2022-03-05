@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
+import MatchRequestSent from './MatchRequestSent';
 import {COLORS} from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -140,7 +141,7 @@ function ThankYou() {
 
 
                         </SafeAreaView>
-                        <Pressable style={styles.donatebutton} onPress={() => setModalVisible(!modalVisible)}
+                        <Pressable style={styles.donatebutton} onPress={() => {setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}}
                           style={({ pressed }) => [
                             {
                               width: 250,
