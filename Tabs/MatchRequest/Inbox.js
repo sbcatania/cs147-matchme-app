@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Image, TextInput, StyleSheet, Button, Pressable, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import styled from 'styled-components/native';
 import { COLORS } from '../../Themes/Constants';
+import MatchConfirmation from './MatchConfirmation';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -19,6 +20,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const MatchCard = () => {
 
   const navigation = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
 
   const [text, setText] = useState("");
   // to do back button doesnt work
@@ -44,7 +46,7 @@ const MatchCard = () => {
             <Text style={styles.suggestiontext}>$10</Text>
           </View>
         </View>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(MatchConfirmation)}
+        <Pressable style={styles.donatebutton} onPress={() => {navigation.navigate(MatchConfirmation); setModalVisible(!modalVisible)}}
           style={({ pressed }) => [
             {
               top: '9%',

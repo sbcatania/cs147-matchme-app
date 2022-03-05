@@ -7,6 +7,8 @@ import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
+import Inbox from './Inbox';
+
 import { COLORS } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -39,26 +41,7 @@ function Confirmation() {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationThankYou)}
-        style={({ pressed }) => [
-          {
-            top: '79%',
-            left: '20%',
-            width: 250,
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingVertical: 12,
-            borderRadius: 100,
-            elevation: 3,
-            backgroundColor: pressed
-              ? 'gray'
-              : COLORS.GREEN
-          },
-          styles.wrapperCustom
-        ]}
-      >
-        <Text style={styles.buttontext}> CONFIRM </Text>
-      </Pressable>
+      <Text style={styles.confirmtext}> Swipe up to confirm </Text>
     </View>
   );
 }
@@ -171,7 +154,8 @@ const styles = StyleSheet.create({
     top: 0,
     height: '90%',
     width: '100%',
-    borderRadius: 40,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
     backgroundColor: COLORS.WHITE,
   },
   backbutton: {
@@ -254,5 +238,12 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  confirmtext: {
+    textAlign: 'center',
+    top: '90%',
+    letterSpacing: 4,
+    color: COLORS.WHITE,
+    fontSize: 30,
   }
 });

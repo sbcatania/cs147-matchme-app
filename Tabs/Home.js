@@ -17,8 +17,6 @@ import Explore from './Donation/Explore';
 import Fundraiser from './Donation/Fundraiser';
 import DonationEntry from './Donation/DonationEntry';
 import DonationConfirmation from './Donation/DonationConfirmation';
-import DonationThankYou from './Donation/DonationThankYou';
-
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
@@ -75,7 +73,6 @@ export default function Home() {
         <Stack.Screen name="Fundraiser" component={Fundraiser} />
         <Stack.Screen name="DonationEntry" component={DonationEntry} />
         <Stack.Screen name="DonationConfirmation" component={DonationConfirmation} />
-        <Stack.Screen name="DonationThankYou" component={DonationThankYou} />
       </Stack.Navigator>
   );
 }

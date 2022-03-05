@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
-import DonationThankYou from './DonationThankYou';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 import Explore from './Explore'
