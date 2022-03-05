@@ -16,8 +16,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inbox from './MatchRequest/Inbox';
 import MatchEntry from './MatchRequest/MatchEntry';
 import MatchConfirmation from './MatchRequest/MatchConfirmation';
-
-
+import MatchRequestSent from './MatchRequest/MatchRequestSent';
 
 const Stack = createNativeStackNavigator();
 
