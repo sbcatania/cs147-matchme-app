@@ -119,9 +119,7 @@ export default function Search() {
             numColumns={2}
             data={tags}
             renderItem={({ item }) => (
-                <Pressable 
-                style={styles.tags} 
-                // onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
+                <Pressable style={styles.tags} onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
                 style={({ pressed }) => [
                 {
                     width: 120,
