@@ -7,7 +7,6 @@ import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
-import MatchEntry from './MatchEntry';
 import { COLORS } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,7 +17,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const LOAD_TIME = 100;
 const INTERVAL = 25;
 
-//TODO: Back button on thank you page doesn't work :|
+//TODO: Back button page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
 function Confirmation() {
@@ -26,7 +25,7 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(MatchEntry)}>
+        <TouchableOpacity style={styles.backbutton}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
         <Text style={styles.blacktext}>$10</Text>

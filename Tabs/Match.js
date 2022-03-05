@@ -14,9 +14,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inbox from './MatchRequest/Inbox';
-import MatchEntry from './MatchRequest/MatchEntry';
 import MatchConfirmation from './MatchRequest/MatchConfirmation';
-import MatchRequestSent from './MatchRequest/MatchRequestSent';
+import MatchThankYou from '.MatchRequest/MatchThankYou';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -26,8 +27,8 @@ export default function Home() {
       <Stack.Navigator initialRouteName="Inbox" screenOptions={{
         headerShown: false}} >
         <Stack.Screen name="Inbox" component={Inbox} />
-        <Stack.Screen name="MatchEntry" component={MatchEntry} />
         <Stack.Screen name="MatchConfirmation" component={MatchConfirmation} />
+        <Stack.Screen name="MatchThankYou" component={MatchThankYou} />
       </Stack.Navigator>
   );
 }
