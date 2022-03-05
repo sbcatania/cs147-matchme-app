@@ -29,7 +29,9 @@ import { COLORS } from '../Themes/Constants';
 *   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
 *   - VIEW: Learn about views so I can format the page better, with scrolling.
 *   - TAGS: Make tags hold their color (Probably use a handler)
-*   - UI: Clean up lol
+*   - UI: Clean up visual style using Figma.
+*   - FLEX: Figure out how to use View and Flex stuff to position right.
+*   - STYLING: Separate CSS from tags.
 *   After Monday
 *   - BUTTONS: Connect launch button to NFP fundraiser page.
 *   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
@@ -200,8 +202,6 @@ export default function Search() {
                 ]}>
                     <Text style={styles.buttontext}> LAUNCH </Text> 
             </Pressable>
-            
-
         </View>
     );
 };
