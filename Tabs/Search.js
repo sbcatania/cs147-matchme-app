@@ -12,7 +12,7 @@ import { COLORS } from '../Themes/Constants';
 * Text: https://reactnative.dev/docs/text
 * TextInput: https://reactnative.dev/docs/textinput
 * FlatList: https://reactnative.dev/docs/flatlist
-* 
+* Counter: https://www.npmjs.com/package/use-count-up 
 * 
 * 
 * 
