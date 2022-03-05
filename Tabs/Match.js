@@ -1,29 +1,34 @@
+import { StatusBar } from 'expo-status-bar';
+import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
+import { useFonts } from 'expo-font';
+import {ImageBackground} from 'react-native' ;
+import PagerView from "react-native-pager-view";
+import { useState, useEffect } from "react";
+import home from  '../assets/Home/home.png';
+import home2 from  '../assets/Home/home2.png';
+import home3 from  '../assets/Home/home3.jpg';
+import home4 from  '../assets/Home/home4.jpg';
+import home5 from  '../assets/Home/home5.jpg';
+import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Explore from './Donation/Explore';
-import Fundraiser from './Donation/Fundraiser';
-import DonationEntry from './Donation/DonationEntry';
-import DonationConfirmation from './Donation/DonationConfirmation';
-import MatchRequestSent from './Donation/MatchRequestSent';
+import Inbox from './MatchRequest/Inbox';
+import MatchConfirmation from './MatchRequest/MatchConfirmation';
 
-const LOAD_TIME = 100;
-const INTERVAL = 25;
 
 const Stack = createNativeStackNavigator();
+
 // turn this into a stack navigator 
-export default function Home() {
+export default function Match() {
   return (
-      <Stack.Navigator initialRouteName="Explore" screenOptions={{
+      <Stack.Navigator initialRouteName="Inbox" screenOptions={{
         headerShown: false}} >
-        <Stack.Screen name="Explore" component={Explore} />
-        <Stack.Screen name="Fundraiser" component={Fundraiser} />
-        <Stack.Screen name="DonationEntry" component={DonationEntry} />
-        <Stack.Screen name="DonationConfirmation" component={DonationConfirmation} />
-        <Stack.Screen name="MatchRequestSent" component={MatchRequestSent} />
+        <Stack.Screen name="Inbox" component={Inbox} />
+        <Stack.Screen name="MatchConfirmation" component={MatchConfirmation} />
       </Stack.Navigator>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

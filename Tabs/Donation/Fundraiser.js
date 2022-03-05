@@ -6,10 +6,11 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
-import DonationThankYou from './DonationThankYou';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 import Explore from './Explore'
+
+const fundraiser = "Save the Animals";
 
 export default function Fundraiser() {
     const navigation = useNavigation();
@@ -23,10 +24,10 @@ export default function Fundraiser() {
         </TouchableOpacity>
         <Image source = {require('../../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
         </Image>
-        <Text style = {styles.whitetext}> Save the Animals </Text>
+        <Text style = {styles.whitetext}> {fundraiser} </Text>
         <Text style = {styles.blacktext}> World Wildlife Fund </Text>
         <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry, fundraiser)}
          style={({ pressed }) => [
           {
             top: '9%',

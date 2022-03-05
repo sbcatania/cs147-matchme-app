@@ -5,6 +5,7 @@ export const COLORS = {
     MAGENTA: "#C70A72",
     WHITE: "#FFFFFF",
     BLACK: "#000000",
+    GRAY: "#C4C4C4"
   };
 
 export const DATA = {
