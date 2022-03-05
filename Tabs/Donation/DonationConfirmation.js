@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
+import MatchRequestSent from './MatchRequestSent';
 import {COLORS} from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -140,7 +141,7 @@ function ThankYou() {
 
 
                         </SafeAreaView>
-                        <Pressable style={styles.donatebutton} onPress={() => setModalVisible(!modalVisible)}
+                        <Pressable style={styles.donatebutton} onPress={() => {setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}}
                           style={({ pressed }) => [
                             {
                               width: 250,
@@ -187,6 +188,32 @@ function ThankYou() {
               );
             })}
           </Card>
+          <Pressable onPress={()=>navigation.navigate("Explore")}
+         style={({ pressed }) => [
+          {
+            top: '9%',
+            left: '15%',
+            width: 300,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 15,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.WHITE
+          },
+          styles.wrapperCustom
+        ]}
+        >
+            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text> 
+    </Pressable>
+
+
+
+
+
+
         </View>
       </ScrollView>
 
@@ -280,21 +307,15 @@ const styles = StyleSheet.create({
   backbutton: {
     top: '6%',
   },
-  donatebutton: {
-    top: '79%',
-    left: '18%',
-    width: 250,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    borderRadius: 100,
-    elevation: 3,
-    backgroundColor: COLORS.GREEN,
-  },
   buttontext: {
     color: COLORS.WHITE,
     fontWeight: 'bold',
     fontSize: 35,
+  },
+  buttontextexplore: {
+    color: COLORS.GREEN,
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   flex: {
     display: 'flex',
