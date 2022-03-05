@@ -102,6 +102,18 @@ export default function Search() {
             keyboardType='numeric'
             onChangeText={(dongoal) => setDongoal(dongoal)} />
 
+            <NumericInput 
+            type='up-down' 
+            onChange={(usercounter) => setUserCounter(usercounter)} 
+            step={100} 
+            rounded={true}/>
+
+            <NumericInput 
+            type='up-down' 
+            onChange={(donounter) => setDonCounter(doncounter)} 
+            step={100} 
+            rounded={true}/>
+
             <FlatList 
             numColumns={2}
             data={tags}
