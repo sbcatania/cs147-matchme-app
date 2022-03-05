@@ -7,9 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS } from '../Themes/Constants';
 
-
 /*
-* Documentation
+* DOCUMENTATION
 * Text: https://reactnative.dev/docs/text
 * TextInput: https://reactnative.dev/docs/textinput
 * FlatList: https://reactnative.dev/docs/flatlist
@@ -18,17 +17,20 @@ import { COLORS } from '../Themes/Constants';
 * 
 * 
 * QUESTIONS
-* 1. I don't know anything about rendering order ... do I put different things in
-* different functions? Right now they're all in Search(), and all in the parent <View> tag.
+* 
+* 
+* 
+* 
 * 
 * 
 * 
 * TODO
-*   - WHAT TO USE FOR TAG SELECTION?
-*   - WHAT TO USE FOR 
-*   - MELANIE: Can you help me set up a stack navigator for fundraiser setup flow?
+*   - VIEW: Learn about views so I can format the page better, with scrolling.
+*   - TAGS: Make tags hold their color
+*   - BUTTONS: Connect launch button to NFP fundraiser page.
+*   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
+*   - SEARCH TAB: Obviously, this lives in Search.js, so move this to the NFP part eventually.
 *   - MOVE INPUT: text input for handle, OrgName should be in onboarding, not here
-*   - MOVE TO NFP FLOW: obviously, move this out of search.
 */
 
 // Main fn
@@ -145,6 +147,8 @@ export default function Search() {
                     <Text>{item.tag}</Text>
                 </Pressable>
             )}/>
+
+            <Text style={styles.titles}> DONOR REWARDS </Text> 
 
             <TextInput 
             style={styles.input} 
