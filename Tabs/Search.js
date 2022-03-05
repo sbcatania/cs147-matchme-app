@@ -125,6 +125,7 @@ export default function Search() {
                     width: 120,
                     alignItems: 'center',
                     justifyContent: 'center',
+                    marginTop: 5,
                     paddingVertical: 8,
                     borderRadius: 100,
                     elevation: 3,
@@ -175,10 +176,11 @@ export default function Search() {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: 'white',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '40%',
+        paddingTop: '20%',
     },
     titles: {
         // textAlign: 'left',
@@ -192,17 +194,17 @@ const styles = StyleSheet.create({
         margin: 10,
         width: '60%',
     },
-    tags: {
-        marginTop: 5,
-        marginHorizontal: 3,
-        padding: 8,
-        backgroundColor: 'green',
-        borderRadius: 10,
-        // COLORS.array.forEach(color => {
-        //     return color;
-        // }),
-        fontSize: 12,
-    },
+    // tags: {
+    //     marginTop: 5,
+    //     marginHorizontal: 3,
+    //     padding: 8,
+    //     backgroundColor: 'green',
+    //     borderRadius: 10,
+    //     // COLORS.array.forEach(color => {
+    //     //     return color;
+    //     // }),
+    //     fontSize: 12,
+    // },
     launchbutton: {
         top: '9%',
         left: '20%',
