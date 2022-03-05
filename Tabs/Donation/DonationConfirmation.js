@@ -141,7 +141,7 @@ function ThankYou() {
 
 
                         </SafeAreaView>
-                        <Pressable style={styles.donatebutton} onPress={() => {setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}}
+                        <Pressable  onPress={() => {setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}}
                           style={({ pressed }) => [
                             {
                               width: 250,
@@ -173,16 +173,16 @@ function ThankYou() {
                   <Text style={styles.name}>{u.name}</Text>
                   <Pressable
                     style={{
-                      borderRadius: 0,
+                      borderRadius: 100,
                       marginLeft: 0,
                       marginRight: 0,
                       marginBottom: 0,
-                      backgroundColor: "green",
-                      width: 20,
-                      height: 20
+                      backgroundColor: 'white',
+                      width: 40,
+                      height: 40
                     }}
                     onPress={() => setModalVisible(true)}>
-                    <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 20 }} />
+                    <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 40 }} />
                   </Pressable>
                 </View>
               );
