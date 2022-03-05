@@ -40,8 +40,11 @@ export default function Search() {
     const [fundName, setFundname] = useState('Save the Animals Fundraiser');
     const [desc, setDesc] = useState('About my fundraiser');
     const [dongoal, setDongoal] = useState('100,000');
-    const [doncounter, setDonCounter] = useState(0);
+    // const [doncounter, setDonCounter] = useState(0);
     const [usercounter, setUserCounter] = useState(0);
+    const [rwd1, setRwd1] = useState('Reward Level 1');
+    const [rwd2, setRwd2] = useState('Reward Level 2');
+    const [rwd3, setRwd3] = useState('Reward Level 3');
 
     // NAVIGATION: Setup nav between pages
     const navigation = useNavigation();
@@ -103,17 +106,19 @@ export default function Search() {
             keyboardType='numeric'
             onChangeText={(dongoal) => setDongoal(dongoal)} />
 
+            <Text> User Goal </Text>
             <NumericInput 
+            style={styles.horizcol}
             type='up-down' 
             onChange={(usercounter) => setUserCounter(usercounter)} 
             step={100} 
             rounded={true}/>
 
-            <NumericInput 
+            {/* <NumericInput 
             type='up-down' 
             onChange={(donounter) => setDonCounter(doncounter)} 
             step={100} 
-            rounded={true}/>
+            rounded={true}/> */}
 
             <FlatList 
             numColumns={2}
@@ -140,7 +145,24 @@ export default function Search() {
                     <Text>{item.tag}</Text>
                 </Pressable>
             )}/>
-    
+
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 1' 
+            autoCapitalize='words'
+            onChangeText={(name) => setName(name)} />
+
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 2' 
+            autoCapitalize='words'
+            onChangeText={(name) => setName(name)} />
+
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 3' 
+            autoCapitalize='words'
+            onChangeText={(name) => setName(name)} />
 
             {/* Testing!
             <Text> 
@@ -183,6 +205,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: '20%',
+    },
+    horizcol: {
+        left: 50, // well this doesn't work :'( fix later
     },
     titles: {
         // textAlign: 'left',
