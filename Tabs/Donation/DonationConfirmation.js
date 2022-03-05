@@ -44,7 +44,7 @@ function Confirmation() {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Text style = {styles.confirmtext}> Swipe up to confirm </Text>
+      <Text style={styles.confirmtext}> Swipe up to confirm </Text>
     </View>
   );
 }
@@ -69,7 +69,11 @@ function ThankYou() {
     },
   ];
 
+  // MATCHING MODAL SET UP
   const [modalVisible, setModalVisible] = useState(false);
+
+  // TEXTINPUT: Setup state variables
+  const [message, setMessage] = useState("");
 
   return (
     <View style={styles.container} >
@@ -85,50 +89,7 @@ function ThankYou() {
       {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
     </Image>*/}
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Pressable
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Image source={require('../../assets/Donation/arrow.png')} />
-            </Pressable>
-            <Text style={styles.modalText}>Match Request</Text>
-            <SafeAreaView>
-              {/*TODO: TEXT INPUT */}
-            </SafeAreaView>
-            <Pressable style={styles.donatebutton} onPress={() => setModalVisible(!modalVisible)}
-              style={({ pressed }) => [
-                {
-                  width: 250,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingVertical: 12,
-                  borderRadius: 100,
-                  elevation: 3,
-                  backgroundColor: pressed
-                    ? 'gray'
-                    : COLORS.GREEN
-                },
-                styles.wrapperCustom
-              ]}
-            >
-              <Text style={{
-                fontSize: 16, color: COLORS.WHITE,
-                fontWeight: 'bold'
-              }}> Send Match Request </Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+
       {/*Friend Matching */}
       <ScrollView>
         <View style={styles.container}>
@@ -137,6 +98,73 @@ function ThankYou() {
             {users.map((u, i) => {
               return (
                 <View key={i} style={styles.user}>
+                  <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                      Alert.alert("Modal has been closed.");
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <View style={styles.centeredView}>
+                      <View style={styles.modalView}>
+                        <Pressable
+                          onPress={() => setModalVisible(!modalVisible)}
+                        >
+                          <Image source={require('../../assets/Donation/arrow.png')} />
+                        </Pressable>
+                        <Text style={styles.modalText}>Match Request</Text>
+                        <SafeAreaView>
+                          {/*TODO: TEXT INPUT */}
+
+                          <TextInput 
+            style={styles.input} 
+            defaultValue='To Who' 
+            editable={false} />
+            
+            <TextInput 
+            style={styles.input} 
+            defaultValue='The Amount'
+            editable={false}/>
+
+            <TextInput 
+            style={styles.input} 
+            defaultValue='Fundraiser Name' 
+            editable={false}/>
+
+            <TextInput 
+            style={styles.input} 
+            placeholder='Message' 
+            multiline
+            onChangeText={(message) => setMessage(message)} />
+
+
+                        </SafeAreaView>
+                        <Pressable style={styles.donatebutton} onPress={() => setModalVisible(!modalVisible)}
+                          style={({ pressed }) => [
+                            {
+                              width: 250,
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              paddingVertical: 12,
+                              borderRadius: 100,
+                              elevation: 3,
+                              backgroundColor: pressed
+                                ? 'gray'
+                                : COLORS.GREEN
+                            },
+                            styles.wrapperCustom
+                          ]}
+                        >
+                          <Text style={{
+                            fontSize: 16, color: COLORS.WHITE,
+                            fontWeight: 'bold'
+                          }}> Send Match Request </Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  </Modal>
                   <Image
                     style={styles.image}
                     resizeMode="cover"
@@ -330,5 +358,12 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
-  }
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 10,
+    width: '60%',
+}
 });

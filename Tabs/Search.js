@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'react-native';
-// import { COLORS, DATA } from '../Themes/Constants';
+import { Text, View, StyleSheet, TextInput, FlatList, Pressable } from 'react-native';
+import { COLORS, DATA } from '../Themes/Constants';
+// import Explore from './Explore';
+import Fundraiser from './Donation/Fundraiser'
+// import Inbox from './MatchRequest/Inbox';
+import { useNavigation } from '@react-navigation/native';
+import NumericInput from 'react-native-numeric-input'
 
 /*
 * Documentation
@@ -28,12 +33,19 @@ import { Text, View, StyleSheet, TextInput, FlatList, TouchableOpacity } from 'r
 // Main fn
 export default function Search() {
     
-    // TEXTINPUT: Setup state variables
+    // TEXTINPUT: Setup state variables for text and numeric inputs
     const [handle, setHandle] = useState('@worldwildlifefundintl');
     const [name, setName] = useState('World Wildlife Fund');
     const [fundName, setFundname] = useState('Save the Animals Fundraiser');
     const [desc, setDesc] = useState('About my fundraiser');
     const [dongoal, setDongoal] = useState('100,000');
+    const [doncounter, setDonCounter] = useState(0);
+    const [usercounter, setUserCounter] = useState(0);
+
+    // NAVIGATION: Setup nav between pages
+    const navigation = useNavigation();
+
+    // TICKER COUNTERS: Setup counter boxes
 
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
@@ -57,6 +69,9 @@ export default function Search() {
     // Plz show up
     return (
         <View style={styles.container}>
+
+            <Text style={styles.titles}> MY FUNDRAISER </Text> 
+
             <TextInput 
             style={styles.input} 
             placeholder='Org Handle' 
@@ -87,14 +102,45 @@ export default function Search() {
             keyboardType='numeric'
             onChangeText={(dongoal) => setDongoal(dongoal)} />
 
+            <NumericInput 
+            type='up-down' 
+            onChange={(usercounter) => setUserCounter(usercounter)} 
+            step={100} 
+            rounded={true}/>
+
+            <NumericInput 
+            type='up-down' 
+            onChange={(donounter) => setDonCounter(doncounter)} 
+            step={100} 
+            rounded={true}/>
+
             <FlatList 
             numColumns={2}
             data={tags}
             renderItem={({ item }) => (
                 // <TouchableOpacity onPress={() => pressHandler(item.id)}></TouchableOpacity>
-                <Text style={styles.tags}>{item.tag}</Text>
+                <Pressable style={styles.tags} onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
+                style={({ pressed }) => [
+                {
+                    width: 120,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: 5,
+                    paddingVertical: 8,
+                    borderRadius: 100,
+                    elevation: 3,
+                    backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.BLUE
+                }, 
+                styles.wrapperCustom
+                ]}>
+                    <Text>{item.tag}</Text>
+                </Pressable>
             )}/>
-            
+    
+
+            {/* Testing!
             <Text> 
                 Are variables dynamic? {"\n"} 
                 Handle: @{handle} {"\n"} 
@@ -102,17 +148,44 @@ export default function Search() {
                 Fundraiser Name: {fundName} {"\n"} 
                 Description: {desc} {"\n"} 
                 Donation Goal: {dongoal} {"\n"} 
-            </Text>
+                Test: {usercounter}
+            </Text> */}
+            
+            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+                style={({ pressed }) => [
+                {
+                    width: 250,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingVertical: 12,
+                    borderRadius: 100,
+                    elevation: 3,
+                    backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.GREEN
+                }, 
+                styles.wrapperCustom
+                ]}>
+                    <Text style={styles.buttontext}> LAUNCH </Text> 
+            </Pressable>
+            
+
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: 'white',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '40%',
+        paddingTop: '20%',
+    },
+    titles: {
+        // textAlign: 'left',
+        fontWeight: 'bold',
+        fontSize: 25,
     },
     input: {
         borderWidth: 1,
@@ -121,14 +194,31 @@ const styles = StyleSheet.create({
         margin: 10,
         width: '60%',
     },
-    tags: {
-        marginTop: 5,
-        marginHorizontal: 3,
-        padding: 8,
-        backgroundColor: 'green',
-        // COLORS.array.forEach(color => {
-        //     return color;
-        // }),
-        fontSize: 12,
-    }
+    // tags: {
+    //     marginTop: 5,
+    //     marginHorizontal: 3,
+    //     padding: 8,
+    //     backgroundColor: 'green',
+    //     borderRadius: 10,
+    //     // COLORS.array.forEach(color => {
+    //     //     return color;
+    //     // }),
+    //     fontSize: 12,
+    // },
+    launchbutton: {
+        top: '9%',
+        left: '20%',
+        width: 250,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        borderRadius: 100,
+        elevation: 3,
+        backgroundColor: COLORS.GREEN,
+      },
+      buttontext: {
+        color: COLORS.WHITE,
+        fontWeight: 'bold',
+        fontSize: 35,
+      },
 });
