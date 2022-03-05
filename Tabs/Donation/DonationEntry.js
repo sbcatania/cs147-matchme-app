@@ -11,9 +11,12 @@ import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
 export default function DonationEntry() {
-  const [text, setText] = useState("");
-    const navigation = useNavigation();
-    
+  const [entry, setEntry] = useState("");
+  const navigation = useNavigation();
+  const donate = () => {
+    navigation.navigate("DonationConfirmation", entry);
+  };
+  
     
     return(
       <SafeAreaView style = {styles.container} >
@@ -25,9 +28,9 @@ export default function DonationEntry() {
          <Text style = {styles.description}> Supporting Save the Animals Fundraiser</Text>
       <TextInput
         style={styles.textInput}
-        value={text} // the text variable in the state is displayed by the TextInput
+        value={entry} // the entry variable in the state is displayed by the TextInput
         keyboardType="numeric"
-        onChangeText={(newText) => setText(newText)}
+        onChangeText={(text) => setEntry(text)}
         />
         <View style = {styles.flex}>
         <View style = {styles.suggestion}>
@@ -40,7 +43,7 @@ export default function DonationEntry() {
           <Text style= {styles.suggestiontext}>$10</Text>
         </View>
         </View>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationConfirmation)}
+        <Pressable style={styles.donatebutton} onPress={donate}
          style={({ pressed }) => [
           {
             top: '9%',

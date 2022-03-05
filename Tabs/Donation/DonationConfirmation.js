@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
+import { useRoute } from "@react-navigation/native";
 import { Alert, TextInput, Modal, Pressable, ScrollView, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { useFonts } from 'expo-font';
 import { ImageBackground } from 'react-native';
@@ -23,14 +24,16 @@ const INTERVAL = 25;
 //TODO: Add dummy users/data for Matching
 
 function Confirmation() {
-  const navigation = useNavigation();
+ const navigation = useNavigation();
+ const route = useRoute();
+
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
         <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(DonationEntry)}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
-        <Text style={styles.blacktext}>$10</Text>
+        <Text style={styles.blacktext}>${route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
