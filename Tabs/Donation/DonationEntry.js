@@ -28,15 +28,9 @@ export default function DonationEntry() {
          <Text style = {styles.description}> Supporting Save the Animals Fundraiser</Text>
       <TextInput
         style={styles.textInput}
-<<<<<<< HEAD
         value={entry} // the entry variable in the state is displayed by the TextInput
         keyboardType="numeric"
         onChangeText={(text) => setEntry(text)}
-=======
-        value={donamt} // the text variable in the state is displayed by the TextInput
-        keyboardType="numeric"
-        onChangeText={(newText) => setDonAmt(newText)}
->>>>>>> 8938bdf6fdc36e95048574f5a657249015d3ea2e
         />
         <View style = {styles.flex}>
         <View style = {styles.suggestion}>
