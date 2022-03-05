@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Tabs/Home';
-import Inbox from './Tabs/Inbox';
+import Match from './Tabs/Match';
 import Search from './Tabs/Search';
 import Profile from './Tabs/Profile';
 import {COLORS} from './Themes/Constants';
@@ -28,7 +28,7 @@ export default function App() {
               iconName = 'person-outline';
             } else if (route.name === 'Search') {
               iconName = 'search-outline'
-            } else if (route.name === 'Inbox') {
+            } else if (route.name === 'Match') {
               iconName = 'mail-outline'
             }
 
@@ -44,7 +44,7 @@ export default function App() {
       
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Inbox" component={Inbox} />
+        <Tab.Screen name="Match" component={Match} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>

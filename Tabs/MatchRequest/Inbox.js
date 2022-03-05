@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Pressable, Text, View, FlatList } from 'react-native';
 import styled from 'styled-components/native';
-import { COLORS } from '../Themes/Constants';
-import MatchEntry from './MatchRequest/MatchEntry';
+import { COLORS } from '../../Themes/Constants';
+import MatchEntry from './MatchEntry';
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
@@ -18,7 +18,7 @@ const Inbox = ({ navigation }) => {
     id: 1,
     userName: 'James L',
     cause: 'Code in Place',
-    avatar: require('../assets/landay.jpeg'),
+    avatar: require('../../assets/landay.jpeg'),
     content: "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
     amount: '$5'
   }));

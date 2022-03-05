@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MatchConfirmation from './MatchConfirmation';
-import Inbox from '../Inbox';
+import Inbox from '../../Tabs/MatchRequest/Inbox';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
