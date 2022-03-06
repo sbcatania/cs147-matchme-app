@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, ScrollView } from 'react-native';
 // import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
+import Rewards from './Rewards'
+import Profile from './Profile'
 // import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
@@ -29,9 +31,8 @@ import landay from '../assets/landay.jpeg'
 * TODO
 *   Before Monday
 *   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
-*   - VIEW: Learn about views so I can format the page better, with scrolling.
 *   - TAGS: Make tags hold their color (Probably use a handler)
-*   - UI: Clean up visual style using Figma.
+*   - UI: Clean up visual style using Figma as reference.
 *   - FLEX: Figure out how to use View and Flex stuff to position right.
 *   - STYLING: Separate CSS from tags.
 *   After Monday
@@ -160,32 +161,22 @@ export default function Search() {
                 )}/>
             </View>
 
-            {/* DONOR RWD CONTENT */}
-            <View style={styles.flexboxes}>
-                <Text style={styles.titles}> DONOR REWARDS </Text> 
-
-                <TextInput 
-                style={styles.input} 
-                placeholder='Reward Level 1' 
-                autoCapitalize='words'
-                onChangeText={(name) => setName(name)} />
-
-                <TextInput 
-                style={styles.input} 
-                placeholder='Reward Level 2' 
-                autoCapitalize='words'
-                onChangeText={(name) => setName(name)} />
-
-                <TextInput 
-                style={styles.input} 
-                placeholder='Reward Level 3' 
-                autoCapitalize='words'
-                onChangeText={(name) => setName(name)} />
-            </View>
-            
             {/* BUTTON */}
             <View style={styles.flexboxes}>
-                
+                <Pressable onPress={() => navigation.navigate(Profile)} // CHANGE TO RWDS SCREEN
+                    style={({ pressed }) => [
+                    {
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: 5,
+                        borderRadius: 100,
+                        backgroundColor: pressed
+                        ? COLORS.BLUE
+                        : COLORS.GRAY
+                    }]}>
+                        <Text style={styles.linktext}> Setup Rewards </Text> 
+                </Pressable>
+
                 {/* TESTING VARIABLES */}
                 {/* 
                 <Text> 
@@ -197,25 +188,25 @@ export default function Search() {
                     Donation Goal: {dongoal} {"\n"} 
                     Test: {usercounter}
                 </Text> */}
-
-                <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
-                    style={({ pressed }) => [
-                    {
-                        width: 250,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        paddingVertical: 12,
-                        borderRadius: 100,
-                        elevation: 3,
-                        backgroundColor: pressed
-                        ? 'gray'
-                        : COLORS.GREEN
-                    }, 
-                    styles.wrapperCustom
-                    ]}>
-                        <Text style={styles.buttontext}> LAUNCH </Text> 
-                </Pressable>
             </View>
+        </View>
+
+        <View style={styles.launchcontainer}>
+            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+                style={({ pressed }) => [
+                {
+                    width: 250,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingVertical: 12,
+                    borderRadius: 100,
+                    elevation: 3,
+                    backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.GREEN
+                }]}>
+                    <Text style={styles.buttontext}> LAUNCH </Text> 
+            </Pressable>
         </View>
         </SafeAreaView>
     );
@@ -229,7 +220,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         // alignItems: 'center',
-        paddingTop: '20%',
+        // paddingTop: '10%',
     },
     flexboxes: {
         // backgroundColor: 'firebrick',
@@ -251,6 +242,17 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         width: '80%',
     },
+    rewardslink: {
+        top: '9%',
+        left: '20%',
+        width: 250,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        borderRadius: 100,
+        elevation: 3,
+        backgroundColor: COLORS.BLUE,
+    },
     launchbutton: {
         top: '9%',
         left: '20%',
@@ -261,6 +263,15 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         elevation: 3,
         backgroundColor: COLORS.GREEN,
+      },
+    //   separate from rest of page hierarchy
+      launchcontainer: {
+        flex: 1,
+        // justify
+      },
+      linktext: {
+        color: COLORS.BLACK,
+        fontSize: 20,
       },
       buttontext: {
         color: COLORS.WHITE,
