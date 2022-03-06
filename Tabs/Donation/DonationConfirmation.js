@@ -33,7 +33,7 @@ function Confirmation() {
         <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(DonationEntry)}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
-        <Text style={styles.blacktext}>${route.params}</Text>
+        <Text style={styles.blacktext}>${route.params.entry}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
@@ -60,11 +60,11 @@ function ThankYou() {
       avatar: require('../../assets/landay.jpeg'),
     },
     {
-      name: 'Jess',
+      name: 'Laura',
       avatar: require('../../assets/landay.jpeg'),
     },
     {
-      name: 'Kay',
+      name: 'Aidan',
       avatar: require('../../assets/landay.jpeg'),
     },
   ];
@@ -94,8 +94,8 @@ function ThankYou() {
       {/*Friend Matching */}
       <ScrollView>
         <View style={styles.container}>
-          <Card>
-            <Card.Title>Ask your friends to match</Card.Title>
+          <View style = {styles.card}>
+            <Text style = {styles.cardtext}>Ask your friends to match</Text>
             {users.map((u, i) => {
               return (
                 <View key={i} style={styles.user}>
@@ -121,17 +121,17 @@ function ThankYou() {
 
                           <TextInput 
             style={styles.input} 
-            defaultValue='To Who' 
+            defaultValue={u.name}
             editable={false} />
             
             <TextInput 
             style={styles.input} 
-            defaultValue={route.params}
+            defaultValue={route.params.entry}
             editable={false}/>
 
             <TextInput 
             style={styles.input} 
-            defaultValue='Fundraiser Name' 
+            defaultValue= {fundname}
             editable={false}/>
 
             <TextInput 
@@ -188,7 +188,7 @@ function ThankYou() {
                 </View>
               );
             })}
-          </Card>
+          </View>
           <Pressable onPress={()=>navigation.navigate("Explore")}
          style={({ pressed }) => [
           {
@@ -263,6 +263,21 @@ const styles = StyleSheet.create({
   pagerView: {
     flex: 1,
     backgroundColor: COLORS.GREEN,
+  },
+  card: {
+    backgroundColor: COLORS.WHITE,
+    borderRadius: 20,
+    margin: 10,
+    left: '8%',
+    height: '100%',
+    width: '80%',
+  },
+  cardtext: {
+    margin: 20,
+    textAlign: 'center',
+    color: COLORS.BLACK,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   blacktext: {
     textAlign: 'center',
@@ -348,13 +363,19 @@ const styles = StyleSheet.create({
   user: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 6,
+    justifyContent: 'space-evenly',
+    marginBottom: 15,
+    marginLeft: 5,
   },
   image: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
+    width: 40,
+    height: 40,
+    marginLeft: 20,
+    borderRadius: 10,
+  },
+  name : {
+    fontSize: 30,
+    fontWeight: 'normal',
   },
   centeredView: {
     flex: 1,

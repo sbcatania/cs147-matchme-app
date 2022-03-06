@@ -1,36 +1,26 @@
 {
     "1": {
       "handle": "worldwildlifefund",
-      "post_image": "../assets/Home/home.png",
-      "profile_image": "../assets/Home/wwflogo.png",
       "caption": "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
-      "donation_link": "DonationThankYou"
+      "donation_link": "Fundraiser"
     },
     "2": {
       "handle": "worldwildlifefund",
-      "post_image": "../assets/Home/home2.png",
-      "profile_image": "../assets/Home/wwflogo.png",
       "caption": "Today Suyash explores a newer landscape.",
       "donation_link": "Fundraiser"
     },
     "3": {
       "handle": "malalafund",
-      "post_image": "../assets/Home/home3.png",
-      "profile_image": "../assets/Home/malala.jpg",
       "caption": "Malala addressing the UN Summit this morning. ",
       "donation_link": "Fundraiser"
     },
     "4": {
       "handle": "savethebees",
-      "post_image": "../assets/Home/home4.png",
-      "profile_image": "../assets/Home/bees.png",
       "caption": "It was a great day saving the bees from a giant hive. ",
       "donation_link": "Fundraiser"
     },
     "5": {
       "handle": "paloaltoshelter",
-      "post_image": "../assets/Home/home5.png",
-      "profile_image": "../assets/Home/shelter.jpg",
       "caption": "earn about Finn's day in the life. Donate to make his life better.",
       "donation_link": "Fundraiser"
     }

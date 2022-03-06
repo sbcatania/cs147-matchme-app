@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { StyleSheet, Text, ImageBackground, Pressable, View, Image, TouchableOpacity, ScrollView, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
@@ -10,24 +11,27 @@ import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 import Explore from './Explore'
 
-const fundraiser = "Save the Animals";
+global.fundname = "Save the Animals";
 
 export default function Fundraiser() {
     const navigation = useNavigation();
+    const donate = () => {
+      navigation.navigate('DonationEntry');
+    };
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
 
         <ImageBackground source={moose} style = {styles.bgimg} >
-        <TouchableOpacity style = {styles.backbutton} onPress={()=>navigation.navigate(Explore)}>
+        <TouchableOpacity style = {styles.backbutton} onPress={() => navigation.navigate(Explore)}>
             <Image source={require("../../assets/Donation/arrow.png")}/>
         </TouchableOpacity>
         <Image source = {require('../../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
         </Image>
-        <Text style = {styles.whitetext}> {fundraiser} </Text>
+        <Text style = {styles.whitetext}> {fundname} </Text>
         <Text style = {styles.blacktext}> World Wildlife Fund </Text>
         <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry, fundraiser)}
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate({donate})}
          style={({ pressed }) => [
           {
             top: '9%',

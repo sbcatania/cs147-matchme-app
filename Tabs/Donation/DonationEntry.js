@@ -4,18 +4,20 @@ import { createPortal } from 'react-dom';
 import { StyleSheet, Pressable, Text, TextInput, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback, ImageBackground } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
-
 export default function DonationEntry() {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
+  const route = useRoute();
+  console.log(fundname);
   const donate = () => {
-    navigation.navigate("DonationConfirmation", entry);
+    navigation.navigate('DonationConfirmation', {entry: entry});
   };
 
     return(
