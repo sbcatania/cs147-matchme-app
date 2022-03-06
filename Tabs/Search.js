@@ -80,8 +80,13 @@ export default function Search() {
     // Plz show up
     return (
         <View style={styles.container}>
+            
+            {/* change this to flex */}
+            <View style={{marginTop: '10%', width:'80%', height:'20%', alignContent:'flex-start' , backgroundColor:'blue'}}> 
+                <Text style={styles.titles}> MY FUNDRAISER </Text> 
 
-            <Text style={styles.titles}> MY FUNDRAISER </Text> 
+
+            </View>
 
             <TextInput 
             style={styles.input} 
@@ -218,7 +223,6 @@ const styles = StyleSheet.create({
         left: 50, // well this doesn't work :'( fix later
     },
     titles: {
-        // textAlign: 'left',
         fontWeight: 'bold',
         fontSize: 25,
     },
