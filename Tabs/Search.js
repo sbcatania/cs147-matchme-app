@@ -217,8 +217,8 @@ const styles = StyleSheet.create({
         // backgroundColor: 'lightblue',
         backgroundColor:'white',
         // flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
+        // flexDirection: 'column',
+        // justifyContent: 'center',
         // alignItems: 'center',
         // paddingTop: '10%',
     },
@@ -257,8 +257,8 @@ const styles = StyleSheet.create({
         top: '9%',
         left: '20%',
         width: 250,
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'flex-end',
+        // justifyContent: 'center',
         paddingVertical: 12,
         borderRadius: 100,
         elevation: 3,
@@ -267,7 +267,9 @@ const styles = StyleSheet.create({
     //   separate from rest of page hierarchy
       launchcontainer: {
         flex: 1,
-        // justify
+        backgroundColor:'firebrick',
+        justifyContent: 'flex-end',
+        alignContent: 'center',
       },
       linktext: {
         color: COLORS.BLACK,
