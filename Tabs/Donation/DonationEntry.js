@@ -11,14 +11,13 @@ import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS } from '../../Themes/Constants';
 
-
 export default function DonationEntry() {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
   const route = useRoute();
-  const fundraisername = 'Save the Animals';
+  console.log(fundname);
   const donate = () => {
-    navigation.navigate("DonationConfirmation", {entry: entry, fundraisername: fundraisername});
+    navigation.navigate('DonationConfirmation', {entry: entry});
   };
 
     return(
@@ -29,7 +28,6 @@ export default function DonationEntry() {
         </TouchableOpacity>
        <View style = {styles.rectangle}>
          <Text style = {styles.description}> Supporting Save the Animals Fundraiser</Text>
-         <Text style = {styles.description}> {fundraisername} </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput
