@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, Pressable } from 'react-native';
+import { Text, View, StyleSheet, TextInput, FlatList, Pressable, ScrollView } from 'react-native';
 // import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
 // import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS } from '../Themes/Constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import landay from '../assets/landay.jpeg'
 
 /*
 * DOCUMENTATION
@@ -13,7 +15,7 @@ import { COLORS } from '../Themes/Constants';
 * TextInput: https://reactnative.dev/docs/textinput
 * FlatList: https://reactnative.dev/docs/flatlist
 * Counter: https://www.npmjs.com/package/react-native-numeric-input 
-* 
+* Useful TextInput: https://blog.logrocket.com/complete-guide-textinput-react-native/ 
 * 
 * 
 * QUESTIONS
@@ -79,171 +81,176 @@ export default function Search() {
 
     // Plz show up
     return (
+        
+        <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
+
+            {/* MY FUNDRAISER CONTENT */}
             
-            {/* change this to flex */}
-            <View style={{marginTop: '10%', width:'80%', height:'20%', alignContent:'flex-start' , backgroundColor:'blue'}}> 
+            <View style={styles.flexboxes}> 
                 <Text style={styles.titles}> MY FUNDRAISER </Text> 
 
+                <TextInput 
+                style={styles.input} 
+                placeholder='Org Handle' 
+                autoCapitalize='none'
+                onChangeText={(handle) => setHandle(handle)} />
+                {/* left={<TextInput.Icon name='landay'/>}  // get this working for fun */}
+                
+                <TextInput 
+                style={styles.input} 
+                placeholder='Org Name' 
+                autoCapitalize='words'
+                onChangeText={(name) => setName(name)} />
 
+                <TextInput 
+                style={styles.input} 
+                placeholder='Fundraiser Name' 
+                autoCapitalize='words'
+                onChangeText={(fundName) => setFundname(fundName)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Fundraiser Description' 
+                multiline
+                onChangeText={(desc) => setDesc(desc)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Donation Goal' 
+                keyboardType='numeric'
+                onChangeText={(dongoal) => setDongoal(dongoal)} />
+
+                <Text> User Goal </Text>
+                <NumericInput 
+                style={styles.ticker}
+                type='up-down' 
+                minValue={0}
+                onChange={(usercounter) => setUserCounter(usercounter)} 
+                step={100} 
+                rounded={true}/>
             </View>
 
-            <TextInput 
-            style={styles.input} 
-            placeholder='Org Handle' 
-            autoCapitalize='none'
-            onChangeText={(handle) => setHandle(handle)} />
+            {/* TAG CONTENT */}
+            <View style={styles.flexboxes}>
+                <FlatList 
+                numColumns={2}
+                data={tags}
+                renderItem={({ item }) => (
+                    <Pressable 
+                    style={styles.tags} 
+                    // onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
+                    style={({ pressed }) => [
+                    {
+                        width: 120,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginTop: 5,
+                        paddingVertical: 8,
+                        borderRadius: 100,
+                        elevation: 3,
+                        backgroundColor: pressed
+                        ? COLORS.BLUE
+                        : COLORS.GRAY
+                    }, 
+                    styles.wrapperCustom
+                    ]}>
+                        <Text>{item.tag}</Text>
+                    </Pressable>
+                )}/>
+            </View>
+
+            {/* DONOR RWD CONTENT */}
+            <View style={styles.flexboxes}>
+                <Text style={styles.titles}> DONOR REWARDS </Text> 
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Reward Level 1' 
+                autoCapitalize='words'
+                onChangeText={(name) => setName(name)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Reward Level 2' 
+                autoCapitalize='words'
+                onChangeText={(name) => setName(name)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Reward Level 3' 
+                autoCapitalize='words'
+                onChangeText={(name) => setName(name)} />
+            </View>
             
-            <TextInput 
-            style={styles.input} 
-            placeholder='Org Name' 
-            autoCapitalize='words'
-            onChangeText={(name) => setName(name)} />
+            {/* BUTTON */}
+            <View style={styles.flexboxes}>
+                
+                {/* TESTING VARIABLES */}
+                {/* 
+                <Text> 
+                    Are variables dynamic? {"\n"} 
+                    Handle: @{handle} {"\n"} 
+                    Org: {name} {"\n"} 
+                    Fundraiser Name: {fundName} {"\n"} 
+                    Description: {desc} {"\n"} 
+                    Donation Goal: {dongoal} {"\n"} 
+                    Test: {usercounter}
+                </Text> */}
 
-            <TextInput 
-            style={styles.input} 
-            placeholder='Fundraiser Name' 
-            autoCapitalize='words'
-            onChangeText={(fundName) => setFundname(fundName)} />
-
-            <TextInput 
-            style={styles.input} 
-            placeholder='Fundraiser Description' 
-            multiline
-            onChangeText={(desc) => setDesc(desc)} />
-
-            <TextInput 
-            style={styles.input} 
-            placeholder='Donation Goal' 
-            keyboardType='numeric'
-            onChangeText={(dongoal) => setDongoal(dongoal)} />
-
-            <Text> User Goal </Text>
-            <NumericInput 
-            style={styles.horizcol}
-            type='up-down' 
-            minValue={0}
-            onChange={(usercounter) => setUserCounter(usercounter)} 
-            step={100} 
-            rounded={true}/>
-
-            {/* <NumericInput 
-            type='up-down' 
-            onChange={(donounter) => setDonCounter(doncounter)} 
-            step={100} 
-            rounded={true}/> */}
-
-            <FlatList 
-            numColumns={2}
-            data={tags}
-            renderItem={({ item }) => (
-                <Pressable 
-                style={styles.tags} 
-                // onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
-                style={({ pressed }) => [
-                {
-                    width: 120,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 5,
-                    paddingVertical: 8,
-                    borderRadius: 100,
-                    elevation: 3,
-                    backgroundColor: pressed
-                    ? COLORS.BLUE
-                    : COLORS.GRAY
-                }, 
-                styles.wrapperCustom
-                ]}>
-                    <Text>{item.tag}</Text>
+                <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+                    style={({ pressed }) => [
+                    {
+                        width: 250,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: 12,
+                        borderRadius: 100,
+                        elevation: 3,
+                        backgroundColor: pressed
+                        ? 'gray'
+                        : COLORS.GREEN
+                    }, 
+                    styles.wrapperCustom
+                    ]}>
+                        <Text style={styles.buttontext}> LAUNCH </Text> 
                 </Pressable>
-            )}/>
-
-            <Text style={styles.titles}> DONOR REWARDS </Text> 
-
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 1' 
-            autoCapitalize='words'
-            onChangeText={(name) => setName(name)} />
-
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 2' 
-            autoCapitalize='words'
-            onChangeText={(name) => setName(name)} />
-
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 3' 
-            autoCapitalize='words'
-            onChangeText={(name) => setName(name)} />
-
-            {/* Testing!
-            <Text> 
-                Are variables dynamic? {"\n"} 
-                Handle: @{handle} {"\n"} 
-                Org: {name} {"\n"} 
-                Fundraiser Name: {fundName} {"\n"} 
-                Description: {desc} {"\n"} 
-                Donation Goal: {dongoal} {"\n"} 
-                Test: {usercounter}
-            </Text> */}
-            
-            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
-                style={({ pressed }) => [
-                {
-                    width: 250,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingVertical: 12,
-                    borderRadius: 100,
-                    elevation: 3,
-                    backgroundColor: pressed
-                    ? 'gray'
-                    : COLORS.GREEN
-                }, 
-                styles.wrapperCustom
-                ]}>
-                    <Text style={styles.buttontext}> LAUNCH </Text> 
-            </Pressable>
+            </View>
         </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
-        flex: 1,
+        // backgroundColor: 'lightblue',
+        backgroundColor:'white',
+        // flex: 1,
+        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
         paddingTop: '20%',
     },
-    horizcol: {
-        left: 50, // well this doesn't work :'( fix later
+    flexboxes: {
+        // backgroundColor: 'firebrick',
+        paddingHorizontal: '5%',
+        paddingTop: '5%'
+    },
+    ticker: {
+
     },
     titles: {
         fontWeight: 'bold',
         fontSize: 25,
     },
     input: {
-        borderWidth: 1,
-        borderColor: '#777',
+        backgroundColor: '#F2F2F2',
+        // placeholderTextColor: 'black',
         padding: 8,
-        margin: 10,
-        width: '75%',
+        borderRadius: 10,
+        marginVertical: 8,
+        width: '80%',
     },
-    // tags: {
-    //     marginTop: 5,
-    //     marginHorizontal: 3,
-    //     padding: 8,
-    //     backgroundColor: 'green',
-    //     borderRadius: 10,
-    //     // COLORS.array.forEach(color => {
-    //     //     return color;
-    //     // }),
-    //     fontSize: 12,
-    // },
     launchbutton: {
         top: '9%',
         left: '20%',
