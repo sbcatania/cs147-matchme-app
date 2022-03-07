@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, Pressable, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, TextInput, FlatList, Pressable, TouchableOpacity } from 'react-native';
 // import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
 import Rewards from './Rewards'
@@ -154,6 +154,11 @@ export default function Search() {
                         <Text>{item.tag}</Text>
                     </Pressable>
                 )}/>
+
+                <Text   
+                    onPress={() => navigation.navigate(Profile)}
+                >TOUCH HERE</Text>
+
             </View>
 
             {/* BUTTON */}
@@ -171,6 +176,18 @@ export default function Search() {
                     }]}>
                         <Text style={styles.linktext}> Setup Rewards </Text> 
                 </Pressable>
+
+                {/* <Text> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend neque eu est commodo tristique. Proin at nunc eros. Donec vulputate eleifend arcu, at rutrum mauris venenatis rhoncus. Aliquam ac nibh risus. In ut nunc consectetur, egestas tellus venenatis, commodo tellus. Fusce eget volutpat enim. Mauris bibendum diam ac ante congue aliquet.
+
+                Morbi sit amet sapien ac tortor euismod posuere ut eget mi. Donec sit amet placerat lorem. Fusce elit velit, rutrum non ex non, fringilla aliquam velit. Nunc tincidunt fringilla tempor. Quisque ornare auctor magna ultrices euismod. Maecenas dictum fringilla vestibulum. Proin aliquet consectetur nisl, vel euismod turpis.
+
+                Aliquam congue maximus sagittis. Integer imperdiet bibendum turpis, in dapibus felis vehicula sed. Sed viverra, dui id pretium aliquet, ante est eleifend libero, nec ultrices velit orci et orci. Duis sed est tincidunt, euismod ante sit amet, tristique massa. Fusce a pretium massa. Praesent mauris eros, aliquam id ornare non, finibus porta dui. Sed fringilla nisi enim, ac interdum justo convallis eget. Curabitur nec purus dui. Phasellus pellentesque egestas lectus, nec bibendum magna placerat eu. Maecenas pharetra mauris sed augue faucibus gravida. Morbi vitae ante sit amet leo aliquet mattis. Cras imperdiet blandit dolor, sed dictum magna feugiat ut. Pellentesque at gravida leo, sit amet convallis nulla.
+
+                Morbi vitae massa dictum, volutpat elit at, iaculis turpis. Aliquam bibendum ultricies libero sed pellentesque. Cras at finibus tellus, nec finibus ipsum. Nullam maximus, mauris ac fermentum efficitur, tortor leo aliquet erat, ut vulputate sapien est id quam. Duis tristique consectetur turpis, quis ullamcorper velit porttitor sit amet. Donec gravida vehicula feugiat. Mauris ultrices, justo in semper rhoncus, mauris nisl dictum ante, id fermentum diam orci eu ante. Sed interdum gravida enim molestie feugiat. Suspendisse potenti. Etiam at enim bibendum, blandit ante id, auctor nisl. Praesent imperdiet posuere dolor id bibendum. Mauris faucibus volutpat velit, nec condimentum sapien laoreet ac. Nunc quis lacus eu lectus maximus tincidunt. Morbi interdum ex at eros fringilla, eu scelerisque velit luctus.
+
+                Proin elementum nibh mi, vel facilisis turpis pulvinar in. In commodo vestibulum ultricies. Etiam blandit a odio sed eleifend. Aenean fermentum, massa vel rhoncus commodo, tortor risus maximus nibh, sed fringilla augue nibh a nunc. In interdum nec lectus vitae scelerisque. Maecenas mollis lorem id libero dapibus iaculis. Nullam vulputate nec sapien ac lacinia. Aliquam non urna accumsan, volutpat nibh at, maximus ligula. Phasellus libero lorem, rutrum vitae dolor ac, scelerisque euismod libero. Curabitur elementum sed ante vitae pretium. Aenean eu sodales turpis. Proin in velit non dolor varius ultricies. Ut mollis nibh at neque faucibus, ac efficitur nulla molestie.
+                </Text> */}
 
                 {/* TESTING VARIABLES */}
                 {/* 
@@ -198,7 +215,7 @@ export default function Search() {
                     ? 'gray'
                     : COLORS.GREEN
                 }]}>
-                    <Text style={styles.buttontext}> LAUNCH </Text> 
+                    <Text style={styles.launchbuttontext}> LAUNCH </Text> 
             </Pressable>
         </View>
         </SafeAreaView>
@@ -219,9 +236,6 @@ const styles = StyleSheet.create({
         // backgroundColor: 'firebrick',
         paddingHorizontal: '5%',
         paddingTop: '5%'
-    },
-    ticker: {
-
     },
     titles: {
         fontWeight: 'bold',
@@ -246,29 +260,26 @@ const styles = StyleSheet.create({
         elevation: 3,
         backgroundColor: COLORS.BLUE,
     },
-    launchbutton: {
-        top: '9%',
-        left: '20%',
-        width: 250,
-        paddingVertical: 12,
-        borderRadius: 100,
-        backgroundColor: COLORS.GREEN,
-      },
-    //   separate from rest of page hierarchy
-      launchcontainer: {
-        flex: 1,
-        backgroundColor:'firebrick',
-        justifyContent: 'center',
-        // marginHorizontal: 100,
-        // alignContent: 'flex-end',
-      },
-      linktext: {
+    launchcontainer: { //   separate from rest of page hierarchy
+        position: 'absolute',
+        bottom: 10,
+        left: 80,
+    },
+    linktext: {
         color: COLORS.BLACK,
         fontSize: 20,
-      },
-      buttontext: {
+    },
+    launchbuttontext: {
         color: COLORS.WHITE,
         fontWeight: 'bold',
         fontSize: 35,
-      },
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10,
+    },
+    testing: {
+        color: COLORS.BLUE,
+    }
 });
