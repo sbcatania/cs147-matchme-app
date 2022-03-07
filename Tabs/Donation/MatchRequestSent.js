@@ -17,18 +17,59 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
-export default function MatchRequestSent() {
+export default function MatchRequestSent({navigation}) {
     const [progress, setProgress] = useState(0);
     const ref = useRef();
 
     return (
         <View style={styles.container} >
-            <View style={styles.flex}>
                 <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
                 </Image>
-            </View>
-            <Image source={require('../../assets/Donation/thankyou.png')} style={styles.thankyouimg}>
+            <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
             </Image>
+            <Text style = {styles.thankyoutext}> Match Request Sent! </Text>
+
+            <Pressable onPress={()=>navigation.navigate("DonationConfirmation")}
+         style={({ pressed }) => [
+          {
+            top: '9%',
+            left: '15%',
+            width: 300,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 15,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.WHITE
+          },
+          styles.wrapperCustom
+        ]}
+        >
+            <Text style={styles.buttontextexplore}> Send More Requests </Text> 
+    </Pressable>
+
+            <Pressable onPress={()=>navigation.navigate("Explore")}
+         style={({ pressed }) => [
+          {
+            top: '15%',
+            left: '15%',
+            width: 300,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 15,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.WHITE
+          },
+          styles.wrapperCustom
+        ]}
+        >
+            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text> 
+    </Pressable>
         </View>
     );
   }
@@ -38,10 +79,12 @@ export default function MatchRequestSent() {
       flex: 1,
       backgroundColor: COLORS.GREEN,
     },
-    pagerView: {
-      flex: 1,
-      backgroundColor: COLORS.GREEN,
-  
+    thankyoutext: {
+      textAlign: 'center',
+      color: COLORS.WHITE,
+      fontSize: 30,
+      fontWeight: 'bold',
+      marginTop: 100,
     },
     blacktext: {
       textAlign: 'center',
@@ -57,6 +100,11 @@ export default function MatchRequestSent() {
       letterSpacing: 4,
       color: COLORS.WHITE,
       fontSize: 30,
+    },
+    buttontextexplore: {
+      color: COLORS.GREEN,
+      fontWeight: 'bold',
+      fontSize: 20,
     },
   
   
@@ -104,20 +152,14 @@ export default function MatchRequestSent() {
       fontWeight: 'bold',
       fontSize: 35,
     },
-    flex: {
-      display: 'flex',
-      flex: 1,
-      flexDirection: 'row',
-    },
+
     logoimg: {
       top: '5%',
       left: '5%',
     },
-    matchimg: {
-      left: '1%',
-    },
     thankyouimg: {
-      left: '16%',
+      left: '35%',
+      top: '8%',
     },
     button: {
       top: '10%',
