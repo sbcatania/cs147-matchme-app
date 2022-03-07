@@ -149,8 +149,11 @@ export default function Search() {
                         paddingHorizontal: 10,
                         borderRadius: 100,
                         borderWidth: 2,
+                        backgroundColor: pressed
+                        ? COLORS.BLUE
+                        : 'white',
                         borderColor: pressed
-                        ? COLORS.BLUE // how to make this unique for each tag?
+                        ? COLORS.BLUE // HOW TO MAKE THIS UNIQUE FOR EACH TAG?
                         : COLORS.BLACK,
                         
                     }]}>
