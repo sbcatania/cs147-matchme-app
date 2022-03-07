@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
-// import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
 import Rewards from './Rewards'
 import Profile from './Profile'
-// import Inbox from './MatchRequest/Inbox';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS } from '../Themes/Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import user from '../assets/Icons/user.svg';
 
 /*
 * DOCUMENTATION
@@ -33,6 +30,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 *   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
 *   - TAGS: Make tags hold their color (Probably use a handler)?? 
 *   - SETUP RWDS: Change this to a link click thing.
+*   - USER IMAGE: Style user icon.
 *   After Monday
 *   - BUTTONS: Connect launch button to NFP fundraiser page.
 *   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
@@ -119,16 +117,20 @@ export default function Search() {
                 placeholder='Donation Goal' 
                 keyboardType='numeric'
                 onChangeText={(dongoal) => setDongoal(dongoal)} />
-
-                <Text> User Goal </Text>
-                <Image source={require('../assets/Icons/user.svg')} />
-                <NumericInput 
-                style={styles.ticker}
-                type='up-down' 
-                minValue={0}
-                onChange={(usercounter) => setUserCounter(usercounter)} 
-                step={100} 
-                rounded={true}/>
+                <View style={styles.tickercontainer}>
+                    <View style={styles.userlilcontainer}>
+                        <Image source={require('../assets/Icons/user.png')} />
+                    </View>
+                    <View style={styles.tickerlilcontainer}>
+                        <NumericInput 
+                        style={styles.ticker}
+                        type='up-down' 
+                        minValue={0}
+                        onChange={(usercounter) => setUserCounter(usercounter)} 
+                        step={100} 
+                        rounded={true}/>
+                    </View>
+                </View>
             </View>
 
             {/* TAG CONTENT */}
@@ -241,7 +243,9 @@ const styles = StyleSheet.create({
     },
     titles: {
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 30,
+        letterSpacing: 4,
+        paddingVertical: 15
     },
     input: {
         backgroundColor: '#F2F2F2',
@@ -267,6 +271,20 @@ const styles = StyleSheet.create({
         bottom: 10,
         left: 80,
     },
+    tickercontainer: {
+        flexDirection: 'row'
+    },
+    tickerlilcontainer: {
+        paddingHorizontal: 10,
+        marginTop: 10,
+    },
+    userlilcontainer: {
+        paddingRight: 10,
+        marginTop: 15,
+    },
+    ticker: {
+        // ticker properties
+    },
     linktext: {
         color: COLORS.BLACK,
         fontSize: 20,
@@ -286,7 +304,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#DDDDDD',
         padding: 10,
     },
-    testing: {
-        color: COLORS.BLUE,
-    }
 });
