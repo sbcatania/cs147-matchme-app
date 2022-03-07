@@ -31,7 +31,7 @@ export default function Fundraiser({route}) {
         <Image source = {IMAGES.PROFILE[handle]} style = {styles.sideiconprof}> 
         </Image>
         <Text style = {styles.whitetext}> {data.title} </Text>
-        <Text style = {styles.blacktext}> {data.subtitle} </Text>
+        <Text style = {styles.blacktext}> {data.name} </Text>
         <Text style = {styles.blacktext}> {data.dates} </Text>
         <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
          style={({ pressed }) => [

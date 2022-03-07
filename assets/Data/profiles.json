@@ -1,25 +1,25 @@
 {
     "worldwildlifefund": {
       "title": "Save the Animals",
-      "subtitle": "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
+      "name": "World Wildlife Fund",
       "dates": "February 2022 - March 2023",
       "about": "The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide."
       },
     "malalafund": {
       "title": "Save the World",
-      "subtitle": "This is a subtitle for MF",
+      "name": "Malala Fund",
       "dates": "February 2022 - March 2023",
       "about": "Info here."
       },
     "savethebees": {
       "title": "Save the Bees",
-      "subtitle": "This is a subtitle for STB",
+      "name": "Save the Bees",
       "dates": "February 2022 - March 2023",
       "about": "Info here."
       },
     "paloaltoshelter": {
       "title": "Save Palo Alto",
-      "subtitle": "This is a subtitle for PAS",
+      "name": "Save Palo Alto",
       "dates": "February 2022 - March 2023",
       "about": "Info here."
       }
