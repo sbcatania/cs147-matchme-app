@@ -33,7 +33,7 @@ import landay from '../assets/landay.jpeg'
 *   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
 *   - TAGS: Make tags hold their color (Probably use a handler)
 *   - UI: Clean up visual style using Figma as reference.
-*   - FLEX: Figure out how to use View and Flex stuff to position right.
+*   - FLEX: Figure out how to use View and Flex stuff to position right. Get the hierarchy right.
 *   - STYLING: Separate CSS from tags.
 *   After Monday
 *   - BUTTONS: Connect launch button to NFP fundraiser page.
@@ -64,13 +64,13 @@ export default function Search() {
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
         { tag: 'ENVIRO', key: '1' },
-        { tag: 'ARTS', key: '2' },
+        { tag: 'ART', key: '2' },
         { tag: 'HUNGER', key: '3' },
-        { tag: 'HUMAN RTS', key: '4' },
-        { tag: 'EDUCATION', key: '5' },
+        { tag: 'HUMAN RIGHT', key: '4' },
+        { tag: 'EDUC', key: '5' },
         { tag: 'EQUALITY', key: '6' },
         { tag: 'ANIMALS', key: '7' },
-        { tag: 'CONSERVATION', key: '8' },
+        { tag: 'CONSERVE', key: '8' },
     ]);
 
     // TAGHANDLER: Make touchable components
@@ -135,27 +135,22 @@ export default function Search() {
             {/* TAG CONTENT */}
             <View style={styles.flexboxes}>
                 <FlatList 
-                numColumns={2}
+                numColumns={4}
                 data={tags}
                 renderItem={({ item }) => (
                     <Pressable 
-                    style={styles.tags} 
-                    // onPress={() => navigation.navigate(Fundraiser)} // Change this to just hold its pressed color
+                    // onPress={() => navigation.navigate(Fundraiser)} // On press, add the text to an array to pass to the next page, and hold color
                     style={({ pressed }) => [
                     {
-                        width: 120,
-                        alignItems: 'center',
-                        justifyContent: 'center',
                         marginTop: 5,
+                        marginHorizontal: 2,
                         paddingVertical: 8,
+                        paddingHorizontal: 10,
                         borderRadius: 100,
-                        elevation: 3,
                         backgroundColor: pressed
                         ? COLORS.BLUE
                         : COLORS.GRAY
-                    }, 
-                    styles.wrapperCustom
-                    ]}>
+                    }]}>
                         <Text>{item.tag}</Text>
                     </Pressable>
                 )}/>
@@ -197,10 +192,8 @@ export default function Search() {
                 {
                     width: 250,
                     alignItems: 'center',
-                    justifyContent: 'center',
                     paddingVertical: 12,
                     borderRadius: 100,
-                    elevation: 3,
                     backgroundColor: pressed
                     ? 'gray'
                     : COLORS.GREEN
@@ -257,19 +250,17 @@ const styles = StyleSheet.create({
         top: '9%',
         left: '20%',
         width: 250,
-        // alignItems: 'flex-end',
-        // justifyContent: 'center',
         paddingVertical: 12,
         borderRadius: 100,
-        elevation: 3,
         backgroundColor: COLORS.GREEN,
       },
     //   separate from rest of page hierarchy
       launchcontainer: {
         flex: 1,
         backgroundColor:'firebrick',
-        justifyContent: 'flex-end',
-        alignContent: 'center',
+        justifyContent: 'center',
+        // marginHorizontal: 100,
+        // alignContent: 'flex-end',
       },
       linktext: {
         color: COLORS.BLACK,
