@@ -15,9 +15,7 @@ global.fundname = "Save the Animals";
 
 export default function Fundraiser() {
     const navigation = useNavigation();
-    const donate = () => {
-      navigation.navigate('DonationEntry');
-    };
+    
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -31,7 +29,7 @@ export default function Fundraiser() {
         <Text style = {styles.whitetext}> {fundname} </Text>
         <Text style = {styles.blacktext}> World Wildlife Fund </Text>
         <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate({donate})}
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
          style={({ pressed }) => [
           {
             top: '9%',
