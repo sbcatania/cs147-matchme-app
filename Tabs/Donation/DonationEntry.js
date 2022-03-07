@@ -17,7 +17,7 @@ export default function DonationEntry() {
   const route = useRoute();
   console.log(fundname);
   const donate = () => {
-    navigation.navigate('DonationConfirmation', {entry: entry});
+    navigation.navigate('DonationConfirmation', entry);
   };
 
     return(
