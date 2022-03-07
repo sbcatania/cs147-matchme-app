@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, Pressable, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 // import Explore from './Explore';
 import Fundraiser from './Donation/Fundraiser'
 import Rewards from './Rewards'
@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS } from '../Themes/Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import landay from '../assets/landay.jpeg'
+import moose from '../assets/Icons/user.png';
 
 /*
 * DOCUMENTATION
@@ -31,10 +31,8 @@ import landay from '../assets/landay.jpeg'
 * TODO
 *   Before Monday
 *   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
-*   - TAGS: Make tags hold their color (Probably use a handler)
-*   - UI: Clean up visual style using Figma as reference.
-*   - FLEX: Figure out how to use View and Flex stuff to position right. Get the hierarchy right.
-*   - STYLING: Separate CSS from tags.
+*   - TAGS: Make tags hold their color (Probably use a handler)?? 
+*   - SETUP RWDS: Change this to a link click thing.
 *   After Monday
 *   - BUTTONS: Connect launch button to NFP fundraiser page.
 *   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
@@ -147,17 +145,20 @@ export default function Search() {
                         paddingVertical: 8,
                         paddingHorizontal: 10,
                         borderRadius: 100,
-                        backgroundColor: pressed
-                        ? COLORS.BLUE
-                        : COLORS.GRAY
+                        borderWidth: 2,
+                        borderColor: pressed
+                        ? COLORS.BLUE // how to make this unique for each tag?
+                        : COLORS.BLACK,
+                        
                     }]}>
-                        <Text>{item.tag}</Text>
+                        <Text style={styles.tagtext}>{item.tag}</Text>
                     </Pressable>
                 )}/>
 
-                <Text   
+                {/* Change this setup button to link to rwd page. */}
+                {/* <Text   
                     onPress={() => navigation.navigate(Profile)}
-                >TOUCH HERE</Text>
+                >TOUCH HERE</Text> */}
 
             </View>
 
@@ -268,6 +269,11 @@ const styles = StyleSheet.create({
     linktext: {
         color: COLORS.BLACK,
         fontSize: 20,
+    },
+    tagtext: {
+        color: COLORS.BLACK,
+        fontSize: 12,
+        fontWeight: 'bold',
     },
     launchbuttontext: {
         color: COLORS.WHITE,
