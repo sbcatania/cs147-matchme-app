@@ -40,7 +40,7 @@ function createPost(post_number) {
           </Image>
           <Image source = {IMAGES.SHARE_ICON} style = {styles.sideicon}> 
           </Image>
-          <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(post.donation_link)}>
+          <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(post.donation_link, post.handle)}>
             <Image style = {styles.donateimg} source={IMAGES.DONATE_ICON}/>
           </TouchableOpacity>
           </ImageBackground>

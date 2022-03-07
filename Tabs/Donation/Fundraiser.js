@@ -8,27 +8,31 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
 import Explore from './Explore'
 
 global.fundname = "Save the Animals";
 
-export default function Fundraiser() {
+export default function Fundraiser({route}) {
+    const handle = route.params;
+    let data = DATA.PROFILES[handle];
+    console.log(handle);
+    console.log(data);
     const navigation = useNavigation();
     
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
 
-        <ImageBackground source={moose} style = {styles.bgimg} >
+        <ImageBackground source={IMAGES.BANNER[handle]} style = {styles.bgimg} >
         <TouchableOpacity style = {styles.backbutton} onPress={() => navigation.navigate(Explore)}>
             <Image source={require("../../assets/Donation/arrow.png")}/>
         </TouchableOpacity>
-        <Image source = {require('../../assets/Home/wwflogo.png')} style = {styles.sideiconprof}> 
+        <Image source = {IMAGES.PROFILE[handle]} style = {styles.sideiconprof}> 
         </Image>
-        <Text style = {styles.whitetext}> {fundname} </Text>
-        <Text style = {styles.blacktext}> World Wildlife Fund </Text>
-        <Text style = {styles.blacktext}> February 2022 - March 2023  </Text>
+        <Text style = {styles.whitetext}> {data.title} </Text>
+        <Text style = {styles.blacktext}> {data.subtitle} </Text>
+        <Text style = {styles.blacktext}> {data.dates} </Text>
         <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
          style={({ pressed }) => [
           {
