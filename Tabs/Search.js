@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS } from '../Themes/Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import moose from '../assets/Icons/user.png';
+// import user from '../assets/Icons/user.svg';
 
 /*
 * DOCUMENTATION
@@ -121,6 +121,7 @@ export default function Search() {
                 onChangeText={(dongoal) => setDongoal(dongoal)} />
 
                 <Text> User Goal </Text>
+                <Image source={require('../assets/Icons/user.svg')} />
                 <NumericInput 
                 style={styles.ticker}
                 type='up-down' 
