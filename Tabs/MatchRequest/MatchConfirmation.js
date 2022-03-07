@@ -54,15 +54,15 @@ function ThankYou() {
   const users = [
     {
       name: 'Brynn',
-      avatar: require('../../assets/landay.jpeg'),
+      avatar: require('../../assets/Users/landay.jpeg'),
     },
     {
       name: 'Jess',
-      avatar: require('../../assets/landay.jpeg'),
+      avatar: require('../../assets/Users/landay.jpeg'),
     },
     {
       name: 'Kay',
-      avatar: require('../../assets/landay.jpeg'),
+      avatar: require('../../assets/Users/landay.jpeg'),
     },
   ];
 

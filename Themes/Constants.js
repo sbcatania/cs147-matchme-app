@@ -10,8 +10,8 @@ export const COLORS = {
 
 export const DATA = {
     POSTS     : require('../assets/Data/posts.json'),
+    PROFILES  : require('../assets/Data/profiles.json'),
     // DONATION_HISTORY: require('../assets/Data/donation-history.json'),
-    // PROFILES  : './assets/Data/profile.json',
   };
 
 export const IMAGES = {
@@ -20,7 +20,7 @@ export const IMAGES = {
     DISLIKE_ICON  : require('../assets/Home/xicon.png'),
     SHARE_ICON    : require('../assets/Home/share.png'),
     DONATE_ICON   : require('../assets/Navigation/donate.png'),
-
+    
     // Feed images, key is the post number
     HOME: {
         1: require('../assets/Home/home.png'),
@@ -29,8 +29,8 @@ export const IMAGES = {
         4: require('../assets/Home/home4.jpg'),
         5: require('../assets/Home/home5.jpg'),
     },
-
-    // Profile images, key is handle
+    
+    // Profile images of non-profit pages, key is nonprofit handle
     PROFILE: {
         'worldwildlifefund' : require('../assets/Home/wwflogo.png'),
         'malalafund'        : require('../assets/Home/malala.jpg'),
@@ -38,4 +38,18 @@ export const IMAGES = {
         'paloaltoshelter'   : require('../assets/Home/shelter.jpg'),
     },
     
-}
+    // Banner images of non-profits, key is nonprofit handle
+    BANNER: {
+        'worldwildlifefund' : require('../assets/Donation/moose.png'),
+        'malalafund'        : require('../assets/Donation/moose.png'),
+        'savethebees'       : require('../assets/Donation/moose.png'),
+        'paloaltoshelter'   : require('../assets/Donation/moose.png'),
+    },
+    
+    // Profile images of donors, key is donor handle
+    DONORS: {
+        'james'   : require('../assets/Users/landay.jpeg'),
+        // 'pablo'   : require('../assets/Users/landay.jpg'),
+    },
+    
+  };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Image, TextInput, StyleSheet, Button, Pressable, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import styled from 'styled-components/native';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
 import MatchConfirmation from './MatchConfirmation';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -81,7 +81,7 @@ const Inbox = ({ navigation }) => {
     id: 1,
     userName: 'James L',
     cause: 'Code in Place',
-    avatar: require('../../assets/landay.jpeg'),
+    avatar: require('../../assets/Users/landay.jpeg'),
     content: "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
     amount: '$5'
   }));

@@ -3,7 +3,7 @@
       "id": 1,
       "userName": "James L",
       "cause": "Code in Place",
-      "avatar": "../assets/landay.jpeg",
+      "avatar": "../assets/Users/landay.jpeg",
       "content": "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
       "amount": "$5"
     },
@@ -11,7 +11,7 @@
       "id": 1,
       "userName": "James James",
       "cause": "Homework Factory",
-      "avatar": "../assets/landay.jpeg",
+      "avatar": "../assets/Users/landay.jpeg",
       "content": "I like giving homework so I think you should support this cause",
       "amount": "$500,000"
     },
@@ -19,7 +19,7 @@
       "id": 1,
       "userName": "Landay",
       "cause": "Hall of Shame",
-      "avatar": "../assets/landay.jpeg",
+      "avatar": "../assets/Users/landay.jpeg",
       "content": "Match here so they can make their site not hall of shame",
       "amount": "$100"
     }
