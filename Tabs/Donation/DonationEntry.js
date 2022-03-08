@@ -9,31 +9,27 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Themes/Constants';
 
-export default function DonationEntry() {
+export default function DonationEntry({route}) {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
-  const route = useRoute();
-  console.log(fundname);
+  console.log(handle);
   const donate = () => {
     navigation.navigate('DonationConfirmation', entry);
   };
 
-  return (
-    <SafeAreaView style={styles.container} >
-      <ImageBackground style={styles.bgimg} source={moose}>
-        <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(Fundraiser)}>
-          <Image source={require("../../assets/Donation/arrow.png")} />
-        </TouchableOpacity>
-        <View style={styles.rectangle}>
-          <Text style={styles.description}> Supporting Save the Animals Fundraiser</Text>
-          <TextInput
-            style={styles.textInput}
-            value={entry} // the entry variable in the state is displayed by the TextInput
-            keyboardType="numeric"
-            onChangeText={(text) => setEntry(text)}
-          />
+    return(
+      <SafeAreaView style = {styles.container} >
+     <ImageBackground style = {styles.bgimg} source = {moose}>
+       <View style = {styles.rectangle}>
+         <Text style = {styles.description}> Supporting Save the Animals </Text>
+      <TextInput
+        style={styles.textInput}
+        value={entry} // the entry variable in the state is displayed by the TextInput
+        keyboardType="numeric"
+        onChangeText={(text) => setEntry(text)}
+        />
           {/*<View style={styles.flex}>
             <View style={styles.suggestion}>
               <Text style={styles.suggestiontext}>$3</Text>
