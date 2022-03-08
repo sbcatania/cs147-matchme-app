@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
+import { COLORS } from '../Themes/Constants';
+import Search from './Search'
 // import * as ImagePicker from 'expo-image-picker';
 
 
@@ -13,16 +15,22 @@ import { useState } from 'react';
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
 /* 
 * TODO: 
-*   - DYNAMIC ADD/DELETE:
-*       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
 *   - IMAGE PICKER: debug node install and add image picker
 *   - CSS ACROSS PAGES: make sure styling is same across nfp pages
+* 
+*   ABANDON: 
+*   - DYNAMIC ADD/DELETE:
+*       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
 */
 
 export default function Fundraiser() {
   
   const [rwd1, setRwd1] = useState('Reward Level 1');
+  const [rwd2, setRwd2] = useState('Reward Level 2');
+  const [rwd3, setRwd3] = useState('Reward Level 3');
 
+  // NAVIGATION: Setup nav between pages
+  const navigation = useNavigation();
 
   // Image picker stuff
   // const [image, setImage] = useState(null);
@@ -46,7 +54,7 @@ export default function Fundraiser() {
         {/* <Text style = {styles.blacktext}> Profile </Text> */}
 
         <View style={styles.headerContainer}>
-          <Text style={styles.titles}>Hello</Text>
+          <Text style={styles.titles}>Donor Rewards</Text>
         </View>
 
         {/* Image picker here */}
@@ -64,9 +72,9 @@ export default function Fundraiser() {
             autoCapitalize='words'
             onChangeText={(rwd1) => setRwd1(rwd1)} />
 
-            <Pressable style={styles.minusButtonPressable}>
+            {/* <Pressable style={styles.minusButtonPressable}>
               <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable>
+            </Pressable> */}
             
           </View> 
 
@@ -74,31 +82,63 @@ export default function Fundraiser() {
             
             <TextInput 
             style={styles.input} 
-            placeholder='Reward Level 1' 
+            placeholder='Reward Level 2' 
             autoCapitalize='words'
-            onChangeText={(rwd1) => setRwd1(rwd1)} />
+            onChangeText={(rwd2) => setRwd2(rwd2)} />
 
-            <Pressable style={styles.minusButtonPressable}>
+            {/* <Pressable style={styles.minusButtonPressable}>
               <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable>
+            </Pressable> */}
             
           </View> 
 
-          <View style={styles.singleInputLine}>
+          <View style={styles.singleInputLine}> 
+            
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 3' 
+            autoCapitalize='words'
+            onChangeText={(rwd3) => setRwd3(rwd3)} />
+            
+          </View> 
+
+          {/* <View style={styles.singleInputLine}>
             <Image source={require('../assets/Icons/add.png')} style={styles.buttonSize} />
-          </View>
+          </View> */}
         </View>
 
-        <Text style={styles.testing}> {rwd1} </Text>
+        <Text style={styles.testing}> 
+        {rwd1} {"\n"} 
+        {rwd2} {"\n"} 
+        {rwd3} {"\n"} 
+        </Text>
 
       </View>
+        
+      <View style={styles.axnButtonContainer}>
+          <Pressable style={styles.axnButton} onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
+              style={({ pressed }) => [
+              {
+                  width: 200,
+                  alignItems: 'center',
+                  paddingVertical: 12,
+                  borderRadius: 100,
+                  backgroundColor: pressed
+                  ? 'gray'
+                  : COLORS.GREEN
+              }]}>
+                  <Text style={styles.axnButtonText}> Confirm </Text> 
+          </Pressable>
+      </View>
+      
       </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'gray',
+      backgroundColor: 'lightgray',
+      height: '100%',
     },
     blacktext: {
         letterSpacing: 4,
@@ -153,5 +193,21 @@ const styles = StyleSheet.create({
       position: 'absolute', 
       right: 0, 
       top: 3,
+    },
+    axnButtonContainer: {//   separate from rest of content
+      backgroundColor: 'lightblue',
+      position: 'absolute',
+      bottom: 10,
+      left: 100,
+    },
+    axnButtonText: {
+      color: COLORS.WHITE,
+      fontWeight: 'bold',
+      fontSize: 35,
+    },
+    axnButton: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10,
     },
 });
