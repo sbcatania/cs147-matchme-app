@@ -103,32 +103,40 @@ export const DATA = {
       },
       {
         id: 2,
-        userName: "James James",
+        userName: "Jennifer P",
         cause: "Homework Factory",
-        avatar: require("../assets/Users/landay.jpeg"),
+        avatar: require("../assets/Users/avatar-1.png"),
         content: "I like giving homework so I think you should support this cause",
-        amount: "$500,000"
+        amount: "$20"
       },
       {
         id: 3,
-        userName: "Landay",
+        userName: "Malaysia J",
         cause: "Hall of Shame",
-        avatar: require("../assets/Users/landay.jpeg"),
+        avatar: require("../assets/Users/avatar-2.png"),
         content: "Match here so they can make their site not hall of shame",
-        amount: "$100"
+        amount: "$500"
+      },
+      {
+        id: 4,
+        userName: "Tai G",
+        cause: "Hall of Shame",
+        avatar: require("../assets/Users/avatar-5.png"),
+        content: "Match here so they can make their site not hall of shame",
+        amount: "$35"
       }
     ],
     USERS: [
       {
-        name: 'Jennifer',
+        name: 'Jennifer P',
         avatar: require('../assets/Users/avatar-1.png'),
       },
       {
-        name: 'Malaysia',
+        name: 'Malaysia J',
         avatar: require('../assets/Users/avatar-2.png'),
       },
       {
-        name: 'Tai',
+        name: 'Tai G',
         avatar: require('../assets/Users/avatar-5.png'),
       },
     ],
