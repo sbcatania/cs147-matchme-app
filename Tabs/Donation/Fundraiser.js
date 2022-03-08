@@ -11,32 +11,28 @@ import moose from '../../assets/Donation/moose.png';
 import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
 import Explore from './Explore'
 
-global.fundname = "Save the Animals";
-
 export default function Fundraiser({route}) {
     const handle = route.params;
     let data = DATA.PROFILES[handle];
     console.log(handle);
     console.log(data);
     const navigation = useNavigation();
+    global.handle = handle;
     
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
 
         <ImageBackground source={IMAGES.BANNER[handle]} style = {styles.bgimg} >
-        <TouchableOpacity style = {styles.backbutton} onPress={() => navigation.navigate(Explore)}>
-            <Image source={require("../../assets/Donation/arrow.png")}/>
-        </TouchableOpacity>
         <Image source = {IMAGES.PROFILE[handle]} style = {styles.sideiconprof}> 
         </Image>
         <Text style = {styles.whitetext}> {data.title} </Text>
         <Text style = {styles.blacktext}> {data.name} </Text>
         <Text style = {styles.blacktext}> {data.dates} </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry)}
+        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry, handle)}
          style={({ pressed }) => [
           {
-            top: '9%',
+            top: '13%',
             left: '20%',
             width: 250,
             alignItems: 'center',
@@ -79,21 +75,6 @@ const styles = StyleSheet.create({
     scrollView: {
       backgroundColor: 'white',
     },
-    backbutton: {
-      top: '2%',
-    },
-    
-    donatebutton: {
-      top: '9%',
-      left: '20%',
-      width: 250,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: 12,
-      borderRadius: 100,
-      elevation: 3,
-      backgroundColor: COLORS.GREEN,
-    },
     buttontext: {
       color: COLORS.WHITE,
       fontWeight: 'bold',
@@ -115,25 +96,25 @@ const styles = StyleSheet.create({
         width: 100,
     }, 
     whitetext: {
-      top: '2%',
+      top: '6%',
       left: '34%',
       fontSize: 30,
       color: 'white',
       fontWeight: 'bold',
     },
     blacktext: {
-      top: '5%',
+      top: '10%',
       left: '34%',
       fontSize: 18,
       color: 'black',
     },
     infotext: {
-      top: '15%',
+      top: '17%',
       left: '3%',
       marginBottom: 20,
     },
     info: {
-      top: '15%',
+      top: '17%',
       marginBottom: 20,
     }
 });
