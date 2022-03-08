@@ -22,7 +22,7 @@ export default function DonationEntry({navigation}) {
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
        <View style = {styles.rectangle}>
-         <Text style = {styles.description}> Supporting FIX </Text>
+         <Text style = {styles.description}> Supporting Save the Animals </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput

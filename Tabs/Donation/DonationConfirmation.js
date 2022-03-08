@@ -25,7 +25,7 @@ function Confirmation() {
       <View style={styles.rectangle} >
         <Text style={styles.blacktext}>${route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
-         <Text style={styles.bluetext}> HELLO </Text>
+         <Text style={styles.bluetext}> Saving the Animals </Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here's more information on your donation:
         </Text>
@@ -65,11 +65,7 @@ function ThankYou() {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Pressable style={styles.backbutton}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Image source={IMAGES.DONATION_ARROW} />
-            </Pressable>
+           
             <Text style={styles.modalText}>Match Request</Text>
             <SafeAreaView>
               <View style={{ display: "flex", justifyContent: "space-between" }}>
@@ -85,7 +81,7 @@ function ThankYou() {
               </View>
               <TextInput
                 style={styles.input}
-                defaultValue="HELLO"
+                defaultValue="Saving the Animals"
                 editable={false} />
 
               <TextInput
@@ -117,6 +113,11 @@ function ThankYou() {
                 fontWeight: 'bold'
               }}> Send Match Request </Text>
             </Pressable>
+            {/* <Pressable style={styles.backbutton}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Image source={IMAGES.DONATION_ARROW} />
+            </Pressable> */}
           </View>
         </View>
       </Modal>
@@ -393,7 +394,7 @@ const styles = StyleSheet.create({
     // placeholderTextColor: 'black',
     borderRadius: 10,
     marginVertical: 8,
-    width: 200,
+    width: 250,
   },
   message: {
     height: 200,
@@ -404,6 +405,7 @@ const styles = StyleSheet.create({
     // placeholderTextColor: 'black',
     borderRadius: 10,
     marginVertical: 8,
-    width: 200,
+    width: 250,
+    marginBottom: 20,
   }
 });

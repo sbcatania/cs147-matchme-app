@@ -1,244 +1,290 @@
-import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressable } from "react-native";
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
+import Fundraiser from './Donation/Fundraiser'
+import Profile from './Nonprofit/NonprofitProfile'
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
-import { COLORS } from '../Constants';
-import Search from './Search'
-// import * as ImagePicker from 'expo-image-picker';
+import NumericInput from 'react-native-numeric-input';
+import { COLORS, IMAGES } from '../Constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-// CURRENTLY USING TO DEVELOP NFP RWDS PAGE
-/* 
-* TODO: 
-*   - IMAGE PICKER: debug node install and add image picker
-*   - CSS ACROSS PAGES: make sure styling is same across nfp pages
+/*
+* DOCUMENTATION
+* Text: https://reactnative.dev/docs/text
+* TextInput: https://reactnative.dev/docs/textinput
+* FlatList: https://reactnative.dev/docs/flatlist
+* Counter: https://www.npmjs.com/package/react-native-numeric-input 
+* Useful TextInput: https://blog.logrocket.com/complete-guide-textinput-react-native/ 
 * 
-*   ABANDON: 
-*   - DYNAMIC ADD/DELETE:
-*       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
-*       - https://stackoverflow.com/questions/63712680/how-to-dynamically-add-delete-view-in-react-native
+* 
+* QUESTIONS
+* 
+* 
+* 
+* 
+* TODO
+*   - TAGS (DANA): Hold color and pass data to next screen with state variables.
+*   - NAV: Reconnect buttons once scaffolding is set up.
+*   - STATE VARS: Setup state vars for text input also.
+*   - UI: Finalize CSS styling.
 */
 
-export default function Fundraiser() {
-  
-  const [rwd1, setRwd1] = useState('Reward Level 1');
-  const [rwd2, setRwd2] = useState('Reward Level 2');
-  const [rwd3, setRwd3] = useState('Reward Level 3');
+// Main fn
+export default function Search() {
+    
+    // TEXTINPUT: Setup state variables for text and numeric inputs
+    const [handle, setHandle] = useState('@worldwildlifefundintl');
+    const [name, setName] = useState('World Wildlife Fund');
+    const [fundName, setFundname] = useState('Save the Animals Fundraiser');
+    const [desc, setDesc] = useState('About my fundraiser');
+    const [dongoal, setDongoal] = useState('100,000');
+    // const [doncounter, setDonCounter] = useState(0);
+    const [usercounter, setUserCounter] = useState(0);
 
-  // NAVIGATION: Setup nav between pages
-  const navigation = useNavigation();
+    // NAVIGATION: Setup nav between pages
+    const navigation = useNavigation();
 
-  // Image picker stuff
-  // const [image, setImage] = useState(null);
-  // const pickImage = async () => {
-  //   // No permissions request is necessary for launching the image library
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //     quality: 1,
-  //   });
-  //   if (!result.cancelled) {
-  //     setImage(result.uri);
-  //   }
-  // };
-  
-  return(
+    // TAGDATA: Tag list
+    const [tags, setTags] = useState ([
+        { tag: 'ENVIRO', key: '1' },
+        { tag: 'ART', key: '2' },
+        { tag: 'HUNGER', key: '3' },
+        { tag: 'HUMAN RIGHT', key: '4' },
+        { tag: 'EDUC', key: '5' },
+        { tag: 'EQUALITY', key: '6' },
+        { tag: 'ANIMALS', key: '7' },
+        { tag: 'CONSERVE', key: '8' },
+    ]);
 
-      <SafeAreaView styles={styles.safeAreaContainer}>
-      <View style={styles.container}>
-        {/* <Text style = {styles.blacktext}> Profile </Text> */}
+    // TAGHANDLER: Make touchable components
+    const pressHandler = (id) => {
+        setTags((prevTags) => {
+            /* do whatever action to the tags */
+        });
+    }
 
-        <View style={styles.headerContainer}>
-          <Text style={styles.titles}>Donor Rewards</Text>
+    // Plz show up
+    return (
+        
+        <SafeAreaView style={{ flex: 1 }}>
+        <View style={styles.container}>
+
+            {/* MY FUNDRAISER CONTENT */}
+
+            <View style={styles.headerContainer}>
+                <Text style={styles.titles}> My Fundraiser </Text> 
+            </View>
+            
+            <View style={styles.flexboxes}> 
+                <TextInput 
+                style={styles.input} 
+                placeholder='Org Handle' 
+                autoCapitalize='none'
+                onChangeText={(handle) => setHandle(handle)} />
+                {/* left={<TextInput.Icon name='landay'/>}  // get this working for fun */}
+                
+                <TextInput 
+                style={styles.input} 
+                placeholder='Org Name' 
+                autoCapitalize='words'
+                onChangeText={(name) => setName(name)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Fundraiser Name' 
+                autoCapitalize='words'
+                onChangeText={(fundName) => setFundname(fundName)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Fundraiser Description' 
+                multiline
+                onChangeText={(desc) => setDesc(desc)} />
+
+                <TextInput 
+                style={styles.input} 
+                placeholder='Donation Goal' 
+                keyboardType='numeric'
+                onChangeText={(dongoal) => setDongoal(dongoal)} />
+                <View style={styles.tickercontainer}>
+                    <View style={styles.userlilcontainer}>
+                        <Image source={IMAGES.USER_ICON} />
+                    </View>
+                    <View style={styles.tickerlilcontainer}>
+                        <NumericInput 
+                        style={styles.ticker}
+                        type='up-down' 
+                        minValue={0}
+                        onChange={(usercounter) => setUserCounter(usercounter)} 
+                        step={100} 
+                        rounded={true}/>
+                    </View>
+                </View>
+            </View>
+
+            {/* TAG CONTENT */}
+            <View style={styles.flexboxes}>
+                <FlatList 
+                numColumns={4}
+                data={tags}
+                renderItem={({ item }) => (
+                    <Pressable 
+                    // onPress={() => navigation.navigate(Fundraiser)} // On press, add the text to an array to pass to the next page, and hold color
+                    style={({ pressed }) => [
+                    {
+                        marginTop: 5,
+                        marginHorizontal: 2,
+                        paddingVertical: 8,
+                        paddingHorizontal: 10,
+                        borderRadius: 100,
+                        borderWidth: 2,
+                        backgroundColor: pressed
+                        ? COLORS.BLUE
+                        : 'white',
+                        borderColor: pressed
+                        ? COLORS.BLUE // HOW TO MAKE THIS UNIQUE FOR EACH TAG?
+                        : COLORS.BLACK,
+                        
+                    }]}>
+                        <Text style={styles.tagtext}>{item.tag}</Text>
+                    </Pressable>
+                )}/>
+
+                {/* Change this setup button to link to rwd page. */}
+                {/* <Text   
+                    onPress={() => navigation.navigate(Profile)}
+                >TOUCH HERE</Text> */}
+
+            </View>
+
+            {/* BUTTON */}
+            <View style={styles.flexboxes}>
+                <Pressable onPress={() => navigation.navigate(Profile)} // CHANGE TO RWDS SCREEN
+                    style={({ pressed }) => [
+                    {
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingVertical: 5,
+                        borderRadius: 100,
+                        backgroundColor: pressed
+                        ? COLORS.BLUE
+                        : COLORS.GRAY
+                    }]}>
+                        <Text style={styles.linktext}> Setup Rewards </Text> 
+                </Pressable>
+
+                {/* TESTING VARIABLES */}
+                {/* 
+                <Text> 
+                    Are variables dynamic? {"\n"} 
+                    Handle: @{handle} {"\n"} 
+                    Org: {name} {"\n"} 
+                    Fundraiser Name: {fundName} {"\n"} 
+                    Description: {desc} {"\n"} 
+                    Donation Goal: {dongoal} {"\n"} 
+                    Test: {usercounter}
+                </Text> */}
+            </View>
         </View>
 
-        {/* Image picker here */}
-        {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button title="Pick an image from camera roll" onPress={pickImage} />
-            {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-          </View> */}
-        
-        <View style={styles.mainContent}>
-          <View style={styles.singleInputLine}> 
-            
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 1' 
-            autoCapitalize='words'
-            onChangeText={(rwd1) => setRwd1(rwd1)} />
-
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+        <View style={styles.launchcontainer}>
+            <Pressable onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+                style={({ pressed }) => [
+                {
+                    width: 250,
+                    alignItems: 'center',
+                    paddingVertical: 12,
+                    borderRadius: 100,
+                    backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.GREEN
+                }]}>
+                    <Text style={styles.launchbuttontext}> LAUNCH </Text> 
             </Pressable>
-          </View> 
-
-          <View style={styles.singleInputLine}> 
-            
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 2' 
-            autoCapitalize='words'
-            onChangeText={(rwd2) => setRwd2(rwd2)} />
-
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
-            </Pressable>
-            
-          </View> 
-
-          <View style={styles.singleInputLine}> 
-            
-            <TextInput 
-            style={styles.input} 
-            placeholder='Reward Level 3' 
-            autoCapitalize='words'
-            onChangeText={(rwd3) => setRwd3(rwd3)} />
-
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
-            </Pressable>
-            
-          </View> 
-
-          {/* <View style={styles.singleInputLine}>
-            <Image source={require('../assets/Icons/add.png')} style={styles.buttonSize} />
-          </View> */}
         </View>
-
-        <View style={styles.previewContainer}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.titles}> 
-              Preview
-            </Text>
-          </View>
-
-          <View style={styles.mainContent}>
-            <View style={styles.cuteRect}>
-              <Text style={styles.previewText}> 
-                My Donor Rewards {"\n"} {"\n"} 
-                Reward 1: {"\t\t"} {rwd1} {"\n"} 
-                Reward 2: {"\t\t"} {rwd2} {"\n"} 
-                Reward 3: {"\t\t"} {rwd3} {"\n"} 
-              </Text>
-            </View> 
-          </View>
-        </View>
-
-        
-
-      </View>
-        
-      <View style={styles.axnButtonContainer}>
-          <Pressable style={styles.axnButton} onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
-              style={({ pressed }) => [
-              {
-                  width: 250,
-                  alignItems: 'center',
-                  paddingVertical: 12,
-                  borderRadius: 100,
-                  backgroundColor: pressed
-                  ? 'gray'
-                  : COLORS.GREEN
-              }]}>
-                  <Text style={styles.axnButtonText}> CONFIRM </Text> 
-          </Pressable>
-      </View>
-      
-      </SafeAreaView>
-  );
-}
+        </SafeAreaView>
+    );
+};
 
 const styles = StyleSheet.create({
-    safeAreaContainer: {
-      backgroundColor: 'white',
-    },
     container: {
-      backgroundColor: 'white',
-      height: '100%',
+        // backgroundColor: 'lightblue',
+        backgroundColor:'white',
+        // flex: 1,
+        // flexDirection: 'column',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // paddingTop: '10%',
     },
-    blacktext: {
+    flexboxes: {
+        // backgroundColor: 'firebrick',
+        paddingHorizontal: 20,
+        paddingTop: '5%'
+    },
+    headerContainer: {
+        marginHorizontal: 10,
+    },
+    titles: { // text
+        fontWeight: 'bold',
+        fontSize: 30,
+        paddingTop: 25,
+        textAlign: 'center',
         letterSpacing: 4,
-        top: '7%',
-        left: '38%',
-        color: 'black',
-        fontSize: 20,
-      },
-    input: { // props for TextInput
+    },
+    input: {
         backgroundColor: '#F2F2F2',
         // placeholderTextColor: 'black',
         padding: 8,
         borderRadius: 10,
-        marginVertical: 8,
-        width: '80%',
-        height: 35,
+        marginBottom: 20,
+        width: '100%',
+    },
+    rewardslink: {
+        top: '9%',
+        left: '20%',
+        width: 250,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        borderRadius: 100,
+        elevation: 3,
+        backgroundColor: COLORS.BLUE,
+    },
+    launchcontainer: { //   separate from rest of page hierarchy
         position: 'absolute',
-        left: 0,
-        bottom: 2,
+        bottom: 10,
+        left: 80,
     },
-    previewText: { // text
+    tickercontainer: {
+        flexDirection: 'row'
+    },
+    tickerlilcontainer: {
+        paddingHorizontal: 10,
+        marginTop: 10,
+    },
+    userlilcontainer: {
+        paddingRight: 10,
+        marginTop: 15,
+    },
+    ticker: {
+        // ticker properties
+    },
+    linktext: {
+        color: COLORS.BLACK,
+        fontSize: 20,
+    },
+    tagtext: {
+        color: COLORS.BLACK,
+        fontSize: 12,
         fontWeight: 'bold',
-        paddingVertical: 10,
-        margin: 10,
-        fontSize: 22,
     },
-    mainContent: { // container view
-      // backgroundColor: 'firebrick',
-      marginHorizontal: 20,
+    launchbuttontext: {
+        color: COLORS.WHITE,
+        fontWeight: 'bold',
+        fontSize: 35,
     },
-    previewContainer: {
-      // backgroundColor: 'lightblue',
-      height: '100%',
-    },
-    headerContainer: { // view (including text position)
-      // backgroundColor: 'gray',
-      marginHorizontal: 10,
-      marginBottom: 10,
-    },
-    titles: { // text
-      fontWeight: 'bold',
-      fontSize: 30,
-      paddingTop: 25,
-      textAlign: 'center',
-      letterSpacing: 4,
-    },
-    singleInputLine: { // view
-        // backgroundColor: 'firebrick',
-        height: 55,
-        // marginHorizontal: 10,
-        flexDirection: 'row',
-        justifyContent: 'center', // horizontal movement on x axis
-        alignContent: 'center',
-    },
-    buttonSize: { // handle image style of small button
-      resizeMode: 'stretch', 
-      width:50, 
-      height:50,
-    },
-    checkButtonPressable: { // handle position of check button
-      // backgroundColor: 'blue', // just to see where the container is
-      position: 'absolute', 
-      right: 0, 
-      top: 0,
-    },
-    axnButtonContainer: {//   separate from rest of content
-      // backgroundColor: 'lightblue',
-      position: 'absolute',
-      bottom: 10,
-      left: 80,
-    },
-    axnButtonText: {
-      color: COLORS.WHITE,
-      fontWeight: 'bold',
-      fontSize: 35,
-    },
-    axnButton: {
+    button: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
-    },
-    cuteRect: {
-      backgroundColor:'#F2F2F2',
-      margin: 10,
-      borderRadius: 5,
-      height: '65%'
     },
 });

@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Nonprofit from './Tabs/Nonprofit';
-import Profile from './Tabs/Profile';
+import Profile from './Tabs/Nonprofit/NonprofitProfile';
 import {COLORS} from './Constants';
 
 const Tab = createBottomTabNavigator();
