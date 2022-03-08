@@ -198,11 +198,12 @@ const styles = StyleSheet.create({
     headerContainer: { // view (including text position)
       // backgroundColor: 'gray',
       marginHorizontal: 10,
+      marginBottom: 10,
     },
     titles: { // text
       fontWeight: 'bold',
       fontSize: 30,
-      paddingVertical: 25,
+      paddingTop: 25,
       textAlign: 'center',
       letterSpacing: 4,
     },

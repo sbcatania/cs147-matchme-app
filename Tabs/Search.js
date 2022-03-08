@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     titles: { // text
         fontWeight: 'bold',
         fontSize: 30,
-        paddingVertical: 25,
+        paddingTop: 25,
         textAlign: 'center',
         letterSpacing: 4,
     },
@@ -258,8 +258,8 @@ const styles = StyleSheet.create({
         // placeholderTextColor: 'black',
         padding: 8,
         borderRadius: 10,
-        marginVertical: 8,
-        width: '80%',
+        marginBottom: 20,
+        width: '100%',
     },
     rewardslink: {
         top: '9%',
