@@ -30,26 +30,30 @@ const Inbox = ({ navigation }) => {
   // DYNAMIC RENDER: Match Requests
   const _renderRequests = ({ item }) => {
     return (
-      <View style={{ paddingLeft: 20, paddingRight: 40 }}>
-        <Header>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Avatar source={item.avatar} />
-            <UserName>{item.userName} - {item.cause}</UserName>
+      <View style={styles.matchEntry}>
+        
+        <Header> 
+          <View style={styles.userInfo}>
+            <Avatar style={styles.avatarContainer} source={item.avatar} />
+            <UserName style={styles.unContainer}>{item.userName} - {item.cause}</UserName>
           </View>
-          <Amount>{item.amount}</Amount>
+
+          <Amount style={styles.donAmount}>{item.amount}</Amount>
         </Header>
+        
         <Content style={{width:"100%", justifyContent:"space-between"}}>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
             <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
+
       </View>
     )
   }
 
 
-  // DYNAMIC RENDER: Mew Activity
+  // DYNAMIC RENDER: New Activity
   const _renderActivity = ({ item }) => {
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
@@ -62,7 +66,8 @@ const Inbox = ({ navigation }) => {
   }
 
   return (
-    <Container>
+    // this Container component has a built in 5px margin
+    <Container> 
       {/* ??? */}
        <Modal
         animationType="slide"
@@ -216,11 +221,12 @@ const ContentText = styled.Text`
 const styles = StyleSheet.create({
   safeContainer: {
     top: 35,
-    // backgroundColor: 'pink', 
+    backgroundColor: 'pink', 
     flex: 1,
   },
   pageContentContainer: {
     // backgroundColor: 'lightgreen'
+    paddingHorizontal: 12,
   },
   container: {
     backgroundColor: 'lightblue',
@@ -251,9 +257,30 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 10,
   },
-  flatlistContainer: {
+  flatlistContainer: { // only the wrapper for list content
     flexGrow: 0,
     backgroundColor: 'firebrick',
+  },
+  matchEntry: { // the line containing a single match request, a View
+    // paddingLeft: 20, 
+    // paddingRight: 40,
+    backgroundColor: 'blue',
+  },
+  userInfo: { // the line containing username, org, avatar, a View
+    flexDirection: 'row', 
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  donAmount: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    right: 0,
+  },
+  avatarContainer: {
+    backgroundColor: 'gray'
+  },
+  unContainer: {
+    backgroundColor: 'yellow',
   },
   flex: {
     flexDirection: 'row',
