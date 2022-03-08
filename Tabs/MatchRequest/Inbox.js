@@ -53,7 +53,7 @@ const Inbox = ({ navigation }) => {
         <Content>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-                <Image style={{ width: 50, height: 50, float:"right"}} source={require("../../assets/Inbox/check.png")} />
+            <Image style={{ width: 50, height: 50, float: "right" }} source={require("../../assets/Inbox/check.png")} />
           </TouchableOpacity>
         </Content>
       </View>
@@ -64,12 +64,12 @@ const Inbox = ({ navigation }) => {
     return (
       <Card>
         <CardContent>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent:"space-between" }}>
-              <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
-              <TouchableOpacity onPress={() => setModalVisible(true)}>
-                <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
-              </TouchableOpacity>
-            </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
+            <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
+              <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
+            </TouchableOpacity>
+          </View>
         </CardContent>
       </Card>
     )
@@ -88,23 +88,24 @@ const Inbox = ({ navigation }) => {
         }}
       >
         <View style={styles.centeredView}>
+
           <View style={styles.modalView}>
             <Pressable
               onPress={() => setModalVisible(!modalVisible)}
+              style={{ float: "left" }}
             >
               <Image source={require('../../assets/Donation/arrow.png')} />
             </Pressable>
             <SafeAreaView style={styles.container} >
-              <View style={styles.rectangle}>
-                <Text style={styles.description}> Save the Animals Fundraiser</Text>
-                <Text>Matching James's donation</Text>
-                <TextInput
-                  style={styles.textInput}
-                  value={donAmt} // the text variable in the state is displayed by the TextInput
-                  keyboardType="numeric"
-                  onChangeText={(newText) => setDonAmt(newText)}
-                />
-                {/*<View style={styles.flex}>
+              <Text style={styles.description}> Save the Animals Fundraiser</Text>
+              <Text>Matching James's donation</Text>
+              <TextInput
+                style={styles.textInput}
+                value={donAmt} // the text variable in the state is displayed by the TextInput
+                keyboardType="numeric"
+                onChangeText={(newText) => setDonAmt(newText)}
+              />
+              {/*<View style={styles.flex}>
                   <View style={styles.suggestion}>
                     <Text style={styles.suggestiontext}>$3</Text>
                   </View>
@@ -115,27 +116,25 @@ const Inbox = ({ navigation }) => {
                     <Text style={styles.suggestiontext}>$10</Text>
                   </View>
                 </View>*/}
-                <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
-                  style={({ pressed }) => [
-                    {
-                      top: '9%',
-                      left: '20%',
-                      width: 250,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingVertical: 12,
-                      borderRadius: 100,
-                      elevation: 3,
-                      backgroundColor: pressed
-                        ? 'gray'
-                        : COLORS.GREEN
-                    },
-                    styles.wrapperCustom
-                  ]}
-                >
-                  <Text style={styles.buttontext}> REVIEW </Text>
-                </Pressable>
-              </View>
+              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
+                style={({ pressed }) => [
+                  {
+                    top: '9%',
+                    width: 250,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingVertical: 12,
+                    borderRadius: 100,
+                    elevation: 3,
+                    backgroundColor: pressed
+                      ? 'gray'
+                      : COLORS.GREEN
+                  },
+                  styles.wrapperCustom
+                ]}
+              >
+                <Text style={styles.buttontext}> REVIEW </Text>
+              </Pressable>
             </SafeAreaView>
           </View>
         </View>
@@ -216,14 +215,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
     padding: 8,
-    zIndex: 100
+    zIndex: 100,
+    alignItems: "center"
   },
   flex: {
     flexDirection: 'row',
-  },
-  rectangle: {
-    borderRadius: 40,
-    backgroundColor: COLORS.WHITE,
   },
 
   suggestion: {
@@ -258,13 +254,9 @@ const styles = StyleSheet.create({
     color: COLORS.BlACK,
   },
   textInput: {
-    top: '60%',
-    left: '25%',
     textAlign: 'center',
-    width: '50%',
-    top: '2%',
+    width: 200,
     height: 100,
-
     fontSize: 50,
     backgroundColor: '#E5E5E5',
     fontWeight: 'bold',
@@ -279,7 +271,6 @@ const styles = StyleSheet.create({
   },
   donatebutton: {
     top: '6%',
-    left: '20%',
     width: 250,
     alignItems: 'center',
     justifyContent: 'center',
@@ -291,6 +282,9 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     alignItems: "center",
+    justifyContent: 'flex-end',
+    marginBottom: -20,
+    width: "100%"
   },
   modalView: {
     margin: 20,
@@ -305,7 +299,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
+    height: 600,
+    width: "100%"
   },
   buttonClose: {
     backgroundColor: "#2196F3",

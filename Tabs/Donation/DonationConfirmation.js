@@ -110,7 +110,7 @@ function ThankYou() {
                   >
                     <View style={styles.centeredView}>
                       <View style={styles.modalView}>
-                        <Pressable
+                        <Pressable style={styles.backbutton}
                           onPress={() => setModalVisible(!modalVisible)}
                         >
                           <Image source={require('../../assets/Donation/arrow.png')} />
@@ -412,9 +412,12 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#777',
+    borderColor: 'transparent',
     padding: 8,
-    margin: 10,
-    width: '60%',
+    backgroundColor: '#F2F2F2',
+    // placeholderTextColor: 'black',
+    borderRadius: 10,
+    marginVertical: 8,
+    width: '80%',
   }
 });
