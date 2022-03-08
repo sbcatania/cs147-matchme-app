@@ -15,7 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inbox from './MatchRequest/Inbox';
 import MatchConfirmation from './MatchRequest/MatchConfirmation';
-import {COLORS} from '../Themes/Constants';
+import {COLORS} from '../Constants';
 
 
 const Stack = createNativeStackNavigator();

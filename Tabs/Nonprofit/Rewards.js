@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
-import { COLORS } from '../Themes/Constants';
+import { COLORS } from '../Constants';
 import Search from './Search'
 // import * as ImagePicker from 'expo-image-picker';
 

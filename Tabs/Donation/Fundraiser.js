@@ -9,7 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS, DATA } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Constants';
 import Explore from './Explore';
 
 

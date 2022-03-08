@@ -12,7 +12,7 @@ import { useRoute } from "@react-navigation/native";
 import Inbox from './Inbox';
 import Explore from '../Donation/Explore';
 
-import { COLORS, IMAGES } from '../../Themes/Constants';
+import { COLORS, IMAGES } from '../../Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';

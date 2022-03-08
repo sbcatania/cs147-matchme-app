@@ -5,7 +5,7 @@ import Rewards from './RewardsLily'
 import Profile from './Profile'
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS, IMAGES } from '../Themes/Constants';
+import { COLORS, IMAGES } from '../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 /*
@@ -188,7 +188,7 @@ export default function Search() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,

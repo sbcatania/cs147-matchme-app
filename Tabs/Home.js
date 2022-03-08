@@ -5,7 +5,7 @@ import Fundraiser from './Donation/Fundraiser';
 import DonationEntry from './Donation/DonationEntry';
 import DonationConfirmation from './Donation/DonationConfirmation';
 import MatchRequestSent from './Donation/MatchRequestSent';
-import {COLORS} from '../Themes/Constants';
+import {COLORS} from '../Constants';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
