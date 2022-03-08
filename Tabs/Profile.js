@@ -16,6 +16,7 @@ import { useState } from 'react';
 *   - DYNAMIC ADD/DELETE:
 *       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
 *   - IMAGE PICKER: debug node install and add image picker
+*   - CSS ACROSS PAGES: make sure styling is same across nfp pages
 */
 
 export default function Fundraiser() {
@@ -45,8 +46,7 @@ export default function Fundraiser() {
         {/* <Text style = {styles.blacktext}> Profile </Text> */}
 
         <View style={styles.headerContainer}>
-          <Text>Hello</Text>
-          <Text>Hello</Text> 
+          <Text style={styles.titles}>Hello</Text>
         </View>
 
         {/* Image picker here */}
@@ -98,8 +98,7 @@ export default function Fundraiser() {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: 'gray',
     },
     blacktext: {
         letterSpacing: 4,
@@ -127,10 +126,15 @@ const styles = StyleSheet.create({
     allInputFields: { // container view
       backgroundColor: 'black',
     },
-    headerContainer: {
+    headerContainer: { // view (including text position)
       backgroundColor: 'gray',
+      marginHorizontal: 10,
     },
-
+    titles: { // text
+      fontWeight: 'bold',
+      fontSize: 30,
+      paddingVertical: 15,
+    },
     singleInputLine: { // view
         backgroundColor: 'firebrick',
         height: 50,
@@ -139,12 +143,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center', // horizontal movement on x axis
         alignContent: 'center',
     },
-  buttonSize: { // handle image style of small button
+    buttonSize: { // handle image style of small button
       resizeMode: 'stretch', 
       width:50, 
       height:50,
     },
-  minusButtonPressable: { // handle position of minus button
+    minusButtonPressable: { // handle position of minus button
       // backgroundColor: 'blue', // just to see where the container is
       position: 'absolute', 
       right: 0, 

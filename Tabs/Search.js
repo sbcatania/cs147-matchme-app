@@ -238,13 +238,12 @@ const styles = StyleSheet.create({
     },
     flexboxes: {
         // backgroundColor: 'firebrick',
-        paddingHorizontal: '5%',
+        paddingHorizontal: 20,
         paddingTop: '5%'
     },
     titles: {
         fontWeight: 'bold',
         fontSize: 30,
-        letterSpacing: 4,
         paddingVertical: 15
     },
     input: {
