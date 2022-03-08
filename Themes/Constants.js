@@ -103,7 +103,7 @@ export const DATA = {
       },
       {
         id: 2,
-        userName: "Jennifer P",
+        userName: "Jennifer M",
         cause: "Save the Animals",
         avatar: require("../assets/Users/avatar-1.png"),
         content: "I know you care about endangered animals, so I think this is an organization you'd love!",
@@ -119,16 +119,16 @@ export const DATA = {
       },
       {
         id: 4,
-        userName: "Tai G",
-        cause: "Prevent Palo Alto Homelessness",
+        userName: "Taayden G",
+        cause: "Palo Alto Homelessness",
         avatar: require("../assets/Users/avatar-5.png"),
-        content: "There are so many issues going on even in our local community. P.A.S. is doing great work.",
+        content: "There are so many issues going on even in our local community. Palo Alto Shelter is doing great work.",
         amount: "$35"
       }
     ],
     USERS: [
       {
-        name: 'Jennifer P',
+        name: 'Jennifer M',
         avatar: require('../assets/Users/avatar-1.png'),
       },
       {
@@ -136,7 +136,7 @@ export const DATA = {
         avatar: require('../assets/Users/avatar-2.png'),
       },
       {
-        name: 'Tai G',
+        name: 'Taayden G',
         avatar: require('../assets/Users/avatar-5.png'),
       },
     ],
