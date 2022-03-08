@@ -145,7 +145,9 @@ export default function MatchRequestSent({navigation}) {
       left: '5%',
     },
     thankyouimg: {
-      left: '35%',
+      height: 130,
+      width: 130,
+      left: '36%',
       top: '8%',
     },
     button: {

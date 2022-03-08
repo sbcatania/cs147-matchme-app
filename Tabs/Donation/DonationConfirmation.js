@@ -327,7 +327,9 @@ const styles = StyleSheet.create({
     left: '1%',
   },
   thankyouimg: {
-    left: '35%',
+    height: 130,
+    width: 130,
+    left: '36%',
   },
   button: {
     top: '10%',

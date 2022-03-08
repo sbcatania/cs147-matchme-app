@@ -2,8 +2,10 @@ import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
 import React, { useState } from 'react';
 
-const SearchBar = ({searchPhrase, setSearchPhrase}) => {
+const SearchBar = () => {
  const [clicked, setClicked] = useState(false);
+ const[searchPhrase, setSearchPhrase] = useState(false);
+ 
   return (
     <View style={styles.container}>
       <View

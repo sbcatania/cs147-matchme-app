@@ -99,7 +99,10 @@ const styles = StyleSheet.create({
   }, 
   sideicon: {
     borderRadius: 100,
-    margin: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    height: 30,
+    width: 30,
     top: '45%',
     left: '83%',
   }, 
@@ -137,7 +140,8 @@ const styles = StyleSheet.create({
     height: 80,
   }, 
   button: {
+    marginTop: 10,
     top: '45%',
-    left: '80%',
+    left: '79%',
   },
 });
