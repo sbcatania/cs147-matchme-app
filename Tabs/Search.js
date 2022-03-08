@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 import Fundraiser from './Donation/Fundraiser'
-import Profile from './Profile'
+import Profile from './Nonprofit/NonprofitProfile'
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../Constants';
