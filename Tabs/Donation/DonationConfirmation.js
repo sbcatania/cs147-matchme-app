@@ -388,8 +388,12 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   modalText: {
-    marginBottom: 15,
-    textAlign: "center"
+    top: 0,
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: COLORS.GREEN,
+    marginBottom: 20,
   },
   input: {
     borderWidth: 1,
@@ -399,10 +403,10 @@ const styles = StyleSheet.create({
     // placeholderTextColor: 'black',
     borderRadius: 10,
     marginVertical: 8,
-    width: "auto"
+    width: 200,
   },
   message: {
-    height: 100,
+    height: 200,
     borderWidth: 1,
     borderColor: 'transparent',
     padding: 8,
@@ -410,6 +414,6 @@ const styles = StyleSheet.create({
     // placeholderTextColor: 'black',
     borderRadius: 10,
     marginVertical: 8,
-    width: '80%',
+    width: 200,
   }
 });
