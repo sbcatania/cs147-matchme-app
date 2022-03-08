@@ -27,6 +27,12 @@ export default function Fundraiser() {
         
           <Image source={require('../assets/Icons/user.png')} />
         </View> 
+
+        {/* GOAL: get a list of things to add/delete dynamically */}
+        <View style={styles.singleInputLine}>
+          {/* item 1 */}
+          {/* item 2 */}
+        </View>
         
       
         <Text style={styles.testing}> {rwd1} </Text>
