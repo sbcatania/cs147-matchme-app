@@ -34,7 +34,7 @@ export const DATA = {
       },
       5: {
         handle: "paloaltoshelter",
-        caption: "earn about Finn's day in the life. Donate to make his life better.",
+        caption: "Learn about Finn's day in the life. Donate to make his life better.",
         image: require('./assets/Home/home5.jpg')
       }
     },
@@ -65,7 +65,7 @@ export const DATA = {
         },
       paloaltoshelter: {
         avatar: require('./assets/Home/shelter.jpg'),
-        title: "Prevent Palo Alto Homelessness",
+        title: "Save Our Dogs",
         banner: require('./assets/Donation/moose.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
@@ -120,7 +120,7 @@ export const DATA = {
       {
         id: 4,
         userName: "Taayden G",
-        cause: "Palo Alto Homelessness",
+        cause: "Palo Alto Shelter",
         avatar: require("./assets/Users/avatar-5.png"),
         content: "There are so many issues going on even in our local community. Palo Alto Shelter is doing great work.",
         amount: "$35"
