@@ -13,6 +13,7 @@ import { COLORS, DATA } from '../../Themes/Constants';
 
 const handle = global.handle;
 let data = DATA.PROFILES[handle];
+console.log(handle)
 
 export default function DonationEntry({route}) {
   const [entry, setEntry] = useState("");
