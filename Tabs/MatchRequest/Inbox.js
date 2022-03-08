@@ -17,62 +17,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 */
 
 
-const MatchCard = () => {
-
-  const navigation = useNavigation();
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const [text, setText] = useState("");
-  // to do back button doesnt work
-  return (
-    <SafeAreaView style={styles.container} >
-      <View style={styles.rectangle}>
-        <Text style={styles.description}> Save the Animals Fundraiser</Text>
-        <Text>Matching James's donation</Text>     
-        <TextInput
-          style={styles.textInput}
-          value={text} // the text variable in the state is displayed by the TextInput
-          keyboardType="numeric"
-          onChangeText={(newText) => setText(newText)}
-        />
-        <View style={styles.flex}>
-          <View style={styles.suggestion}>
-            <Text style={styles.suggestiontext}>$3</Text>
-          </View>
-          <View style={styles.suggestion}>
-            <Text style={styles.suggestiontext}>$5</Text>
-          </View>
-          <View style={styles.suggestion}>
-            <Text style={styles.suggestiontext}>$10</Text>
-          </View>
-        </View>
-        <Pressable style={styles.donatebutton} onPress={() => {navigation.navigate(MatchConfirmation); setModalVisible(!modalVisible)}}
-          style={({ pressed }) => [
-            {
-              top: '9%',
-              left: '20%',
-              width: 250,
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: 12,
-              borderRadius: 100,
-              elevation: 3,
-              backgroundColor: pressed
-                ? 'gray'
-                : COLORS.GREEN
-            },
-            styles.wrapperCustom
-          ]}
-        >
-          <Text style={styles.buttontext}> REVIEW </Text>
-        </Pressable>
-      </View>
-    </SafeAreaView>
-  );
-}
-
-
-
 const Inbox = ({ navigation }) => {
 
   const [show, setShow] = useState(false);
@@ -93,21 +37,26 @@ const Inbox = ({ navigation }) => {
     amount: '$5'
   }));
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [donAmt, setDonAmt] = useState("");
+
   const _renderRequests = ({ item, index }) => {
     return (
-        <View>
-          <Header>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Avatar source={item.avatar} />
-              <UserName>{item.userName} - {item.cause}</UserName>
-            </View>
-            <Amount>{item.amount}</Amount>
-          </Header>
-          <Content>
-            <ContentText>{item.content}</ContentText>
-          </Content>
-          <Button title={'V'} style={{ backgroundColor: COLORS.GREEN }} onPress={() => setModalVisible(!modalVisible)} />
-        </View>
+      <View>
+        <Header>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Avatar source={item.avatar} />
+            <UserName>{item.userName} - {item.cause}</UserName>
+          </View>
+          <Amount>{item.amount}</Amount>
+        </Header>
+        <Content>
+          <ContentText>{item.content}</ContentText>
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Image style={{ width: 50, height: 50, float:"right"}} source={require("../../assets/Inbox/check.png")} />
+          </TouchableOpacity>
+        </Content>
+      </View>
     )
   }
 
@@ -115,18 +64,17 @@ const Inbox = ({ navigation }) => {
     return (
       <Card>
         <CardContent>
-          <Header>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent:"space-between" }}>
               <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
+              </TouchableOpacity>
             </View>
-          </Header>
-          {/* Match button component code goes here*/}
         </CardContent>
       </Card>
     )
   }
 
-  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <Container>
@@ -146,7 +94,49 @@ const Inbox = ({ navigation }) => {
             >
               <Image source={require('../../assets/Donation/arrow.png')} />
             </Pressable>
-            <MatchCard />
+            <SafeAreaView style={styles.container} >
+              <View style={styles.rectangle}>
+                <Text style={styles.description}> Save the Animals Fundraiser</Text>
+                <Text>Matching James's donation</Text>
+                <TextInput
+                  style={styles.textInput}
+                  value={donAmt} // the text variable in the state is displayed by the TextInput
+                  keyboardType="numeric"
+                  onChangeText={(newText) => setDonAmt(newText)}
+                />
+                {/*<View style={styles.flex}>
+                  <View style={styles.suggestion}>
+                    <Text style={styles.suggestiontext}>$3</Text>
+                  </View>
+                  <View style={styles.suggestion}>
+                    <Text style={styles.suggestiontext}>$5</Text>
+                  </View>
+                  <View style={styles.suggestion}>
+                    <Text style={styles.suggestiontext}>$10</Text>
+                  </View>
+                </View>*/}
+                <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
+                  style={({ pressed }) => [
+                    {
+                      top: '9%',
+                      left: '20%',
+                      width: 250,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      paddingVertical: 12,
+                      borderRadius: 100,
+                      elevation: 3,
+                      backgroundColor: pressed
+                        ? 'gray'
+                        : COLORS.GREEN
+                    },
+                    styles.wrapperCustom
+                  ]}
+                >
+                  <Text style={styles.buttontext}> REVIEW </Text>
+                </Pressable>
+              </View>
+            </SafeAreaView>
           </View>
         </View>
       </Modal>
@@ -161,7 +151,6 @@ const Inbox = ({ navigation }) => {
       <FlatList style={{
         flexGrow: 0,
       }} keyExtractor={(_, index) => '' + index} data={data2} renderItem={_renderActivity} />
-      {show && <MatchCard />}
     </Container>
   );
 };
@@ -186,7 +175,6 @@ const Title = styled.Text`
 const Card = styled.View`
   margin-left: 3px;
   margin-right: 3px;
-  background-color: #fff;
 `;
 const CardContent = styled.View`
   margin: 5px;
@@ -215,6 +203,8 @@ const Amount = styled.Text`
 `;
 const Content = styled.View`
   margin:  0px;
+  display: flex;
+  flex-direction: row;
 `;
 const ContentText = styled.Text`
   font-size: 14px;
