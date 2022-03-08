@@ -120,30 +120,37 @@ const Inbox = ({ navigation }) => {
         </View>
       </Modal>
 
-      {/* INBOX PAGE CONTENT: Begin non-modal content */}
-      <View style={styles.titleContainer}>
-          <Text style={styles.titleText}> Inbox </Text> 
-      </View>
+      {/* INBOX PAGE CONTENT: Static, non-modal content on main page */}
+      <SafeAreaView style={{backgroundColor: 'pink', height: '100%'}}>
+      <View style={styles.pageContentContainer}>
 
-      <View style={styles.h1Container}>
-        <Title style={styles.h1Text}>
-          {'Match Requests'}
-        </Title>
-      </View>
+        <View style={styles.titleContainer}>
+            <Text style={styles.titleText}> Inbox </Text> 
+        </View>
 
-      <FlatList style={styles.flatlistContainer} 
-        keyExtractor={(_, index) => '' + index} 
-        data={data} renderItem={_renderRequests} />
-      
-      <View style={styles.h1Container}>
-        <Title style={styles.h1Text}>
-          {'New Activity'}
-        </Title>
-      </View>
+        <View style={styles.h1Container}>
+          <Title style={styles.h1Text}>
+            {'Match Requests'}
+          </Title>
+        </View>
+
+        <FlatList style={styles.flatlistContainer} 
+          keyExtractor={(_, index) => '' + index} 
+          data={data} renderItem={_renderRequests} />
         
-      <FlatList style={styles.flatlistContainer} 
-        keyExtractor={(_, index) => '' + index} 
-        data={data2} renderItem={_renderActivity} />
+        <View style={styles.h1Container}>
+          <Title style={styles.h1Text}>
+            {'New Activity'}
+          </Title>
+        </View>
+          
+        <FlatList style={styles.flatlistContainer} 
+          keyExtractor={(_, index) => '' + index} 
+          data={data2} renderItem={_renderActivity} />
+      
+      </View>
+      </SafeAreaView>
+
     </Container>
   );
 };
@@ -204,6 +211,9 @@ const ContentText = styled.Text`
 `;
 
 const styles = StyleSheet.create({
+  pageContentContainer: {
+    
+  },
   container: {
     backgroundColor: 'lightblue',
     flex: 1,
