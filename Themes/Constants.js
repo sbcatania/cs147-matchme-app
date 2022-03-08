@@ -116,7 +116,21 @@ export const DATA = {
         content: "Match here so they can make their site not hall of shame",
         amount: "$100"
       }
-    ]
+    ],
+    USERS: [
+      {
+        name: 'Brynn',
+        avatar: require('../assets/Users/landay.jpeg'),
+      },
+      {
+        name: 'Laura',
+        avatar: require('../assets/Users/landay.jpeg'),
+      },
+      {
+        name: 'Aidan',
+        avatar: require('../assets/Users/landay.jpeg'),
+      },
+    ],
   };
 
 export const IMAGES = {

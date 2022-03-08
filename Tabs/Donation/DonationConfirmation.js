@@ -52,20 +52,7 @@ function ThankYou() {
   const navigation = useNavigation();
   const route = useRoute();
   const ref = useRef();
-  const users = [
-    {
-      name: 'Brynn',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Laura',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Aidan',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-  ];
+  const users = DATA.USERS;
 
   // MATCHING MODAL SET UP
   const [modalVisible, setModalVisible] = useState(false);
