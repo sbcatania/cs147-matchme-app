@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SetupFundraiser from './Nonprofit/SetupFundraiser';
+import Rewards from './Nonprofit/Rewards';
 import {COLORS} from '../Constants';
 
 const LOAD_TIME = 100;

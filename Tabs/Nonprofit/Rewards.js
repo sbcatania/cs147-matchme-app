@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressable } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { COLORS } from '../Constants';
+import { COLORS } from '../../Constants';
 import Search from './Search'
 // import * as ImagePicker from 'expo-image-picker';
 
@@ -17,7 +17,7 @@ import Search from './Search'
 *       - https://stackoverflow.com/questions/63712680/how-to-dynamically-add-delete-view-in-react-native
 */
 
-export default function Fundraiser() {
+export default function Rewards() {
   
   const [rwd1, setRwd1] = useState('Reward Level 1');
   const [rwd2, setRwd2] = useState('Reward Level 2');
@@ -67,7 +67,7 @@ export default function Fundraiser() {
             onChangeText={(rwd1) => setRwd1(rwd1)} />
 
             <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
             </Pressable>
           </View> 
 
@@ -80,7 +80,7 @@ export default function Fundraiser() {
             onChangeText={(rwd2) => setRwd2(rwd2)} />
 
             <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
             </Pressable>
             
           </View> 
@@ -94,7 +94,7 @@ export default function Fundraiser() {
             onChangeText={(rwd3) => setRwd3(rwd3)} />
 
             <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
             </Pressable>
             
           </View> 
