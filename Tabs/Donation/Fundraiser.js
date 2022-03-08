@@ -1,16 +1,9 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { createPortal } from 'react-dom';
 import { StyleSheet, Text, ImageBackground, Pressable, View, Image, TouchableOpacity, ScrollView, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
-import DonationConfirmation from './DonationConfirmation';
-import moose from '../../assets/Donation/moose.png';
 import { COLORS, DATA } from '../../Constants';
-import Explore from './Explore';
 
 
 

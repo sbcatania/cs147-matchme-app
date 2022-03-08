@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Explore from './Donation/Explore';
 import Fundraiser from './Donation/Fundraiser';

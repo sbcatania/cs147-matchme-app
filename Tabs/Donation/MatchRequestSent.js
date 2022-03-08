@@ -1,19 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { createPortal } from 'react-dom';
-import { useRoute } from "@react-navigation/native";
 import { Alert, TextInput, Modal, Pressable, ScrollView, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { useFonts } from 'expo-font';
-import { ImageBackground } from 'react-native';
-import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
-import { Card, Icon } from 'react-native-elements';
-
-import DonationEntry from './DonationEntry';
 import { COLORS, IMAGES } from '../../Constants';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
