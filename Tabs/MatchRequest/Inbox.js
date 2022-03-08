@@ -18,24 +18,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 const Inbox = ({ navigation }) => {
-
-  const [show, setShow] = useState(false);
-  // to do: set up JSON for matching feed
-  const [data, setData] = useState(new Array(2).fill({
-    id: 1,
-    userName: 'James L',
-    cause: 'Code in Place',
-    avatar: require('../../assets/Users/landay.jpeg'),
-    content: "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
-    amount: '$5'
-  }));
-
-  const [data2, setData2] = useState(new Array(6).fill({
-    id: 1,
-    userName: 'Pablo O',
-    cause: 'YMCA',
-    amount: '$5'
-  }));
+  const data = DATA.MATCH_REQUESTS;
+  const data2 = DATA.ACTIVITY;
 
   const [modalVisible, setModalVisible] = useState(false);
   const [donAmt, setDonAmt] = useState("");
@@ -53,7 +37,7 @@ const Inbox = ({ navigation }) => {
         <Content>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-                <Image style={{ width: 50, height: 50, float:"right"}} source={require("../../assets/Inbox/check.png")} />
+                <Image style={{ width: 50, height: 50}} source={require("../../assets/Inbox/check.png")} />
           </TouchableOpacity>
         </Content>
       </View>

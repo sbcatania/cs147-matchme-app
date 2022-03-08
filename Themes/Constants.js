@@ -9,9 +9,54 @@ export const COLORS = {
   };
 
 export const DATA = {
-    POSTS     : require('../assets/Data/posts.json'),
-    PROFILES  : require('../assets/Data/profiles.json'),
-    // DONATION_HISTORY: require('../assets/Data/donation-history.json'),
+    POSTS          : require('../assets/Data/posts.json'),
+    PROFILES       : require('../assets/Data/profiles.json'),
+    ACTIVITY       : [
+      {
+        id: 1,
+        userName: "Pablo O",
+        cause: "YMCA",
+        amount: "$5"
+      },
+      {
+        id: 2,
+        userName: "Pablo Oooooooo",
+        cause: "Stanford",
+        amount: "$5,000"
+      },
+      {
+        id: 3,
+        userName: "O Pablo",
+        cause: "MTL",
+        amount: "$0.00"
+      }
+    ],
+    MATCH_REQUESTS : [
+      {
+        id: 1,
+        userName: "James L",
+        cause: "Code in Place",
+        avatar: require("../assets/Users/landay.jpeg"),
+        content: "Hiya Pablo! TAs normally get involved in this Stanford-started org democratizing CS. Could be up your alley ;)",
+        amount: "$5"
+      },
+      {
+        id: 2,
+        userName: "James James",
+        cause: "Homework Factory",
+        avatar: require("../assets/Users/landay.jpeg"),
+        content: "I like giving homework so I think you should support this cause",
+        amount: "$500,000"
+      },
+      {
+        id: 3,
+        userName: "Landay",
+        cause: "Hall of Shame",
+        avatar: require("../assets/Users/landay.jpeg"),
+        content: "Match here so they can make their site not hall of shame",
+        amount: "$100"
+      }
+    ]
   };
 
 export const IMAGES = {
