@@ -19,6 +19,7 @@ const TOP_TEXT = "Explore";
 function createPost(post_number) {
   const navigation = useNavigation();
   let post = DATA.POSTS[post_number];
+  console.log(post.handle);
   return(
     <View style={styles.container}>
         <ImageBackground source={post.image} style={styles.bgimg}>
