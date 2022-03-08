@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
-import Fundraiser from './Donation/Fundraiser'
-import Rewards from './Rewards'
-import Profile from './Profile'
+import Rewards from './Rewards';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS, IMAGES } from '../Themes/Constants';
+import { COLORS, IMAGES } from '../../Themes/Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 /*
 * DOCUMENTATION
@@ -159,7 +158,7 @@ export default function Search() {
 
             {/* BUTTON */}
             <View style={styles.flexboxes}>
-                <Pressable onPress={() => navigation.navigate(Profile)} // CHANGE TO RWDS SCREEN
+                <Pressable onPress={() => navigation.navigate(Rewards)} // CHANGE TO RWDS SCREEN
                     style={({ pressed }) => [
                     {
                         alignItems: 'center',
