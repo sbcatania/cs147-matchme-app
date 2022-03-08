@@ -188,7 +188,7 @@ export default function Search() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,
