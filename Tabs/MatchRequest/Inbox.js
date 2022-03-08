@@ -37,7 +37,7 @@ const Inbox = ({ navigation }) => {
         <Content>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-            <Image style={{ width: 50, height: 50 }} source={require("../../assets/Inbox/check.png")} />
+            <Image style={{ width: 50, height: 50}} source={require("../../assets/Inbox/check.png")} />
           </TouchableOpacity>
         </Content>
       </View>

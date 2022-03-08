@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font';
 import { ImageBackground } from 'react-native';
 import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
-import { Card, Icon } from 'react-native-elements';
+import { Card, Icon, ListItem } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
@@ -71,6 +71,96 @@ function ThankYou() {
   // TEXTINPUT: Setup state variables
   const [message, setMessage] = useState("");
 
+  const ItemRender = ({ name, avatar }) => (
+    <View style={styles.user}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Pressable style={styles.backbutton}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Image source={require('../../assets/Donation/arrow.png')} />
+            </Pressable>
+            <Text style={styles.modalText}>Match Request</Text>
+            <SafeAreaView>
+              <View style={{display:"flex", justifyContent:"space-between"}}>
+              <TextInput
+                style={styles.input}
+                defaultValue={name}
+                editable={false} />
+
+              <TextInput
+                style={styles.input}
+                defaultValue={route.params}
+                editable={false} />
+</View>
+              <TextInput
+                style={styles.input}
+                defaultValue={fundname}
+                editable={false} />
+
+              <TextInput
+                style={styles.message}
+                placeholder='Message'
+                multiline
+                onChangeText={(message) => setMessage(message)} />
+
+
+            </SafeAreaView>
+            <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent) }}
+              style={({ pressed }) => [
+                {
+                  width: 250,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingVertical: 12,
+                  borderRadius: 100,
+                  elevation: 3,
+                  backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.GREEN
+                },
+                styles.wrapperCustom
+              ]}
+            >
+              <Text style={{
+                fontSize: 16, color: COLORS.WHITE,
+                fontWeight: 'bold'
+              }}> Send Match Request </Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Image
+        style={styles.image}
+        resizeMode="cover"
+        source={avatar}
+      />
+      <Text style={styles.name}>{name}</Text>
+      <Pressable
+        style={{
+          borderRadius: 100,
+          marginLeft: 0,
+          marginRight: 0,
+          marginBottom: 0,
+          backgroundColor: 'white',
+          width: 40,
+          height: 40
+        }}
+        onPress={() => setModalVisible(true)}>
+        <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 40 }} />
+      </Pressable>
+    </View>
+  );
+
   return (
     <View style={styles.container} >
       <View style={styles.flex}>
@@ -89,98 +179,11 @@ function ThankYou() {
         <View style={styles.container}>
           <View style={styles.card}>
             <Text style={styles.cardtext}>Ask your friends to match</Text>
-            {users.map((u, i) => {
-              return (
-                <View key={i} style={styles.user}>
-                  <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                      Alert.alert("Modal has been closed.");
-                      setModalVisible(!modalVisible);
-                    }}
-                  >
-                    <View style={styles.centeredView}>
-                      <View style={styles.modalView}>
-                        <Pressable style={styles.backbutton}
-                          onPress={() => setModalVisible(!modalVisible)}
-                        >
-                          <Image source={require('../../assets/Donation/arrow.png')} />
-                        </Pressable>
-                        <Text style={styles.modalText}>Match Request</Text>
-                        <SafeAreaView>
-                          {/*TODO: TEXT INPUT */}
-
-                          <TextInput
-                            style={styles.input}
-                            defaultValue={u.name}
-                            editable={false} />
-
-            <TextInput 
-            style={styles.input} 
-            defaultValue= "Save the animals"
-            editable={false}/>
-
-                          <TextInput
-                            style={styles.input}
-                            defaultValue={fundname}
-                            editable={false} />
-
-                          <TextInput
-                            style={styles.input}
-                            placeholder='Message'
-                            multiline
-                            onChangeText={(message) => setMessage(message)} />
-
-
-                        </SafeAreaView>
-                        <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent) }}
-                          style={({ pressed }) => [
-                            {
-                              width: 250,
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              paddingVertical: 12,
-                              borderRadius: 100,
-                              elevation: 3,
-                              backgroundColor: pressed
-                                ? 'gray'
-                                : COLORS.GREEN
-                            },
-                            styles.wrapperCustom
-                          ]}
-                        >
-                          <Text style={{
-                            fontSize: 16, color: COLORS.WHITE,
-                            fontWeight: 'bold'
-                          }}> Send Match Request </Text>
-                        </Pressable>
-                      </View>
-                    </View>
-                  </Modal>
-                  <Image
-                    style={styles.image}
-                    resizeMode="cover"
-                    source={u.avatar}
-                  />
-                  <Text style={styles.name}>{u.name}</Text>
-                  <Pressable
-                    style={{
-                      borderRadius: 100,
-                      marginLeft: 0,
-                      marginRight: 0,
-                      marginBottom: 0,
-                      backgroundColor: 'white',
-                      width: 40,
-                      height: 40
-                    }}
-                    onPress={() => setModalVisible(true)}>
-                    <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 40 }} />
-                  </Pressable>
-                </View>
-              );
-            })}
+            <FlatList
+              data={users}
+              renderItem={({ item }) => <ItemRender name={item.name} avatar={item.avatar} />}
+              keyExtractor={item => item.id}
+            />
           </View>
           <Pressable onPress={() => navigation.navigate("Explore")}
             style={({ pressed }) => [
@@ -202,12 +205,6 @@ function ThankYou() {
           >
             <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text>
           </Pressable>
-
-
-
-
-
-
         </View>
       </ScrollView>
 
@@ -404,6 +401,17 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   input: {
+    borderWidth: 1,
+    borderColor: 'transparent',
+    padding: 8,
+    backgroundColor: '#F2F2F2',
+    // placeholderTextColor: 'black',
+    borderRadius: 10,
+    marginVertical: 8,
+    width: "auto"
+  },
+  message: {
+    height: 100,
     borderWidth: 1,
     borderColor: 'transparent',
     padding: 8,
