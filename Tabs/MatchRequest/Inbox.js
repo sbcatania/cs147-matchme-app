@@ -48,22 +48,22 @@ const Inbox = ({ navigation }) => {
     )
   }
 
-
   // DYNAMIC RENDER: New Activity
   const _renderActivity = ({ item }) => {
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
-        <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
-        <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
-          <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
-    </TouchableOpacity>
+      <View style={styles.activityEntry}>
+        <UserName style={styles.activityText} >{item.userName} donated {item.amount} to {item.cause}</UserName>
+        <TouchableOpacity style={styles.activityBtnContainer} onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
+          <Image style={styles.activityBtnImg} source={IMAGES.DONATE_ICON} />
+        </TouchableOpacity>
       </View>
     )
   }
 
+
   return (
     // this Container component has a built in 5px margin
-    <Container> 
+    <Container style={styles.pageBkgrnd}> 
       {/* ??? */}
        <Modal
         animationType="slide"
@@ -215,23 +215,27 @@ const ContentText = styled.Text`
 `;
 
 const styles = StyleSheet.create({
+  pageBkgrnd: {
+    backgroundColor: 'white',
+  },
   safeContainer: {
     top: 35,
-    backgroundColor: 'pink', 
+    // backgroundColor: 'pink', 
     flex: 1,
   },
   pageContentContainer: {
-    // backgroundColor: 'lightgreen'
+    // backgroundColor: 'lightgreen',
     paddingHorizontal: 12,
   },
   container: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'lightblue', // could NOT find where this is
     flex: 1,
     backgroundColor: COLORS.WHITE,
     padding: 8,
     zIndex: 100,
     alignItems: "center"
   },
+  // HTML-TYPE STYLING
   h1Container: {
     // backgroundColor: 'lightblue',
     paddingVertical: 10,
@@ -255,28 +259,30 @@ const styles = StyleSheet.create({
   },
   flatlistContainer: { // only the wrapper for ENTIRE FlatList
     flexGrow: 0,
-    backgroundColor: 'firebrick',
+    backgroundColor: 'white',
+    // backgroundColor: 'firebrick',
   },
+  // MATCH REQUEST STYLING
   matchEntry: { // the line containing a single match request, a View
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     paddingBottom: 15,
   },
   userInfo: { // the line containing username, org, avatar, a View
     flexDirection: 'row', 
-    alignItems: 'center',
-    backgroundColor: 'white',
+    alignItems: 'center', 
+    // backgroundColor: 'white',
   },
   donAmount: {
     position: 'absolute',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     top: 0,
     right: 0,
   },
   avatarContainer: {
-    backgroundColor: 'gray'
+    // backgroundColor: 'gray'
   },
   userText: { // container AND text
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     fontSize: 12,
   },
   matchBtmContentCtr: { // container for all the content in the bottom of the match line
@@ -284,11 +290,11 @@ const styles = StyleSheet.create({
   },
   matchReqText: { // text container AND text props
     width: '88%',
-    fontSize: 15,
+    fontSize: 12,
     lineHeight: 18,
   },
   checkBtnContainer: { // TouchableOpacity wrapper
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     position: 'absolute',
     right: 0,
     bottom: 0,
@@ -297,12 +303,33 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     height: 50,
   },
+  // NEW ACTIVITY STYLE
+  activityEntry: { 
+    paddingVertical: 25, 
+    justifyContent: 'center',
+  },
+  activityText: { 
+    // backgroundColor: 'white', 
+    left: 0, 
+    position: 'absolute', 
+    fontSize: 12, 
+  },
+  activityBtnContainer: { 
+    // backgroundColor: 'beige', 
+    position: 'absolute', 
+    right: 0, 
+    justifyContent: 'center',
+  }, 
+  activityBtnImg: { 
+    resizeMode: 'contain', 
+    width: 50, 
+    height: 50,
+  }, 
+  // OTHER STYLING
   flex: {
     flexDirection: 'row',
   },
-
   suggestion: {
-
     top: '5%',
     left: '37%',
     margin: 5,
