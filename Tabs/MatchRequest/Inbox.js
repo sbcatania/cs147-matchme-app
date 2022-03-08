@@ -19,7 +19,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Inbox = ({ navigation }) => {
   const data = DATA.MATCH_REQUESTS;
-  const data2 = DATA.ACTIVITY;
+  const data2 = DATA.ACTIVITY; 
 
   const [modalVisible, setModalVisible] = useState(false);
   const [donAmt, setDonAmt] = useState("");
