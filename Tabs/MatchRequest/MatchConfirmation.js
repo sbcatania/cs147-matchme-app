@@ -51,21 +51,6 @@ function ThankYou() {
   const navigation = useNavigation();
   const ref = useRef();
 
-  const users = [
-    {
-      name: 'Brynn',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Jess',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Kay',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-  ];
-
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -74,12 +59,9 @@ function ThankYou() {
         {/*<TouchableOpacity style = {styles.button} onPress={()=>ref.current.setPage(1)}>
         <Image source={require("../../assets/Donation/arrow.png")}/>
   </TouchableOpacity>*/}
-        <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
-        </Image>
+        <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg} />
+        <Image source={require('../../assets/Donation/check.png')}  />
       </View>
-      <Image source={require('../../assets/Donation/thankyou.png')} style={styles.thankyouimg}>
-      </Image>
-
     </View>
   );
 }
