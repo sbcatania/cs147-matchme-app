@@ -22,11 +22,13 @@ const Inbox = ({ navigation }) => {
   const data2 = DATA.ACTIVITY; 
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [name, setName] = useState("");
+  const [fundName, setFundname] = useState("");
   const [donAmt, setDonAmt] = useState("");
 
-  const _renderRequests = ({ item, index }) => {
+  const _renderRequests = ({ item }) => {
     return (
-      <View>
+      <View style={{ paddingLeft: 20, paddingRight: 40 }}>
         <Header>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Avatar source={item.avatar} />
@@ -36,7 +38,7 @@ const Inbox = ({ navigation }) => {
         </Header>
         <Content>
           <ContentText>{item.content}</ContentText>
-          <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
             <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
@@ -44,27 +46,20 @@ const Inbox = ({ navigation }) => {
     )
   }
 
-  const _renderActivity = ({ item, index }) => {
+  const _renderActivity = ({ item }) => {
     return (
-      <Card>
-        <CardContent>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
-            <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
-            <TouchableOpacity onPress={() => setModalVisible(true)}
-            onPressOut={() => {setModalVisible(false)}}
-            >
-              <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
-            </TouchableOpacity>
-          </View>
-        </CardContent>
-      </Card>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
+        <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
+        <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
+          <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
+    </TouchableOpacity>
+      </View>
     )
   }
 
-
   return (
     <Container>
-      <Modal
+       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -87,26 +82,15 @@ const Inbox = ({ navigation }) => {
               <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
             <SafeAreaView style={styles.container} >
-              <Text style={styles.description}> Save the Animals Fundraiser</Text>
-              <Text>Matching James's donation</Text>
+              <Text style={styles.description}> {fundName} </Text>
+              <Text>Matching {name}'s donation</Text>
               <TextInput
                 style={styles.textInput}
-                value={donAmt} // the text variable in the state is displayed by the TextInput
+                defaultValue={donAmt} // the text variable in the state is displayed by the TextInput
                 keyboardType="numeric"
                 onChangeText={(newText) => setDonAmt(newText)}
               />
-              {/*<View style={styles.flex}>
-                  <View style={styles.suggestion}>
-                    <Text style={styles.suggestiontext}>$3</Text>
-                  </View>
-                  <View style={styles.suggestion}>
-                    <Text style={styles.suggestiontext}>$5</Text>
-                  </View>
-                  <View style={styles.suggestion}>
-                    <Text style={styles.suggestiontext}>$10</Text>
-                  </View>
-                </View>*/}
-              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
+              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation, donAmt); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
                     top: '9%',
@@ -147,6 +131,7 @@ const Inbox = ({ navigation }) => {
 
 const Container = styled.View`
   flex: 1;
+  padding: 10px;
 `;
 const NavBar = styled.View`
   height: 76px;
@@ -161,13 +146,6 @@ const Title = styled.Text`
   font-size: 14px;
   line-height: 24px;
   font-weight: bold;
-`;
-const Card = styled.View`
-  margin-left: 3px;
-  margin-right: 3px;
-`;
-const CardContent = styled.View`
-  margin: 5px;
 `;
 const Header = styled.View`
   flex-direction: row;
