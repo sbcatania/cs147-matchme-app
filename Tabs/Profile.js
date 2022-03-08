@@ -9,9 +9,6 @@ import { COLORS } from '../Themes/Constants';
 import Search from './Search'
 // import * as ImagePicker from 'expo-image-picker';
 
-
-
-
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
 /* 
 * TODO: 
@@ -21,6 +18,7 @@ import Search from './Search'
 *   ABANDON: 
 *   - DYNAMIC ADD/DELETE:
 *       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
+*       - https://stackoverflow.com/questions/63712680/how-to-dynamically-add-delete-view-in-react-native
 */
 
 export default function Fundraiser() {
@@ -49,7 +47,7 @@ export default function Fundraiser() {
   
   return(
 
-      <SafeAreaView>
+      <SafeAreaView styles={styles.safeAreaContainer}>
       <View style={styles.container}>
         {/* <Text style = {styles.blacktext}> Profile </Text> */}
 
@@ -63,7 +61,7 @@ export default function Fundraiser() {
             {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
           </View> */}
         
-        <View style={styles.allInputFields}>
+        <View style={styles.mainContent}>
           <View style={styles.singleInputLine}> 
             
             <TextInput 
@@ -72,10 +70,9 @@ export default function Fundraiser() {
             autoCapitalize='words'
             onChangeText={(rwd1) => setRwd1(rwd1)} />
 
-            {/* <Pressable style={styles.minusButtonPressable}>
-              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable> */}
-            
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
           </View> 
 
           <View style={styles.singleInputLine}> 
@@ -86,9 +83,9 @@ export default function Fundraiser() {
             autoCapitalize='words'
             onChangeText={(rwd2) => setRwd2(rwd2)} />
 
-            {/* <Pressable style={styles.minusButtonPressable}>
-              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable> */}
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
             
           </View> 
 
@@ -99,6 +96,10 @@ export default function Fundraiser() {
             placeholder='Reward Level 3' 
             autoCapitalize='words'
             onChangeText={(rwd3) => setRwd3(rwd3)} />
+
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
             
           </View> 
 
@@ -107,11 +108,26 @@ export default function Fundraiser() {
           </View> */}
         </View>
 
-        <Text style={styles.testing}> 
-        {rwd1} {"\n"} 
-        {rwd2} {"\n"} 
-        {rwd3} {"\n"} 
-        </Text>
+        <View style={styles.previewContainer}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.titles}> 
+              Preview
+            </Text>
+          </View>
+
+          <View style={styles.mainContent}>
+            <View style={styles.cuteRect}>
+              <Text style={styles.previewText}> 
+                My Donor Rewards {"\n"} {"\n"} 
+                Reward 1: {"\t\t"} {rwd1} {"\n"} 
+                Reward 2: {"\t\t"} {rwd2} {"\n"} 
+                Reward 3: {"\t\t"} {rwd3} {"\n"} 
+              </Text>
+            </View> 
+          </View>
+        </View>
+
+        
 
       </View>
         
@@ -136,6 +152,9 @@ export default function Fundraiser() {
 }
 
 const styles = StyleSheet.create({
+    safeAreaContainer: {
+      backgroundColor: 'white',
+    },
     container: {
       backgroundColor: 'white',
       height: '100%',
@@ -147,38 +166,48 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
       },
-    input: {
+    input: { // props for TextInput
         backgroundColor: '#F2F2F2',
         // placeholderTextColor: 'black',
         padding: 8,
         borderRadius: 10,
         marginVertical: 8,
         width: '80%',
-        height: 30,
+        height: 35,
         position: 'absolute',
-        left: 5,
+        left: 0,
         bottom: 2,
     },
-    testing: { // text
-        position: 'absolute',
-        top: 500,
+    previewText: { // text
+        fontWeight: 'bold',
+        paddingVertical: 10,
+        margin: 10,
+        fontSize: 22,
     },
-    allInputFields: { // container view
-      // backgroundColor: 'black',
+    mainContent: { // container view
+      // backgroundColor: 'firebrick',
+      marginHorizontal: 20,
+    },
+    previewContainer: {
+      // backgroundColor: 'lightblue',
+      height: '100%',
     },
     headerContainer: { // view (including text position)
       // backgroundColor: 'gray',
       marginHorizontal: 10,
+      marginBottom: 10,
     },
     titles: { // text
       fontWeight: 'bold',
       fontSize: 30,
-      paddingVertical: 15,
+      paddingTop: 25,
+      textAlign: 'center',
+      letterSpacing: 4,
     },
     singleInputLine: { // view
         // backgroundColor: 'firebrick',
-        height: 20,
-        margin: 10,
+        height: 55,
+        // marginHorizontal: 10,
         flexDirection: 'row',
         justifyContent: 'center', // horizontal movement on x axis
         alignContent: 'center',
@@ -188,11 +217,11 @@ const styles = StyleSheet.create({
       width:50, 
       height:50,
     },
-    minusButtonPressable: { // handle position of minus button
+    checkButtonPressable: { // handle position of check button
       // backgroundColor: 'blue', // just to see where the container is
       position: 'absolute', 
       right: 0, 
-      top: 3,
+      top: 0,
     },
     axnButtonContainer: {//   separate from rest of content
       // backgroundColor: 'lightblue',
@@ -209,5 +238,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
+    },
+    cuteRect: {
+      backgroundColor:'#F2F2F2',
+      margin: 10,
+      borderRadius: 5,
+      height: '65%'
     },
 });

@@ -6,11 +6,13 @@ import { ImageBackground } from 'react-native';
 import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
+import { useRoute } from "@react-navigation/native";
+
 
 import Inbox from './Inbox';
 import Explore from '../Donation/Explore';
 
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, IMAGES } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -23,12 +25,15 @@ const INTERVAL = 25;
 //TODO: Back button page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
-function Confirmation() {
+function Confirmation({route}) {
   const navigation = useNavigation();
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <Text style={styles.blacktext}>$10</Text>
+        <TouchableOpacity style={styles.backbutton}>
+          <Image source={require("../../assets/Donation/arrow.png")} />
+        </TouchableOpacity>
+        <Text style={styles.blacktext}>{route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
@@ -53,9 +58,9 @@ function ThankYou() {
 
   return (
     <View style={styles.container} >
-      <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+      <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
         </Image>
-      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+      <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
       <Text style={styles.thankyoutext}> You matched James! </Text>
       <Pressable onPress={() => navigation.navigate(Inbox)}
