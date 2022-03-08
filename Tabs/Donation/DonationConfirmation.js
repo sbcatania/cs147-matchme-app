@@ -10,7 +10,7 @@ import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import {COLORS} from '../../Themes/Constants';
+import { COLORS } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -23,8 +23,8 @@ const INTERVAL = 25;
 //TODO: Add dummy users/data for Matching
 
 function Confirmation() {
- const navigation = useNavigation();
- const route = useRoute();
+  const navigation = useNavigation();
+  const route = useRoute();
 
   return (
     <View style={styles.container} >
@@ -79,7 +79,7 @@ function ThankYou() {
       </View>
       <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
       </Image>
-      <Text style = {styles.thankyoutext}> Thank you! </Text>
+      <Text style={styles.thankyoutext}> Thank you! </Text>
       {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
     </Image>*/}
 
@@ -87,8 +87,8 @@ function ThankYou() {
       {/*Friend Matching */}
       <ScrollView>
         <View style={styles.container}>
-          <View style = {styles.card}>
-            <Text style = {styles.cardtext}>Ask your friends to match</Text>
+          <View style={styles.card}>
+            <Text style={styles.cardtext}>Ask your friends to match</Text>
             {users.map((u, i) => {
               return (
                 <View key={i} style={styles.user}>
@@ -112,30 +112,30 @@ function ThankYou() {
                         <SafeAreaView>
                           {/*TODO: TEXT INPUT */}
 
-                          <TextInput 
-            style={styles.input} 
-            defaultValue={u.name}
-            editable={false} />
-            
-            <TextInput 
-            style={styles.input} 
-            defaultValue={route.params}
-            editable={false}/>
+                          <TextInput
+                            style={styles.input}
+                            defaultValue={u.name}
+                            editable={false} />
 
             <TextInput 
             style={styles.input} 
             defaultValue= "Save the animals"
             editable={false}/>
 
-            <TextInput 
-            style={styles.input} 
-            placeholder='Message' 
-            multiline
-            onChangeText={(message) => setMessage(message)} />
+                          <TextInput
+                            style={styles.input}
+                            defaultValue={fundname}
+                            editable={false} />
+
+                          <TextInput
+                            style={styles.input}
+                            placeholder='Message'
+                            multiline
+                            onChangeText={(message) => setMessage(message)} />
 
 
                         </SafeAreaView>
-                        <Pressable  onPress={() => {setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}}
+                        <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent) }}
                           style={({ pressed }) => [
                             {
                               width: 250,
@@ -182,26 +182,26 @@ function ThankYou() {
               );
             })}
           </View>
-          <Pressable onPress={()=>navigation.navigate("Explore")}
-         style={({ pressed }) => [
-          {
-            top: '9%',
-            left: '15%',
-            width: 300,
-            alignItems: 'center',
-            justifyContent: 'center',
-            paddingVertical: 15,
-            borderRadius: 100,
-            elevation: 3,
-            backgroundColor: pressed
-              ? 'gray'
-              : COLORS.WHITE
-          },
-          styles.wrapperCustom
-        ]}
-        >
-            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text> 
-    </Pressable>
+          <Pressable onPress={() => navigation.navigate("Explore")}
+            style={({ pressed }) => [
+              {
+                top: '9%',
+                left: '15%',
+                width: 300,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: 15,
+                borderRadius: 100,
+                elevation: 3,
+                backgroundColor: pressed
+                  ? 'gray'
+                  : COLORS.WHITE
+              },
+              styles.wrapperCustom
+            ]}
+          >
+            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text>
+          </Pressable>
 
 
 
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     borderRadius: 10,
   },
-  name : {
+  name: {
     fontSize: 30,
     fontWeight: 'normal',
   },
@@ -409,5 +409,5 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: '60%',
-}
+  }
 });
