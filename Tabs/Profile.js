@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 8,
         width: '80%',
-        height: 30,
+        height: 35,
         position: 'absolute',
         left: 0,
         bottom: 2,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     },
     singleInputLine: { // view
         // backgroundColor: 'firebrick',
-        height: 50,
+        height: 55,
         // marginHorizontal: 10,
         flexDirection: 'row',
         justifyContent: 'center', // horizontal movement on x axis
