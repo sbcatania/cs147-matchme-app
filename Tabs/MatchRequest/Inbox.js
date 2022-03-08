@@ -50,7 +50,9 @@ const Inbox = ({ navigation }) => {
         <CardContent>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
             <UserName>{item.userName} donated {item.amount} to {item.cause}</UserName>
-            <TouchableOpacity onPress={() => setModalVisible(true)}>
+            <TouchableOpacity onPress={() => setModalVisible(true)}
+            onPressOut={() => {setModalVisible(false)}}
+            >
               <Image style={{ width: 50, height: 50 }} source={IMAGES.DONATE_ICON} />
             </TouchableOpacity>
           </View>
@@ -70,7 +72,11 @@ const Inbox = ({ navigation }) => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
+               
       >
+        
+
+          
         <View style={styles.centeredView}>
 
           <View style={styles.modalView}>
@@ -122,6 +128,7 @@ const Inbox = ({ navigation }) => {
             </SafeAreaView>
           </View>
         </View>
+        
       </Modal>
       <NavBar>
         <Title>{'Inbox'}</Title>

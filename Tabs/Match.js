@@ -15,6 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inbox from './MatchRequest/Inbox';
 import MatchConfirmation from './MatchRequest/MatchConfirmation';
+import {COLORS} from '../Themes/Constants';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,8 +23,20 @@ const Stack = createNativeStackNavigator();
 // turn this into a stack navigator 
 export default function Match() {
   return (
-      <Stack.Navigator initialRouteName="Inbox" screenOptions={{
-        headerShown: false}} >
+      <Stack.Navigator initialRouteName="Inbox" screenOptions= {{
+        headerTransparent: true,
+        headerStyle: {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        height: 1,
+      },
+      
+      headerTitleStyle: {
+        color: 'rgba(0, 0, 0, 0)',
+      },
+      headerTintColor: COLORS.BLACK,
+    
+      headerBackTitleVisible: false,
+      }}>
         <Stack.Screen name="Inbox" component={Inbox} />
         <Stack.Screen name="MatchConfirmation" component={MatchConfirmation} />
       </Stack.Navigator>
