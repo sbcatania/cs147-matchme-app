@@ -16,7 +16,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
 const LOAD_TIME = 100;
 const INTERVAL = 25;
 
@@ -30,9 +29,6 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <TouchableOpacity style={styles.backbutton} onPress={() => navigation.navigate(DonationEntry)}>
-          <Image source={require("../../assets/Donation/arrow.png")} />
-        </TouchableOpacity>
         <Text style={styles.blacktext}>${route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
@@ -78,9 +74,6 @@ function ThankYou() {
   return (
     <View style={styles.container} >
       <View style={styles.flex}>
-        {/*<TouchableOpacity style = {styles.button} onPress={()=>ref.current.setPage(1)}>
-        <Image source={require("../../assets/Donation/arrow.png")}/>
-  </TouchableOpacity>*/}
         <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
         </Image>
       </View>
@@ -131,7 +124,7 @@ function ThankYou() {
 
             <TextInput 
             style={styles.input} 
-            defaultValue= {fundname}
+            defaultValue= "Save the animals"
             editable={false}/>
 
             <TextInput 
