@@ -10,7 +10,7 @@ import { Card, Icon, ListItem } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';

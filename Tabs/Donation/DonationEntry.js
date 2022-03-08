@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS, DATA } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Constants';
 
 
 //const fundraiserdata = DATA.PROFILES[handle];

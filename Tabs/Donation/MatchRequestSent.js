@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
-import { COLORS, IMAGES } from '../../Themes/Constants';
+import { COLORS, IMAGES } from '../../Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';

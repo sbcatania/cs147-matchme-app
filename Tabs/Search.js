@@ -5,7 +5,7 @@ import Rewards from './RewardsLily'
 import Profile from './Profile'
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS, IMAGES } from '../Themes/Constants';
+import { COLORS, IMAGES } from '../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 /*

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Image, TextInput, StyleSheet, Button, Pressable, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import styled from 'styled-components/native';
-import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Constants';
 import MatchConfirmation from './MatchConfirmation';
 
 import { NavigationContainer } from '@react-navigation/native';
