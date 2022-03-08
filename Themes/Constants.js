@@ -134,21 +134,19 @@ export const DATA = {
   };
 
 export const IMAGES = {
+    // Logos
     LOGO_WHITE     : require('../assets/Home/logowhite.png'),
+
+    // Home screen
     LIKE_ICON      : require('../assets/Home/heart.png'),
     DISLIKE_ICON   : require('../assets/Home/xicon.png'),
     SHARE_ICON     : require('../assets/Home/share.png'),
     DONATE_ICON    : require('../assets/Navigation/donate.png'),
+
+    // Other
     USER_ICON      : require('../assets/Icons/user.png'),
     DONATION_ARROW : require('../assets/Donation/arrow.png'),
     DONATION_SHARE : require('../assets/Donation/share.png'),
     DONATION_CHECK : require('../assets/Donation/check.png'),
-    INBOX_CHECK    : require('../assets/Inbox/check.png'),
-    
-    // Profile images of donors, key is donor handle
-    DONORS: {
-        'james'   : require('../assets/Users/landay.jpeg'),
-        // 'pablo'   : require('../assets/Users/landay.jpg'),
-    },
-    
+    INBOX_CHECK    : require('../assets/Inbox/check.png'),    
   };
