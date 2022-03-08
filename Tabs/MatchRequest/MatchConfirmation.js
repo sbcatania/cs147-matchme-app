@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import Inbox from './Inbox';
+import Explore from '../Donation/Explore';
 
 import { COLORS } from '../../Themes/Constants';
 
@@ -27,9 +28,6 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <TouchableOpacity style={styles.backbutton}>
-          <Image source={require("../../assets/Donation/arrow.png")} />
-        </TouchableOpacity>
         <Text style={styles.blacktext}>$10</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
@@ -55,14 +53,57 @@ function ThankYou() {
 
   return (
     <View style={styles.container} >
-      <View style={styles.flex}>
-        {/*<TouchableOpacity style = {styles.button} onPress={()=>ref.current.setPage(1)}>
-        <Image source={require("../../assets/Donation/arrow.png")}/>
-  </TouchableOpacity>*/}
-        <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg} />
-        <Image source={require('../../assets/Donation/check.png')}  />
+      <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+        </Image>
+      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+      </Image>
+      <Text style={styles.thankyoutext}> You matched James! </Text>
+      <Pressable onPress={() => navigation.navigate(Inbox)}
+            style={({ pressed }) => [
+              {
+                top: '20%',
+                left: '15%',
+                width: 300,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: 15,
+                borderRadius: 100,
+                elevation: 3,
+                backgroundColor: pressed
+                  ? 'gray'
+                  : COLORS.WHITE
+              },
+              styles.wrapperCustom
+            ]}
+          >
+            <Text style={styles.buttontextexplore}> See More Requests </Text>
+          </Pressable>
+      <Pressable onPress={() => navigation.navigate(Explore)}
+            style={({ pressed }) => [
+              {
+                top: '20%',
+                left: '15%',
+                marginTop: 45,
+                width: 300,
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingVertical: 15,
+                borderRadius: 100,
+                elevation: 3,
+                backgroundColor: pressed
+                  ? 'gray'
+                  : COLORS.WHITE
+              },
+              styles.wrapperCustom
+            ]}
+          >
+            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text>
+          </Pressable>
+
+
+
       </View>
-    </View>
+      
   );
 }
 
@@ -107,6 +148,19 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.GREEN,
 
   },
+
+  logoimg: {
+    top: '5%',
+    left: '5%',
+  },
+  thankyoutext: {
+    top: '15%',
+    textAlign: 'center',
+    color: COLORS.WHITE,
+    fontSize: 35,
+    fontWeight: 'bold',
+  },
+
   blacktext: {
     textAlign: 'center',
     top: '10%',
@@ -122,6 +176,11 @@ const styles = StyleSheet.create({
     color: COLORS.BLUE,
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  buttontextexplore: {
+    color: COLORS.GREEN,
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   fineprint: {
     textAlign: 'center',
@@ -172,60 +231,20 @@ const styles = StyleSheet.create({
     left: '1%',
   },
   thankyouimg: {
-    left: '16%',
-  },
-  button: {
+    left: '35%',
     top: '10%',
   },
-  user: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 6,
-  },
-  image: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
-  },
+
+  
+
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22
   },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5
-  },
+  
   buttonClose: {
     backgroundColor: "#2196F3",
   },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  },
-  confirmtext: {
-    textAlign: 'center',
-    top: '90%',
-    letterSpacing: 4,
-    color: COLORS.WHITE,
-    fontSize: 30,
-  }
 });
