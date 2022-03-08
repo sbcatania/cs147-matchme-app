@@ -50,9 +50,6 @@ export default function Search() {
     const [dongoal, setDongoal] = useState('100,000');
     // const [doncounter, setDonCounter] = useState(0);
     const [usercounter, setUserCounter] = useState(0);
-    const [rwd1, setRwd1] = useState('Reward Level 1');
-    const [rwd2, setRwd2] = useState('Reward Level 2');
-    const [rwd3, setRwd3] = useState('Reward Level 3');
 
     // NAVIGATION: Setup nav between pages
     const navigation = useNavigation();
