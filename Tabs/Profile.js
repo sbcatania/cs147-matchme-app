@@ -21,6 +21,7 @@ import Search from './Search'
 *   ABANDON: 
 *   - DYNAMIC ADD/DELETE:
 *       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
+*       - https://stackoverflow.com/questions/63712680/how-to-dynamically-add-delete-view-in-react-native
 */
 
 export default function Fundraiser() {
@@ -49,7 +50,7 @@ export default function Fundraiser() {
   
   return(
 
-      <SafeAreaView>
+      <SafeAreaView styles={styles.safeAreaContainer}>
       <View style={styles.container}>
         {/* <Text style = {styles.blacktext}> Profile </Text> */}
 
@@ -63,7 +64,7 @@ export default function Fundraiser() {
             {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
           </View> */}
         
-        <View style={styles.allInputFields}>
+        <View style={styles.mainContent}>
           <View style={styles.singleInputLine}> 
             
             <TextInput 
@@ -75,7 +76,6 @@ export default function Fundraiser() {
             <Pressable style={styles.checkButtonPressable}>
               <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
             </Pressable>
-            
           </View> 
 
           <View style={styles.singleInputLine}> 
@@ -112,11 +112,22 @@ export default function Fundraiser() {
         </View>
 
         <View style={styles.previewContainer}>
-          <Text style={styles.testing}> 
-          {rwd1} {"\n"} 
-          {rwd2} {"\n"} 
-          {rwd3} {"\n"} 
-          </Text>
+          <View style={styles.headerContainer}>
+            <Text style={styles.titles}> 
+              Preview
+            </Text>
+          </View>
+
+          <View style={styles.mainContent}>
+            <View style={styles.cuteRect}>
+              <Text style={styles.previewText}> 
+                My Donor Rewards {"\n"} {"\n"} 
+                Reward 1: {"\t\t"} {rwd1} {"\n"} 
+                Reward 2: {"\t\t"} {rwd2} {"\n"} 
+                Reward 3: {"\t\t"} {rwd3} {"\n"} 
+              </Text>
+            </View> 
+          </View>
         </View>
 
         
@@ -144,6 +155,9 @@ export default function Fundraiser() {
 }
 
 const styles = StyleSheet.create({
+    safeAreaContainer: {
+      backgroundColor: 'white',
+    },
     container: {
       backgroundColor: 'white',
       height: '100%',
@@ -155,7 +169,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
       },
-    input: {
+    input: { // props for TextInput
         backgroundColor: '#F2F2F2',
         // placeholderTextColor: 'black',
         padding: 8,
@@ -164,18 +178,21 @@ const styles = StyleSheet.create({
         width: '80%',
         height: 30,
         position: 'absolute',
-        left: 5,
+        left: 0,
         bottom: 2,
     },
-    testing: { // text
-        position: 'absolute',
-        top: 100,
+    previewText: { // text
+        fontWeight: 'bold',
+        paddingVertical: 10,
+        margin: 10,
+        fontSize: 22,
     },
-    allInputFields: { // container view
-      // backgroundColor: 'black',
+    mainContent: { // container view
+      // backgroundColor: 'firebrick',
+      marginHorizontal: 10,
     },
     previewContainer: {
-      backgroundColor: 'lightgreen',
+      // backgroundColor: 'lightblue',
       height: '100%',
     },
     headerContainer: { // view (including text position)
@@ -190,7 +207,7 @@ const styles = StyleSheet.create({
     singleInputLine: { // view
         // backgroundColor: 'firebrick',
         height: 50,
-        margin: 10,
+        // marginHorizontal: 10,
         flexDirection: 'row',
         justifyContent: 'center', // horizontal movement on x axis
         alignContent: 'center',
@@ -221,5 +238,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
+    },
+    cuteRect: {
+      backgroundColor:'#DCDCDC',
+      margin: 10,
+      borderRadius: 5,
     },
 });
