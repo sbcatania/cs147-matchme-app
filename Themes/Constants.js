@@ -65,7 +65,7 @@ export const DATA = {
         },
       paloaltoshelter: {
         avatar: require('../assets/Home/shelter.jpg'),
-        title: "Save Palo Alto",
+        title: "Prevent Palo Alto Homelessness",
         banner: require('../assets/Donation/moose.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
@@ -104,25 +104,25 @@ export const DATA = {
       {
         id: 2,
         userName: "Jennifer P",
-        cause: "Homework Factory",
+        cause: "Save the Animals",
         avatar: require("../assets/Users/avatar-1.png"),
-        content: "I like giving homework so I think you should support this cause",
+        content: "I know you care about endangered animals, so I think this is an organization you'd love!",
         amount: "$20"
       },
       {
         id: 3,
         userName: "Malaysia J",
-        cause: "Hall of Shame",
+        cause: "Protect Pollinators",
         avatar: require("../assets/Users/avatar-2.png"),
-        content: "Match here so they can make their site not hall of shame",
+        content: "I just found out that bees are falling in numbers every year. They're so important! Hope you'll match 🙃❤️",
         amount: "$500"
       },
       {
         id: 4,
         userName: "Tai G",
-        cause: "Hall of Shame",
+        cause: "Prevent Palo Alto Homelessness",
         avatar: require("../assets/Users/avatar-5.png"),
-        content: "Match here so they can make their site not hall of shame",
+        content: "There are so many issues going on even in our local community. P.A.S. is doing great work.",
         amount: "$35"
       }
     ],
