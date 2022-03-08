@@ -19,18 +19,21 @@ console.log(handle);
 function Confirmation() {
   const navigation = useNavigation();
   const route = useRoute();
+  const {entry, handle} = route.params;
+  const profile = DATA.PROFILES[handle];
+
 
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <Text style={styles.blacktext}>{route.params}</Text>
+        <Text style={styles.blacktext}>{entry}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
-         <Text style={styles.bluetext}> Saving the Animals </Text>
+         <Text style={styles.bluetext}> {profile.title} </Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here's more information on your donation:
         </Text>
         <Text style={styles.fineprint}>
-          By making this non-refundable donation to the SAVE THE ANIMALS FUNDRAISER hosted by the WORLD WILDLIFE FUND (WWF), you agree that money will be transferred from your account to the accounts of WWF. WWF is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of WWF as to if they would like to honor any and all promised rewards. Additionally, WWF has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
+          By making this non-refundable donation to the {profile.title} hosted by the {profile.name}, you agree that money will be transferred from your account to the accounts of {profile.name}. {profile.name} is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of {profile.name} as to if they would like to honor any and all promised rewards. Additionally, {profile.name} has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
@@ -45,6 +48,8 @@ function ThankYou() {
   const route = useRoute();
   const ref = useRef();
   const users = DATA.USERS;
+  const {entry, handle} = route.params;
+  const profile = DATA.PROFILES[handle];
 
   // MATCHING MODAL SET UP
   const [modalVisible, setModalVisible] = useState(false);
@@ -76,12 +81,12 @@ function ThankYou() {
 
                 <TextInput
                   style={styles.input}
-                  defaultValue= {route.params}
+                  defaultValue= {entry}
                   editable={false} />
               </View>
               <TextInput
                 style={styles.input}
-                defaultValue="Saving the Animals"
+                defaultValue={profile.title}
                 editable={false} />
 
               <TextInput

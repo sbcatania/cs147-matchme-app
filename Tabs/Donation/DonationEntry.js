@@ -8,22 +8,27 @@ import { useHandler } from 'react-native-reanimated';
 
 //const fundraiserdata = DATA.PROFILES[handle];
 
-export default function DonationEntry({navigation}) {
+const DonationEntry = ({navigation}) => {
 
   const [entry, setEntry] = useState("");
   // const navigation = useNavigation();
-  // const handle = route;
+  
   const route = useRoute();
-  console.log(route);
+  //console.log(route);
+
+  const handle = route.params;
+  const profile = DATA.PROFILES[handle];
+  console.log("This is the profile" + profile);
+
   const donate = () => {
-    navigation.navigate('DonationConfirmation', entry);
+    navigation.navigate('DonationConfirmation', {entry, handle});
   };
 
     return(
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
        <View style = {styles.rectangle}>
-         <Text style = {styles.description}> Supporting Hey </Text>
+         <Text style = {styles.description}> Supporting {profile.title} </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput
@@ -153,3 +158,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.GREEN,
   },
 });
+
+export default DonationEntry;

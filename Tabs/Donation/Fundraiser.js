@@ -9,7 +9,8 @@ import { COLORS, DATA } from '../../Constants';
 
 export default function Fundraiser({route}) {
     const [handle, _] = React.useState(route.params);
-    console.log(handle);
+    console.log("This is the handle" + handle);
+    // console.log(DATA.PROFILES[handle]);
     // console.log(route.params);
     let data = DATA.PROFILES[handle];
     //console.log(data);
@@ -26,7 +27,7 @@ export default function Fundraiser({route}) {
         <Text style = {styles.blacktext}> {data.name} </Text>
         <Text style = {styles.blacktext}> {data.dates} </Text>
         <Pressable style={styles.donatebutton} onPress={() => {
-          navigation.navigate(DonationEntry, {params: { params : { handle } } } )
+          navigation.navigate('DonationEntry', handle)
         }}
          style={({ pressed }) => [
           {
