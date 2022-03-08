@@ -13,6 +13,7 @@ Run `expo start`
 Run `expo install react-native-screens react-native-safe-area-context`  
 Then run `npm install react-native-numeric-input react-native-vector-icons --save`  
 Then run `expo install react-native-gesture-handler`  
+Then run `expo install expo-image-picker`  
 Then run `npm install`  
 Then run `expo start`  
 

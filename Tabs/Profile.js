@@ -1,24 +1,57 @@
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback, Pressable } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressable } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
+import * as ImagePicker from 'expo-image-picker';
+
 
 
 
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
+/* 
+* TODO: 
+*   - DYNAMIC ADD/DELETE:
+*       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
+*   - 
+*/
 
 export default function Fundraiser() {
   
   const [rwd1, setRwd1] = useState('Reward Level 1');
+
+
+  // Image picker stuff
+  const [image, setImage] = useState(null);
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
   
   return(
+
+      <SafeAreaView>
       <View style={styles.container}>
         <Text style = {styles.blacktext}> Profile </Text>
+
+        {/* Image picker here */}
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Button title="Pick an image from camera roll" onPress={pickImage} />
+            {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+          </View>
         
         <View style={styles.singleInputLine}> 
+          
           <TextInput 
           style={styles.input} 
           placeholder='Reward Level 1' 
@@ -44,6 +77,7 @@ export default function Fundraiser() {
         <Text style={styles.testing}> {rwd1} </Text>
 
       </View>
+      </SafeAreaView>
   );
 }
 
@@ -73,8 +107,7 @@ const styles = StyleSheet.create({
     },
     testing: { // text
         position: 'absolute',
-        left: 0,
-        top: 300,
+        top: 500,
     },
     singleInputLine: { // view
         backgroundColor: 'firebrick',
