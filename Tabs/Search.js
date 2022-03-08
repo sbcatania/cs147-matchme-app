@@ -22,21 +22,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 * 
 * 
 * 
-* 
-* 
-* 
 * TODO
-*   Before Monday
-*   - REWARDS: Make rwds a separate page. Follow these instructions to adjust levels: https://javascript.plainenglish.io/creating-dynamic-input-fields-in-react-native-514a3e8444fa 
-*   - TAGS: Make tags hold their color (Probably use a handler)?? 
-*   - SETUP RWDS: Change this to a link click thing.
-*   - USER IMAGE: Style user icon.
-*   After Monday
-*   - BUTTONS: Connect launch button to NFP fundraiser page.
-*   - (Get help) SCAFFOLDING: Setup scaffolding for NFP side.
-*   - SEARCH TAB: Obviously, this lives in Search.js, so move this to the NFP part eventually.
-*   - MOVE INPUT: text input for handle, OrgName should be in onboarding, not here
-*   - PASSABLE DATA: use Melanie's $10 thing to pass text input between pages.
+*   - TAGS (DANA): Hold color and pass data to next screen with state variables.
+*   - NAV: Reconnect buttons once scaffolding is set up.
+*   - STATE VARS: Setup state vars for text input also.
+*   - UI: Finalize CSS styling.
 */
 
 // Main fn
@@ -182,18 +172,6 @@ export default function Search() {
                     }]}>
                         <Text style={styles.linktext}> Setup Rewards </Text> 
                 </Pressable>
-
-                {/* <Text> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend neque eu est commodo tristique. Proin at nunc eros. Donec vulputate eleifend arcu, at rutrum mauris venenatis rhoncus. Aliquam ac nibh risus. In ut nunc consectetur, egestas tellus venenatis, commodo tellus. Fusce eget volutpat enim. Mauris bibendum diam ac ante congue aliquet.
-
-                Morbi sit amet sapien ac tortor euismod posuere ut eget mi. Donec sit amet placerat lorem. Fusce elit velit, rutrum non ex non, fringilla aliquam velit. Nunc tincidunt fringilla tempor. Quisque ornare auctor magna ultrices euismod. Maecenas dictum fringilla vestibulum. Proin aliquet consectetur nisl, vel euismod turpis.
-
-                Aliquam congue maximus sagittis. Integer imperdiet bibendum turpis, in dapibus felis vehicula sed. Sed viverra, dui id pretium aliquet, ante est eleifend libero, nec ultrices velit orci et orci. Duis sed est tincidunt, euismod ante sit amet, tristique massa. Fusce a pretium massa. Praesent mauris eros, aliquam id ornare non, finibus porta dui. Sed fringilla nisi enim, ac interdum justo convallis eget. Curabitur nec purus dui. Phasellus pellentesque egestas lectus, nec bibendum magna placerat eu. Maecenas pharetra mauris sed augue faucibus gravida. Morbi vitae ante sit amet leo aliquet mattis. Cras imperdiet blandit dolor, sed dictum magna feugiat ut. Pellentesque at gravida leo, sit amet convallis nulla.
-
-                Morbi vitae massa dictum, volutpat elit at, iaculis turpis. Aliquam bibendum ultricies libero sed pellentesque. Cras at finibus tellus, nec finibus ipsum. Nullam maximus, mauris ac fermentum efficitur, tortor leo aliquet erat, ut vulputate sapien est id quam. Duis tristique consectetur turpis, quis ullamcorper velit porttitor sit amet. Donec gravida vehicula feugiat. Mauris ultrices, justo in semper rhoncus, mauris nisl dictum ante, id fermentum diam orci eu ante. Sed interdum gravida enim molestie feugiat. Suspendisse potenti. Etiam at enim bibendum, blandit ante id, auctor nisl. Praesent imperdiet posuere dolor id bibendum. Mauris faucibus volutpat velit, nec condimentum sapien laoreet ac. Nunc quis lacus eu lectus maximus tincidunt. Morbi interdum ex at eros fringilla, eu scelerisque velit luctus.
-
-                Proin elementum nibh mi, vel facilisis turpis pulvinar in. In commodo vestibulum ultricies. Etiam blandit a odio sed eleifend. Aenean fermentum, massa vel rhoncus commodo, tortor risus maximus nibh, sed fringilla augue nibh a nunc. In interdum nec lectus vitae scelerisque. Maecenas mollis lorem id libero dapibus iaculis. Nullam vulputate nec sapien ac lacinia. Aliquam non urna accumsan, volutpat nibh at, maximus ligula. Phasellus libero lorem, rutrum vitae dolor ac, scelerisque euismod libero. Curabitur elementum sed ante vitae pretium. Aenean eu sodales turpis. Proin in velit non dolor varius ultricies. Ut mollis nibh at neque faucibus, ac efficitur nulla molestie.
-                </Text> */}
 
                 {/* TESTING VARIABLES */}
                 {/* 

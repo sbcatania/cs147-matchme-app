@@ -9,9 +9,6 @@ import { COLORS } from '../Themes/Constants';
 import Search from './Search'
 // import * as ImagePicker from 'expo-image-picker';
 
-
-
-
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
 /* 
 * TODO: 
@@ -243,8 +240,9 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     cuteRect: {
-      backgroundColor:'#DCDCDC',
+      backgroundColor:'#F2F2F2',
       margin: 10,
       borderRadius: 5,
+      height: '65%'
     },
 });
