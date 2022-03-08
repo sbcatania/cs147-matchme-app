@@ -15,15 +15,12 @@ const INTERVAL = 25;
 //TODO: Back button page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
-function Confirmation({route}) {
+function Confirmation() {
   const navigation = useNavigation();
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <TouchableOpacity style={styles.backbutton}>
-          <Image source={require("../../assets/Donation/arrow.png")} />
-        </TouchableOpacity>
-        <Text style={styles.blacktext}>{route.params}</Text>
+        <Text style={styles.blacktext}>$5</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>

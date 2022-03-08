@@ -12,6 +12,7 @@ import Search from './Tabs/Search';
 import Profile from './Tabs/Nonprofit/NonprofitProfile'; 
 import Nonprofit from './Tabs/Nonprofit';
 import {COLORS} from './Constants';
+import React, { useState } from 'react';
 
 
 const Tab = createBottomTabNavigator();
@@ -48,7 +49,7 @@ export default function DonorFlow({navigation}) {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Match" component={Match} />
         <Tab.Screen name="Profile" component={Profile} />
-        <Tab.Screen name="Search" component={Nonprofit} />
+        <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
   );
 }
