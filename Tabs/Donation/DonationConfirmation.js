@@ -10,7 +10,7 @@ import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -18,6 +18,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
+const handle = global.handle;
+let data = DATA.PROFILES[handle];
 
 //TODO: Back button on thank you page doesn't work :|
 //TODO: Add dummy users/data for Matching
@@ -90,6 +92,7 @@ function ThankYou() {
           <View style={styles.card}>
             <Text style={styles.cardtext}>Ask your friends to match</Text>
             {users.map((u, i) => {
+              console.log(u.name);
               return (
                 <View key={i} style={styles.user}>
                   <Modal
@@ -119,12 +122,12 @@ function ThankYou() {
 
             <TextInput 
             style={styles.input} 
-            defaultValue= "Save the animals"
+            defaultValue= {route.params}
             editable={false}/>
 
                           <TextInput
                             style={styles.input}
-                            defaultValue={fundname}
+                            defaultValue= {data.title}
                             editable={false} />
 
                           <TextInput
