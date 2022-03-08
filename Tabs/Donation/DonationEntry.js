@@ -11,10 +11,12 @@ import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS, DATA } from '../../Themes/Constants';
 
+const handle = global.handle;
+let data = DATA.PROFILES[handle];
+
 export default function DonationEntry({route}) {
   const [entry, setEntry] = useState("");
   const navigation = useNavigation();
-  console.log(handle);
   const donate = () => {
     navigation.navigate('DonationConfirmation', entry);
   };
@@ -23,7 +25,7 @@ export default function DonationEntry({route}) {
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
        <View style = {styles.rectangle}>
-         <Text style = {styles.description}> Supporting Save the Animals </Text>
+         <Text style = {styles.description}> Supporting {data.title} </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput

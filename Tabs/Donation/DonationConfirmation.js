@@ -32,8 +32,8 @@ function Confirmation() {
     <View style={styles.container} >
       <View style={styles.rectangle} >
         <Text style={styles.blacktext}>${route.params}</Text>
-        <Text style={styles.bluetext}>Your donation will support
-          1 cleanup for the Save the Animals Fundraiser.</Text>
+        <Text style={styles.bluetext}>Your donation will support </Text>
+         <Text style={styles.bluetext}> {data.title}.</Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here's more information on your donation:
         </Text>
