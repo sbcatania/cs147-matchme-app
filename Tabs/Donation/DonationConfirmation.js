@@ -21,12 +21,14 @@ const INTERVAL = 25;
 const handle = global.handle;
 let data = DATA.PROFILES[handle];
 
+
 //TODO: Back button on thank you page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
 function Confirmation() {
   const navigation = useNavigation();
   const route = useRoute();
+  console.log(data.title);
 
   return (
     <View style={styles.container} >
