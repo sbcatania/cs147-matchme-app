@@ -19,7 +19,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Inbox = ({ navigation }) => {
   const data = DATA.MATCH_REQUESTS;
-  const data2 = DATA.ACTIVITY;
+  const data2 = DATA.ACTIVITY; 
 
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState("");
@@ -39,7 +39,7 @@ const Inbox = ({ navigation }) => {
         <Content>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
-            <Image style={{ width: 50, height: 50 }} source={require("../../assets/Inbox/check.png")} />
+            <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
       </View>
@@ -67,7 +67,11 @@ const Inbox = ({ navigation }) => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
+               
       >
+        
+
+          
         <View style={styles.centeredView}>
 
           <View style={styles.modalView}>
@@ -75,7 +79,7 @@ const Inbox = ({ navigation }) => {
               onPress={() => setModalVisible(!modalVisible)}
               style={{ float: "left" }}
             >
-              <Image source={require('../../assets/Donation/arrow.png')} />
+              <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
             <SafeAreaView style={styles.container} >
               <Text style={styles.description}> {fundName} </Text>
@@ -108,6 +112,7 @@ const Inbox = ({ navigation }) => {
             </SafeAreaView>
           </View>
         </View>
+        
       </Modal>
       <NavBar>
         <Title>{'Inbox'}</Title>

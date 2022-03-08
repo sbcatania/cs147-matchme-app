@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, IMAGES } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -23,9 +23,9 @@ export default function MatchRequestSent({navigation}) {
 
     return (
         <View style={styles.container} >
-                <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+                <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
                 </Image>
-            <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+            <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
             </Image>
             <Text style = {styles.thankyoutext}> Match Request Sent! </Text>
 

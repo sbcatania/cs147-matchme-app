@@ -21,7 +21,7 @@ function createPost(post_number) {
   let post = DATA.POSTS[post_number];
   return(
     <View style={styles.container}>
-        <ImageBackground source={IMAGES.HOME[post_number]} style={styles.bgimg}>
+        <ImageBackground source={post.image} style={styles.bgimg}>
           <Text style = {styles.blacktext}>
             {TOP_TEXT}
           </Text>
@@ -32,7 +32,7 @@ function createPost(post_number) {
           <Text style={styles.whitetextsmall}>
             {post.caption}
           </Text>
-          <Image source = {IMAGES.PROFILE[post.handle]} style = {styles.sideiconprof}> 
+          <Image source = {DATA.PROFILES[post.handle].avatar} style = {styles.sideiconprof}> 
           </Image>
           <Image source = {IMAGES.LIKE_ICON} style = {styles.sideicon}> 
           </Image>
@@ -40,7 +40,7 @@ function createPost(post_number) {
           </Image>
           <Image source = {IMAGES.SHARE_ICON} style = {styles.sideicon}> 
           </Image>
-          <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate(post.donation_link, post.handle)}>
+          <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate("Fundraiser", post.handle)}>
             <Image style = {styles.donateimg} source={IMAGES.DONATE_ICON}/>
           </TouchableOpacity>
           </ImageBackground>

@@ -10,7 +10,7 @@ import { Card, Icon, ListItem } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -18,6 +18,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
+const handle = global.handle;
+let data = DATA.PROFILES[handle];
+
 
 //TODO: Back button on thank you page doesn't work :|
 //TODO: Add dummy users/data for Matching
@@ -25,15 +28,16 @@ const INTERVAL = 25;
 function Confirmation() {
   const navigation = useNavigation();
   const route = useRoute();
+  console.log(data.title);
 
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
         <Text style={styles.blacktext}>${route.params}</Text>
-        <Text style={styles.bluetext}>Your donation will support
-          1 cleanup for the Save the Animals Fundraiser.</Text>
+        <Text style={styles.bluetext}>Your donation will support </Text>
+         <Text style={styles.bluetext}> {data.title}.</Text>
         <Text style={styles.fineprint}>
-          This donation is tax-deductible. Here’s more information on your donation:
+          This donation is tax-deductible. Here's more information on your donation:
         </Text>
         <Text style={styles.fineprint}>
           By making this non-refundable donation to the SAVE THE ANIMALS FUNDRAISER hosted by the WORLD WILDLIFE FUND (WWF), you agree that money will be transferred from your account to the accounts of WWF. WWF is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of WWF as to if they would like to honor any and all promised rewards. Additionally, WWF has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
@@ -50,20 +54,7 @@ function ThankYou() {
   const navigation = useNavigation();
   const route = useRoute();
   const ref = useRef();
-  const users = [
-    {
-      name: 'Brynn',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Laura',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-    {
-      name: 'Aidan',
-      avatar: require('../../assets/Users/landay.jpeg'),
-    },
-  ];
+  const users = DATA.USERS;
 
   // MATCHING MODAL SET UP
   const [modalVisible, setModalVisible] = useState(false);
@@ -87,7 +78,7 @@ function ThankYou() {
             <Pressable style={styles.backbutton}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Image source={require('../../assets/Donation/arrow.png')} />
+              <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
             <Text style={styles.modalText}>Match Request</Text>
             <SafeAreaView>
@@ -104,7 +95,7 @@ function ThankYou() {
               </View>
               <TextInput
                 style={styles.input}
-                defaultValue={fundname}
+                defaultValue={data.title}
                 editable={false} />
 
               <TextInput
@@ -156,7 +147,7 @@ function ThankYou() {
           height: 40
         }}
         onPress={() => setModalVisible(true)}>
-        <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 40 }} />
+        <Image source={IMAGES.DONATION_SHARE} style={{ width: "auto", height: 40 }} />
       </Pressable>
     </View>
   );
@@ -164,10 +155,10 @@ function ThankYou() {
   return (
     <View style={styles.container} >
       <View style={styles.flex}>
-        <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+        <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
         </Image>
       </View>
-      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+      <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
       <Text style={styles.thankyoutext}> Thank you! </Text>
       {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
