@@ -14,6 +14,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /* To Do:
 - Set up MatchEntry navigator and stuff
 - (lily) styling to match profile/search
+- split up username and org name to make different sizes
 */
 
 
@@ -35,16 +36,16 @@ const Inbox = ({ navigation }) => {
         <Header> 
           <View style={styles.userInfo}>
             <Avatar style={styles.avatarContainer} source={item.avatar} />
-            <UserName style={styles.unContainer}>{item.userName} - {item.cause}</UserName>
+            <UserName style={styles.userText}>{item.userName} - {item.cause}</UserName>
           </View>
 
           <Amount style={styles.donAmount}>{item.amount}</Amount>
         </Header>
         
-        <Content style={{width:"100%", justifyContent:"space-between"}}>
-          <ContentText>{item.content}</ContentText>
-          <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
-            <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
+        <Content style={styles.matchBtmContentCtr}>
+          <ContentText style={styles.matchReqText}>{item.content}</ContentText>
+          <TouchableOpacity style={styles.checkBtnContainer} onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
+            <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
 
@@ -257,14 +258,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 10,
   },
-  flatlistContainer: { // only the wrapper for list content
+  flatlistContainer: { // only the wrapper for ENTIRE FlatList
     flexGrow: 0,
     backgroundColor: 'firebrick',
   },
   matchEntry: { // the line containing a single match request, a View
-    // paddingLeft: 20, 
-    // paddingRight: 40,
     backgroundColor: 'blue',
+    paddingBottom: 15,
   },
   userInfo: { // the line containing username, org, avatar, a View
     flexDirection: 'row', 
@@ -274,13 +274,33 @@ const styles = StyleSheet.create({
   donAmount: {
     position: 'absolute',
     backgroundColor: 'white',
+    top: 0,
     right: 0,
   },
   avatarContainer: {
     backgroundColor: 'gray'
   },
-  unContainer: {
+  userText: { // container AND text
     backgroundColor: 'yellow',
+    fontSize: 12,
+  },
+  matchBtmContentCtr: { // container for all the content in the bottom of the match line
+    width:"100%", 
+  },
+  matchReqText: { // text container AND text props
+    width: '88%',
+    fontSize: 15,
+    lineHeight: 18,
+  },
+  checkBtnContainer: { // TouchableOpacity wrapper
+    backgroundColor: 'white',
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+  },  
+  checkBtnImg: { 
+    resizeMode: 'cover',
+    height: 50,
   },
   flex: {
     flexDirection: 'row',
