@@ -26,6 +26,8 @@ const Inbox = ({ navigation }) => {
   const [fundName, setFundname] = useState("");
   const [donAmt, setDonAmt] = useState("");
 
+
+  // DYNAMIC RENDER: Match Requests
   const _renderRequests = ({ item }) => {
     return (
       <View style={{ paddingLeft: 20, paddingRight: 40 }}>
@@ -46,6 +48,8 @@ const Inbox = ({ navigation }) => {
     )
   }
 
+
+  // DYNAMIC RENDER: Mew Activity
   const _renderActivity = ({ item }) => {
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
@@ -59,6 +63,7 @@ const Inbox = ({ navigation }) => {
 
   return (
     <Container>
+      {/* ??? */}
        <Modal
         animationType="slide"
         transparent={true}
@@ -66,22 +71,22 @@ const Inbox = ({ navigation }) => {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
-        }}
-               
-      >
+        }}>
         
 
-          
+        {/* MATCHING CARD: Modal for match button */}
         <View style={styles.centeredView}>
-
           <View style={styles.modalView}>
+
             <Pressable
               onPress={() => setModalVisible(!modalVisible)}
               style={{ float: "left" }}
             >
               <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
+
             <SafeAreaView style={styles.container} >
+              
               <Text style={styles.description}> {fundName} </Text>
               <Text>Matching {name}'s donation</Text>
               <TextInput
@@ -90,6 +95,7 @@ const Inbox = ({ navigation }) => {
                 keyboardType="numeric"
                 onChangeText={(newText) => setDonAmt(newText)}
               />
+              
               <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation, donAmt); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
@@ -112,11 +118,12 @@ const Inbox = ({ navigation }) => {
             </SafeAreaView>
           </View>
         </View>
-        
       </Modal>
-      <NavBar>
-        <TopTitle style={{color:COLORS.BLACK}}>{'Inbox'}</TopTitle>
-      </NavBar>
+
+      {/* INBOX PAGE CONTENT: Begin non-modal content */}
+      <View style={styles.titleContainer}>
+          <Text style={styles.titleText}> Inbox </Text> 
+      </View>
 
       <View style={styles.h1Container}>
         <Title style={styles.h1Text}>
@@ -124,9 +131,9 @@ const Inbox = ({ navigation }) => {
         </Title>
       </View>
 
-      <FlatList style={{
-        flexGrow: 0,
-      }} keyExtractor={(_, index) => '' + index} data={data} renderItem={_renderRequests} />
+      <FlatList style={styles.flatlistContainer} 
+        keyExtractor={(_, index) => '' + index} 
+        data={data} renderItem={_renderRequests} />
       
       <View style={styles.h1Container}>
         <Title style={styles.h1Text}>
@@ -134,9 +141,9 @@ const Inbox = ({ navigation }) => {
         </Title>
       </View>
         
-      <FlatList style={{
-        flexGrow: 0,
-      }} keyExtractor={(_, index) => '' + index} data={data2} renderItem={_renderActivity} />
+      <FlatList style={styles.flatlistContainer} 
+        keyExtractor={(_, index) => '' + index} 
+        data={data2} renderItem={_renderActivity} />
     </Container>
   );
 };
@@ -213,6 +220,22 @@ const styles = StyleSheet.create({
     color: COLORS.GREEN,
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    paddingTop: 25,
+    textAlign: 'center',
+    letterSpacing: 4,
+  },
+  titleContainer: {
+    backgroundColor: 'gray',
+    marginHorizontal: 10,
+    marginBottom: 10,
+  },
+  flatlistContainer: {
+    flexGrow: 0,
+    backgroundColor: 'firebrick',
   },
   flex: {
     flexDirection: 'row',
