@@ -137,7 +137,7 @@ export default function Fundraiser() {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'lightgray',
+      backgroundColor: 'white',
       height: '100%',
     },
     blacktext: {
@@ -164,10 +164,10 @@ const styles = StyleSheet.create({
         top: 500,
     },
     allInputFields: { // container view
-      backgroundColor: 'black',
+      // backgroundColor: 'black',
     },
     headerContainer: { // view (including text position)
-      backgroundColor: 'gray',
+      // backgroundColor: 'gray',
       marginHorizontal: 10,
     },
     titles: { // text
@@ -176,8 +176,8 @@ const styles = StyleSheet.create({
       paddingVertical: 15,
     },
     singleInputLine: { // view
-        backgroundColor: 'firebrick',
-        height: 50,
+        // backgroundColor: 'firebrick',
+        height: 20,
         margin: 10,
         flexDirection: 'row',
         justifyContent: 'center', // horizontal movement on x axis
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
       top: 3,
     },
     axnButtonContainer: {//   separate from rest of content
-      backgroundColor: 'lightblue',
+      // backgroundColor: 'lightblue',
       position: 'absolute',
       bottom: 10,
       left: 100,
