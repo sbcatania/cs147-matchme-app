@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   h1Text: {
     color: COLORS.GREEN,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 22,
   },
   titleText: {
     fontWeight: 'bold',
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   },
   userText: { // container AND text
     // backgroundColor: 'yellow',
-    fontSize: 12,
+    fontSize: 15,
   },
   matchBtmContentCtr: { // container for all the content in the bottom of the match line
     width:"100%", 
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white', 
     left: 0, 
     position: 'absolute', 
-    fontSize: 12, 
+    fontSize: 15, 
   },
   activityBtnContainer: { 
     // backgroundColor: 'beige', 

@@ -81,13 +81,13 @@ export const DATA = {
       },
       {
         id: 2,
-        userName: "Pablo Oooooooo",
+        userName: "Khuyen L",
         cause: "Stanford",
         amount: "$5,000"
       },
       {
         id: 3,
-        userName: "O Pablo",
+        userName: "Katherine G",
         cause: "MTL",
         amount: "$0.00"
       }
