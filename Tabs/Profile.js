@@ -42,7 +42,12 @@ export default function Fundraiser() {
 
       <SafeAreaView>
       <View style={styles.container}>
-        <Text style = {styles.blacktext}> Profile </Text>
+        {/* <Text style = {styles.blacktext}> Profile </Text> */}
+
+        <View style={styles.headerContainer}>
+          <Text>Hello</Text>
+          <Text>Hello</Text> 
+        </View>
 
         {/* Image picker here */}
         {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -50,30 +55,40 @@ export default function Fundraiser() {
             {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
           </View> */}
         
-        <View style={styles.singleInputLine}> 
-          
-          <TextInput 
-          style={styles.input} 
-          placeholder='Reward Level 1' 
-          autoCapitalize='words'
-          onChangeText={(rwd1) => setRwd1(rwd1)} />
+        <View style={styles.allInputFields}>
+          <View style={styles.singleInputLine}> 
+            
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 1' 
+            autoCapitalize='words'
+            onChangeText={(rwd1) => setRwd1(rwd1)} />
 
-          <Pressable style={styles.minusButtonPressable}>
-            <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-          </Pressable>
-          
-        </View> 
+            <Pressable style={styles.minusButtonPressable}>
+              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
+            </Pressable>
+            
+          </View> 
 
-        {/* GOAL: get a list of things to add/delete dynamically */}
-        <View style={styles.singleInputLine}>
-          {/* item 1 */}
-          {/* item 2 */}
+          <View style={styles.singleInputLine}> 
+            
+            <TextInput 
+            style={styles.input} 
+            placeholder='Reward Level 1' 
+            autoCapitalize='words'
+            onChangeText={(rwd1) => setRwd1(rwd1)} />
+
+            <Pressable style={styles.minusButtonPressable}>
+              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
+            </Pressable>
+            
+          </View> 
+
+          <View style={styles.singleInputLine}>
+            <Image source={require('../assets/Icons/add.png')} style={styles.buttonSize} />
+          </View>
         </View>
 
-        <View style={styles.singleInputLine}>
-          <Image source={require('../assets/Icons/add.png')} style={styles.buttonSize} />
-        </View>
-        
         <Text style={styles.testing}> {rwd1} </Text>
 
       </View>
@@ -109,6 +124,13 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 500,
     },
+    allInputFields: { // container view
+      backgroundColor: 'black',
+    },
+    headerContainer: {
+      backgroundColor: 'gray',
+    },
+
     singleInputLine: { // view
         backgroundColor: 'firebrick',
         height: 50,
