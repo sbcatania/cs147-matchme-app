@@ -24,8 +24,11 @@ export default function Fundraiser() {
           placeholder='Reward Level 1' 
           autoCapitalize='words'
           onChangeText={(rwd1) => setRwd1(rwd1)} />
-        
-          <Image source={require('../assets/Icons/user.png')} />
+
+          <Pressable style={styles.minusButtonPressable}>
+            <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
+          </Pressable>
+          
         </View> 
 
         {/* GOAL: get a list of things to add/delete dynamically */}
@@ -33,8 +36,11 @@ export default function Fundraiser() {
           {/* item 1 */}
           {/* item 2 */}
         </View>
+
+        <View style={styles.singleInputLine}>
+          <Image source={require('../assets/Icons/add.png')} style={styles.buttonSize} />
+        </View>
         
-      
         <Text style={styles.testing}> {rwd1} </Text>
 
       </View>
@@ -61,6 +67,9 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         width: '80%',
         height: 30,
+        position: 'absolute',
+        left: 5,
+        bottom: 2,
     },
     testing: { // text
         position: 'absolute',
@@ -68,9 +77,22 @@ const styles = StyleSheet.create({
         top: 300,
     },
     singleInputLine: { // view
+        backgroundColor: 'firebrick',
+        height: 50,
         margin: 10,
-        flex: 1,
         flexDirection: 'row',
-
-    }
+        justifyContent: 'center', // horizontal movement on x axis
+        alignContent: 'center',
+    },
+  buttonSize: { // handle image style of small button
+      resizeMode: 'stretch', 
+      width:50, 
+      height:50,
+    },
+  minusButtonPressable: { // handle position of minus button
+      // backgroundColor: 'blue', // just to see where the container is
+      position: 'absolute', 
+      right: 0, 
+      top: 3,
+    },
 });
