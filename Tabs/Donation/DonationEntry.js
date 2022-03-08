@@ -3,21 +3,23 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Pressable, Text, TextInput, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback, ImageBackground } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationConfirmation from './DonationConfirmation';
 import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS, DATA } from '../../Themes/Constants';
 
-const handle = global.handle;
-let data = DATA.PROFILES[handle];
-console.log(handle)
 
-export default function DonationEntry({route}) {
+//const fundraiserdata = DATA.PROFILES[handle];
+
+export default function DonationEntry({navigation}) {
+
   const [entry, setEntry] = useState("");
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
+  // const handle = route;
+  const route = useRoute();
+  console.log(route);
   const donate = () => {
     navigation.navigate('DonationConfirmation', entry);
   };
@@ -26,7 +28,7 @@ export default function DonationEntry({route}) {
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
        <View style = {styles.rectangle}>
-         <Text style = {styles.description}> Supporting {data.title} </Text>
+         <Text style = {styles.description}> Supporting FIX </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput
