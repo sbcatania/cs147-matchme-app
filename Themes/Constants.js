@@ -5,13 +5,73 @@ export const COLORS = {
     MAGENTA: "#C70A72",
     WHITE: "#FFFFFF",
     BLACK: "#000000",
-    GRAY: "#C4C4C4"
+    GRAY: "#C4C4C4",
+    CLEAR: "rgba(0,0,0,0)",
   };
 
 export const DATA = {
-    POSTS          : require('../assets/Data/posts.json'),
-    PROFILES       : require('../assets/Data/profiles.json'),
-    ACTIVITY       : [
+    POSTS: {
+      1: {
+        handle: "worldwildlifefund",
+        caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
+        image: require('../assets/Home/home.png'),
+      },
+      2: {
+        handle: "worldwildlifefund",
+        caption: "Today Suyash explores a newer landscape.",
+        image: require('../assets/Home/home2.png'),
+      },
+      3: {
+        handle: "malalafund",
+        caption: "Malala addressing the UN Summit this morning. ",
+        image: require('../assets/Home/home3.jpg')
+      },
+      4: {
+        handle: "savethebees",
+        caption: "It was a great day saving the bees from a giant hive. ",
+        image: require('../assets/Home/home4.jpg')
+      },
+      5: {
+        handle: "paloaltoshelter",
+        caption: "earn about Finn's day in the life. Donate to make his life better.",
+        image: require('../assets/Home/home5.jpg')
+      }
+    },
+    PROFILES: {
+      worldwildlifefund: {
+        avatar: require('../assets/Home/wwflogo.png'),
+        title: "Save the Animals",
+        banner: require('../assets/Donation/moose.png'),
+        name: "World Wildlife Fund",
+        dates: "February 2022 - March 2023",
+        about: "The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide."
+        },
+      malalafund: {
+        avatar: require('../assets/Home/malala.jpg'),
+        title: "Save the World",
+        banner: require('../assets/Donation/moose.png'),
+        name: "Malala Fund",
+        dates: "February 2022 - March 2023",
+        about: "Info here."
+        },
+      savethebees: {
+        avatar: require('../assets/Home/bees.png'),
+        title: "Protect Pollinators",
+        banner: require('../assets/Donation/moose.png'),
+        name: "Save the Bees",
+        dates: "February 2022 - March 2023",
+        about: "Info here."
+        },
+      paloaltoshelter: {
+        avatar: require('../assets/Home/shelter.jpg'),
+        title: "Save Palo Alto",
+        banner: require('../assets/Donation/moose.png'),
+        name: "Palo Alto Shelter",
+        dates: "February 2022 - March 2023",
+        about: "Info here."
+        }
+    },
+    ACTIVITY: [
       {
         id: 1,
         userName: "Pablo O",
@@ -31,7 +91,7 @@ export const DATA = {
         amount: "$0.00"
       }
     ],
-    MATCH_REQUESTS : [
+    MATCH_REQUESTS: [
       {
         id: 1,
         userName: "James L",
@@ -65,31 +125,6 @@ export const IMAGES = {
     DISLIKE_ICON  : require('../assets/Home/xicon.png'),
     SHARE_ICON    : require('../assets/Home/share.png'),
     DONATE_ICON   : require('../assets/Navigation/donate.png'),
-    
-    // Feed images, key is the post number
-    HOME: {
-        1: require('../assets/Home/home.png'),
-        2: require('../assets/Home/home2.png'),
-        3: require('../assets/Home/home3.jpg'),
-        4: require('../assets/Home/home4.jpg'),
-        5: require('../assets/Home/home5.jpg'),
-    },
-    
-    // Profile images of non-profit pages, key is nonprofit handle
-    PROFILE: {
-        'worldwildlifefund' : require('../assets/Home/wwflogo.png'),
-        'malalafund'        : require('../assets/Home/malala.jpg'),
-        'savethebees'       : require('../assets/Home/bees.png'),
-        'paloaltoshelter'   : require('../assets/Home/shelter.jpg'),
-    },
-    
-    // Banner images of non-profits, key is nonprofit handle
-    BANNER: {
-        'worldwildlifefund' : require('../assets/Donation/moose.png'),
-        'malalafund'        : require('../assets/Donation/moose.png'),
-        'savethebees'       : require('../assets/Donation/moose.png'),
-        'paloaltoshelter'   : require('../assets/Donation/moose.png'),
-    },
     
     // Profile images of donors, key is donor handle
     DONORS: {

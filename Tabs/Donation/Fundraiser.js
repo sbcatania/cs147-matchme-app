@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Themes/Constants';
 import Explore from './Explore'
 
 export default function Fundraiser({route}) {
@@ -23,8 +23,8 @@ export default function Fundraiser({route}) {
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
 
-        <ImageBackground source={IMAGES.BANNER[handle]} style = {styles.bgimg} >
-        <Image source = {IMAGES.PROFILE[handle]} style = {styles.sideiconprof}> 
+        <ImageBackground source={data.banner} style = {styles.bgimg} >
+        <Image source = {data.avatar} style = {styles.sideiconprof}> 
         </Image>
         <Text style = {styles.whitetext}> {data.title} </Text>
         <Text style = {styles.blacktext}> {data.name} </Text>
