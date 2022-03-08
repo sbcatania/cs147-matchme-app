@@ -9,7 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Tabs/Home';
 import Match from './Tabs/Match';
 import Search from './Tabs/Search';
-import Profile from './Tabs/Nonprofit/NonprofitProfile'; 
+import Profile from './Tabs/Profile';
 import Nonprofit from './Tabs/Nonprofit';
 import {COLORS} from './Constants';
 import React, { useState } from 'react';
