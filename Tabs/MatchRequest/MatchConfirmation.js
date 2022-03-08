@@ -225,6 +225,9 @@ const styles = StyleSheet.create({
   thankyouimg: {
     left: '35%',
     top: '10%',
+    height: 130,
+    width: 130,
+    left: '36%',
   },
 
   
