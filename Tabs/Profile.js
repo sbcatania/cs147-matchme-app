@@ -72,9 +72,9 @@ export default function Fundraiser() {
             autoCapitalize='words'
             onChangeText={(rwd1) => setRwd1(rwd1)} />
 
-            {/* <Pressable style={styles.minusButtonPressable}>
-              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable> */}
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
             
           </View> 
 
@@ -86,9 +86,9 @@ export default function Fundraiser() {
             autoCapitalize='words'
             onChangeText={(rwd2) => setRwd2(rwd2)} />
 
-            {/* <Pressable style={styles.minusButtonPressable}>
-              <Image source={require('../assets/Icons/minus.png')} style={styles.buttonSize} />
-            </Pressable> */}
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
             
           </View> 
 
@@ -99,6 +99,10 @@ export default function Fundraiser() {
             placeholder='Reward Level 3' 
             autoCapitalize='words'
             onChangeText={(rwd3) => setRwd3(rwd3)} />
+
+            <Pressable style={styles.checkButtonPressable}>
+              <Image source={require('../assets/Icons/check.png')} style={styles.buttonSize} />
+            </Pressable>
             
           </View> 
 
@@ -107,11 +111,15 @@ export default function Fundraiser() {
           </View> */}
         </View>
 
-        <Text style={styles.testing}> 
-        {rwd1} {"\n"} 
-        {rwd2} {"\n"} 
-        {rwd3} {"\n"} 
-        </Text>
+        <View style={styles.previewContainer}>
+          <Text style={styles.testing}> 
+          {rwd1} {"\n"} 
+          {rwd2} {"\n"} 
+          {rwd3} {"\n"} 
+          </Text>
+        </View>
+
+        
 
       </View>
         
@@ -161,10 +169,14 @@ const styles = StyleSheet.create({
     },
     testing: { // text
         position: 'absolute',
-        top: 500,
+        top: 100,
     },
     allInputFields: { // container view
       // backgroundColor: 'black',
+    },
+    previewContainer: {
+      backgroundColor: 'lightgreen',
+      height: '100%',
     },
     headerContainer: { // view (including text position)
       // backgroundColor: 'gray',
@@ -177,7 +189,7 @@ const styles = StyleSheet.create({
     },
     singleInputLine: { // view
         // backgroundColor: 'firebrick',
-        height: 20,
+        height: 50,
         margin: 10,
         flexDirection: 'row',
         justifyContent: 'center', // horizontal movement on x axis
@@ -188,11 +200,11 @@ const styles = StyleSheet.create({
       width:50, 
       height:50,
     },
-    minusButtonPressable: { // handle position of minus button
+    checkButtonPressable: { // handle position of check button
       // backgroundColor: 'blue', // just to see where the container is
       position: 'absolute', 
       right: 0, 
-      top: 3,
+      top: 0,
     },
     axnButtonContainer: {//   separate from rest of content
       // backgroundColor: 'lightblue',
