@@ -121,7 +121,9 @@ const Inbox = ({ navigation }) => {
       </Modal>
 
       {/* INBOX PAGE CONTENT: Static, non-modal content on main page */}
-      <SafeAreaView style={{backgroundColor: 'pink', height: '100%'}}>
+      {/* <SafeAreaView style={styles.safeContainer}> */} 
+      {/* SafeArea wasn't working, so this is the hackiest safeareaview */}
+      <View style={styles.safeContainer}> 
       <View style={styles.pageContentContainer}>
 
         <View style={styles.titleContainer}>
@@ -149,7 +151,8 @@ const Inbox = ({ navigation }) => {
           data={data2} renderItem={_renderActivity} />
       
       </View>
-      </SafeAreaView>
+      </View>
+      {/* </SafeAreaView> */}
 
     </Container>
   );
@@ -211,8 +214,13 @@ const ContentText = styled.Text`
 `;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    top: 35,
+    // backgroundColor: 'pink', 
+    flex: 1,
+  },
   pageContentContainer: {
-    
+    // backgroundColor: 'lightgreen'
   },
   container: {
     backgroundColor: 'lightblue',
@@ -223,7 +231,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   h1Container: {
-    backgroundColor: 'lightblue',
+    // backgroundColor: 'lightblue',
     paddingVertical: 10,
   },
   h1Text: {
@@ -239,7 +247,7 @@ const styles = StyleSheet.create({
     letterSpacing: 4,
   },
   titleContainer: {
-    backgroundColor: 'gray',
+    // backgroundColor: 'gray',
     marginHorizontal: 10,
     marginBottom: 10,
   },
