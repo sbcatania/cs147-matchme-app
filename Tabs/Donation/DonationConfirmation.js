@@ -10,7 +10,7 @@ import { Card, Icon, ListItem } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, DATA } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -18,6 +18,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
+const handle = global.handle;
+let data = DATA.PROFILES[handle];
 
 //TODO: Back button on thank you page doesn't work :|
 //TODO: Add dummy users/data for Matching
@@ -33,7 +35,7 @@ function Confirmation() {
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
-          This donation is tax-deductible. Here’s more information on your donation:
+          This donation is tax-deductible. Here's more information on your donation:
         </Text>
         <Text style={styles.fineprint}>
           By making this non-refundable donation to the SAVE THE ANIMALS FUNDRAISER hosted by the WORLD WILDLIFE FUND (WWF), you agree that money will be transferred from your account to the accounts of WWF. WWF is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of WWF as to if they would like to honor any and all promised rewards. Additionally, WWF has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
@@ -104,7 +106,7 @@ function ThankYou() {
               </View>
               <TextInput
                 style={styles.input}
-                defaultValue={fundname}
+                defaultValue={data.title}
                 editable={false} />
 
               <TextInput
