@@ -11,9 +11,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
-
 /* To Do:
 - Set up MatchEntry navigator and stuff
+- (lily) styling to match profile/search
 */
 
 
@@ -117,11 +117,23 @@ const Inbox = ({ navigation }) => {
       <NavBar>
         <TopTitle style={{color:COLORS.BLACK}}>{'Inbox'}</TopTitle>
       </NavBar>
-      <Title style={{color:COLORS.GREEN}}>{'Match Requests'}</Title>
+
+      <View style={styles.h1Container}>
+        <Title style={styles.h1Text}>
+          {'Match Requests'}
+        </Title>
+      </View>
+
       <FlatList style={{
         flexGrow: 0,
       }} keyExtractor={(_, index) => '' + index} data={data} renderItem={_renderRequests} />
-      <Title style={{color:COLORS.GREEN}}>{'New Activity'}</Title>
+      
+      <View style={styles.h1Container}>
+        <Title style={styles.h1Text}>
+          {'New Activity'}
+        </Title>
+      </View>
+        
       <FlatList style={{
         flexGrow: 0,
       }} keyExtractor={(_, index) => '' + index} data={data2} renderItem={_renderActivity} />
@@ -186,17 +198,28 @@ const ContentText = styled.Text`
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'lightblue',
     flex: 1,
     backgroundColor: COLORS.WHITE,
     padding: 8,
     zIndex: 100,
     alignItems: "center"
   },
+  h1Container: {
+    backgroundColor: 'lightblue',
+    paddingVertical: 10,
+  },
+  h1Text: {
+    color: COLORS.GREEN,
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
   flex: {
     flexDirection: 'row',
   },
 
   suggestion: {
+
     top: '5%',
     left: '37%',
     margin: 5,
