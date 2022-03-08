@@ -26,7 +26,7 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <Text style={styles.blacktext}>{entry}</Text>
+        <Text style={styles.blacktext}>${entry}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
          <Text style={styles.bluetext}> {profile.title} </Text>
         <Text style={styles.fineprint}>
