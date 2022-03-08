@@ -6,6 +6,8 @@ import { ImageBackground } from 'react-native';
 import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 import { Card, Icon } from 'react-native-elements';
+import { useRoute } from "@react-navigation/native";
+
 
 import Inbox from './Inbox';
 
@@ -22,7 +24,7 @@ const INTERVAL = 25;
 //TODO: Back button page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
-function Confirmation() {
+function Confirmation({route}) {
   const navigation = useNavigation();
   return (
     <View style={styles.container} >
@@ -30,7 +32,7 @@ function Confirmation() {
         <TouchableOpacity style={styles.backbutton}>
           <Image source={require("../../assets/Donation/arrow.png")} />
         </TouchableOpacity>
-        <Text style={styles.blacktext}>$10</Text>
+        <Text style={styles.blacktext}>{route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support
           1 cleanup for the Save the Animals Fundraiser.</Text>
         <Text style={styles.fineprint}>
