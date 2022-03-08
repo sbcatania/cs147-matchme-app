@@ -48,7 +48,7 @@ export default function DonorFlow({navigation}) {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Match" component={Match} />
         <Tab.Screen name="Profile" component={Profile} />
-        <Tab.Screen name="Search" component={Nonprofit} />
+        <Tab.Screen name="Search" component={Search} />
       </Tab.Navigator>
   );
 }
