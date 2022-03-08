@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 
 
 
@@ -15,7 +15,7 @@ import * as ImagePicker from 'expo-image-picker';
 * TODO: 
 *   - DYNAMIC ADD/DELETE:
 *       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
-*   - 
+*   - IMAGE PICKER: debug node install and add image picker
 */
 
 export default function Fundraiser() {
@@ -24,19 +24,19 @@ export default function Fundraiser() {
 
 
   // Image picker stuff
-  const [image, setImage] = useState(null);
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
+  // const [image, setImage] = useState(null);
+  // const pickImage = async () => {
+  //   // No permissions request is necessary for launching the image library
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //     allowsEditing: true,
+  //     aspect: [4, 3],
+  //     quality: 1,
+  //   });
+  //   if (!result.cancelled) {
+  //     setImage(result.uri);
+  //   }
+  // };
   
   return(
 
@@ -45,10 +45,10 @@ export default function Fundraiser() {
         <Text style = {styles.blacktext}> Profile </Text>
 
         {/* Image picker here */}
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Button title="Pick an image from camera roll" onPress={pickImage} />
             {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-          </View>
+          </View> */}
         
         <View style={styles.singleInputLine}> 
           
