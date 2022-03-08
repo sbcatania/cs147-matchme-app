@@ -135,7 +135,7 @@ export default function Fundraiser() {
           <Pressable style={styles.axnButton} onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
               style={({ pressed }) => [
               {
-                  width: 200,
+                  width: 250,
                   alignItems: 'center',
                   paddingVertical: 12,
                   borderRadius: 100,
@@ -143,7 +143,7 @@ export default function Fundraiser() {
                   ? 'gray'
                   : COLORS.GREEN
               }]}>
-                  <Text style={styles.axnButtonText}> Confirm </Text> 
+                  <Text style={styles.axnButtonText}> CONFIRM </Text> 
           </Pressable>
       </View>
       
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
       // backgroundColor: 'lightblue',
       position: 'absolute',
       bottom: 10,
-      left: 100,
+      left: 80,
     },
     axnButtonText: {
       color: COLORS.WHITE,
