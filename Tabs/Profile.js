@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     },
     mainContent: { // container view
       // backgroundColor: 'firebrick',
-      marginHorizontal: 10,
+      marginHorizontal: 20,
     },
     previewContainer: {
       // backgroundColor: 'lightblue',
@@ -202,7 +202,9 @@ const styles = StyleSheet.create({
     titles: { // text
       fontWeight: 'bold',
       fontSize: 30,
-      paddingVertical: 15,
+      paddingVertical: 25,
+      textAlign: 'center',
+      letterSpacing: 4,
     },
     singleInputLine: { // view
         // backgroundColor: 'firebrick',

@@ -80,10 +80,12 @@ export default function Search() {
         <View style={styles.container}>
 
             {/* MY FUNDRAISER CONTENT */}
+
+            <View style={styles.headerContainer}>
+                <Text style={styles.titles}> My Fundraiser </Text> 
+            </View>
             
             <View style={styles.flexboxes}> 
-                <Text style={styles.titles}> MY FUNDRAISER </Text> 
-
                 <TextInput 
                 style={styles.input} 
                 placeholder='Org Handle' 
@@ -241,10 +243,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingTop: '5%'
     },
-    titles: {
+    headerContainer: {
+        marginHorizontal: 10,
+    },
+    titles: { // text
         fontWeight: 'bold',
         fontSize: 30,
-        paddingVertical: 15
+        paddingVertical: 25,
+        textAlign: 'center',
+        letterSpacing: 4,
     },
     input: {
         backgroundColor: '#F2F2F2',
