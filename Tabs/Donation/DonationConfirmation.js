@@ -91,17 +91,17 @@ function ThankYou() {
             </Pressable>
             <Text style={styles.modalText}>Match Request</Text>
             <SafeAreaView>
-              <View style={{display:"flex", justifyContent:"space-between"}}>
-              <TextInput
-                style={styles.input}
-                defaultValue={name}
-                editable={false} />
+              <View style={{ display: "flex", justifyContent: "space-between" }}>
+                <TextInput
+                  style={styles.input}
+                  defaultValue={name}
+                  editable={false} />
 
-              <TextInput
-                style={styles.input}
-                defaultValue={route.params}
-                editable={false} />
-</View>
+                <TextInput
+                  style={styles.input}
+                  defaultValue={route.params}
+                  editable={false} />
+              </View>
               <TextInput
                 style={styles.input}
                 defaultValue={fundname}
