@@ -36,7 +36,7 @@ const Inbox = ({ navigation }) => {
           </View>
           <Amount>{item.amount}</Amount>
         </Header>
-        <Content>
+        <Content style={{width:"100%", justifyContent:"space-between"}}>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
             <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
@@ -115,13 +115,13 @@ const Inbox = ({ navigation }) => {
         
       </Modal>
       <NavBar>
-        <Title>{'Inbox'}</Title>
+        <TopTitle style={{color:COLORS.BLACK}}>{'Inbox'}</TopTitle>
       </NavBar>
-      <Title>{'Match Requests'}</Title>
+      <Title style={{color:COLORS.GREEN}}>{'Match Requests'}</Title>
       <FlatList style={{
         flexGrow: 0,
       }} keyExtractor={(_, index) => '' + index} data={data} renderItem={_renderRequests} />
-      <Title>{'New Activity'}</Title>
+      <Title style={{color:COLORS.GREEN}}>{'New Activity'}</Title>
       <FlatList style={{
         flexGrow: 0,
       }} keyExtractor={(_, index) => '' + index} data={data2} renderItem={_renderActivity} />
@@ -137,12 +137,17 @@ const NavBar = styled.View`
   height: 76px;
   margin: 0px 16px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+`;
+const TopTitle = styled.Text`
+  font-size: 30px;
+  padding:15px;
+  font-weight: bold;
 `;
 // center title
 const Title = styled.Text`
-  color: green;
   font-size: 14px;
   line-height: 24px;
   font-weight: bold;
