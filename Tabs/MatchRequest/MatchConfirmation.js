@@ -8,6 +8,8 @@ import Explore from '../Donation/Explore';
 import { COLORS, IMAGES } from '../../Constants';
 import { useNavigation } from '@react-navigation/native';
 
+import { useRoute } from "@react-navigation/native";
+
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
@@ -15,19 +17,21 @@ const INTERVAL = 25;
 //TODO: Back button page doesn't work :|
 //TODO: Add dummy users/data for Matching
 
-function Confirmation() {
+function Confirmation () {
   const navigation = useNavigation();
+  const route = useRoute();
+  const {name, donAmt, fundName} = route.params;
+
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <Text style={styles.blacktext}>$5</Text>
-        <Text style={styles.bluetext}>Your donation will support
-          1 cleanup for the Save the Animals Fundraiser.</Text>
+        <Text style={styles.blacktext}>{donAmt}</Text>
+        <Text style={styles.bluetext}>Your donation will support {fundName}</Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here’s more information on your donation:
         </Text>
         <Text style={styles.fineprint}>
-          By making this non-refundable donation to the SAVE THE ANIMALS FUNDRAISER hosted by the WORLD WILDLIFE FUND (WWF), you agree that money will be transferred from your account to the accounts of WWF. WWF is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of WWF as to if they would like to honor any and all promised rewards. Additionally, WWF has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
+          By making this non-refundable donation to the {fundName}, you agree that money will be transferred from your account to the accounts of WWF. WWF is a registered 501(c)(3) not-for-profit corporation and your donation is tax-deductible. By making this donation, you waive your right to direct the use of funds by the WWF and hereby acknowledge that it is at the discretion of WWF as to if they would like to honor any and all promised rewards. Additionally, WWF has the right to refuse any donation, in which case the funds will be refunded to your account.  </Text>
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
@@ -40,6 +44,8 @@ function Confirmation() {
 function ThankYou() {
   const navigation = useNavigation();
   const ref = useRef();
+  const route = useRoute();
+  const {name, donAmt, fundName} = route.params;
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -49,7 +55,7 @@ function ThankYou() {
         </Image>
       <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
-      <Text style={styles.thankyoutext}> You matched James! </Text>
+      <Text style={styles.thankyoutext}> You matched {name}! </Text>
       <Pressable onPress={() => navigation.navigate(Inbox)}
             style={({ pressed }) => [
               {
@@ -103,6 +109,7 @@ function ThankYou() {
 export default function MatchConfirmation() {
   const [progress, setProgress] = useState(0);
   const ref = useRef();
+  const route = useRoute();
 
   useEffect(() => {
     const interval = setInterval(() => {

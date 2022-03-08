@@ -23,7 +23,7 @@ function Confirmation() {
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
-        <Text style={styles.blacktext}>${route.params}</Text>
+        <Text style={styles.blacktext}>{route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
          <Text style={styles.bluetext}> Saving the Animals </Text>
         <Text style={styles.fineprint}>
@@ -76,7 +76,7 @@ function ThankYou() {
 
                 <TextInput
                   style={styles.input}
-                  defaultValue={route.params}
+                  defaultValue= {route.params}
                   editable={false} />
               </View>
               <TextInput

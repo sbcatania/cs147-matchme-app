@@ -3,6 +3,7 @@ import { Modal, Image, TextInput, StyleSheet, Button, Pressable, Text, View, Fla
 import styled from 'styled-components/native';
 import { COLORS, DATA, IMAGES } from '../../Constants';
 import MatchConfirmation from './MatchConfirmation';
+import { useRoute } from "@react-navigation/native";
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
@@ -22,6 +23,7 @@ const Inbox = ({ navigation }) => {
   const [fundName, setFundname] = useState("");
   const [donAmt, setDonAmt] = useState("");
 
+  const route = useRoute();
 
   // DYNAMIC RENDER: Match Requests
   const _renderRequests = ({ item }) => {
@@ -97,7 +99,7 @@ const Inbox = ({ navigation }) => {
                 onChangeText={(newText) => setDonAmt(newText)}
               />
               
-              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
+              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate('MatchConfirmation', {name, donAmt, fundName}); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
                     top: '9%',

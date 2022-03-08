@@ -3,6 +3,7 @@ import { StyleSheet, Pressable, Text, TextInput, View, Image, TouchableOpacity, 
 import moose from '../../assets/Donation/moose.png';
 import { useRoute } from "@react-navigation/native";
 import { COLORS, DATA } from '../../Constants';
+import { useHandler } from 'react-native-reanimated';
 
 
 //const fundraiserdata = DATA.PROFILES[handle];
@@ -22,11 +23,12 @@ export default function DonationEntry({navigation}) {
       <SafeAreaView style = {styles.container} >
      <ImageBackground style = {styles.bgimg} source = {moose}>
        <View style = {styles.rectangle}>
-         <Text style = {styles.description}> Supporting Save the Animals </Text>
+         <Text style = {styles.description}> Supporting Hey </Text>
       <TextInput
         style={styles.textInput}
         value={entry} // the entry variable in the state is displayed by the TextInput
         keyboardType="numeric"
+        defaultValue="$"
         onChangeText={(text) => setEntry(text)}
         />
           {/*<View style={styles.flex}>
