@@ -134,11 +134,16 @@ export const DATA = {
   };
 
 export const IMAGES = {
-    // Home images
-    LIKE_ICON     : require('../assets/Home/heart.png'),
-    DISLIKE_ICON  : require('../assets/Home/xicon.png'),
-    SHARE_ICON    : require('../assets/Home/share.png'),
-    DONATE_ICON   : require('../assets/Navigation/donate.png'),
+    LOGO_WHITE     : require('../assets/Home/logowhite.png'),
+    LIKE_ICON      : require('../assets/Home/heart.png'),
+    DISLIKE_ICON   : require('../assets/Home/xicon.png'),
+    SHARE_ICON     : require('../assets/Home/share.png'),
+    DONATE_ICON    : require('../assets/Navigation/donate.png'),
+    USER_ICON      : require('../assets/Icons/user.png'),
+    DONATION_ARROW : require('../assets/Donation/arrow.png'),
+    DONATION_SHARE : require('../assets/Donation/share.png'),
+    DONATION_CHECK : require('../assets/Donation/check.png'),
+    INBOX_CHECK    : require('../assets/Inbox/check.png'),
     
     // Profile images of donors, key is donor handle
     DONORS: {

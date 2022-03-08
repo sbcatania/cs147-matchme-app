@@ -5,7 +5,7 @@ import Rewards from './Rewards'
 import Profile from './Profile'
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS } from '../Themes/Constants';
+import { COLORS, IMAGES } from '../Themes/Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 /*
@@ -116,7 +116,7 @@ export default function Search() {
                 onChangeText={(dongoal) => setDongoal(dongoal)} />
                 <View style={styles.tickercontainer}>
                     <View style={styles.userlilcontainer}>
-                        <Image source={require('../assets/Icons/user.png')} />
+                        <Image source={IMAGES.USER_ICON} />
                     </View>
                     <View style={styles.tickerlilcontainer}>
                         <NumericInput 

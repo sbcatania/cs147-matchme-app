@@ -37,7 +37,7 @@ const Inbox = ({ navigation }) => {
         <Content>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
-            <Image style={{ width: 50, height: 50}} source={require("../../assets/Inbox/check.png")} />
+            <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
       </View>
@@ -84,7 +84,7 @@ const Inbox = ({ navigation }) => {
               onPress={() => setModalVisible(!modalVisible)}
               style={{ float: "left" }}
             >
-              <Image source={require('../../assets/Donation/arrow.png')} />
+              <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
             <SafeAreaView style={styles.container} >
               <Text style={styles.description}> Save the Animals Fundraiser</Text>

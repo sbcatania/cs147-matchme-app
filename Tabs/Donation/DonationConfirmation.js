@@ -10,7 +10,7 @@ import { Card, Icon, ListItem } from 'react-native-elements';
 
 import DonationEntry from './DonationEntry';
 import MatchRequestSent from './MatchRequestSent';
-import { COLORS, DATA } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -76,7 +76,7 @@ function ThankYou() {
             <Pressable style={styles.backbutton}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Image source={require('../../assets/Donation/arrow.png')} />
+              <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
             <Text style={styles.modalText}>Match Request</Text>
             <SafeAreaView>
@@ -145,7 +145,7 @@ function ThankYou() {
           height: 40
         }}
         onPress={() => setModalVisible(true)}>
-        <Image source={require("../../assets/Donation/share.png")} style={{ width: "auto", height: 40 }} />
+        <Image source={IMAGES.DONATION_SHARE} style={{ width: "auto", height: 40 }} />
       </Pressable>
     </View>
   );
@@ -153,10 +153,10 @@ function ThankYou() {
   return (
     <View style={styles.container} >
       <View style={styles.flex}>
-        <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+        <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
         </Image>
       </View>
-      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+      <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
       <Text style={styles.thankyoutext}> Thank you! </Text>
       {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 

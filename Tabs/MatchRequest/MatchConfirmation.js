@@ -10,7 +10,7 @@ import { Card, Icon } from 'react-native-elements';
 import Inbox from './Inbox';
 import Explore from '../Donation/Explore';
 
-import { COLORS } from '../../Themes/Constants';
+import { COLORS, IMAGES } from '../../Themes/Constants';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -53,9 +53,9 @@ function ThankYou() {
 
   return (
     <View style={styles.container} >
-      <Image source={require('../../assets/Home/logowhite.png')} style={styles.logoimg}>
+      <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
         </Image>
-      <Image source={require('../../assets/Donation/check.png')} style={styles.thankyouimg}>
+      <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
       <Text style={styles.thankyoutext}> You matched James! </Text>
       <Pressable onPress={() => navigation.navigate(Inbox)}
