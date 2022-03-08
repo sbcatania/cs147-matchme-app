@@ -1,9 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressable } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
 import { COLORS } from '../Constants';
 import Search from './Search'

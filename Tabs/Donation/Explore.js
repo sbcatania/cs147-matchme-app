@@ -1,14 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { createPortal } from 'react-dom';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
-import { useFonts } from 'expo-font';
 import {ImageBackground} from 'react-native' ;
 import PagerView from "react-native-pager-view";
 import { useState, useEffect } from "react";
 import { COLORS, DATA, IMAGES } from '../../Constants';
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Constants for page layout and functioning
 const LOAD_TIME = 100;
