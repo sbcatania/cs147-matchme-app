@@ -20,6 +20,7 @@ const LOAD_TIME = 100;
 const INTERVAL = 25;
 const handle = global.handle;
 let data = DATA.PROFILES[handle];
+console.log(handle);
 
 
 //TODO: Back button on thank you page doesn't work :|
@@ -28,14 +29,13 @@ let data = DATA.PROFILES[handle];
 function Confirmation() {
   const navigation = useNavigation();
   const route = useRoute();
-  console.log(data.title);
 
   return (
     <View style={styles.container} >
       <View style={styles.rectangle} >
         <Text style={styles.blacktext}>${route.params}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
-         <Text style={styles.bluetext}> {data.title}.</Text>
+         <Text style={styles.bluetext}> HELLO </Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here's more information on your donation:
         </Text>
@@ -95,7 +95,7 @@ function ThankYou() {
               </View>
               <TextInput
                 style={styles.input}
-                defaultValue={data.title}
+                defaultValue="HELLO"
                 editable={false} />
 
               <TextInput

@@ -1,3 +1,4 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { createPortal } from 'react-dom';
 import { StyleSheet, Text, ImageBackground, Pressable, View, Image, TouchableOpacity, ScrollView, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
@@ -9,16 +10,18 @@ import DonationEntry from './DonationEntry';
 import DonationConfirmation from './DonationConfirmation';
 import moose from '../../assets/Donation/moose.png';
 import { COLORS, DATA } from '../../Themes/Constants';
-import Explore from './Explore'
+import Explore from './Explore';
+
+
 
 export default function Fundraiser({route}) {
-    const handle = route.params;
-    let data = DATA.PROFILES[handle];
+    const [handle, _] = React.useState(route.params);
     console.log(handle);
-    console.log(data);
+    // console.log(route.params);
+    let data = DATA.PROFILES[handle];
+    //console.log(data);
     const navigation = useNavigation();
-    global.handle = handle;
-    
+
     return(
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -29,7 +32,9 @@ export default function Fundraiser({route}) {
         <Text style = {styles.whitetext}> {data.title} </Text>
         <Text style = {styles.blacktext}> {data.name} </Text>
         <Text style = {styles.blacktext}> {data.dates} </Text>
-        <Pressable style={styles.donatebutton} onPress={() => navigation.navigate(DonationEntry, handle)}
+        <Pressable style={styles.donatebutton} onPress={() => {
+          navigation.navigate(DonationEntry, {params: { params : { handle } } } )
+        }}
          style={({ pressed }) => [
           {
             top: '13%',

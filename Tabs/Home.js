@@ -10,6 +10,9 @@ import {COLORS} from '../Themes/Constants';
 const LOAD_TIME = 100;
 const INTERVAL = 25;
 
+global.handlename = null;
+
+
 const Stack = createNativeStackNavigator();
 // turn this into a stack navigator 
 export default function Home() {
