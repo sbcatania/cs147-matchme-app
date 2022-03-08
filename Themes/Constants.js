@@ -120,16 +120,16 @@ export const DATA = {
     ],
     USERS: [
       {
-        name: 'Brynn',
-        avatar: require('../assets/Users/landay.jpeg'),
+        name: 'Jennifer',
+        avatar: require('../assets/Users/avatar-1.png'),
       },
       {
-        name: 'Laura',
-        avatar: require('../assets/Users/landay.jpeg'),
+        name: 'Malaysia',
+        avatar: require('../assets/Users/avatar-2.png'),
       },
       {
-        name: 'Aidan',
-        avatar: require('../assets/Users/landay.jpeg'),
+        name: 'Tai',
+        avatar: require('../assets/Users/avatar-5.png'),
       },
     ],
   };
