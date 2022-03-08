@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressab
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { COLORS } from '../../Constants';
-import Search from './Search'
+import Search from '../Search';
 // import * as ImagePicker from 'expo-image-picker';
 
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE

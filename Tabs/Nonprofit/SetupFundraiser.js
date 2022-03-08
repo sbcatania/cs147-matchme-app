@@ -3,9 +3,7 @@ import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'r
 import Rewards from './Rewards';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import Fundraiser from './Donation/Fundraiser'
-import Profile from './Profile'
-import { COLORS, IMAGES } from '../Constants';
+import { COLORS, IMAGES } from '../../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -31,7 +29,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 */
 
 // Main fn
-export default function Search() {
+export default function SetupFundraiser() {
     
     // TEXTINPUT: Setup state variables for text and numeric inputs
     const [handle, setHandle] = useState('@worldwildlifefundintl');
@@ -189,7 +187,7 @@ export default function Search() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Fundraiser)} // Change this to a specific NFP fundraiser page
+            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Rewards)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,

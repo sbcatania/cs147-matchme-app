@@ -11,7 +11,7 @@ import Match from './Tabs/Match';
 import Search from './Tabs/Search';
 import Profile from './Tabs/Profile'; 
 import Nonprofit from './Tabs/Nonprofit';
-import {COLORS} from './Themes/Constants';
+import {COLORS} from './Constants';
 
 
 const Tab = createBottomTabNavigator();
