@@ -1,14 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { StyleSheet, Pressable, Text, TextInput, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback, ImageBackground } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DonationConfirmation from './DonationConfirmation';
-import Fundraiser from './Fundraiser';
 import moose from '../../assets/Donation/moose.png';
-import { COLORS, DATA } from '../../Themes/Constants';
+import { useRoute } from "@react-navigation/native";
+import { COLORS, DATA } from '../../Constants';
 
 
 //const fundraiserdata = DATA.PROFILES[handle];

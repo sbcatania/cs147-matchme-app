@@ -2,7 +2,7 @@ import { StyleSheet, Pressable, Text, View, Image, TouchableOpacity, FlatList, S
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonorFlow from './DonorFlow';
 import NonprofitFlow from './NonprofitFlow';
-import {COLORS} from './Themes/Constants';
+import {COLORS} from './Constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -43,8 +43,6 @@ function SignIn({navigation}) {
       </View>
   );
 }
-
-
 
 function ChooseFlow({navigation}) {
   return(

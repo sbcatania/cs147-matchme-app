@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Image, TextInput, StyleSheet, Button, Pressable, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import styled from 'styled-components/native';
-import { COLORS, DATA, IMAGES } from '../../Themes/Constants';
+import { COLORS, DATA, IMAGES } from '../../Constants';
 import MatchConfirmation from './MatchConfirmation';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
@@ -26,26 +21,34 @@ const Inbox = ({ navigation }) => {
   const [fundName, setFundname] = useState("");
   const [donAmt, setDonAmt] = useState("");
 
+
+  // DYNAMIC RENDER: Match Requests
   const _renderRequests = ({ item }) => {
     return (
-      <View style={{ paddingLeft: 20, paddingRight: 40 }}>
-        <Header>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Avatar source={item.avatar} />
-            <UserName>{item.userName} - {item.cause}</UserName>
+      <View style={styles.matchEntry}>
+        
+        <Header> 
+          <View style={styles.userInfo}>
+            <Avatar style={styles.avatarContainer} source={item.avatar} />
+            <UserName style={styles.unContainer}>{item.userName} - {item.cause}</UserName>
           </View>
-          <Amount>{item.amount}</Amount>
+
+          <Amount style={styles.donAmount}>{item.amount}</Amount>
         </Header>
+        
         <Content style={{width:"100%", justifyContent:"space-between"}}>
           <ContentText>{item.content}</ContentText>
           <TouchableOpacity onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
             <Image style={{ width: 50, height: 50}} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
         </Content>
+
       </View>
     )
   }
 
+
+  // DYNAMIC RENDER: New Activity
   const _renderActivity = ({ item }) => {
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
@@ -58,7 +61,9 @@ const Inbox = ({ navigation }) => {
   }
 
   return (
-    <Container>
+    // this Container component has a built in 5px margin
+    <Container> 
+      {/* ??? */}
        <Modal
         animationType="slide"
         transparent={true}
@@ -66,22 +71,22 @@ const Inbox = ({ navigation }) => {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
-        }}
-               
-      >
+        }}>
         
 
-          
+        {/* MATCHING CARD: Modal for match button */}
         <View style={styles.centeredView}>
-
           <View style={styles.modalView}>
+
             <Pressable
               onPress={() => setModalVisible(!modalVisible)}
               style={{ float: "left" }}
             >
               <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
+
             <SafeAreaView style={styles.container} >
+              
               <Text style={styles.description}> {fundName} </Text>
               <Text>Matching {name}'s donation</Text>
               <TextInput
@@ -90,6 +95,7 @@ const Inbox = ({ navigation }) => {
                 keyboardType="numeric"
                 onChangeText={(newText) => setDonAmt(newText)}
               />
+              
               <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation, donAmt); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
@@ -112,31 +118,42 @@ const Inbox = ({ navigation }) => {
             </SafeAreaView>
           </View>
         </View>
-        
       </Modal>
-      <NavBar>
-        <TopTitle style={{color:COLORS.BLACK}}>{'Inbox'}</TopTitle>
-      </NavBar>
 
-      <View style={styles.h1Container}>
-        <Title style={styles.h1Text}>
-          {'Match Requests'}
-        </Title>
-      </View>
+      {/* INBOX PAGE CONTENT: Static, non-modal content on main page */}
+      {/* <SafeAreaView style={styles.safeContainer}> */} 
+      {/* SafeArea wasn't working, so this is the hackiest safeareaview */}
+      <View style={styles.safeContainer}> 
+      <View style={styles.pageContentContainer}>
 
-      <FlatList style={{
-        flexGrow: 0,
-      }} keyExtractor={(_, index) => '' + index} data={data} renderItem={_renderRequests} />
-      
-      <View style={styles.h1Container}>
-        <Title style={styles.h1Text}>
-          {'New Activity'}
-        </Title>
-      </View>
+        <View style={styles.titleContainer}>
+            <Text style={styles.titleText}> Inbox </Text> 
+        </View>
+
+        <View style={styles.h1Container}>
+          <Title style={styles.h1Text}>
+            {'Match Requests'}
+          </Title>
+        </View>
+
+        <FlatList style={styles.flatlistContainer} 
+          keyExtractor={(_, index) => '' + index} 
+          data={data} renderItem={_renderRequests} />
         
-      <FlatList style={{
-        flexGrow: 0,
-      }} keyExtractor={(_, index) => '' + index} data={data2} renderItem={_renderActivity} />
+        <View style={styles.h1Container}>
+          <Title style={styles.h1Text}>
+            {'New Activity'}
+          </Title>
+        </View>
+          
+        <FlatList style={styles.flatlistContainer} 
+          keyExtractor={(_, index) => '' + index} 
+          data={data2} renderItem={_renderActivity} />
+      
+      </View>
+      </View>
+      {/* </SafeAreaView> */}
+
     </Container>
   );
 };
@@ -197,6 +214,15 @@ const ContentText = styled.Text`
 `;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    top: 35,
+    backgroundColor: 'pink', 
+    flex: 1,
+  },
+  pageContentContainer: {
+    // backgroundColor: 'lightgreen'
+    paddingHorizontal: 12,
+  },
   container: {
     backgroundColor: 'lightblue',
     flex: 1,
@@ -206,13 +232,50 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   h1Container: {
-    backgroundColor: 'lightblue',
+    // backgroundColor: 'lightblue',
     paddingVertical: 10,
   },
   h1Text: {
     color: COLORS.GREEN,
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    paddingTop: 25,
+    textAlign: 'center',
+    letterSpacing: 4,
+  },
+  titleContainer: {
+    // backgroundColor: 'gray',
+    marginHorizontal: 10,
+    marginBottom: 10,
+  },
+  flatlistContainer: { // only the wrapper for list content
+    flexGrow: 0,
+    backgroundColor: 'firebrick',
+  },
+  matchEntry: { // the line containing a single match request, a View
+    // paddingLeft: 20, 
+    // paddingRight: 40,
+    backgroundColor: 'blue',
+  },
+  userInfo: { // the line containing username, org, avatar, a View
+    flexDirection: 'row', 
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  donAmount: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    right: 0,
+  },
+  avatarContainer: {
+    backgroundColor: 'gray'
+  },
+  unContainer: {
+    backgroundColor: 'yellow',
   },
   flex: {
     flexDirection: 'row',

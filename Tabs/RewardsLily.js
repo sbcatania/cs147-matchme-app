@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import NumericInput from 'react-native-numeric-input';
-import { COLORS } from '../Themes/Constants';
+import { COLORS } from '../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Rewards() {

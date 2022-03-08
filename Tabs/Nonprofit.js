@@ -1,9 +1,7 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SetupFundraiser from './Nonprofit/SetupFundraiser';
 import Rewards from './Nonprofit/Rewards';
-
-import {COLORS} from '../Themes/Constants';
+import {COLORS} from '../Constants';
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;

@@ -3,7 +3,9 @@ import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'r
 import Rewards from './Rewards';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
-import { COLORS, IMAGES } from '../../Themes/Constants';
+import Fundraiser from './Donation/Fundraiser'
+import Profile from './Profile'
+import { COLORS, IMAGES } from '../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
