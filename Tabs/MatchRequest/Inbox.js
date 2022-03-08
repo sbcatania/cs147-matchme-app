@@ -97,7 +97,7 @@ const Inbox = ({ navigation }) => {
                 onChangeText={(newText) => setDonAmt(newText)}
               />
               
-              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation, donAmt); setModalVisible(false) }}
+              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate(MatchConfirmation); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
                     top: '9%',

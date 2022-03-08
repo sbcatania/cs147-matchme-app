@@ -12,6 +12,7 @@ import Search from './Tabs/Search';
 import Profile from './Tabs/Nonprofit/NonprofitProfile'; 
 import Nonprofit from './Tabs/Nonprofit';
 import {COLORS} from './Constants';
+import React, { useState } from 'react';
 
 
 const Tab = createBottomTabNavigator();

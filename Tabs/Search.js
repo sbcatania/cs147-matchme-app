@@ -1,56 +1,90 @@
+import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
+import { Feather, Entypo } from "@expo/vector-icons";
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
-import Fundraiser from './Donation/Fundraiser'
-import Profile from './Nonprofit/NonprofitProfile'
-import { useNavigation } from '@react-navigation/native';
-import NumericInput from 'react-native-numeric-input';
-import { COLORS, IMAGES } from '../Constants';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-/*
-* DOCUMENTATION
-* 
-* QUESTIONS
-* 
-* 
-* 
-* 
-* TODO
-*/
-
-// Main fn
-export default function Search() {
-    
-    // NAVIGATION: Setup nav between pages
-    const navigation = useNavigation();
-
-    // Plz show up
-    return (
-        
-        <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.container}>
-
-            {/* SEARCH */}
-            <View style={styles.headerContainer}>
-                <Text style={styles.titles}> Search </Text> 
-            </View>
-            </View>    
-        </SafeAreaView>
-    );
+const SearchBar = ({searchPhrase, setSearchPhrase}) => {
+ const [clicked, setClicked] = useState(false);
+  return (
+    <View style={styles.container}>
+      <View
+        style={
+          clicked
+            ? styles.searchBar__clicked
+            : styles.searchBar__unclicked
+        }
+      >
+        {/* search Icon */}
+        <Feather
+          name="search"
+          size={20}
+          color="black"
+          style={{ marginLeft: 1 }}
+        />
+        {/* Input field */}
+        <TextInput
+          style={styles.input}
+          placeholder="Search"
+          value={searchPhrase}
+          onChangeText={setSearchPhrase}
+          onFocus={() => {
+            setClicked(true);
+          }}
+        />
+        {/* cross Icon, depending on whether the search bar is clicked or not */}
+        {clicked && (
+          <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
+              setSearchPhrase("")
+          }}/>
+        )}
+      </View>
+      {/* cancel button, depending on whether the search bar is clicked or not */}
+      {clicked && (
+        <View>
+          <Button
+            title="Cancel"
+            onPress={() => {
+              Keyboard.dismiss();
+              setClicked(false);
+            }}
+          ></Button>
+        </View>
+      )}
+    </View>
+  );
 };
+export default SearchBar;
 
+// styles
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor:'white',
-    },
-    headerContainer: {
-        marginHorizontal: 10,
-    },
-    titles: { // text
-        fontWeight: 'bold',
-        fontSize: 30,
-        paddingTop: 25,
-        textAlign: 'center',
-        letterSpacing: 4,
-    },
+  container: {
+    margin: 20,
+    top: 30,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexDirection: "row",
+    width: "90%",
+
+  },
+  searchBar__unclicked: {
+    padding: 10,
+    flexDirection: "row",
+    width: "95%",
+    backgroundColor: "#d9dbda",
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  searchBar__clicked: {
+    padding: 10,
+    flexDirection: "row",
+    width: "80%",
+    backgroundColor: "#d9dbda",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  input: {
+    fontSize: 20,
+    marginLeft: 10,
+    width: "90%",
+  },
 });
