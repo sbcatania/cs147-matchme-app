@@ -294,14 +294,15 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   checkBtnContainer: { // TouchableOpacity wrapper
-    // backgroundColor: 'white',
+    // backgroundColor: 'red',
     position: 'absolute',
-    right: 0,
-    bottom: 0,
+    right: -5,
+    bottom: -5,
   },  
   checkBtnImg: { 
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     height: 50,
+    width: 50,
   },
   // NEW ACTIVITY STYLE
   activityEntry: { 
