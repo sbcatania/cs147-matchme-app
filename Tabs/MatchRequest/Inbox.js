@@ -4,11 +4,6 @@ import styled from 'styled-components/native';
 import { COLORS, DATA, IMAGES } from '../../Constants';
 import MatchConfirmation from './MatchConfirmation';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
 /* CITATION: https://github.com/musicodinghub/react-native-code-snippets/blob/master/src/screens/Feed/ActivityFeed.js */
 
 /* To Do:
