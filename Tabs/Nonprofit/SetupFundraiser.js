@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 import Fundraiser from './Donation/Fundraiser'
-import Rewards from './RewardsLily'
+import Rewards from './Rewards'
 import Profile from './Profile'
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
