@@ -23,7 +23,7 @@ export default function NonprofitFlow({navigation}) {
 
             if (route.name === 'Nonprofit') {
               iconName = "home-outline";
-            } else if (route.name === 'Profile') {
+            } else if (route.name === 'NFPProfile') {
               iconName = 'person-outline';
             } 
 
