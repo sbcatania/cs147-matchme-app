@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Nonprofit from './Tabs/Nonprofit';
-import Profile from './Tabs/Nonprofit/NonprofitProfile';
+import NFPProfile from './Tabs/Nonprofit/NFPProfile';
 import {COLORS} from './Constants';
 
 const Tab = createBottomTabNavigator();
@@ -39,7 +39,7 @@ export default function NonprofitFlow({navigation}) {
       
       >
         <Tab.Screen name="Nonprofit" component={Nonprofit} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="NFPProfile" component={NFPProfile} />
       </Tab.Navigator>
 
   );
