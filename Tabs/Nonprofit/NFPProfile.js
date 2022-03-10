@@ -74,7 +74,7 @@ export default function NFPFundraiser() {
                 </Text>
             </View>
 
-            
+            {/* <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 100, resizeMode: 'center', position: 'absolute', top: 0, left: 0,}}></Image> */}
 
             {/* <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
             </Image>
