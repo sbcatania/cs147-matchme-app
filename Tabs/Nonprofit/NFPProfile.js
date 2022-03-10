@@ -45,10 +45,15 @@ export default function NFPFundraiser() {
 
           {/* Body Content */}
           <View style={styles.body}>
-            <Text style={{backgroundColor:'beige'}}> 
-              About this fundraiser {'\n'}
-              The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide.
-            </Text>
+            
+            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
+              <Text style={styles.heading1}>
+                About this fundraiser
+              </Text>
+              <Text>
+                The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide.
+              </Text>
+            </View>
             
             <Pressable onPress={() => { // navigation.navigate('DonationEntry', handle)
               }}
@@ -74,16 +79,20 @@ export default function NFPFundraiser() {
                 </Text>
             </View>
 
-            {/* <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 100, resizeMode: 'center', position: 'absolute', top: 0, left: 0,}}></Image> */}
+            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
+              <Text style={styles.heading1}>
+                Impact
+              </Text>
+              <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image>
+            </View>
 
-            {/* <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
-            </Image>
-            <Image style = {styles.infotext} source = {require('../../assets/Donation/RewardBlurb.png')} > 
-            </Image>
-            <Image style = {styles.info} source = {require('../../assets/Donation/ImpactStats.png')} > 
-            </Image>
-            <Image style = {styles.info} source = {require('../../assets/Donation/VideoContent.png')} > 
-            </Image> */}
+            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
+              <Text style={styles.heading1}>
+                Content
+              </Text>
+              <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image>
+            </View>
+
 
           </View>
             
@@ -148,13 +157,13 @@ const styles = StyleSheet.create({
     body: { // a container, a view
       top: -50+5,
       backgroundColor: 'lightblue',
+      // maybe hacky hack this to be longer
     },
-    infotext: {
-      backgroundColor: 'brown',
-      top: '17%',
-      // left: '3%',
-      marginBottom: 20,
-    },
+    heading1: {
+      fontWeight:'bold', 
+      fontSize: 24,
+      marginBottom: 5,
+    },  
     info: {
       backgroundColor: 'green',
       top: '17%',
