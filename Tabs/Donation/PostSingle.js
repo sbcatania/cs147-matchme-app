@@ -36,7 +36,7 @@ export default class PostSingle extends React.Component {
              shouldPlay= {true}
              isLooping
              resizeMode= 'cover'
-            source = {{uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'}}
+            source = {{uri: this.props.video}}
             volume = {0.5}
           />
           </InViewPort>

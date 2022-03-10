@@ -12,6 +12,12 @@ export const COLORS = {
 
 export const DATA = {
     POSTS: {
+      0: {
+        handle: "worldwildlifefund",
+        caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
+        image: require('./assets/Home/home.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
+      },
       1: {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
@@ -41,7 +47,7 @@ export const DATA = {
         caption: "Learn about Finn's day in the life. Donate to make his life better.",
         image: require('./assets/Home/home5.jpg'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
-      }
+      },
     },
     PROFILES: {
       worldwildlifefund: {
