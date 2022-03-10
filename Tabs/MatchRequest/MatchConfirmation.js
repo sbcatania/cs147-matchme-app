@@ -3,7 +3,7 @@ import PagerView from "react-native-pager-view";
 import { useState, useEffect, useRef } from "react";
 
 import Inbox from './Inbox';
-import Explore from '../Donation/Explore';
+import FeedScreen from '../Donation/FeedScreen.js';
 
 import { COLORS, IMAGES } from '../../Constants';
 import { useNavigation } from '@react-navigation/native';
@@ -35,7 +35,7 @@ function Confirmation () {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Text style={styles.confirmtext}> Swipe up to confirm </Text>
+      <Image source={IMAGES.DONATION_SWIPE} style={{position:"absolute", width:250, height:65, bottom:"1%"}}/>
     </View>
   );
 }
@@ -76,7 +76,7 @@ function ThankYou() {
           >
             <Text style={styles.buttontextexplore}> See More Requests </Text>
           </Pressable>
-      <Pressable onPress={() => navigation.navigate(Explore)}
+      <Pressable onPress={() => navigation.navigate(FeedScreen)}
             style={({ pressed }) => [
               {
                 top: '20%',
@@ -141,6 +141,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.GREEN,
+    justifyContent:"center",
+    alignItems:"center"
   },
   pagerView: {
     flex: 1,
