@@ -38,10 +38,8 @@ export default function FeedScreen({navigation}) {
         // item refers to the array that we established above which is an array of numbers 1-6
         return (
             <View style = {[{flex : 1, height: Dimensions.get('window').height - 79}, index % 2 == 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
-              <PostSingle item = {item} ref= {PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} />
-              {/* <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate("Fundraiser", 'worldwildlifefund')}>
-            <Image style = {styles.donateimg} source={IMAGES.DONATE_ICON}/>
-          </TouchableOpacity> */}
+              <PostSingle item = {item} />
+              
             </View>
         )
     }
@@ -71,8 +69,10 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
     },
-    // donateimg: {
-    //     width: 80,
-    //     height: 80,
-    //   }, 
+    donateimg: {
+        width: 80,
+        height: 80,
+
+    }, 
+    
 });
