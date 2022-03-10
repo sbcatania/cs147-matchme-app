@@ -40,19 +40,22 @@ export default function SetupFundraiser() {
     // const [doncounter, setDonCounter] = useState(0);
     const [usercounter, setUserCounter] = useState(0);
 
+    // Hacky way to get flatlist of tags to rerender
+    const [refresh, setRefresh] = useState(true);
+
     // NAVIGATION: Setup nav between pages
     const navigation = useNavigation();
 
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
-        { tag: 'ENVIRO', key: '1' },
-        { tag: 'ART', key: '2' },
-        { tag: 'HUNGER', key: '3' },
-        { tag: 'HUMAN RIGHT', key: '4' },
-        { tag: 'EDUC', key: '5' },
-        { tag: 'EQUALITY', key: '6' },
-        { tag: 'ANIMALS', key: '7' },
-        { tag: 'CONSERVE', key: '8' },
+        { tag: 'ENVIRO', key: '1', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'ART', key: '2',  clicked:false, color: COLORS.MAGENTA},
+        { tag: 'HUNGER', key: '3', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'HUMAN RIGHT', key: '4', clicked:false, color: COLORS.MAGENTA},
+        { tag: 'EDUC', key: '5',  clicked:false, color: COLORS.MAGENTA },
+        { tag: 'EQUALITY', key: '6', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'ANIMALS', key: '7', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'CONSERVE', key: '8', clicked:false, color: COLORS.MAGENTA },
     ]);
 
     // TAGHANDLER: Make touchable components
@@ -126,25 +129,11 @@ export default function SetupFundraiser() {
                 <FlatList 
                 numColumns={4}
                 data={tags}
+                extraData={refresh}
                 renderItem={({ item }) => (
                     <Pressable 
-                    // onPress={() => navigation.navigate(Fundraiser)} // On press, add the text to an array to pass to the next page, and hold color
-                    style={({ pressed }) => [
-                    {
-                        marginTop: 5,
-                        marginHorizontal: 2,
-                        paddingVertical: 8,
-                        paddingHorizontal: 10,
-                        borderRadius: 100,
-                        borderWidth: 2,
-                        backgroundColor: pressed
-                        ? COLORS.BLUE
-                        : 'white',
-                        borderColor: pressed
-                        ? COLORS.BLUE // HOW TO MAKE THIS UNIQUE FOR EACH TAG?
-                        : COLORS.BLACK,
-                        
-                    }]}>
+                    onPress={() => {item.clicked = !item.clicked, setRefresh(!refresh)}} //On press, indicate clicked, and force refresh
+                    style={styles.tag(item.clicked ? item.color : "white")}>
                         <Text style={styles.tagtext}>{item.tag}</Text>
                     </Pressable>
                 )}/>
@@ -187,7 +176,7 @@ export default function SetupFundraiser() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable style={styles.launchbutton} onPress={() => navigation.navigate(Rewards)} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate(Rewards)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,
@@ -215,6 +204,16 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // paddingTop: '10%',
     },
+    tag: (color) => { return {
+        marginTop: 5,
+        marginHorizontal: 2,
+        paddingVertical: 8,
+        paddingHorizontal: 10,
+        borderRadius: 100,
+        borderWidth: 2,
+        backgroundColor: color,
+        borderColor: COLORS.BLACK,
+    }},
     flexboxes: {
         // backgroundColor: 'firebrick',
         paddingHorizontal: 20,
