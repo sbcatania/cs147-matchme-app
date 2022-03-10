@@ -44,7 +44,7 @@ export default function FeedScreen({ navigation }) {
 
         return (
             <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
-                <PostSingle item={item} ref={PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} />
+                <PostSingle item = {item} />
                 <View style={styles.sidebar}>
                     <Image source={IMAGES.LIKE_ICON} style={styles.sideicon}>
                     </Image>
