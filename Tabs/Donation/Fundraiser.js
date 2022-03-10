@@ -49,8 +49,6 @@ const Fundraiser = () => {
           
           styles.wrapperCustom
         ]}>
-        
-        
             <Text style={styles.buttontext}> DONATE </Text> 
     </Pressable>
     <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
