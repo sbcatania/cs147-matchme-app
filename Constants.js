@@ -168,3 +168,11 @@ export const IMAGES = {
     DONATION_CHECK : require('./assets/Donation/check.png'),
     INBOX_CHECK    : require('./assets/Inbox/check.png'),    
   };
+
+export const VIDEOS = [
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
+];
