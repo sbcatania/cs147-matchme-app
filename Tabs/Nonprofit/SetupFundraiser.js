@@ -48,16 +48,9 @@ export default function SetupFundraiser() {
         { tag: 'CONSERVE', key: '8', clicked:false, color: COLORS.MAGENTA },
     ]);
 
-    // TAGHANDLER: Make touchable components
-    const pressHandler = (id) => {
-        setTags((prevTags) => {
-            /* do whatever action to the tags */
-        });
-    }
-
     // Plz show up
     return (
-        <View style={{backgroundColor:'white', position:'absolute', height: '100%'}}>
+        <View style={{backgroundColor:'white', position:'absolute', height: '100%', width: '100%'}}>
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
 
@@ -73,7 +66,6 @@ export default function SetupFundraiser() {
                 placeholder='Org Handle' 
                 autoCapitalize='none'
                 onChangeText={(handle) => setHandle(handle)} />
-                {/* left={<TextInput.Icon name='landay'/>}  // get this working for fun */}
                 
                 <TextInput 
                 style={styles.input} 
