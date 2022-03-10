@@ -35,45 +35,60 @@ export default function NFPFundraiser() {
         
         {/* All the other content, 20px margins */}
         <View style={styles.mainContent}>
-            <View style={styles.header}> 
-              <Circle></Circle>
-                <Text style = {styles.whitetext}>Save the Animals</Text>
-                <Text style = {styles.blacktext}>MARCH 2022-FEBRUARY 2023</Text>
-            </View>
             
-            <Text style = {styles.blacktext}> {DATA.dates} </Text>
-            <Pressable style={styles.donatebutton} onPress={() => {
-              // navigation.navigate('DonationEntry', handle)
-            }}
-            style={({ pressed }) => [
-              {
-                top: '13%',
-                left: '20%',
-                width: 250,
-                alignItems: 'center',
-                justifyContent: 'center',
-                paddingVertical: 12,
-                borderRadius: 100,
-                elevation: 3,
-                backgroundColor: pressed
-                  ? 'gray'
-                  : COLORS.GREEN
-              },
-              
-              styles.wrapperCustom
-            ]}>
-            <Text style={styles.buttontext}> DONATE </Text> 
+          {/* Header */}
+          <View style={styles.header}> 
+            <Circle></Circle>
+              <Text style = {styles.whitetext}>Save the Animals</Text>
+              <Text style = {styles.blacktext}>Description{'\n'}MARCH 2022-FEBRUARY 2023</Text>
+          </View>
+
+          {/* Body Content */}
+          <View style={styles.body}>
+            <Text style={{backgroundColor:'beige'}}> 
+              About this fundraiser {'\n'}
+              The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide.
+            </Text>
+            
+            <Pressable onPress={() => { // navigation.navigate('DonationEntry', handle)
+              }}
+              style={({ pressed }) => [
+                {
+                  left: '15%', 
+                  width: '70%',
+                  alignItems: 'center', // text
+                  justifyContent: 'center', // text
+                  paddingVertical: 10,
+                  borderRadius: 100,
+                  elevation: 3,
+                  backgroundColor: pressed
+                    ? 'gray'
+                    : COLORS.GREEN
+                }]}>
+                <Text style={styles.buttontext}> DONATE </Text> 
             </Pressable>
-            <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
-          </Image>
-          <Image style = {styles.infotext} source = {require('../../assets/Donation/RewardBlurb.png')} > 
-          </Image>
-          <Image style = {styles.info} source = {require('../../assets/Donation/ImpactStats.png')} > 
-          </Image>
-          <Image style = {styles.info} source = {require('../../assets/Donation/VideoContent.png')} > 
-          </Image>
+
+            <View style={{backgroundColor: 'pink', height: 120, borderRadius: 10, margin: 10,}}>
+                <Text style={{textAlign: 'center', padding: 10}}>
+                  Rewards go here!
+                </Text>
+            </View>
+
+            
+
+            {/* <Image style = {styles.infotext} source = {require('../../assets/Donation/FundraiserDescription.png')} > 
+            </Image>
+            <Image style = {styles.infotext} source = {require('../../assets/Donation/RewardBlurb.png')} > 
+            </Image>
+            <Image style = {styles.info} source = {require('../../assets/Donation/ImpactStats.png')} > 
+            </Image>
+            <Image style = {styles.info} source = {require('../../assets/Donation/VideoContent.png')} > 
+            </Image> */}
+
+          </View>
             
         </View>
+
       </ScrollView>
       </SafeAreaView>
       </View>
@@ -88,10 +103,12 @@ const styles = StyleSheet.create({
       height: 200,
     },
     container: {
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      height: '100%',
     },
     scrollView: {
       backgroundColor: 'white',
+      height: '100%',
     },
     mainContent: { // container view
       top: 200,
@@ -128,6 +145,10 @@ const styles = StyleSheet.create({
       fontSize: 16,
       color: 'black',
     },
+    body: { // a container, a view
+      top: -50+5,
+      backgroundColor: 'lightblue',
+    },
     infotext: {
       backgroundColor: 'brown',
       top: '17%',
@@ -140,37 +161,9 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       width: '99%',
     },
-    buttonSize: { // handle image style of small button
-      resizeMode: 'stretch', 
-      width:50, 
-      height:50,
-    },
-    checkButtonPressable: { // handle position of check button
-      // backgroundColor: 'blue', // just to see where the container is
-      position: 'absolute', 
-      right: 0, 
-      top: 0,
-    },
-    axnButtonContainer: {//   separate from rest of content
-      // backgroundColor: 'lightblue',
-      position: 'absolute',
-      bottom: 10,
-      left: 80,
-    },
-    axnButtonText: {
-      color: COLORS.WHITE,
-      fontWeight: 'bold',
-      fontSize: 35,
-    },
-    // compare this to above
     buttontext: {
       color: COLORS.WHITE,
       fontWeight: 'bold',
       fontSize: 35,
-    },
-    axnButton: {
-        alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        padding: 10,
     },
 });
