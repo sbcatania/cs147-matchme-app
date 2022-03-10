@@ -1,15 +1,15 @@
 import React, { useRef,  } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { Dimensions } from 'react-native';
 import PostSingle from '../Donation/PostSingle';
 import { Video } from 'expo-av';
+import { IMAGES, VIDEOS } from '../../Constants';
 
 
-export default function FeedScreen() {
+export default function FeedScreen({navigation}) {
     const mediaRefs = useRef([])
 
-    const array = ['http://web.stanford.edu/class/cs147/projects/TheFutureOfPhilanthropy/MATCH.ME/files/matchme-video.mp4', 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4',
-    'http://web.stanford.edu/class/cs147/projects/TheFutureOfPhilanthropy/MATCH.ME/files/matchme-video.mp4', 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4']
+    const array = VIDEOS;
 
     const onViewableItemsChanged = useRef(({changed}) => {
         changed.forEach(element => {
@@ -39,6 +39,9 @@ export default function FeedScreen() {
         return (
             <View style = {[{flex : 1, height: Dimensions.get('window').height - 79}, index % 2 == 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
               <PostSingle item = {item} ref= {PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} />
+              {/* <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate("Fundraiser", 'worldwildlifefund')}>
+            <Image style = {styles.donateimg} source={IMAGES.DONATE_ICON}/>
+          </TouchableOpacity> */}
             </View>
         )
     }
@@ -68,4 +71,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
     },
+    // donateimg: {
+    //     width: 80,
+    //     height: 80,
+    //   }, 
 });

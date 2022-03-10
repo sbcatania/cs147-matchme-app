@@ -73,6 +73,8 @@ export const PostSingle = forwardRef((item, parentRef) => {
         shouldPlay= {true}
         isLooping
         source = {{uri: item.item}}
+        volume = {0}
+
   />
   
        
