@@ -152,6 +152,9 @@ export const IMAGES = {
     SHARE_ICON     : require('./assets/Home/share.png'),
     DONATE_ICON    : require('./assets/Navigation/donate.png'),
 
+    // Non-profit
+    REWARD_BAR     : require('./assets/Nonprofit/reward-bar.png'),
+
     // Other
     USER_ICON      : require('./assets/Icons/user.png'),
     DONATION_ARROW : require('./assets/Donation/arrow.png'),

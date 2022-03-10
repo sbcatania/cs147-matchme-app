@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, Pressable } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { COLORS } from '../../Constants';
+import { COLORS, IMAGES } from '../../Constants';
 import Search from '../Search';
+import reactDom from "react-dom";
 // import * as ImagePicker from 'expo-image-picker';
 
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
@@ -113,12 +114,36 @@ export default function Rewards() {
 
           <View style={styles.mainContent}>
             <View style={styles.cuteRect}>
-              <Text style={styles.previewText}> 
-                My Donor Rewards {"\n"} {"\n"} 
-                Reward 1: {"\t\t"} {rwd1} {"\n"} 
-                Reward 2: {"\t\t"} {rwd2} {"\n"} 
-                Reward 3: {"\t\t"} {rwd3} {"\n"} 
+              <Text style={styles.previewText}>
+                My Donor Rewards
               </Text>
+              <View style={styles.twoCols}>
+                <View style={styles.trackerBarCol}>
+                  <Image source={IMAGES.REWARD_BAR} style={styles.rewardBarImg}/>
+                </View>
+                <View style={styles.rewardsNameCol}>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardTextTitle}>Gold:</Text>
+                  </View>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardTextTitle}>Silver:</Text>
+                  </View>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardTextTitle}>Bronze:</Text>
+                  </View>
+                </View>
+                <View style={styles.rewardsValueCol}>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardText}>{rwd1}</Text>
+                  </View>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardText}>{rwd2}</Text>
+                  </View>
+                  <View style={styles.previewRewardTextWrapper}>
+                    <Text style={styles.previewRewardText}>{rwd3}</Text>
+                  </View>
+                </View>
+              </View>
             </View> 
           </View>
         </View>
@@ -128,7 +153,7 @@ export default function Rewards() {
       </View>
         
       <View style={styles.axnButtonContainer}>
-          <Pressable style={styles.axnButton} onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
+          <Pressable onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
               style={({ pressed }) => [
               {
                   width: 250,
@@ -237,8 +262,57 @@ const styles = StyleSheet.create({
     },
     cuteRect: {
       backgroundColor:'#F2F2F2',
-      margin: 10,
+      margin: 1,
       borderRadius: 5,
-      height: '60%'
+      height: '63%'
+    },
+    twoCols: {
+      display: 'flex',
+      flexDirection: 'row',
+    },
+    rewardsNameCol: {
+      // backgroundColor: "blue",
+      paddingLeft: 10,
+      paddingRight: 20,
+      paddingBottom: 10,
+      paddingTop: 10,
+      justifyContent: 'space-evenly',
+    },
+    rewardsValueCol: {
+      // backgroundColor: "red",
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+      flexShrink: 0,
+      paddingBottom: 10,
+      paddingTop: 10,
+      width: '50%',
+    },
+    trackerBarCol: {
+      padding: 10,
+    },
+    rewardBarImg: {
+      width: 60,
+      height: 200,
+    },
+    previewRewardTextWrapper: {
+      // backgroundColor: 'purple',
+      display: 'flex',
+      height: 60,
+      justifyContent: 'center',
+    },
+    previewRewardTextTitle: {
+      // backgroundColor: "orange",
+      fontSize: 16,
+      fontWeight: 'bold',
+      flexShrink: 0,
+      width: '100%',
+    },
+    previewRewardText: {
+      // backgroundColor: "orange",
+      fontSize: 16,
+      letterSpacing: 1.1,
+      flexShrink: 0,
+      width: '100%',
     },
 });
