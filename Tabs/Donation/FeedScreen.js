@@ -59,6 +59,8 @@ export default function FeedScreen({ navigation }) {
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", handle)}>
                     <Image style={styles.donateimg} source={IMAGES.DONATE_ICON} />
                 </TouchableOpacity>
+                {/* <Text style = {styles.whitetext}> {handle}
+                </Text> */}
             </View>
         )
     }
@@ -88,6 +90,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    // whitetext: {
+    //     color: 'white',
+    //     marginTop: '-150%',
+    //     left: '5%',
+    //     fontSize: 20,
+    //     color: COLORS.WHITE,
+    
+    // },
     button: {
         position: "absolute",
         marginTop: "-25%",
