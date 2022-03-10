@@ -48,6 +48,12 @@ export const DATA = {
         image: require('./assets/Home/home5.jpg'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
       },
+      6: {
+        handle: "paloaltoshelter",
+        caption: "Learn about Finn's day in the life. Donate to make his life better.",
+        image: require('./assets/Home/home5.jpg'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
+      },
     },
     PROFILES: {
       worldwildlifefund: {
@@ -180,5 +186,6 @@ export const VIDEOS = [
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
 ];
