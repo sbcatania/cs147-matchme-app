@@ -80,17 +80,16 @@ const Inbox = ({ navigation }) => {
         {/* MATCHING CARD: Modal for match button */}
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-
+          <View style={{ alignSelf:"stretch", flexDirection: "row", alignItems:"center", justifyContent:"flex-start"}}>
             <Pressable
               onPress={() => setModalVisible(!modalVisible)}
-              style={{ float: "left" }}
+              style={{ }}
             >
               <Image source={IMAGES.DONATION_ARROW} />
             </Pressable>
-
+            </View>
             <SafeAreaView style={styles.container} >
-              
-              <Text style={styles.description}> {fundName} </Text>
+            <Text style={styles.description}> {fundName} </Text>
               <Text>Matching {name}'s donation</Text>
               <TextInput
                 style={styles.textInput}
@@ -358,8 +357,6 @@ const styles = StyleSheet.create({
   description: {
     fontWeight: 'bold',
     fontSize: 20,
-    top: '2%',
-    left: '5%',
     margin: 10,
     color: COLORS.BlACK,
   },

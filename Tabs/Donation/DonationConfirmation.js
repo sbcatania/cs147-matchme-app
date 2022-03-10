@@ -69,9 +69,15 @@ function ThankYou() {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-           
+          <View style={[styles.modalView, {justifyContent:"space-between"}]}>
+          <View style={{ alignSelf:"stretch", flexDirection: "row"}}>
+          <Pressable style={{top: "0%", left:"0%"}}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Image source={IMAGES.DONATION_ARROW} />
+            </Pressable>
             <Text style={styles.modalText}>Match Request</Text>
+            </View>
             <SafeAreaView>
               <View style={{ display: "flex", justifyContent: "space-between" }}>
                 <TextInput
@@ -118,11 +124,6 @@ function ThankYou() {
                 fontWeight: 'bold'
               }}> Send Match Request </Text>
             </Pressable>
-            {/* <Pressable style={styles.backbutton}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Image source={IMAGES.DONATION_ARROW} />
-            </Pressable> */}
           </View>
         </View>
       </Modal>
@@ -306,9 +307,6 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 40,
     backgroundColor: COLORS.WHITE,
   },
-  backbutton: {
-    top: '6%',
-  },
   buttontext: {
     color: COLORS.WHITE,
     fontWeight: 'bold',
@@ -392,6 +390,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.GREEN,
     marginBottom: 20,
+    flexGrow:1
   },
   input: {
     borderWidth: 1,

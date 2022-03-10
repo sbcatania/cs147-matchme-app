@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 import Rewards from './Rewards';
+import NFPProfile from './NFPProfile';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../../Constants';
@@ -9,23 +10,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 /*
 * DOCUMENTATION
-* Text: https://reactnative.dev/docs/text
-* TextInput: https://reactnative.dev/docs/textinput
-* FlatList: https://reactnative.dev/docs/flatlist
-* Counter: https://www.npmjs.com/package/react-native-numeric-input 
-* Useful TextInput: https://blog.logrocket.com/complete-guide-textinput-react-native/ 
-* 
 * 
 * QUESTIONS
 * 
-* 
-* 
-* 
 * TODO
 *   - TAGS (DANA): Hold color and pass data to next screen with state variables.
-*   - NAV: Reconnect buttons once scaffolding is set up.
 *   - STATE VARS: Setup state vars for text input also.
-*   - UI: Finalize CSS styling.
 */
 
 // Main fn
@@ -67,7 +57,7 @@ export default function SetupFundraiser() {
 
     // Plz show up
     return (
-        
+        <View style={{backgroundColor:'white', position:'absolute', height: '100%'}}>
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
 
@@ -176,7 +166,7 @@ export default function SetupFundraiser() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable onPress={() => navigation.navigate(Rewards)} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate(NFPProfile)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,
@@ -191,6 +181,7 @@ export default function SetupFundraiser() {
             </Pressable>
         </View>
         </SafeAreaView>
+        </View>
     );
 };
 

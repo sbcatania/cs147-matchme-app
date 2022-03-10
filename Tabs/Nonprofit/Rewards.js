@@ -8,14 +8,7 @@ import reactDom from "react-dom";
 
 // CURRENTLY USING TO DEVELOP NFP RWDS PAGE
 /* 
-* TODO: 
-*   - IMAGE PICKER: debug node install and add image picker
-*   - CSS ACROSS PAGES: make sure styling is same across nfp pages
-* 
-*   ABANDON: 
-*   - DYNAMIC ADD/DELETE:
-*       - METHOD 1??? Flatlist add/delete, Flatlist of Views, State variable to manage input fields and # of input fields? 
-*       - https://stackoverflow.com/questions/63712680/how-to-dynamically-add-delete-view-in-react-native
+* TODO:
 */
 
 export default function Rewards() {
@@ -43,7 +36,7 @@ export default function Rewards() {
   // };
   
   return(
-
+      <View style={{backgroundColor:'white'}}>
       <SafeAreaView styles={styles.safeAreaContainer}>
       <View style={styles.container}>
         {/* <Text style = {styles.blacktext}> Profile </Text> */}
@@ -169,6 +162,7 @@ export default function Rewards() {
       </View>
       
       </SafeAreaView>
+      </View>
   );
 }
 
@@ -201,8 +195,9 @@ const styles = StyleSheet.create({
     },
     previewText: { // text
         fontWeight: 'bold',
-        paddingVertical: 10,
-        margin: 10,
+        paddingTop: 10,
+        marginHorizontal: 15,
+        marginTop: 10,
         fontSize: 22,
     },
     mainContent: { // container view
@@ -261,7 +256,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     cuteRect: {
-      backgroundColor:'#F2F2F2',
+      backgroundColor:'#F5F1E5',
       margin: 1,
       borderRadius: 5,
       height: '63%'
@@ -292,8 +287,10 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     rewardBarImg: {
-      width: 60,
+      marginHorizontal: 10,
+      width: 50,
       height: 200,
+      resizeMode: 'contain',
     },
     previewRewardTextWrapper: {
       // backgroundColor: 'purple',
@@ -313,6 +310,6 @@ const styles = StyleSheet.create({
       fontSize: 16,
       letterSpacing: 1.1,
       flexShrink: 0,
-      width: '100%',
+      width: '88%',
     },
 });
