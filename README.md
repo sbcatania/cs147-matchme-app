@@ -28,3 +28,7 @@ Then run `expo start`
 Run `expo install react-native-pager-view`  
 Then run `npm install`  
 Then run `expo start`
+
+### To install Video component for feed
+Run 'expo install expo-av'
+Run 'npm install expo-av'
