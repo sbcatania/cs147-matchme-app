@@ -157,6 +157,7 @@ function ThankYou() {
       </Image>
       <Text style={styles.thankyoutext}> Thank you! </Text>
 
+      
       {/*Friend Matching */}
       <FlatList
         style={styles.card}
@@ -167,7 +168,7 @@ function ThankYou() {
         renderItem={({ item }) => <ItemRender name={item.name} avatar={item.avatar} />}
         keyExtractor={item => item.id}
       />
-      <Pressable onPress={() => navigation.navigate("Explore")}
+      <Pressable onPress={() => navigation.navigate("DonationEntry")}
         style={({ pressed }) => [
           {
             top: '9%',
@@ -238,8 +239,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: COLORS.WHITE,
     borderRadius: 20,
-    margin: 10,
-    left: '8%',
+    margin: 7,
+    left: '2%',
     height: 'auto',
     width: '80%',
   },
@@ -325,7 +326,7 @@ const styles = StyleSheet.create({
   thankyouimg: {
     height: 130,
     width: 130,
-    left: '36%',
+    left: '1%',
   },
   button: {
     top: '10%',
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
   image: {
     width: 40,
     height: 40,
-    marginLeft: 20,
+    marginLeft: 5,
     borderRadius: 10,
   },
   name: {
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
