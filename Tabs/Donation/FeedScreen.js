@@ -87,22 +87,28 @@ const styles = StyleSheet.create({
     },
     button: {
         position: "absolute",
-        marginTop: "-20%",
+        marginTop: "-25%",
         right: 0
         //backgroundColor:"red"
     },
     donateimg: {
         width: 80,
         height: 80,
+        resizeMode: 'contain',
+        position: 'absolute',
+        right: 10,
+        bottom: -50,
     },
     sidebar: {
         position: "absolute",
-        marginTop: "-70%",
-        right: 0
+        marginTop: "-80%",
+        right: 15,
     },
     sideicon: {
-        width: 50,
+        width: 40,
         height: 50,
-        marginTop: 10
+        marginTop: 10,
+        right: 15,
+        resizeMode: 'contain',
     }
 });
