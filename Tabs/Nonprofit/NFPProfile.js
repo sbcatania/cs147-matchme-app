@@ -37,9 +37,9 @@ export default function NFPFundraiser() {
             
           {/* Header */}
           <View style={styles.header}> 
-            <Circle></Circle>
+              <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image>
               <Text style = {styles.whitetext}>Save the Animals</Text>
-              <Text style = {styles.blacktext}>Description{'\n'}MARCH 2022-FEBRUARY 2023</Text>
+              <Text style = {styles.blacktext}>World Wildlife Fund{'\n'}MARCH 2022-FEBRUARY 2023</Text>
           </View>
 
           {/* Body Content */}
