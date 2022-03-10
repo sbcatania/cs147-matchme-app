@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     cuteRect: {
-      backgroundColor:'beige',
+      backgroundColor:'#F5F1E5',
       margin: 1,
       borderRadius: 5,
       height: '63%'
