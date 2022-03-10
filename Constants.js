@@ -16,26 +16,31 @@ export const DATA = {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
         image: require('./assets/Home/home.png'),
+        // video: require('./assets/Home/wildlife1.MP4'),
       },
       2: {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores a newer landscape.",
         image: require('./assets/Home/home2.png'),
+        // video: require('./assets/Home/wildlife2.mp4'),
       },
       3: {
         handle: "malalafund",
         caption: "Malala addressing the UN Summit this morning. ",
-        image: require('./assets/Home/home3.jpg')
+        image: require('./assets/Home/home3.jpg'),
+        // video: require('./assets/Home/malala1.mp4'),
       },
       4: {
         handle: "savethebees",
         caption: "It was a great day saving the bees from a giant hive. ",
-        image: require('./assets/Home/home4.jpg')
+        image: require('./assets/Home/home4.jpg'),
+        // video: require('./assets/Home/bees1.mp4'),
       },
       5: {
         handle: "paloaltoshelter",
         caption: "Learn about Finn's day in the life. Donate to make his life better.",
-        image: require('./assets/Home/home5.jpg')
+        image: require('./assets/Home/home5.jpg'),
+        // video: require('./assets/Home/dogs1.mp4'),
       }
     },
     PROFILES: {
@@ -151,6 +156,9 @@ export const IMAGES = {
     DISLIKE_ICON   : require('./assets/Home/xicon.png'),
     SHARE_ICON     : require('./assets/Home/share.png'),
     DONATE_ICON    : require('./assets/Navigation/donate.png'),
+
+    // Non-profit
+    REWARD_BAR     : require('./assets/Nonprofit/reward-bar.png'),
 
     // Other
     USER_ICON      : require('./assets/Icons/user.png'),
