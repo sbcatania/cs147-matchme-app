@@ -6,8 +6,7 @@ import { COLORS, DATA } from '../../Constants';
 
 /* 
 * TODO: 
-*   - Implement NFP profile page.
-*   - WHITE BACKGROUND - do the hacky safe area view thing to get a completely white bacgkround
+*   - DATA: Do the data stuff to make flexible for other NFP profiles.
 */
 
 //export default function NFPFundraiser({route}) {
@@ -28,7 +27,7 @@ export default function NFPFundraiser() {
       <SafeAreaView>
       <ScrollView style={styles.scrollView}>
 
-        {/* Moosey moose, different margins than everything else! */}
+        {/* Moose, different margins than everything else! */}
         <View>
           <Image source={require('../../assets/Donation/moose.png')} style={styles.backgroundimg}></Image>
         </View>
@@ -46,7 +45,7 @@ export default function NFPFundraiser() {
           {/* Body Content */}
           <View style={styles.body}>
             
-            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
+            <View style={styles.pageElem}>
               <Text style={styles.heading1}>
                 About this fundraiser
               </Text>
@@ -61,6 +60,7 @@ export default function NFPFundraiser() {
                 {
                   left: '15%', 
                   width: '70%',
+                  marginVertical: 10,
                   alignItems: 'center', // text
                   justifyContent: 'center', // text
                   paddingVertical: 10,
@@ -79,20 +79,21 @@ export default function NFPFundraiser() {
                 </Text>
             </View>
 
-            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
+            <View style={styles.pageElem}>
               <Text style={styles.heading1}>
                 Impact
               </Text>
               <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image>
-            </View>
+              
+          </View>
 
-            <View style={{marginVertical: 10, backgroundColor:'beige'}}>
-              <Text style={styles.heading1}>
-                Content
-              </Text>
-              <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image>
+          <View style={styles.pageElemFullScreen}>
+            <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image>
+          
+            <View style={{backgroundColor: 'white', height: 140, }}>
+              {/* This is whitespace, so we can scroll to the bottom */}
             </View>
-
+          </View>
 
           </View>
             
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     },
     mainContent: { // container view
       top: 200,
-      backgroundColor: 'firebrick',
+      // backgroundColor: 'firebrick',
       marginHorizontal: 20,
     },
     header: {
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     },
     body: { // a container, a view
       top: -50+5,
-      backgroundColor: 'lightblue',
+      // backgroundColor: 'lightblue',
       // maybe hacky hack this to be longer
     },
     heading1: {
@@ -164,12 +165,14 @@ const styles = StyleSheet.create({
       fontSize: 24,
       marginBottom: 5,
     },  
-    info: {
-      backgroundColor: 'green',
-      top: '17%',
-      marginBottom: 20,
-      width: '99%',
+    pageElem: {
+      marginVertical: 10, 
+      // backgroundColor:'beige',
     },
+    pageElemFullScreen: {
+      marginVertical: 10, 
+      marginHorizontal: -22,
+    },  
     buttontext: {
       color: COLORS.WHITE,
       fontWeight: 'bold',
