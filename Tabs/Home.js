@@ -4,6 +4,7 @@ import Fundraiser from './Donation/Fundraiser';
 import DonationEntry from './Donation/DonationEntry';
 import DonationConfirmation from './Donation/DonationConfirmation';
 import MatchRequestSent from './Donation/MatchRequestSent';
+import FeedScreen from './Donation/FeedScreen';
 import {COLORS} from '../Constants';
 
 const LOAD_TIME = 100;
@@ -31,7 +32,7 @@ export default function Home() {
       headerBackTitleVisible: false,
       }}>
         
-        <Stack.Screen name="Explore" component={Explore}
+        <Stack.Screen name="FeedScreen" component={FeedScreen}
         />
         <Stack.Screen name="Fundraiser" component={Fundraiser} 
         
