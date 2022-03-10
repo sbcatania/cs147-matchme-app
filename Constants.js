@@ -16,31 +16,31 @@ export const DATA = {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
         image: require('./assets/Home/home.png'),
-        // video: require('./assets/Home/wildlife1.MP4'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
       },
       2: {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores a newer landscape.",
         image: require('./assets/Home/home2.png'),
-        // video: require('./assets/Home/wildlife2.mp4'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
       },
       3: {
         handle: "malalafund",
         caption: "Malala addressing the UN Summit this morning. ",
         image: require('./assets/Home/home3.jpg'),
-        // video: require('./assets/Home/malala1.mp4'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
       },
       4: {
         handle: "savethebees",
         caption: "It was a great day saving the bees from a giant hive. ",
         image: require('./assets/Home/home4.jpg'),
-        // video: require('./assets/Home/bees1.mp4'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
       },
       5: {
         handle: "paloaltoshelter",
         caption: "Learn about Finn's day in the life. Donate to make his life better.",
         image: require('./assets/Home/home5.jpg'),
-        // video: require('./assets/Home/dogs1.mp4'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
       }
     },
     PROFILES: {
