@@ -39,9 +39,9 @@ export default function FeedScreen({navigation}) {
         return (
             <View style = {[{flex : 1, height: Dimensions.get('window').height - 79}, index % 2 == 0 ? {backgroundColor: 'blue'} : {backgroundColor: 'pink'}]}>
               <PostSingle item = {item} ref= {PostSingleRef => (mediaRefs.current[item] = PostSingleRef)} />
-              {/* <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate("Fundraiser", 'worldwildlifefund')}>
+               <TouchableOpacity style = {styles.button} onPress={()=>navigation.navigate("Fundraiser", 'worldwildlifefund')}>
             <Image style = {styles.donateimg} source={IMAGES.DONATE_ICON}/>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
             </View>
         )
     }
@@ -71,8 +71,12 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
     },
-    // donateimg: {
-    //     width: 80,
-    //     height: 80,
-    //   }, 
+    button : {
+       marginTop:"-100%",
+       //backgroundColor:"red"
+    },
+    donateimg: {
+        width: 80,
+        height: 80,
+   }
 });
