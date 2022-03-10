@@ -48,7 +48,7 @@ export default function FeedScreen({ navigation }) {
             <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
                 <PostSingle video = {video} />
                 <View style={styles.sidebar}>
-                    <Image source={IMAGES.USER_ICON} style={styles.profileimg}></Image>
+                    <Image source={DATA.PROFILES[handle].avatar} style={styles.profileimg}></Image>
                     <Image source={IMAGES.LIKE_ICON} style={styles.sideicon}>
                     </Image>
                     <Image source={IMAGES.DISLIKE_ICON} style={styles.sideicon}>
@@ -99,8 +99,9 @@ const styles = StyleSheet.create({
         height: 55,
         resizeMode: 'contain',
         position: 'absolute',
-        right: 10,
+        right: 5,
         bottom: 5,
+        borderRadius: 100,
     },
     donateimg: {
         width:88,
