@@ -15,26 +15,32 @@ export default function NFPFundraiser() {
 
   // NAVIGATION: Setup nav between pages
   const navigation = useNavigation();
+  const Circle = () => {
+    return <View style={styles.circle} />;
+  };
 
   // SETUP: DATA transfer stuff + NFP info
   // const [handle, _] = React.useState(route.params);
   // let DATA = DATA.PROFILES[handle];
   
   return(
-
-      <SafeAreaView styles={styles.safeAreaContainer}>
+      <View style={styles.container}>
+      <SafeAreaView>
       <ScrollView style={styles.scrollView}>
 
-        <View style={styles.headerContainer}>
-          <Image></Image>
-          <Text style={styles.titles}>NFP Profile</Text>
+        {/* Moosey moose, different margins than everything else! */}
+        <View>
+          <Image source={require('../../assets/Donation/moose.png')} style={styles.backgroundimg}></Image>
         </View>
         
+        {/* All the other content, 20px margins */}
         <View style={styles.mainContent}>
-          <ImageBackground source={DATA.banner} style = {styles.bgimg} >
-            <Image source = {DATA.avatar} style = {styles.sideiconprof}></Image>
-            <Text style = {styles.whitetext}> {DATA.title} </Text>
-            <Text style = {styles.blacktext}> {DATA.name} </Text>
+            <View style={styles.header}> 
+              <Circle></Circle>
+                <Text style = {styles.whitetext}>Save the Animals</Text>
+                <Text style = {styles.blacktext}>MARCH 2022-FEBRUARY 2023</Text>
+            </View>
+            
             <Text style = {styles.blacktext}> {DATA.dates} </Text>
             <Pressable style={styles.donatebutton} onPress={() => {
               // navigation.navigate('DonationEntry', handle)
@@ -66,69 +72,60 @@ export default function NFPFundraiser() {
           </Image>
           <Image style = {styles.info} source = {require('../../assets/Donation/VideoContent.png')} > 
           </Image>
-
-        </ImageBackground>
             
         </View>
       </ScrollView>
       </SafeAreaView>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-    safeAreaContainer: {
-      backgroundColor: 'white',
-      flex: 1,
+    backgroundimg: {
+      position:'absolute', 
+      left: 0, 
+      top: 0,
+      height: 200,
+    },
+    container: {
+      backgroundColor: 'white'
     },
     scrollView: {
       backgroundColor: 'white',
     },
     mainContent: { // container view
-      // backgroundColor: 'firebrick',
-      backgroundColor: 'white',
+      top: 200,
+      backgroundColor: 'firebrick',
       marginHorizontal: 20,
     },
-    headerContainer: { // view (including text position)
-      // backgroundColor: 'gray',
-      marginHorizontal: 10,
-      marginBottom: 10,
+    header: {
+      // backgroundColor: 'green',
+      top: -50,
     },
-    titles: { // text
-      fontWeight: 'bold',
-      fontSize: 30,
-      paddingTop: 25,
-      textAlign: 'center',
-      letterSpacing: 4,
-    },
-    bgimg: {
-      backgroundColor: 'red',
-      display: "flex",
-      width: '100%',
-      height: '35%',
-      position: 'relative',
-    },
-    sideiconprof: {
-      backgroundColor: 'pink',
-      borderRadius: 100,
-      margin: 7,
-      top: '20%',
-      // left: '6%',
-      height: 100,
+    circle: {
       width: 100,
-    }, 
+      height: 100,
+      borderRadius: 100 / 2,
+      backgroundColor: 'lightgreen',
+      top: 0,
+    },
     whitetext: {
-      backgroundColor: 'blue',
-      top: '6%',
-      // left: '34%',
+      // backgroundColor: 'blue',
+      position: 'absolute',
+      bottom: 50+5,
+      left: 100+5,
+      width: 250-5,
       fontSize: 30,
       color: 'white',
       fontWeight: 'bold',
     },
     blacktext: {
-      backgroundColor: 'purple',
-      top: '10%',
-      // left: '34%',
-      fontSize: 18,
+      position: 'absolute',
+      // backgroundColor: 'purple',
+      top: 50+5,
+      left: 100+5,
+      width: 250-5,
+      fontSize: 16,
       color: 'black',
     },
     infotext: {
