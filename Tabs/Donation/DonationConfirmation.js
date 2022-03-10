@@ -19,7 +19,7 @@ console.log(handle);
 function Confirmation() {
   const navigation = useNavigation();
   const route = useRoute();
-  const {entry, handle} = route.params;
+  const { entry, handle } = route.params;
   const profile = DATA.PROFILES[handle];
 
 
@@ -28,7 +28,7 @@ function Confirmation() {
       <View style={styles.rectangle} >
         <Text style={styles.blacktext}>${entry}</Text>
         <Text style={styles.bluetext}>Your donation will support </Text>
-         <Text style={styles.bluetext}> {profile.title} </Text>
+        <Text style={styles.bluetext}> {profile.title} </Text>
         <Text style={styles.fineprint}>
           This donation is tax-deductible. Here's more information on your donation:
         </Text>
@@ -37,7 +37,7 @@ function Confirmation() {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Text style={styles.confirmtext}> Swipe up to confirm </Text>
+      <Image source={IMAGES.DONATION_SWIPE} style={{position:"absolute", width:270, height:70, bottom:"2%"}}/>
     </View>
   );
 }
@@ -48,7 +48,7 @@ function ThankYou() {
   const route = useRoute();
   const ref = useRef();
   const users = DATA.USERS;
-  const {entry, handle} = route.params;
+  const { entry, handle } = route.params;
   const profile = DATA.PROFILES[handle];
 
   // MATCHING MODAL SET UP
@@ -69,42 +69,42 @@ function ThankYou() {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={[styles.modalView, {justifyContent:"space-between"}]}>
-          <View style={{ alignSelf:"stretch", flexDirection: "row"}}>
-          <Pressable style={{top: "0%", left:"0%"}}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Image source={IMAGES.DONATION_ARROW} />
-            </Pressable>
-            <Text style={styles.modalText}>Match Request</Text>
+          <View style={[styles.modalView, { justifyContent: "space-between" }]}>
+            <View style={{ alignSelf: "stretch", flexDirection: "row" }}>
+              <Pressable style={{ top: "0%", left: "0%" }}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Image source={IMAGES.DONATION_ARROW} />
+              </Pressable>
+              <Text style={styles.modalText}>Match Request</Text>
             </View>
-            <SafeAreaView>
-              <View style={{ display: "flex", justifyContent: "space-between" }}>
-                <TextInput
-                  style={styles.input}
-                  defaultValue={name}
-                  editable={false} />
-
-                <TextInput
-                  style={styles.input}
-                  defaultValue= {entry}
-                  editable={false} />
-              </View>
+            <View style={{ display: "flex", justifyContent: "space-between" }}>
               <TextInput
                 style={styles.input}
-                defaultValue={profile.title}
+                defaultValue={name}
                 editable={false} />
 
               <TextInput
-                style={styles.message}
-                placeholder='Message'
-                multiline
-                onChangeText={(message) => setMessage(message)} />
+                style={styles.input}
+                defaultValue={entry}
+                editable={false} />
+            </View>
+
+            <TextInput
+              style={styles.input}
+              defaultValue={profile.title}
+              editable={false} />
+
+            <TextInput
+              style={styles.message}
+              placeholder='Message'
+              returnKeyType="send"
+              multiline
+              onSubmitEditing={() =>{setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}} />
 
 
-            </SafeAreaView>
             <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent) }}
-              style={({ pressed }) => [
+              style={() => [
                 {
                   width: 250,
                   alignItems: 'center',
@@ -112,9 +112,7 @@ function ThankYou() {
                   paddingVertical: 12,
                   borderRadius: 100,
                   elevation: 3,
-                  backgroundColor: pressed
-                    ? 'gray'
-                    : COLORS.GREEN
+                  backgroundColor: 'gray'
                 },
                 styles.wrapperCustom
               ]}
@@ -158,44 +156,37 @@ function ThankYou() {
       <Image source={IMAGES.DONATION_CHECK} style={styles.thankyouimg}>
       </Image>
       <Text style={styles.thankyoutext}> Thank you! </Text>
-      {/*<Image source = {require('../../assets/Donation/friendcard.png')} style = {styles.matchimg}> 
-    </Image>*/}
-
 
       {/*Friend Matching */}
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.card}>
-            <Text style={styles.cardtext}>Ask your friends to match</Text>
-            <FlatList
-              data={users}
-              renderItem={({ item }) => <ItemRender name={item.name} avatar={item.avatar} />}
-              keyExtractor={item => item.id}
-            />
-          </View>
-          <Pressable onPress={() => navigation.navigate("Explore")}
-            style={({ pressed }) => [
-              {
-                top: '9%',
-                left: '15%',
-                width: 300,
-                alignItems: 'center',
-                justifyContent: 'center',
-                paddingVertical: 15,
-                borderRadius: 100,
-                elevation: 3,
-                backgroundColor: pressed
-                  ? 'gray'
-                  : COLORS.WHITE
-              },
-              styles.wrapperCustom
-            ]}
-          >
-            <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text>
-          </Pressable>
-        </View>
-      </ScrollView>
-
+      <FlatList
+        style={styles.card}
+        ListHeaderComponent={
+          <Text style={styles.cardtext}>Ask your friends to match</Text>
+        }
+        data={users}
+        renderItem={({ item }) => <ItemRender name={item.name} avatar={item.avatar} />}
+        keyExtractor={item => item.id}
+      />
+      <Pressable onPress={() => navigation.navigate("Explore")}
+        style={({ pressed }) => [
+          {
+            top: '9%',
+            left: '15%',
+            width: 300,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 15,
+            borderRadius: 100,
+            elevation: 3,
+            backgroundColor: pressed
+              ? 'gray'
+              : COLORS.WHITE
+          },
+          styles.wrapperCustom
+        ]}
+      >
+        <Text style={styles.buttontextexplore}> Explore Other Nonprofits </Text>
+      </Pressable>
     </View>
   );
 }
@@ -237,6 +228,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.GREEN,
+    justifyContent: "center",
+    alignItems: "center"
   },
   pagerView: {
     flex: 1,
@@ -247,7 +240,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 10,
     left: '8%',
-    height: '100%',
+    height: 'auto',
     width: '80%',
   },
   cardtext: {
@@ -390,7 +383,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.GREEN,
     marginBottom: 20,
-    flexGrow:1
+    flexGrow: 1
   },
   input: {
     borderWidth: 1,

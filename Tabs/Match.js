@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inbox from './MatchRequest/Inbox';
 import MatchConfirmation from './MatchRequest/MatchConfirmation';
+import FeedScreen from './Donation/FeedScreen.js';
 import {COLORS} from '../Constants';
 
 
@@ -26,6 +27,7 @@ export default function Match() {
       }}>
         <Stack.Screen name="Inbox" component={Inbox} />
         <Stack.Screen name="MatchConfirmation" component={MatchConfirmation} />
+        <Stack.Screen name="FeedScreen" component={FeedScreen} />
       </Stack.Navigator>
   );
 }
