@@ -57,7 +57,7 @@ export default function SetupFundraiser() {
 
     // Plz show up
     return (
-        
+        <View style={{backgroundColor:'white', position:'absolute', height: '100%'}}>
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
 
@@ -181,6 +181,7 @@ export default function SetupFundraiser() {
             </Pressable>
         </View>
         </SafeAreaView>
+        </View>
     );
 };
 
