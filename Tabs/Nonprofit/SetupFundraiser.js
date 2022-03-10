@@ -39,13 +39,13 @@ export default function SetupFundraiser() {
     // TAGDATA: Tag list
     const [tags, setTags] = useState ([
         { tag: 'ENVIRO', key: '1', clicked:false, color: COLORS.MAGENTA },
-        { tag: 'ART', key: '2',  clicked:false, color: COLORS.MAGENTA},
-        { tag: 'HUNGER', key: '3', clicked:false, color: COLORS.MAGENTA },
-        { tag: 'HUMAN RIGHT', key: '4', clicked:false, color: COLORS.MAGENTA},
-        { tag: 'EDUC', key: '5',  clicked:false, color: COLORS.MAGENTA },
-        { tag: 'EQUALITY', key: '6', clicked:false, color: COLORS.MAGENTA },
-        { tag: 'ANIMALS', key: '7', clicked:false, color: COLORS.MAGENTA },
-        { tag: 'CONSERVE', key: '8', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'ART', key: '2',  clicked:false, color: COLORS.BROWN},
+        { tag: 'HUNGER', key: '3', clicked:false, color: COLORS.YELLOW },
+        { tag: 'HUMAN RIGHT', key: '4', clicked:false, color: COLORS.BLUE},
+        { tag: 'EDUC', key: '5',  clicked:false, color: COLORS.ORANGE },
+        { tag: 'EQUALITY', key: '6', clicked:false, color: COLORS.LIGHTBLUE },
+        { tag: 'ANIMALS', key: '7', clicked:false, color: COLORS.RED },
+        { tag: 'CONSERVE', key: '8', clicked:false, color: COLORS.PURPLE },
     ]);
 
     // Plz show up

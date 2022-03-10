@@ -8,6 +8,12 @@ export const COLORS = {
     BLACK: "#000000",
     GRAY: "#C4C4C4",
     CLEAR: "rgba(0,0,0,0)",
+    BROWN: '#A6613A',
+    YELLOW: '#FDD015',
+    LIGHTBLUE: '#4CB3ED',
+    PURPLE: '#8739A7',
+    RED: '#A80900',
+    ORANGE: '#FF823D',
   };
 
 export const DATA = {
