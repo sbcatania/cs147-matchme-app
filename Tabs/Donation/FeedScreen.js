@@ -5,12 +5,14 @@ import PostSingle from '../Donation/PostSingle';
 import { Video } from 'expo-av';
 import { IMAGES, VIDEOS, DATA, COLORS } from '../../Constants';
 import { useNavigation } from '@react-navigation/native';
+import Fundraiser from '../Donation/Fundraiser';
 
 
 export default function FeedScreen({ navigation }) {
     const mediaRefs = useRef([])
 
     const array = VIDEOS;
+    console.log(array);
 
     const onViewableItemsChanged = useRef(({ changed }) => {
         changed.forEach(element => {
@@ -36,15 +38,15 @@ export default function FeedScreen({ navigation }) {
     const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 100 })
  
     const renderItem = ({ item, index }) => {
-        // item refers to the array that we established above which is an array of numbers 1-6
-
-        let post = DATA.POSTS[index];
-        console.log("This is my post");
-        console.log(post);
+        console.log(index);
+        let post = DATA.POSTS[index + 1];
+        let handle = DATA.POSTS[index].handle;
+        console.log(handle)
+        let video = post.video;
 
         return (
             <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
-                <PostSingle item = {item} />
+                <PostSingle video = {video} />
                 <View style={styles.sidebar}>
                     <Image source={IMAGES.USER_ICON} style={styles.profileimg}></Image>
                     <Image source={IMAGES.LIKE_ICON} style={styles.sideicon}>
@@ -54,7 +56,7 @@ export default function FeedScreen({ navigation }) {
                     <Image source={IMAGES.SHARE_ICON} style={styles.sideicon}>
                     </Image>
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", 'worldwildlifefund')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", handle)}>
                     <Image style={styles.donateimg} source={IMAGES.DONATE_ICON} />
                 </TouchableOpacity>
             </View>

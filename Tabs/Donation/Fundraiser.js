@@ -7,9 +7,12 @@ import { COLORS, DATA } from '../../Constants';
 
 
 
-export default function Fundraiser({route}) {
+const Fundraiser = () => {
+    const route = useRoute();
+    console.log(route.params);
     const [handle, _] = React.useState(route.params);
-    console.log("This is the handle" + handle);
+    console.log("This is the handle");
+    console.log(handle);
     // console.log(DATA.PROFILES[handle]);
     // console.log(route.params);
     let data = DATA.PROFILES[handle];
@@ -117,3 +120,5 @@ const styles = StyleSheet.create({
       marginBottom: 20,
     }
 });
+
+export default Fundraiser;
