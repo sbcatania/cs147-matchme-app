@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Nonprofit from './Tabs/Nonprofit';
 import NFPProfile from './Tabs/Nonprofit/NFPProfile';
+import Landing from './Tabs/Nonprofit/Landing';
 import {COLORS} from './Constants';
 
 const Tab = createBottomTabNavigator();
