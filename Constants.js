@@ -170,6 +170,28 @@ export const DATA = {
         avatar: require('./assets/Users/avatar-5.png'),
       },
     ],
+    SEARCH_DATA: [
+      {
+        id: 1,
+        name: "World Wildlife Fund",
+        details: "@worldwildlifefund"
+      },
+      {
+        id: 2,
+        name: "Malala Fund",
+        details: "@malalafund"
+      },
+      {
+        id: 3,
+        name: "Save the Bees",
+        details: "@savethebees"
+      },
+      {
+        id: 4,
+        name: "Palo Alto Shelter",
+        details: "@paloaltoshelter"
+      },
+    ],
   };
 
 export const IMAGES = {
