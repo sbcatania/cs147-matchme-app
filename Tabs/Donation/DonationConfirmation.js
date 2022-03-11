@@ -100,10 +100,10 @@ function ThankYou() {
               placeholder='Message'
               returnKeyType="send"
               multiline
-              onSubmitEditing={() =>{setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent)}} />
+              onSubmitEditing={() =>{setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent, { entry, handle })}} />
 
 
-            <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent) }}
+            <Pressable onPress={() => { setModalVisible(!modalVisible); navigation.navigate(MatchRequestSent, {entry, handle}) }}
               style={() => [
                 {
                   width: 250,
@@ -190,7 +190,7 @@ function ThankYou() {
       </Pressable>
     </View>
   );
-}
+} 
 
 
 export default function DonationConfirmation() {

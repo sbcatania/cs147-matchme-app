@@ -1,13 +1,18 @@
 import { Alert, TextInput, Modal, Pressable, ScrollView, StyleSheet, Text, View, Image, TouchableOpacity, FlatList, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
 import { useState, useEffect, useRef } from "react";
 import { COLORS, IMAGES } from '../../Constants';
+import DonationConfirmation from '../Donation/DonationConfirmation';
+import { useRoute } from "@react-navigation/native";
 
 
 
 export default function MatchRequestSent({navigation}) {
     const [progress, setProgress] = useState(0);
     const ref = useRef();
-
+    const route = useRoute();
+    const handle = "worldwildlifefund";
+    const entry = 20;
+    
     return (
         <View style={styles.container} >
                 <Image source={IMAGES.LOGO_WHITE} style={styles.logoimg}>
@@ -16,7 +21,7 @@ export default function MatchRequestSent({navigation}) {
             </Image>
             <Text style = {styles.thankyoutext}> Match Request Sent! </Text>
 
-            <Pressable onPress={()=>navigation.navigate("DonationConfirmation")}
+            <Pressable onPress={()=>navigation.navigate("DonationConfirmation", {entry, handle})}
          style={({ pressed }) => [
           {
             top: '9%',
@@ -37,7 +42,7 @@ export default function MatchRequestSent({navigation}) {
             <Text style={styles.buttontextexplore}> Send More Requests </Text> 
     </Pressable>
 
-            <Pressable onPress={()=>navigation.navigate("Explore")}
+            <Pressable onPress={()=>navigation.navigate("FeedScreen")}
          style={({ pressed }) => [
           {
             top: '15%',
