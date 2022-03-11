@@ -9,10 +9,7 @@ export default function NFPFundraiser() {
 
   // NAVIGATION: Setup nav between pages
   const navigation = useNavigation();
-  const Circle = () => {
-    return <View style={styles.circle} />;
-  };
-  
+
   return(
       <View style={styles.container}>
       <SafeAreaView>
@@ -149,7 +146,6 @@ const styles = StyleSheet.create({
     body: { // a container, a view
       top: -50+5,
       // backgroundColor: 'lightblue',
-      // maybe hacky hack this to be longer
     },
     heading1: {
       fontWeight:'bold', 
