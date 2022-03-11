@@ -75,6 +75,7 @@ export const DATA = {
         banner: require('./assets/Donation/wildlife_banner.png'),
         name: "World Wildlife Fund",
         dates: "February 2022 - March 2023",
+        feed: require('./assets/Profile/wildlife_feed.png'),
         about: "Oceans provide life to millions of animals every year. Save the animals fund to help save the ocean's most vulnerable species.",
         },
       malalafund: {
@@ -83,6 +84,7 @@ export const DATA = {
         banner: require('./assets/Donation/malala_banner.png'),
         name: "Malala Fund",
         dates: "February 2022 - March 2023",
+        feed: require('./assets/Profile/malala_feed.png'),
         about: "We're raising money to support education for young women globally."
         },
       savethebees: {
@@ -91,6 +93,7 @@ export const DATA = {
         banner: require('./assets/Donation/bees_banner.png'),
         name: "Save the Bees",
         dates: "February 2022 - March 2023",
+        feed: require('./assets/Profile/bees_feed.png'),
         about: "Bees have an outsided imact on our planet! Donate to protect them and everything they do for our plants!"
         },
       paloaltoshelter: {
@@ -99,6 +102,7 @@ export const DATA = {
         banner: require('./assets/Donation/dogs_banner.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
+        feed: require('./assets/Profile/dogs_feed.png'),
         about: "Did you know it costs nearly $1000 to get a dog to a new home? Donate to help us find a home for our furry friends!"
         }
     },
