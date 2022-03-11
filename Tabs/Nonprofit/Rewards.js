@@ -60,9 +60,7 @@ export default function Rewards() {
             autoCapitalize='words'
             onChangeText={(rwd1) => setRwd1(rwd1)} />
 
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
-            </Pressable>
+           
           </View> 
 
           <View style={styles.singleInputLine}> 
@@ -73,10 +71,7 @@ export default function Rewards() {
             autoCapitalize='words'
             onChangeText={(rwd2) => setRwd2(rwd2)} />
 
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
-            </Pressable>
-            
+           
           </View> 
 
           <View style={styles.singleInputLine}> 
@@ -87,9 +82,6 @@ export default function Rewards() {
             autoCapitalize='words'
             onChangeText={(rwd3) => setRwd3(rwd3)} />
 
-            <Pressable style={styles.checkButtonPressable}>
-              <Image source={require('../../assets/Icons/check.png')} style={styles.buttonSize} />
-            </Pressable>
             
           </View> 
 
@@ -187,7 +179,7 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 10,
         marginVertical: 8,
-        width: '80%',
+        width: '100%',
         height: 35,
         position: 'absolute',
         left: 0,

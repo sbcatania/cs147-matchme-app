@@ -39,10 +39,9 @@ export default function NFPFundraiser() {
             
           {/* Header */}
           <View style={styles.header}> 
-                <Circle></Circle>
-              {/* <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image> */}
-              <Text style = {styles.whitetext}>Nonprofit Name</Text>
-              <Text style = {styles.blacktext}>Tag Line{'\n'}Established Year </Text>
+              <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image>
+              <Text style = {styles.whitetext}>World Wildlife Fund</Text>
+              <Text style = {styles.blacktext}>Save the Animals{'\n'}Founded in 1880</Text>
           </View>
 
           {/* Body Content */}
@@ -50,10 +49,10 @@ export default function NFPFundraiser() {
             
             <View style={styles.pageElem}>
               <Text style={styles.heading1}>
-                About this organization
+                About
               </Text>
               <Text>
-                Organization description
+              We aim to save all the animals of the planet before it's too late.
               </Text>
             </View>
             
@@ -81,12 +80,12 @@ export default function NFPFundraiser() {
               <Text style={styles.heading1}>
                 Impact
               </Text>
-              {/* <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image> */}
+              <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image>
               
           </View>
 
           <View style={styles.pageElemFullScreen}>
-            {/* <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image> */}
+            <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image>
           
             <View style={{backgroundColor: 'white', height: 140, }}>
               {/* This is whitespace, so we can scroll to the bottom */}

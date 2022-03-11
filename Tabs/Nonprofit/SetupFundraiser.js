@@ -75,24 +75,28 @@ export default function SetupFundraiser() {
                 style={styles.input} 
                 placeholder='Org Name' 
                 autoCapitalize='words'
+                autoCorrect = 'false'
                 onChangeText={(name) => setName(name)} />
 
                 <TextInput 
                 style={styles.input} 
                 placeholder='Fundraiser Name' 
                 autoCapitalize='words'
+                autoCorrect = 'false'
                 onChangeText={(fundName) => setFundname(fundName)} />
 
                 <TextInput 
                 style={styles.input} 
                 placeholder='Fundraiser Description' 
                 multiline
+                autoCorrect = 'false'
                 onChangeText={(desc) => setDesc(desc)} />
 
                 <TextInput 
                 style={styles.input} 
                 placeholder='Donation Goal' 
                 keyboardType='numeric'
+                autoCorrect = 'false'
                 onChangeText={(dongoal) => setDongoal(dongoal)} />
                 <View style={styles.tickercontainer}>
                     <View style={styles.userlilcontainer}>
@@ -162,7 +166,7 @@ export default function SetupFundraiser() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable onPress={() => navigation.navigate('FundraiserNonprofit', handle)} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate('FundraiserNonprofit', {handle, name, fundName, desc})} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,

@@ -8,11 +8,7 @@ import { COLORS, DATA } from '../../Constants';
 const FundraiserNonprofit = () => {
     const route = useRoute();
     console.log(route.params);
-    const [handle, _] = React.useState(route.params);
-    console.log("This is the handle");
-    console.log(handle);
-    // console.log(DATA.PROFILES[handle]);
-    // console.log(route.params);
+    const { handle, name, fundName, desc} = route.params
     let data = DATA.PROFILES[handle];
     //console.log(data);
     const navigation = useNavigation();
@@ -33,8 +29,8 @@ const FundraiserNonprofit = () => {
           {/* Header */}
           <View style={styles.header}> 
               <Image source={data.avatar} style={styles.sideiconprof}></Image>
-              <Text style = {styles.whitetext}>{data.title}</Text>
-              <Text style = {styles.blacktext}>{data.name}{'\n'}MARCH 2022-FEBRUARY 2023</Text>
+              <Text style = {styles.whitetext}>{fundName}</Text>
+              <Text style = {styles.blacktext}>{name}{'\n'}MARCH 2022-FEBRUARY 2023</Text>
           </View>
 
           {/* Body Content */}
@@ -45,7 +41,7 @@ const FundraiserNonprofit = () => {
                 About this fundraiser
               </Text>
               <Text>
-                {data.about}
+                {desc}
               </Text>
             </View>
             
