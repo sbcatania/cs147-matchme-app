@@ -44,7 +44,7 @@ const Inbox = ({ navigation }) => {
           <TouchableOpacity style={styles.checkBtnContainer} onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
             <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
-            
+          
           <TouchableOpacity>
             <Image style={styles.checkBtnImg} source={IMAGES.INBOX_X} />
           </TouchableOpacity>
