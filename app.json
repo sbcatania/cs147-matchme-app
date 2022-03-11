@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.matchme-cs147.hi-fi"
     },
     "android": {
       "adaptiveIcon": {
