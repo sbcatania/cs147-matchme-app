@@ -119,16 +119,26 @@ const styles = StyleSheet.create({
 
     whitetext: {
         marginTop: '-20%',
-        left: '5%',
+        marginLeft: '5%',
         fontSize: 20,
         color: COLORS.WHITE,
+        fontWeight: 'bold',
+        textAlign: 'left',
+        textShadowColor: 'rgba(0, 0, 0, 0.2)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
       },
       whitetextsmall: {
-        marginRight: 150,
+        flexWrap: 'wrap',
         marginTop: '-12%',
-        left: '5%',
+        textAlign: 'left',
+        marginLeft: '5%',
+        marginRight: '30%',
         fontSize: 16,
         color: COLORS.WHITE,
+        textShadowColor: 'rgba(0, 0, 0, 0.2)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
       },
     profileimg: {
         width: 55,
