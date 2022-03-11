@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SetupFundraiser from './Nonprofit/SetupFundraiser';
 import Rewards from './Nonprofit/Rewards';
+import Landing from './Nonprofit/Landing';
 import {COLORS} from '../Constants';
 
 const LOAD_TIME = 100;
@@ -10,7 +11,7 @@ const Stack = createNativeStackNavigator();
 // turn this into a stack navigator 
 export default function Nonprofit() {
   return (
-      <Stack.Navigator initialRouteName="SetupFundraiser"  screenOptions= {{
+      <Stack.Navigator initialRouteName="Landing"  screenOptions= {{
         headerTransparent: true,
         headerStyle: {
         backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -25,7 +26,7 @@ export default function Nonprofit() {
       headerBackTitleVisible: false,
       }}>
         
-        <Stack.Screen name="SetupFundraiser" component={SetupFundraiser}
+        <Stack.Screen name="Landing" component={Landing}
         />
         <Stack.Screen name="Rewards" component={Rewards}  
         />
