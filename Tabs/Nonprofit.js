@@ -28,6 +28,8 @@ export default function Nonprofit() {
         
         <Stack.Screen name="Landing" component={Landing}
         />
+        <Stack.Screen name="SetupFundraiser" component={SetupFundraiser}
+        />
         <Stack.Screen name="Rewards" component={Rewards}  
         />
       </Stack.Navigator>

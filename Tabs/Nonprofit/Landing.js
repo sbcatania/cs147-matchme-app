@@ -3,9 +3,14 @@ import { StyleSheet, Text, Pressable, View, Image, ScrollView, SafeAreaView } fr
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { COLORS, DATA } from '../../Constants';
+import SetupFundraiser from './SetupFundraiser.js';
 
 
 export default function NFPFundraiser() {
+    
+    const Circle = () => {
+        return <View style={styles.circle} />;
+    };      
 
     const route = useRoute();
     console.log(route.params);
@@ -25,6 +30,7 @@ export default function NFPFundraiser() {
 
         {/* Moose, different margins than everything else! */}
         <View>
+            {/* <View style={styles.backgroundimg}></View> */}
           <Image source={require('../../assets/Donation/moose.png')} style={styles.backgroundimg}></Image>
         </View>
         
@@ -33,9 +39,10 @@ export default function NFPFundraiser() {
             
           {/* Header */}
           <View style={styles.header}> 
-              <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image>
-              <Text style = {styles.whitetext}>Save the Animals</Text>
-              <Text style = {styles.blacktext}>World Wildlife Fund{'\n'}MARCH 2022-FEBRUARY 2023</Text>
+                <Circle></Circle>
+              {/* <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image> */}
+              <Text style = {styles.whitetext}>Nonprofit Name</Text>
+              <Text style = {styles.blacktext}>Tag Line{'\n'}Established Year </Text>
           </View>
 
           {/* Body Content */}
@@ -43,14 +50,15 @@ export default function NFPFundraiser() {
             
             <View style={styles.pageElem}>
               <Text style={styles.heading1}>
-                About this fundraiser
+                About this organization
               </Text>
               <Text>
-                The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide.
+                Organization description
               </Text>
             </View>
             
-            <Pressable onPress={() => { // navigation.navigate('DonationEntry', handle)
+            <Pressable onPress={() => { 
+                navigation.navigate('SetupFundraiser', handle)
               }}
               style={({ pressed }) => [
                 {
@@ -66,19 +74,19 @@ export default function NFPFundraiser() {
                     ? 'gray'
                     : COLORS.GREEN
                 }]}>
-                <Text style={styles.buttontext}> DONATE </Text> 
+                <Text style={styles.buttontext}> SETUP </Text> 
             </Pressable>
 
             <View style={styles.pageElem}>
               <Text style={styles.heading1}>
                 Impact
               </Text>
-              <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image>
+              {/* <Image source={require('../../assets/Nonprofit/impact.png')} style={{height: 350, width: '100%', resizeMode: 'contain', }}></Image> */}
               
           </View>
 
           <View style={styles.pageElemFullScreen}>
-            <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image>
+            {/* <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image> */}
           
             <View style={{backgroundColor: 'white', height: 140, }}>
               {/* This is whitespace, so we can scroll to the bottom */}
@@ -166,5 +174,11 @@ const styles = StyleSheet.create({
       color: COLORS.WHITE,
       fontWeight: 'bold',
       fontSize: 35,
+    },
+    circle: {
+        width: 100,
+        height: 100,
+        borderRadius: 100 / 2,
+        backgroundColor: COLORS.GRAY,
     },
 });

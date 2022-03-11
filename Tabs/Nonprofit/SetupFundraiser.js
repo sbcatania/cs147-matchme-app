@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 import Rewards from './Rewards';
-import NFPProfile from './NFPProfile';
+import Landing from './Landing';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../../Constants';
@@ -137,8 +137,8 @@ export default function SetupFundraiser() {
                         paddingVertical: 5,
                         borderRadius: 100,
                         backgroundColor: pressed
-                        ? COLORS.BLUE
-                        : COLORS.GRAY
+                        ? COLORS.GRAY
+                        : COLORS.GREEN
                     }]}>
                         <Text style={styles.linktext}> Setup Rewards </Text> 
                 </Pressable>
@@ -158,7 +158,7 @@ export default function SetupFundraiser() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable onPress={() => navigation.navigate('NFPProfile')} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate('Landing')} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,
