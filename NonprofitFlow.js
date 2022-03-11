@@ -23,9 +23,9 @@ export default function NonprofitFlow({navigation}) {
             let iconName;
 
             if (route.name === 'Nonprofit') {
-              iconName = "home-outline";
+              iconName = "person-outline";
             } else if (route.name === 'NFPProfile') {
-              iconName = 'person-outline';
+              iconName = 'rocket-launch-outline'; 
             } 
 
             // You can return any component that you like here!
