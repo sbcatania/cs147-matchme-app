@@ -48,7 +48,7 @@ export default function FeedScreen({ navigation }) {
         let video = post.video;
 
         return (
-            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, {backgroundColor: 'gray'}]}>
+            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, {backgroundColor: 'f0f0f0'}]}>
                 <PostSingle video = {video} />
                 <View style={styles.sidebar}>
                     <Image source={DATA.PROFILES[handle].avatar} style={styles.profileimg}></Image>
