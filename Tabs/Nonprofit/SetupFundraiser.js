@@ -123,8 +123,8 @@ export default function SetupFundraiser() {
                 renderItem={({ item }) => (
                     <Pressable 
                     onPress={() => {item.clicked = !item.clicked, setRefresh(!refresh)}} //On press, indicate clicked, and force refresh
-                    style={styles.tag(item.clicked ? item.color : "white")}>
-                        <Text style={styles.tagtext}>{item.tag}</Text>
+                    style={styles.tag(item.clicked ? item.color : "white", item.clicked)}>
+                        <Text style={styles.tagtext(item.clicked)}>{item.tag}</Text>
                     </Pressable>
                 )}/>
 
@@ -195,15 +195,20 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // paddingTop: '10%',
     },
-    tag: (color) => { return {
+    tag: (color, clicked) => { return {
         marginTop: 5,
         marginHorizontal: 2,
         paddingVertical: 8,
         paddingHorizontal: 10,
         borderRadius: 100,
         borderWidth: 2,
+        fontColor: clicked
+        ? COLORS.WHITE
+        : COLORS.BLACK,
         backgroundColor: color,
-        borderColor: COLORS.BLACK,
+        borderColor: clicked
+        ? color
+        : COLORS.BLACK,
     }},
     flexboxes: {
         // backgroundColor: 'firebrick',
@@ -262,11 +267,13 @@ const styles = StyleSheet.create({
         color: COLORS.BLACK,
         fontSize: 20,
     },
-    tagtext: {
-        color: COLORS.BLACK,
+    tagtext: (clicked) => { return {
+        color: clicked
+        ? COLORS.WHITE
+        : COLORS.BLACK,
         fontSize: 12,
         fontWeight: 'bold',
-    },
+    }},
     launchbuttontext: {
         color: COLORS.WHITE,
         fontWeight: 'bold',
