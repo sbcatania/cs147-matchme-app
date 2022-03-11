@@ -213,7 +213,8 @@ export const IMAGES = {
     DONATION_SWIPE : require('./assets/Donation/swipe-up-arrow.png'),
     DONATION_SHARE : require('./assets/Donation/share.png'),
     DONATION_CHECK : require('./assets/Donation/check.png'),
-    INBOX_CHECK    : require('./assets/Inbox/check.png'),    
+    INBOX_CHECK    : require('./assets/Inbox/check.png'),
+    INBOX_X        : require('./assets/Inbox/x.png'),    
   };
 
 export const VIDEOS = [

@@ -1,20 +1,34 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image, SafeAreaView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
 import Rewards from './Rewards';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../../Constants';
-import {  } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function SetupFundraiser() {
+export default function SetupFundraiser() {   
     
     return (
         <View style={{backgroundColor:'white', position:'absolute', height: '100%', width: '100%'}}>
         <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.container}>
-            <Text>Hello world.</Text>
+        
+            <View style={styles.container}>
+            <ScrollView style = {styles.scrollView}>
+                <Image source={require('../../assets/Nonprofit/logogreen.png')} style={styles.logoimg}></Image>
+                <View style = {styles.row}> 
+                    <Image style = {styles.profimg} source = {require('../../assets/Nonprofit/pablo.png')}></Image>
+                    <View style = {styles.col}>
+                        <Text style = {styles.blacktext}> Pablo O </Text>
+                        <Text style = {styles.graytext}> 24 donations   10 matches </Text>
+                    </View>
+                </View>
+                <Image style = {styles.impactimg} source = {require('../../assets/Nonprofit/impact.png')}></Image>
+                <Image style = {styles.impactinfoimg} source = {require('../../assets/Nonprofit/impact.png')}></Image>
             
-        </View>
+            </ScrollView>
+            </View>
+
+
 
         </SafeAreaView>
         </View>
@@ -112,5 +126,31 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
+    },
+    logoimg: {
+        top: '2%',
+        left: '5%',
+        marginBottom: 20,
+    },
+    profimg: {
+        borderRadius: 100,
+        height: 80,
+        width: 80,
+        backgroundColor: 'white',
+        left: 20,
+    },
+    impactimg: {
+        top: '2%',
+        height: 250,
+        width: '98%'
+    },
+    impactinfoimg: {
+        top: '8%',
+        left: '4%',
+        height: 380,
+        width: 380,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        borderRadius: 50,
     },
 });
