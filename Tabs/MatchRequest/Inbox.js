@@ -16,21 +16,22 @@ import { useRoute } from "@react-navigation/native";
 
 const Inbox = ({ navigation }) => {
   const data = DATA.MATCH_REQUESTS;
-  const data2 = DATA.ACTIVITY; 
+  const data2 = DATA.ACTIVITY;
 
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState("");
   const [fundName, setFundname] = useState("");
   const [donAmt, setDonAmt] = useState("");
+  const [requests, setRequests] = useState(DATA.MATCH_REQUESTS);
 
   const route = useRoute();
 
   // DYNAMIC RENDER: Match Requests
-  const _renderRequests = ({ item }) => {
+  /*const _renderRequests = ({ item }) => {
     return (
       <View style={styles.matchEntry}>
-        
-        <Header> 
+
+        <Header>
           <View style={styles.userInfo}>
             <Avatar style={styles.avatarContainer} source={item.avatar} />
             <UserName style={styles.userText}>{item.userName} - {item.cause}</UserName>
@@ -38,10 +39,10 @@ const Inbox = ({ navigation }) => {
 
           <Amount style={styles.donAmount}>{item.amount}</Amount>
         </Header>
-        
+
         <Content style={styles.matchBtmContentCtr}>
           <ContentText style={styles.matchReqText}>{item.content}</ContentText>
-          <TouchableOpacity style={styles.checkBtnContainer} onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
+          <TouchableOpacity style={styles.checkBtnContainer} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); }}>
             <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
           </TouchableOpacity>
           
@@ -52,6 +53,12 @@ const Inbox = ({ navigation }) => {
 
       </View>
     )
+  }*/
+
+  const completeReq = (index) => {
+    let itemsCopy = [...requests];
+    itemsCopy.splice(index, 1);
+    setRequests(itemsCopy);
   }
 
   // DYNAMIC RENDER: New Activity
@@ -59,7 +66,7 @@ const Inbox = ({ navigation }) => {
     return (
       <View style={styles.activityEntry}>
         <UserName style={styles.activityText} >{item.userName} donated {item.amount} to {item.cause}</UserName>
-        <TouchableOpacity style={styles.activityBtnContainer} onPress={() => {setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName);}}>
+        <TouchableOpacity style={styles.activityBtnContainer} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); }}>
           <Image style={styles.activityBtnImg} source={IMAGES.DONATE_ICON} />
         </TouchableOpacity>
       </View>
@@ -69,9 +76,9 @@ const Inbox = ({ navigation }) => {
 
   return (
     // this Container component has a built in 5px margin
-    <Container style={styles.pageBkgrnd}> 
+    <Container style={styles.pageBkgrnd}>
       {/* ??? */}
-       <Modal
+      <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -79,21 +86,21 @@ const Inbox = ({ navigation }) => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}>
-        
+
 
         {/* MATCHING CARD: Modal for match button */}
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <View style={{ alignSelf:"stretch", flexDirection: "row", alignItems:"center", justifyContent:"flex-start"}}>
-            <Pressable
-              onPress={() => setModalVisible(!modalVisible)}
-              style={{ }}
-            >
-              <Image source={IMAGES.DONATION_ARROW} />
-            </Pressable>
+            <View style={{ alignSelf: "stretch", flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+              <Pressable
+                onPress={() => setModalVisible(!modalVisible)}
+                style={{}}
+              >
+                <Image source={IMAGES.DONATION_ARROW} />
+              </Pressable>
             </View>
             <SafeAreaView style={styles.container} >
-            <Text style={styles.description}> {fundName} </Text>
+              <Text style={styles.description}> {fundName} </Text>
               <Text style={styles.normalText} >Matching {name}'s donation</Text>
               <TextInput
                 style={styles.textInput}
@@ -101,8 +108,8 @@ const Inbox = ({ navigation }) => {
                 keyboardType="numeric"
                 onChangeText={(newText) => setDonAmt(newText)}
               />
-              
-              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate('MatchConfirmation', {name, donAmt, fundName}); setModalVisible(false) }}
+
+              <Pressable style={styles.donatebutton} onPress={() => { navigation.navigate('MatchConfirmation', { name, donAmt, fundName }); setModalVisible(false) }}
                 style={({ pressed }) => [
                   {
                     top: '9%',
@@ -127,36 +134,65 @@ const Inbox = ({ navigation }) => {
       </Modal>
 
       {/* INBOX PAGE CONTENT: Static, non-modal content on main page */}
-      {/* <SafeAreaView style={styles.safeContainer}> */} 
+      {/* <SafeAreaView style={styles.safeContainer}> */}
       {/* SafeArea wasn't working, so this is the hackiest safeareaview */}
-      <View style={styles.safeContainer}> 
-      <View style={styles.pageContentContainer}>
+      <View style={styles.safeContainer}>
+        <View style={styles.pageContentContainer}>
 
-        <View style={styles.titleContainer}>
-            <Text style={styles.titleText}> Inbox </Text> 
-        </View>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}> Inbox </Text>
+          </View>
 
-        <View style={styles.h1Container}>
-          <Title style={styles.h1Text}>
-            {'Match Requests'}
-          </Title>
-        </View>
+          <View style={styles.h1Container}>
+            <Title style={styles.h1Text}>
+              {'Match Requests'}
+            </Title>
+          </View>
 
-        <FlatList style={styles.flatlistContainer} 
-          keyExtractor={(_, index) => '' + index} 
-          data={data} renderItem={_renderRequests} />
-        
-        <View style={styles.h1Container}>
-          <Title style={styles.h1Text}>
-            {'New Activity'}
-          </Title>
+          {/*<FlatList style={styles.flatlistContainer}
+            keyExtractor={(_, index) => '' + index}
+            data={data} renderItem={_renderRequests} />*/}
+
+          <View style={styles.flatlistContainer}>
+            {
+              requests.map((item, index) => {
+                return <View style={styles.matchEntry}>
+                  <Header>
+                    <View style={styles.userInfo}>
+                      <Avatar style={styles.avatarContainer} source={item.avatar} />
+                      <UserName style={styles.userText}>{item.userName} - {item.cause}</UserName>
+                    </View>
+
+                    <Amount style={styles.donAmount}>{item.amount}</Amount>
+                  </Header>
+
+                  <Content style={styles.matchBtmContentCtr}>
+                    <ContentText style={styles.matchReqText}>{item.content}</ContentText>
+                    <TouchableOpacity key={index} style={styles.checkBtnContainer} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); completeReq(index)}}>
+                      <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
+                    </TouchableOpacity>
+                    <TouchableOpacity key={index} style={styles.checkBtnContainer} onPress={() => {completeReq(index)}}>
+                      <Image style={styles.checkBtnImg} source={IMAGES.INBOX_X} />
+                    </TouchableOpacity>
+                  </Content>
+
+                </View>
+              })
+            }
+          </View>
+
+
+          <View style={styles.h1Container}>
+            <Title style={styles.h1Text}>
+              {'New Activity'}
+            </Title>
+          </View>
+
+          <FlatList style={styles.flatlistContainer}
+            keyExtractor={(_, index) => '' + index}
+            data={data2} renderItem={_renderActivity} />
+
         </View>
-          
-        <FlatList style={styles.flatlistContainer} 
-          keyExtractor={(_, index) => '' + index} 
-          data={data2} renderItem={_renderActivity} />
-      
-      </View>
       </View>
       {/* </SafeAreaView> */}
 
@@ -273,8 +309,8 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   userInfo: { // the line containing username, org, avatar, a View
-    flexDirection: 'row', 
-    alignItems: 'center', 
+    flexDirection: 'row',
+    alignItems: 'center',
     // backgroundColor: 'white',
   },
   donAmount: {
@@ -291,7 +327,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   matchBtmContentCtr: { // container for all the content in the bottom of the match line
-    width:"100%", 
+    width: "100%",
   },
   matchReqText: { // text container AND text props
     width: '88%',
@@ -303,34 +339,34 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -5,
     bottom: -5,
-  },  
-  checkBtnImg: { 
+  },
+  checkBtnImg: {
     resizeMode: 'contain',
     height: 50,
     width: 50,
   },
   // NEW ACTIVITY STYLE
-  activityEntry: { 
-    paddingVertical: 25, 
+  activityEntry: {
+    paddingVertical: 25,
     justifyContent: 'center',
   },
-  activityText: { 
+  activityText: {
     // backgroundColor: 'white', 
-    left: 0, 
-    position: 'absolute', 
-    fontSize: 15, 
+    left: 0,
+    position: 'absolute',
+    fontSize: 15,
   },
-  activityBtnContainer: { 
+  activityBtnContainer: {
     // backgroundColor: 'beige', 
-    position: 'absolute', 
-    right: 0, 
+    position: 'absolute',
+    right: 0,
     justifyContent: 'center',
-  }, 
-  activityBtnImg: { 
-    resizeMode: 'contain', 
-    width: 50, 
+  },
+  activityBtnImg: {
+    resizeMode: 'contain',
+    width: 50,
     height: 50,
-  }, 
+  },
   // OTHER STYLING
   flex: {
     flexDirection: 'row',
