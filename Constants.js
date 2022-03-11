@@ -80,7 +80,7 @@ export const DATA = {
       malalafund: {
         avatar: require('./assets/Home/malala.jpg'),
         title: "Save the World",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/malala_banner.png'),
         name: "Malala Fund",
         dates: "February 2022 - March 2023",
         about: "Info here."
@@ -88,7 +88,7 @@ export const DATA = {
       savethebees: {
         avatar: require('./assets/Home/bees.png'),
         title: "Protect Pollinators",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/bees_banner.png'),
         name: "Save the Bees",
         dates: "February 2022 - March 2023",
         about: "Info here."
@@ -96,7 +96,7 @@ export const DATA = {
       paloaltoshelter: {
         avatar: require('./assets/Home/shelter.jpg'),
         title: "Save Our Dogs",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/dogs_banner.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
         about: "Info here."

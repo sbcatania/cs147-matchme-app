@@ -4,6 +4,7 @@
     "slug": "hi-fi",
     "version": "1.0.0",
     "orientation": "portrait",
+    "owner": "matchme-cs147",
     "icon": "./assets/Default/icon.png",
     "splash": {
       "image": "./assets/Default/splash.png",
