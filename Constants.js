@@ -170,7 +170,7 @@ export const DATA = {
         avatar: require('./assets/Users/avatar-5.png'),
       },
     ],
-    SEARCH_DATA: [
+    SEARCH: [
       {
         id: 1,
         name: "World Wildlife Fund",
