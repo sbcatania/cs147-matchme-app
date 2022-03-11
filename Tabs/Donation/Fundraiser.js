@@ -6,7 +6,6 @@ import DonationEntry from './DonationEntry';
 import { COLORS, DATA } from '../../Constants';
 
 
-
 const Fundraiser = () => {
     const route = useRoute();
     console.log(route.params);
