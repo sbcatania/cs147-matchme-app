@@ -1,27 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, ImageBackground, Pressable, View, Image, TouchableOpacity, ScrollView, SafeAreaView, Button, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, Text, Pressable, View, Image, ScrollView, SafeAreaView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { COLORS, DATA } from '../../Constants';
 
-/* 
-* TODO: 
-*   - DATA: Do the data stuff to make flexible for other NFP profiles.
-*/
 
-//export default function NFPFundraiser({route}) {
 export default function NFPFundraiser() {
 
   // NAVIGATION: Setup nav between pages
   const navigation = useNavigation();
-  const Circle = () => {
-    return <View style={styles.circle} />;
-  };
 
-  // SETUP: DATA transfer stuff + NFP info
-  // const [handle, _] = React.useState(route.params);
-  // let DATA = DATA.PROFILES[handle];
-  
   return(
       <View style={styles.container}>
       <SafeAreaView>
@@ -158,7 +146,6 @@ const styles = StyleSheet.create({
     body: { // a container, a view
       top: -50+5,
       // backgroundColor: 'lightblue',
-      // maybe hacky hack this to be longer
     },
     heading1: {
       fontWeight:'bold', 

@@ -1,16 +1,18 @@
 import React, { useRef, } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { Dimensions } from 'react-native';
 import PostSingle from '../Donation/PostSingle';
 import { Video } from 'expo-av';
 import { IMAGES, VIDEOS, DATA, COLORS } from '../../Constants';
 import { useNavigation } from '@react-navigation/native';
+import Fundraiser from '../Donation/Fundraiser';
 
 
 export default function FeedScreen({ navigation }) {
     const mediaRefs = useRef([])
 
     const array = VIDEOS;
+    console.log(array);
 
     const onViewableItemsChanged = useRef(({ changed }) => {
         changed.forEach(element => {
@@ -36,26 +38,39 @@ export default function FeedScreen({ navigation }) {
     const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 100 })
  
     const renderItem = ({ item, index }) => {
-        // item refers to the array that we established above which is an array of numbers 1-6
-
-        let post = DATA.POSTS[index];
-        console.log("This is my post");
-        console.log(post);
+        console.log(index);
+        let post = DATA.POSTS[index + 1];
+        let handleprint = post.handle;
+        let handle = DATA.POSTS[index].handle;
+        let caption = post.caption;
+        let loadimage = post.image;
+        console.log(handle)
+        let video = post.video;
 
         return (
-            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
-                <PostSingle item = {item} />
+            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, {backgroundColor: 'gray'}]}>
+                <PostSingle video = {video} />
                 <View style={styles.sidebar}>
+                    <Image source={DATA.PROFILES[handle].avatar} style={styles.profileimg}></Image>
                     <Image source={IMAGES.LIKE_ICON} style={styles.sideicon}>
                     </Image>
                     <Image source={IMAGES.DISLIKE_ICON} style={styles.sideicon}>
                     </Image>
                     <Image source={IMAGES.SHARE_ICON} style={styles.sideicon}>
                     </Image>
+                    
                 </View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", 'worldwildlifefund')}>
+                <View>
+                <Text style = {styles.whitetext}> @{handleprint} </Text>
+                </View>
+                <View>
+                <Text style = {styles.whitetextsmall}> {caption} </Text>
+                </View>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", handle)}>
                     <Image style={styles.donateimg} source={IMAGES.DONATE_ICON} />
                 </TouchableOpacity>
+               
+                
             </View>
         )
     }
@@ -67,6 +82,7 @@ export default function FeedScreen({ navigation }) {
                 initialNumtoRender={0}
                 maxToRenderPerBatch={2}
                 removeClippedSubviews
+                volume ={0}
                 viewabilityConfig={viewConfigRef.current}
                 renderItem={renderItem}
                 pagingEnabled
@@ -87,22 +103,60 @@ const styles = StyleSheet.create({
     },
     button: {
         position: "absolute",
-        marginTop: "-20%",
+        marginTop: "-25%",
         right: 0
-        //backgroundColor:"red"
+    },
+    capImgHolder: {
+        position: "absolute",
+    },
+    capImg: {
+        marginTop: '-30%',
+        marginBottom: 30,
+        left: 10,
+        width: '70%',
+        height: 70,
+    },
+
+    whitetext: {
+        marginTop: '-20%',
+        left: '5%',
+        fontSize: 20,
+        color: COLORS.WHITE,
+      },
+      whitetextsmall: {
+        marginRight: 150,
+        marginTop: '-12%',
+        left: '5%',
+        fontSize: 16,
+        color: COLORS.WHITE,
+      },
+    profileimg: {
+        width: 55,
+        height: 55,
+        resizeMode: 'contain',
+        position: 'absolute',
+        right: 5,
+        bottom: 5,
+        borderRadius: 100,
     },
     donateimg: {
-        width: 80,
-        height: 80,
+        width:88,
+        height: 88,
+        resizeMode: 'contain',
+        position: 'absolute',
+        right: 10,
+        bottom: -60,
     },
     sidebar: {
         position: "absolute",
-        marginTop: "-70%",
-        right: 0
+        marginTop: "-75%",
+        right: 20,
     },
     sideicon: {
-        width: 50,
-        height: 50,
-        marginTop: 10
+        width: 35,
+        height: 45,
+        marginTop: 10,
+        right: 15,
+        resizeMode: 'contain',
     }
 });

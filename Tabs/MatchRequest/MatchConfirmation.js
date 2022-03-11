@@ -35,7 +35,7 @@ function Confirmation () {
         <Text style={styles.fineprint}>
           SUBMITTING THIS DONATION INDICATES YOU HAVE READ AND AGREED TO THESE TERMS AND CONDITIONS.        </Text>
       </View>
-      <Image source={IMAGES.DONATION_SWIPE} style={{position:"absolute", width:250, height:65, bottom:"1%"}}/>
+      <Image source={IMAGES.DONATION_SWIPE} style={{position:"absolute", width:250, height:65, bottom:"1%", left: 75,}}/>
     </View>
   );
 }
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.GREEN,
-    justifyContent:"center",
-    alignItems:"center"
+    // justifyContent:"center",
+    // alignItems:"center"
   },
   pagerView: {
     flex: 1,

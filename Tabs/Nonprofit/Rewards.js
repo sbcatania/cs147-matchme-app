@@ -146,7 +146,7 @@ export default function Rewards() {
       </View>
         
       <View style={styles.axnButtonContainer}>
-          <Pressable onPress={() => navigation.navigate(Search)} // Change this to a specific NFP fundraiser page
+          <Pressable onPress={() => navigation.navigate('SetupFundraiser')} // Change this to a specific NFP fundraiser page
               style={({ pressed }) => [
               {
                   width: 250,

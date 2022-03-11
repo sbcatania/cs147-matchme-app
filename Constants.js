@@ -8,40 +8,65 @@ export const COLORS = {
     BLACK: "#000000",
     GRAY: "#C4C4C4",
     CLEAR: "rgba(0,0,0,0)",
+    BROWN: '#A6613A',
+    YELLOW: '#FDD015',
+    LIGHTBLUE: '#4CB3ED',
+    PURPLE: '#8739A7',
+    RED: '#A80900',
+    ORANGE: '#FF823D',
   };
 
 export const DATA = {
     POSTS: {
+      0: {
+        handle: "worldwildlifefund",
+        caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
+        image: require('./assets/Home/home.png'),
+        capImg: require('./assets/Home/caption1.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
+      },
       1: {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
         image: require('./assets/Home/home.png'),
+        capImg: require('./assets/Home/caption1.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
       },
       2: {
         handle: "worldwildlifefund",
         caption: "Today Suyash explores a newer landscape.",
         image: require('./assets/Home/home2.png'),
+        capImg: require('./assets/Home/caption2.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
       },
       3: {
         handle: "malalafund",
         caption: "Malala addressing the UN Summit this morning. ",
         image: require('./assets/Home/home3.jpg'),
+        capImg: require('./assets/Home/caption3.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
       },
       4: {
         handle: "savethebees",
         caption: "It was a great day saving the bees from a giant hive. ",
         image: require('./assets/Home/home4.jpg'),
+        capImg: require('./assets/Home/caption4.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
       },
       5: {
         handle: "paloaltoshelter",
         caption: "Learn about Finn's day in the life. Donate to make his life better.",
         image: require('./assets/Home/home5.jpg'),
+        capImg: require('./assets/Home/caption5.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
-      }
+      },
+      6: {
+        handle: "paloaltoshelter",
+        caption: "Learn about Finn's day in the life. Donate to make his life better.",
+        image: require('./assets/Home/home5.jpg'),
+        capImg: require('./assets/Home/caption5.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
+      },
     },
     PROFILES: {
       worldwildlifefund: {
@@ -55,26 +80,26 @@ export const DATA = {
       malalafund: {
         avatar: require('./assets/Home/malala.jpg'),
         title: "Save the World",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/malala_banner.png'),
         name: "Malala Fund",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "We're raising money to support education for young women globally."
         },
       savethebees: {
         avatar: require('./assets/Home/bees.png'),
         title: "Protect Pollinators",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/bees_banner.png'),
         name: "Save the Bees",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "Bees have an outsided imact on our planet! Donate to protect them and everything they do for our plants!"
         },
       paloaltoshelter: {
         avatar: require('./assets/Home/shelter.jpg'),
         title: "Save Our Dogs",
-        banner: require('./assets/Donation/moose.png'),
+        banner: require('./assets/Donation/dogs_banner.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "Did you know it costs nearly $1000 to get a dog to a new home? Donate to help us find a home for our furry friends!"
         }
     },
     ACTIVITY: [
@@ -145,6 +170,28 @@ export const DATA = {
         avatar: require('./assets/Users/avatar-5.png'),
       },
     ],
+    SEARCH: [
+      {
+        id: 1,
+        name: "World Wildlife Fund",
+        details: "@worldwildlifefund"
+      },
+      {
+        id: 2,
+        name: "Malala Fund",
+        details: "@malalafund"
+      },
+      {
+        id: 3,
+        name: "Save the Bees",
+        details: "@savethebees"
+      },
+      {
+        id: 4,
+        name: "Palo Alto Shelter",
+        details: "@paloaltoshelter"
+      },
+    ],
   };
 
 export const IMAGES = {
@@ -174,5 +221,6 @@ export const VIDEOS = [
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
 ];

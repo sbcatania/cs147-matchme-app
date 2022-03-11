@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 // turn this into a stack navigator 
 export default function Home() {
   return (
-      <Stack.Navigator initialRouteName="Explore"  screenOptions= {{
+      <Stack.Navigator initialRouteName="FeedScreen"  screenOptions= {{
         headerTransparent: true,
         headerStyle: {
         backgroundColor: 'rgba(0, 0, 0, 0)',

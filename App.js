@@ -5,8 +5,11 @@ import NonprofitFlow from './NonprofitFlow';
 import {COLORS} from './Constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { LogBox } from 'react-native';
 
-
+// The below line disables all logs from being displayed on the app.
+// Useful for screen recording.
+LogBox.ignoreAllLogs();
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;

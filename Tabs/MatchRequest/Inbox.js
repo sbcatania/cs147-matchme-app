@@ -90,7 +90,7 @@ const Inbox = ({ navigation }) => {
             </View>
             <SafeAreaView style={styles.container} >
             <Text style={styles.description}> {fundName} </Text>
-              <Text>Matching {name}'s donation</Text>
+              <Text style={styles.normalText} >Matching {name}'s donation</Text>
               <TextInput
                 style={styles.textInput}
                 defaultValue={donAmt} // the text variable in the state is displayed by the TextInput
@@ -356,10 +356,17 @@ const styles = StyleSheet.create({
   },
   description: {
     fontWeight: 'bold',
-    fontSize: 20,
-    margin: 10,
+    fontSize: 30,
+    marginTop: 10,
+    marginHorizontal: 10,
     color: COLORS.BlACK,
   },
+  normalText: {
+    fontSize: 22,
+    marginTop: 15,
+    marginBottom: 35,
+  },
+
   textInput: {
     textAlign: 'center',
     width: 200,
