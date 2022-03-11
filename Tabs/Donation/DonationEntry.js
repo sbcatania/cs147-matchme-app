@@ -34,6 +34,7 @@ const DonationEntry = ({navigation}) => {
         value={entry} // the entry variable in the state is displayed by the TextInput
         keyboardType="numeric"
         defaultValue="$"
+        placeholder='$0'
         onChangeText={(text) => setEntry(text)}
         />
           {/*<View style={styles.flex}>
@@ -122,11 +123,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     top: '2%',
-    left: '5%',
+    left: '15%',
     margin: 10,
+    paddingTop: 20,
     color: COLORS.BlACK,
   },
   textInput: {
+    borderRadius: 10,
+    marginTop: 20,
     top: '60%',
     left: '25%',
     textAlign: 'center',
@@ -137,6 +141,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     backgroundColor: '#E5E5E5',
     fontWeight: 'bold',
+    
   },
   backbutton: {
     top: '4%',
