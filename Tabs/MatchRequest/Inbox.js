@@ -425,6 +425,7 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
+    borderRadius: 10,
     textAlign: 'center',
     width: 200,
     height: 100,
