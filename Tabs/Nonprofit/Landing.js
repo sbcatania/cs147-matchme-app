@@ -22,8 +22,8 @@ export default function SetupFundraiser() {
                         <Text style = {styles.graytext}> 24 donations   10 matches </Text>
                     </View>
                 </View>
-                <Image style = {styles.impactimg} source = {require('../../assets/Nonprofit/impact.png')}></Image>
-                <Image style = {styles.impactinfoimg} source = {require('../../assets/Nonprofit/impact.png')}></Image>
+                <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image>
+                {/* <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image> */}
             
             </ScrollView>
             </View>

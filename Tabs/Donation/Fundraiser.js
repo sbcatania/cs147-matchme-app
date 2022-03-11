@@ -50,7 +50,7 @@ const Fundraiser = () => {
               </Text>
             </View>
             
-            <Pressable onPress={() => { // navigation.navigate('DonationEntry', handle)
+            <Pressable onPress={() => { navigation.navigate('DonationEntry', handle)
               }}
               style={({ pressed }) => [
                 {
