@@ -47,7 +47,7 @@ const DonationEntry = ({navigation}) => {
               <Text style={styles.suggestiontext}>$10</Text>
             </View>
   </View>*/}
-          <Pressable style={styles.donatebutton} onPress={donate}
+          <Pressable onPress={donate}
             style={({ pressed }) => [
               {
                 top: '9%',
