@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, TextInput, FlatList, Pressable, Image } from 'react-native';
 import Rewards from './Rewards';
 import Landing from './Landing';
+import FundraiserNonprofit from './FundraiserNonprofit';
 import { useNavigation } from '@react-navigation/native';
 import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRoute } from "@react-navigation/native";
+
 
 
 /*
@@ -22,7 +25,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function SetupFundraiser() {
     
     // TEXTINPUT: Setup state variables for text and numeric inputs
-    const [handle, setHandle] = useState('@worldwildlifefundintl');
+    const [handle, setHandle] = useState('worldwildlifefund');
     const [name, setName] = useState('World Wildlife Fund');
     const [fundName, setFundname] = useState('Save the Animals Fundraiser');
     const [desc, setDesc] = useState('About my fundraiser');
@@ -65,6 +68,7 @@ export default function SetupFundraiser() {
                 style={styles.input} 
                 placeholder='Org Handle' 
                 autoCapitalize='none'
+                autoCorrect = 'false'
                 onChangeText={(handle) => setHandle(handle)} />
                 
                 <TextInput 
@@ -158,7 +162,7 @@ export default function SetupFundraiser() {
         </View>
 
         <View style={styles.launchcontainer}>
-            <Pressable onPress={() => navigation.navigate('Landing')} // Change this to a specific NFP fundraiser page
+            <Pressable onPress={() => navigation.navigate('FundraiserNonprofit', handle)} // Change this to a specific NFP fundraiser page
                 style={({ pressed }) => [
                 {
                     width: 250,

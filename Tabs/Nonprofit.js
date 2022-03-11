@@ -3,6 +3,7 @@ import SetupFundraiser from './Nonprofit/SetupFundraiser';
 import Rewards from './Nonprofit/Rewards';
 import Landing from './Nonprofit/Landing';
 import {COLORS} from '../Constants';
+import FundraiserNonprofit from './Nonprofit/FundraiserNonprofit'
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;
@@ -31,6 +32,8 @@ export default function Nonprofit() {
         <Stack.Screen name="SetupFundraiser" component={SetupFundraiser}
         />
         <Stack.Screen name="Rewards" component={Rewards}  
+        />
+        <Stack.Screen name="FundraiserNonprofit" component={FundraiserNonprofit}  
         />
       </Stack.Navigator>
   );

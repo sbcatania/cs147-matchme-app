@@ -2,6 +2,7 @@ import { StyleSheet, Pressable, Text, View, Image, TouchableOpacity, FlatList, S
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DonorFlow from './DonorFlow';
 import NonprofitFlow from './NonprofitFlow';
+import FundraiserStack from './Tabs/FundraiserStack';
 import {COLORS} from './Constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
