@@ -1,5 +1,5 @@
 import React, { useRef, } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { Dimensions } from 'react-native';
 import PostSingle from '../Donation/PostSingle';
 import { Video } from 'expo-av';
@@ -43,11 +43,12 @@ export default function FeedScreen({ navigation }) {
         let handleprint = post.handle;
         let handle = DATA.POSTS[index].handle;
         let caption = post.caption;
+        let loadimage = post.image;
         console.log(handle)
         let video = post.video;
 
         return (
-            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, index % 2 == 0 ? { backgroundColor: 'blue' } : { backgroundColor: 'pink' }]}>
+            <View style={[{ flex: 1, height: Dimensions.get('window').height - 79 }, {backgroundColor: 'gray'}]}>
                 <PostSingle video = {video} />
                 <View style={styles.sidebar}>
                     <Image source={DATA.PROFILES[handle].avatar} style={styles.profileimg}></Image>
@@ -81,6 +82,7 @@ export default function FeedScreen({ navigation }) {
                 initialNumtoRender={0}
                 maxToRenderPerBatch={2}
                 removeClippedSubviews
+                volume ={0}
                 viewabilityConfig={viewConfigRef.current}
                 renderItem={renderItem}
                 pagingEnabled
