@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Pressable, Text, View, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, IMAGES } from '../../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function SetupFundraiser() {   
     
+    // Hacky way to get flatlist of tags to rerender
+    const [refresh, setRefresh] = useState(true);
+    
+    // TAGDATA: Tag list
+    const [tags, setTags] = useState ([
+        { tag: 'ENVIRO', key: '1', clicked:false, color: COLORS.MAGENTA },
+        { tag: 'ART', key: '2',  clicked:false, color: COLORS.BROWN},
+        { tag: 'HUNGER', key: '3', clicked:false, color: COLORS.YELLOW },
+        { tag: 'HUMAN RIGHT', key: '4', clicked:false, color: COLORS.BLUE},
+        { tag: 'EDUC', key: '5',  clicked:false, color: COLORS.ORANGE },
+        { tag: 'EQUALITY', key: '6', clicked:false, color: COLORS.LIGHTBLUE },
+        { tag: 'ANIMALS', key: '7', clicked:false, color: COLORS.RED },
+        { tag: 'CONSERVE', key: '8', clicked:false, color: COLORS.PURPLE },
+    ]);
+
     return (
         <View style={{backgroundColor:'white', position:'absolute', height: '100%', width: '100%'}}>
         <SafeAreaView>
@@ -14,13 +29,27 @@ export default function SetupFundraiser() {
             <ScrollView style = {styles.scrollView}>
                 <Image source={require('../../assets/Nonprofit/logogreen.png')} style={styles.logoimg}></Image>
                 <View style = {styles.row}> 
-                    <Image style = {styles.profimg} source = {require('../../assets/Nonprofit/pablo.png')}></Image>
+                    <Image style = {styles.profimg} source = {require('../../assets/Nonprofit/wwf.png')}></Image>
                     <View style = {styles.col}>
                         <Text style = {styles.blacktext}> Pablo O </Text>
                         <Text style = {styles.graytext}> 24 donations   10 matches </Text>
                     </View>
                 </View>
                 
+                <View style={styles.tagBox}>
+                    <FlatList 
+                    numColumns={4}
+                    data={tags}
+                    extraData={refresh}
+                    renderItem={({ item }) => (
+                        <Pressable 
+                        onPress={() => {item.clicked = !item.clicked, setRefresh(!refresh)}} //On press, indicate clicked, and force refresh
+                        style={styles.tag(item.clicked ? item.color : "white")}>
+                            <Text style={styles.tagtext}>{item.tag}</Text>
+                        </Pressable>
+                    )}/>
+                </View>
+
                 <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image>
                 {/* <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image> */}
             
@@ -44,6 +73,10 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         // paddingTop: '10%',
+    },
+    tagBox: {
+        left: 40,
+        paddingVertical: 30,
     },
     tag: (color) => { return {
         marginTop: 5,
@@ -135,7 +168,6 @@ const styles = StyleSheet.create({
     row: {
         display: 'flex',
         flexDirection: 'row',
-        marginBottom: 10,
     },
     profimg: {
         borderRadius: 100,
@@ -153,7 +185,6 @@ const styles = StyleSheet.create({
     },
     impactinfoimg: {
         top: '8%',
-        left: '4%',
         height: 380,
         width: 380,
         borderTopLeftRadius: 50,
@@ -161,11 +192,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     scrollView: {
-        backgroundColor: 'lightblue',
+        // backgroundColor: 'lightblue',
         height: '100%',
     },
     blacktext: {
-        backgroundColor: 'pink',
+        // backgroundColor: 'pink',
         textAlign: 'left',
         fontSize: 40,
         left: 40,
@@ -173,7 +204,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     graytext: {
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         textAlign: 'center',
         fontSize: 20,
         color: 'gray',
