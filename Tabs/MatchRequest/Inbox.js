@@ -168,12 +168,15 @@ const Inbox = ({ navigation }) => {
 
                   <Content style={styles.matchBtmContentCtr}>
                     <ContentText style={styles.matchReqText}>{item.content}</ContentText>
-                    <TouchableOpacity key={index} style={styles.checkBtnContainer1} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); completeReq(index)}}>
-                      <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
-                    </TouchableOpacity>
-                    <TouchableOpacity key={index} style={styles.checkBtnContainer2} onPress={() => {completeReq(index)}}>
-                      <Image style={styles.checkBtnImg} source={IMAGES.INBOX_X} />
-                    </TouchableOpacity>
+                    
+                    <View style={styles.bothButtonContainer}>
+                      <TouchableOpacity key={index} style={styles.checkBtnContainer} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); completeReq(index)}}>
+                        <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
+                      </TouchableOpacity>
+                      <TouchableOpacity key={index} style={styles.xContainer} onPress={() => {completeReq(index)}}>
+                        <Image style={styles.checkBtnImg} source={IMAGES.INBOX_X} />
+                      </TouchableOpacity>
+                    </View>
                   </Content>
 
                 </View>
@@ -328,23 +331,31 @@ const styles = StyleSheet.create({
   },
   matchBtmContentCtr: { // container for all the content in the bottom of the match line
     width: "100%",
+    // height: 80,
+    // backgroundColor: 'green',
   },
   matchReqText: { // text container AND text props
-    width: '88%',
+    width: '78%',
     fontSize: 12,
     lineHeight: 18,
   },
-  checkBtnContainer1: { // TouchableOpacity wrapper
-    // backgroundColor: 'red',
+  bothButtonContainer: {
+    // backgroundColor: 'green', 
+    right: 45, 
+    top: 40, 
     position: 'absolute',
-    right: -5,
-    bottom: -5,
   },
-  checkBtnContainer2: { // TouchableOpacity wrapper
+  checkBtnContainer: { // TouchableOpacity wrapper
     // backgroundColor: 'red',
     position: 'absolute',
-    right: -25,
-    bottom: -5,
+    right: 0,
+    bottom: 0,
+  },
+  xContainer: { // TouchableOpacity wrapper
+    // backgroundColor: 'pink',
+    position: 'absolute',
+    right: -50,
+    bottom: 0,
   },
   checkBtnImg: {
     resizeMode: 'contain',
@@ -357,7 +368,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   activityText: {
-    // backgroundColor: 'white', 
+    // backgroundColor: 'green', 
     left: 0,
     position: 'absolute',
     fontSize: 15,
