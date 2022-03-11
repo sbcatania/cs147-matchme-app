@@ -3,6 +3,7 @@ import SetupFundraiser from './Nonprofit/SetupFundraiser';
 import Rewards from './Nonprofit/Rewards';
 import NFPProfile from './Nonprofit/NFPProfile';
 import {COLORS} from '../Constants';
+import { useRoute } from "@react-navigation/native";
 
 const LOAD_TIME = 100;
 const INTERVAL = 25;

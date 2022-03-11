@@ -9,10 +9,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Nonprofit from './Tabs/Nonprofit';
 import NFPProfile from './Tabs/Nonprofit/NFPProfile';
 import Landing from './Tabs/Nonprofit/Landing';
+import Fundraiser from './Tabs/Donation/Fundraiser';
 import {COLORS} from './Constants';
 
 const Tab = createBottomTabNavigator();
-
 export default function NonprofitFlow({navigation}) {
   return (
     
@@ -23,9 +23,9 @@ export default function NonprofitFlow({navigation}) {
             let iconName;
 
             if (route.name === 'Nonprofit') {
-              iconName = "person-outline";
+              iconName = "home-outline";
             } else if (route.name === 'NFPProfile') {
-              iconName = 'rocket-launch-outline'; 
+              iconName = 'person-outline';
             } 
 
             // You can return any component that you like here!
@@ -40,7 +40,6 @@ export default function NonprofitFlow({navigation}) {
       
       >
         <Tab.Screen name="Nonprofit" component={Nonprofit} />
-        <Tab.Screen name="NFPProfile" component={NFPProfile} />
       </Tab.Navigator>
 
   );
