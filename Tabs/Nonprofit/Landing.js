@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
-import Rewards from './Rewards';
 import { useNavigation } from '@react-navigation/native';
-import NumericInput from 'react-native-numeric-input';
 import { COLORS, IMAGES } from '../../Constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -10,7 +8,7 @@ export default function SetupFundraiser() {
     
     return (
         <View style={{backgroundColor:'white', position:'absolute', height: '100%', width: '100%'}}>
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView>
         
             <View style={styles.container}>
             <ScrollView style = {styles.scrollView}>
@@ -22,6 +20,7 @@ export default function SetupFundraiser() {
                         <Text style = {styles.graytext}> 24 donations   10 matches </Text>
                     </View>
                 </View>
+                
                 <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image>
                 {/* <Image style = {{height: 350, width: '100%', resizeMode: 'contain', }} source = {require('../../assets/Nonprofit/impact.png')}></Image> */}
             
@@ -39,6 +38,7 @@ const styles = StyleSheet.create({
     container: {
         // backgroundColor: 'lightblue',
         backgroundColor:'white',
+        height: '100%',
         // flex: 1,
         // flexDirection: 'column',
         // justifyContent: 'center',
@@ -131,6 +131,11 @@ const styles = StyleSheet.create({
         top: '2%',
         left: '5%',
         marginBottom: 20,
+    },    
+    row: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginBottom: 10,
     },
     profimg: {
         borderRadius: 100,
@@ -138,6 +143,8 @@ const styles = StyleSheet.create({
         width: 80,
         backgroundColor: 'white',
         left: 20,
+        borderColor: 'grey',
+        borderWidth: 3,
     },
     impactimg: {
         top: '2%',
@@ -153,4 +160,23 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 50,
         borderRadius: 50,
     },
+    scrollView: {
+        backgroundColor: 'lightblue',
+        height: '100%',
+    },
+    blacktext: {
+        backgroundColor: 'pink',
+        textAlign: 'left',
+        fontSize: 40,
+        left: 40,
+        color: COLORS.BLACK,
+        fontWeight: 'bold',
+    },
+    graytext: {
+        backgroundColor: 'red',
+        textAlign: 'center',
+        fontSize: 20,
+        color: 'gray',
+        left: 40,
+        },
 });
