@@ -26,39 +26,39 @@ export const DATA = {
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
       },
       1: {
-        handle: "worldwildlifefund",
-        caption: "Today Suyash explores the Sahara. Save the Animals Fundraiser.",
-        image: require('./assets/Home/home.png'),
-        capImg: require('./assets/Home/caption1.png'),
-        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
-      },
-      2: {
-        handle: "worldwildlifefund",
-        caption: "Today Suyash explores a newer landscape.",
-        image: require('./assets/Home/home2.png'),
-        capImg: require('./assets/Home/caption2.png'),
-        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
-      },
-      3: {
         handle: "malalafund",
-        caption: "Malala addressing the UN Summit this morning. ",
+        caption: "Malala takes YOUR questions about supporting education!",
         image: require('./assets/Home/home3.jpg'),
         capImg: require('./assets/Home/caption3.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
       },
-      4: {
-        handle: "savethebees",
-        caption: "It was a great day saving the bees from a giant hive. ",
-        image: require('./assets/Home/home4.jpg'),
-        capImg: require('./assets/Home/caption4.png'),
-        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
-      },
-      5: {
+      2: {
         handle: "paloaltoshelter",
         caption: "Learn about Finn's day in the life. Donate to make his life better.",
         image: require('./assets/Home/home5.jpg'),
         capImg: require('./assets/Home/caption5.png'),
         video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
+      },
+      3: {
+        handle: "worldwildlifefund",
+        caption: "Today, we unpack how animals will protect our climate.",
+        image: require('./assets/Home/home.png'),
+        capImg: require('./assets/Home/caption1.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
+      },
+      4: {
+        handle: "savethebees",
+        caption: "It was a great day saving the bees from a giant hive.",
+        image: require('./assets/Home/home4.jpg'),
+        capImg: require('./assets/Home/caption4.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
+      },
+      5: {
+        handle: "worldwildlifefund",
+        caption: "Animals that live under water are a vital part of our planet.",
+        image: require('./assets/Home/home2.png'),
+        capImg: require('./assets/Home/caption2.png'),
+        video: 'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
       },
       6: {
         handle: "paloaltoshelter",
@@ -222,10 +222,10 @@ export const IMAGES = {
   };
 
 export const VIDEOS = [
-  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
-  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/malala1.MP4',
-  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife1.MP4',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/bees1.mov',
+  'https://sbcatania.github.io/cs147-matchme-app/assets/Home/wildlife2.MP4',
   'https://sbcatania.github.io/cs147-matchme-app/assets/Home/dogs1.MP4',
 ];
