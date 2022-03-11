@@ -61,12 +61,6 @@ export default function NFPFundraiser() {
                 <Text style={styles.buttontext}> DONATE </Text> 
             </Pressable>
 
-            <View style={{backgroundColor: 'pink', height: 120, borderRadius: 10, margin: 10,}}>
-                <Text style={{textAlign: 'center', padding: 10}}>
-                  Rewards go here!
-                </Text>
-            </View>
-
             <View style={styles.pageElem}>
               <Text style={styles.heading1}>
                 Impact
