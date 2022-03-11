@@ -78,7 +78,7 @@ const Fundraiser = () => {
           </View>
 
           <View style={styles.pageElemFullScreen}>
-            <Image source={require('../../assets/Nonprofit/grid.png')} style={{height: 550, width: '100%', resizeMode: 'contain', }}></Image>
+            <Image source={data.feed} style={{height: 1300, width: '100%', }}></Image>
           
             <View style={{backgroundColor: 'white', height: 140, }}>
               {/* This is whitespace, so we can scroll to the bottom */}
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     left: 0, 
     top: 0,
     height: 200,
+    width: 420,
   },
   container: {
     backgroundColor: 'white',
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     bottom: 55+5,
     left: 100+5,
     width: 250-5,
-    fontSize: 30,
+    fontSize: 26,
     color: 'white',
     fontWeight: 'bold',
   },
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold', 
     fontSize: 24,
     marginBottom: 5,
+    marginTop: 10,
   },  
   pageElem: {
     marginVertical: 10, 
@@ -170,7 +172,6 @@ const styles = StyleSheet.create({
   },
   sideiconprof: {
     borderRadius: 100,
-    margin: 7,
     top: '20%',
     height: 100,
     width: 100,
