@@ -25,7 +25,7 @@ const Fundraiser = () => {
 
         {/* Moose, different margins than everything else! */}
         <View>
-          <Image source={require('../../assets/Donation/moose.png')} style={styles.backgroundimg}></Image>
+          <Image source={data.banner} style={styles.backgroundimg}></Image>
         </View>
         
         {/* All the other content, 20px margins */}
@@ -33,9 +33,9 @@ const Fundraiser = () => {
             
           {/* Header */}
           <View style={styles.header}> 
-              <Image source={require('../../assets/Nonprofit/wwf.png')} style={{resize: 'center', height: 100, width: 100,}}></Image>
-              <Text style = {styles.whitetext}>Save the Animals</Text>
-              <Text style = {styles.blacktext}>World Wildlife Fund{'\n'}MARCH 2022-FEBRUARY 2023</Text>
+              <Image source={data.avatar} style={styles.sideiconprof}></Image>
+              <Text style = {styles.whitetext}>{data.title}</Text>
+              <Text style = {styles.blacktext}>{data.name}{'\n'}MARCH 2022-FEBRUARY 2023</Text>
           </View>
 
           {/* Body Content */}
@@ -46,7 +46,7 @@ const Fundraiser = () => {
                 About this fundraiser
               </Text>
               <Text>
-                The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide.
+                {data.about}
               </Text>
             </View>
             
@@ -68,12 +68,6 @@ const Fundraiser = () => {
                 }]}>
                 <Text style={styles.buttontext}> DONATE </Text> 
             </Pressable>
-
-            <View style={{backgroundColor: 'pink', height: 120, borderRadius: 10, margin: 10,}}>
-                <Text style={{textAlign: 'center', padding: 10}}>
-                  Rewards go here!
-                </Text>
-            </View>
 
             <View style={styles.pageElem}>
               <Text style={styles.heading1}>
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
   whitetext: {
     // backgroundColor: 'blue',
     position: 'absolute',
-    bottom: 50+5,
+    bottom: 55+5,
     left: 100+5,
     width: 250-5,
     fontSize: 30,
@@ -174,6 +168,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 35,
   },
+  sideiconprof: {
+    borderRadius: 100,
+    margin: 7,
+    top: '20%',
+    height: 100,
+    width: 100,
+}, 
 });
 
 export default Fundraiser;
