@@ -168,10 +168,10 @@ const Inbox = ({ navigation }) => {
 
                   <Content style={styles.matchBtmContentCtr}>
                     <ContentText style={styles.matchReqText}>{item.content}</ContentText>
-                    <TouchableOpacity key={index} style={styles.checkBtnContainer} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); completeReq(index)}}>
+                    <TouchableOpacity key={index} style={styles.checkBtnContainer1} onPress={() => { setModalVisible(true); setDonAmt(item.amount); setFundname(item.cause); setName(item.userName); completeReq(index)}}>
                       <Image style={styles.checkBtnImg} source={IMAGES.INBOX_CHECK} />
                     </TouchableOpacity>
-                    <TouchableOpacity key={index} style={styles.checkBtnContainer} onPress={() => {completeReq(index)}}>
+                    <TouchableOpacity key={index} style={styles.checkBtnContainer2} onPress={() => {completeReq(index)}}>
                       <Image style={styles.checkBtnImg} source={IMAGES.INBOX_X} />
                     </TouchableOpacity>
                   </Content>
@@ -334,10 +334,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
   },
-  checkBtnContainer: { // TouchableOpacity wrapper
+  checkBtnContainer1: { // TouchableOpacity wrapper
     // backgroundColor: 'red',
     position: 'absolute',
     right: -5,
+    bottom: -5,
+  },
+  checkBtnContainer2: { // TouchableOpacity wrapper
+    // backgroundColor: 'red',
+    position: 'absolute',
+    right: -25,
     bottom: -5,
   },
   checkBtnImg: {
