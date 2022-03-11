@@ -83,7 +83,7 @@ export const DATA = {
         banner: require('./assets/Donation/malala_banner.png'),
         name: "Malala Fund",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "We're raising money to support education for young women globally."
         },
       savethebees: {
         avatar: require('./assets/Home/bees.png'),
@@ -91,7 +91,7 @@ export const DATA = {
         banner: require('./assets/Donation/bees_banner.png'),
         name: "Save the Bees",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "Bees have an outsided imact on our planet! Donate to protect them and everything they do for our plants!"
         },
       paloaltoshelter: {
         avatar: require('./assets/Home/shelter.jpg'),
@@ -99,7 +99,7 @@ export const DATA = {
         banner: require('./assets/Donation/dogs_banner.png'),
         name: "Palo Alto Shelter",
         dates: "February 2022 - March 2023",
-        about: "Info here."
+        about: "Did you know it costs nearly $1000 to get a dog to a new home? Donate to help us find a home for our furry friends!"
         }
     },
     ACTIVITY: [
