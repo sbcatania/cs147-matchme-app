@@ -37,7 +37,7 @@ export default class PostSingle extends React.Component {
              isLooping
              resizeMode= 'cover'
             source = {{uri: this.props.video}}
-            volume = {0.5}
+            volume = {0}
           />
           </InViewPort>
         </View>
