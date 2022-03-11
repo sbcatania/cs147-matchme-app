@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     },
     button: {
         position: "absolute",
-        marginTop: "-15%",
+        marginTop: "-17%",
         right: 0
     },
     capImgHolder: {
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
       },
       whitetextsmall: {
         flexWrap: 'wrap',
-        marginTop: '-12%',
+        marginTop: '-13%',
         textAlign: 'left',
         marginLeft: '5%',
         marginRight: '30%',
