@@ -3,12 +3,15 @@ import { StyleSheet, Text, Pressable, View, Image, ScrollView, SafeAreaView } fr
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import { COLORS, DATA } from '../../Constants';
-
+import SetupFundraiser from './SetupFundraiser.js';
 
 export default function NFPFundraiser() {
 
   // NAVIGATION: Setup nav between pages
   const navigation = useNavigation();
+  const [handle, _] = React.useState(route.params);
+  console.log("This is the handle");
+  console.log(handle);
 
   return(
       <View style={styles.container}>
@@ -42,7 +45,8 @@ export default function NFPFundraiser() {
               </Text>
             </View>
             
-            <Pressable onPress={() => { // navigation.navigate('DonationEntry', handle)
+            <Pressable onPress={() => { 
+              navigation.navigate('SetupFundraiser', handle)
               }}
               style={({ pressed }) => [
                 {
@@ -58,7 +62,7 @@ export default function NFPFundraiser() {
                     ? 'gray'
                     : COLORS.GREEN
                 }]}>
-                <Text style={styles.buttontext}> DONATE </Text> 
+                <Text style={styles.buttontext}> SETUP </Text> 
             </Pressable>
 
             <View style={styles.pageElem}>
