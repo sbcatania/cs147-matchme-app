@@ -64,7 +64,7 @@ export default function FeedScreen({ navigation }) {
                 <Text style = {styles.whitetext}> @{handleprint} </Text>
                 </View>
                 <View>
-                <Text style = {styles.whitetextsmall}> {caption} </Text>
+                <Text style = {styles.whitetextsmall}>{caption}</Text>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", handle)}>
                     <Image style={styles.donateimg} source={IMAGES.DONATE_ICON} />
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     },
     button: {
         position: "absolute",
-        marginTop: "-25%",
+        marginTop: "-15%",
         right: 0
     },
     capImgHolder: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     },
     sidebar: {
         position: "absolute",
-        marginTop: "-75%",
+        marginTop: "-65%",
         right: 20,
     },
     sideicon: {

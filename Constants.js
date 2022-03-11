@@ -116,15 +116,63 @@ export const DATA = {
       {
         id: 2,
         userName: "Khuyen L",
-        cause: "Stanford",
+        cause: "Goodwill",
         amount: "$5,000"
       },
       {
         id: 3,
         userName: "Katherine G",
-        cause: "MTL",
-        amount: "$0.00"
-      }
+        cause: "SPLC",
+        amount: "$10"
+      },
+      {
+        id: 4,
+        userName: "Cat D",
+        cause: "ACLU",
+        amount: "$5"
+      },
+      {
+        id: 5,
+        userName: "Kristina I",
+        cause: "NAACP",
+        amount: "$3"
+      },
+      {
+        id: 6,
+        userName: "Taylor L",
+        cause: "HRW",
+        amount: "$3"
+      },
+      {
+        id: 7,
+        userName: "Shana H",
+        cause: "Amnesty Intl.",
+        amount: "$1"
+      },
+      {
+        id: 8,
+        userName: "Jianna S",
+        cause: "World Vision",
+        amount: "$4"
+      },
+      {
+        id: 9,
+        userName: "Morgan Z",
+        cause: "Mayo Clinic",
+        amount: "$5"
+      },
+      {
+        id: 10,
+        userName: "Emily Y",
+        cause: "Planned Parenthood",
+        amount: "$1"
+      },
+      {
+        id: 11,
+        userName: "YuYu Lin",
+        cause: "United Way",
+        amount: "$2"
+      },
     ],
     MATCH_REQUESTS: [
       {
