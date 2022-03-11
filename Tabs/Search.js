@@ -7,7 +7,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 import List from "./Search/List";
-import SearchBar from "./Search/SearchBar";
+import SearchBar from "./Search/SearchBar"; 
+import { DATA } from "../Constants";
 
 const Search = () => {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -17,10 +18,7 @@ const Search = () => {
   // get data from the fake api endpoint
   useEffect(() => {
     const getData = async () => {
-      const apiResponse = await fetch(
-        "https://my-json-server.typicode.com/kevintomas1995/logRocket_searchBar/languages"
-      );
-      const data = await apiResponse.json();
+      const data = DATA.SEARCH
       setFakeData(data);
     };
     getData();

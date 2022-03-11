@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const SearchBar = () => {
  const [clicked, setClicked] = useState(false);
- const[searchPhrase, setSearchPhrase] = useState(false);
+ const[searchPhrase, setSearchPhrase] = useState("");
  
   return (
     <View style={styles.container}>
@@ -27,7 +27,8 @@ const SearchBar = () => {
           style={styles.input}
           placeholder="Search"
           value={searchPhrase}
-          onChangeText={setSearchPhrase}
+          //onChangeText={setSearchPhrase}
+          onChangeText={(text) => setSearchPhrase(text)}
           onFocus={() => {
             setClicked(true);
           }}
