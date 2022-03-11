@@ -112,7 +112,7 @@ function ThankYou() {
                   paddingVertical: 12,
                   borderRadius: 100,
                   elevation: 3,
-                  backgroundColor: 'gray'
+                  backgroundColor: COLORS.GREEN
                 },
                 styles.wrapperCustom
               ]}
