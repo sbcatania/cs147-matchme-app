@@ -40,8 +40,9 @@ export default function FeedScreen({ navigation }) {
     const renderItem = ({ item, index }) => {
         console.log(index);
         let post = DATA.POSTS[index + 1];
+        let handleprint = post.handle;
         let handle = DATA.POSTS[index].handle;
-        let caption = DATA.POSTS[index + 1].capImg;
+        let caption = post.caption;
         console.log(handle)
         let video = post.video;
 
@@ -59,8 +60,10 @@ export default function FeedScreen({ navigation }) {
                     
                 </View>
                 <View>
-                <Image source={caption} style={styles.capImg}>
-             </Image>
+                <Text style = {styles.whitetext}> @{handleprint} </Text>
+                </View>
+                <View>
+                <Text style = {styles.whitetextsmall}> {caption} </Text>
                 </View>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Fundraiser", handle)}>
                     <Image style={styles.donateimg} source={IMAGES.DONATE_ICON} />
@@ -111,6 +114,20 @@ const styles = StyleSheet.create({
         width: '70%',
         height: 70,
     },
+
+    whitetext: {
+        marginTop: '-20%',
+        left: '5%',
+        fontSize: 20,
+        color: COLORS.WHITE,
+      },
+      whitetextsmall: {
+        marginRight: 150,
+        marginTop: '-12%',
+        left: '5%',
+        fontSize: 16,
+        color: COLORS.WHITE,
+      },
     profileimg: {
         width: 55,
         height: 55,
