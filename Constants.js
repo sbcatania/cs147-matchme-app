@@ -71,11 +71,11 @@ export const DATA = {
     PROFILES: {
       worldwildlifefund: {
         avatar: require('./assets/Home/wwflogo.png'),
-        title: "Save the Animals",
-        banner: require('./assets/Donation/moose.png'),
+        title: "Save Ocean Wildlife",
+        banner: require('./assets/Donation/wildlife_banner.png'),
         name: "World Wildlife Fund",
         dates: "February 2022 - March 2023",
-        about: "The Save the Animals campaign aims to ensure all animals have a habitat suited for their needs. Funds will go to conservation efforts worldwide."
+        about: "Oceans provide life to millions of animals every year. Save the animals fund to help save the ocean's most vulnerable species.",
         },
       malalafund: {
         avatar: require('./assets/Home/malala.jpg'),
